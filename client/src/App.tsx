@@ -1,6 +1,6 @@
 /**
  * EWA 3.0 2026 — Enterprise UI Prototype
- * Design: Neobrutalist Fintech | Primary: Deep Navy (#1e3a5f) | Accent: Teal (#0ea5e9)
+ * Design: Neobrutalist Fintech | Primary: Deep Navy (#100841) | Accent: Teal (#31d891)
  * Command Center Layout | Role-Based View Switching | 18 Enterprise Modules
  */
 import { Toaster } from "@/components/ui/sonner";

@@ -2,7 +2,7 @@
  * DisbursementPage — Full Disbursement Engine with State Machine
  * States: REQUESTED → VALIDATING → DISBURSING → COMPLETED / FAILED / RETRYING / TIMEOUT
  * Features: Auto-disbursement after EWA verification, cashout channel selection, retry management
- * Design: Enterprise Fintech — Deep Navy (#1e3a5f) + Teal (#0ea5e9)
+ * Design: Enterprise Fintech — Deep Navy (#100841) + Teal (#31d891)
  */
 import { useState } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -99,7 +99,7 @@ function StateFlowVisual({ status }: { status: DisbursementStatus }) {
                 isCompleted 
                   ? "bg-emerald-50 border-emerald-200 text-emerald-700" 
                   : isCurrent 
-                    ? "bg-[#1e3a5f] text-white border-[#1e3a5f]" 
+                    ? "bg-[#100841] text-white border-[#100841]" 
                     : "bg-slate-50 border-slate-200 text-slate-400"
               )}
             >
@@ -135,7 +135,7 @@ export function DisbursementPage() {
     {
       id: "id",
       header: "ID",
-      accessor: (r) => <span className="font-mono font-bold text-[#1e3a5f]">{r.id}</span>,
+      accessor: (r) => <span className="font-mono font-bold text-[#100841]">{r.id}</span>,
       searchString: (r) => r.id
     },
     {
@@ -143,8 +143,8 @@ export function DisbursementPage() {
       header: "Employee",
       accessor: (r) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{r.employeeName}</p>
-          <p className="text-[9px] text-[#5a6b7c] font-mono">{r.companyName}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{r.employeeName}</p>
+          <p className="text-[9px] text-[#4f525d] font-mono">{r.companyName}</p>
         </div>
       ),
       searchString: (r) => `${r.employeeName} ${r.companyName}`
@@ -160,9 +160,9 @@ export function DisbursementPage() {
       id: "channel",
       header: "Channel",
       accessor: (r) => (
-        <span className="flex items-center gap-1.5 text-[10px] font-semibold text-[#5a6b7c]">
-          {r.cashoutChannel === "BANK_TRANSFER" && <Building2 className="w-3 h-3 text-[#1e3a5f]" />}
-          {r.cashoutChannel === "MOBILE_WALLET" && <Smartphone className="w-3 h-3 text-[#0ea5e9]" />}
+        <span className="flex items-center gap-1.5 text-[10px] font-semibold text-[#4f525d]">
+          {r.cashoutChannel === "BANK_TRANSFER" && <Building2 className="w-3 h-3 text-[#100841]" />}
+          {r.cashoutChannel === "MOBILE_WALLET" && <Smartphone className="w-3 h-3 text-[#31d891]" />}
           {r.cashoutChannel === "AGENT_OTC" && <CreditCard className="w-3 h-3 text-amber-500" />}
           {r.cashoutChannel.replace("_", " ")}
         </span>
@@ -171,7 +171,7 @@ export function DisbursementPage() {
     {
       id: "bank",
       header: "Bank",
-      accessor: (r) => <span className="text-[10px] text-[#5a6b7c] font-medium">{r.bankName}</span>
+      accessor: (r) => <span className="text-[10px] text-[#4f525d] font-medium">{r.bankName}</span>
     },
     {
       id: "verification",
@@ -250,10 +250,10 @@ export function DisbursementPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Zap className="w-4 h-4 text-[#0ea5e9]" />
+          <Zap className="w-4 h-4 text-[#31d891]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Disbursement Engine</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Disbursement Engine</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">
               Auto-payout after validation · Real-time status tracking
             </p>
           </div>
@@ -303,15 +303,15 @@ export function DisbursementPage() {
         <TabsContent value="detail" className="mt-4 outline-none">
           {selectedRecord ? (
             <div className="space-y-4">
-              <EnterpriseCard className="p-4 shadow-sm border-t-2 border-t-[#1e3a5f]">
+              <EnterpriseCard className="p-4 shadow-sm border-t-2 border-t-[#100841]">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-[3px] bg-[#f0f4f7] flex items-center justify-center border border-[#d1d9e0]">
-                      <Zap className="w-5 h-5 text-[#1e3a5f]" />
+                    <div className="w-10 h-10 rounded-[3px] bg-[#ffffff] flex items-center justify-center border border-[#dfdfdf]">
+                      <Zap className="w-5 h-5 text-[#100841]" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-bold text-[#1e3a5f]">{selectedRecord.id} — {selectedRecord.employeeName}</h3>
-                      <p className="text-[10px] text-[#5a6b7c] font-mono">{selectedRecord.companyName}</p>
+                      <h3 className="text-sm font-bold text-[#100841]">{selectedRecord.id} — {selectedRecord.employeeName}</h3>
+                      <p className="text-[10px] text-[#4f525d] font-mono">{selectedRecord.companyName}</p>
                     </div>
                   </div>
                   <EnterpriseBadge variant={statusConfig[selectedRecord.status].variant}>
@@ -320,27 +320,27 @@ export function DisbursementPage() {
                 </div>
 
                 <div className="grid grid-cols-4 gap-4 mb-6">
-                  <div className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
-                    <p className="text-[8px] text-[#5a6b7c] uppercase tracking-widest font-bold mb-1">Requested Amount</p>
-                    <p className="text-base font-bold font-mono text-[#1e3a5f]">{formatMMK(selectedRecord.amount)}</p>
+                  <div className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
+                    <p className="text-[8px] text-[#4f525d] uppercase tracking-widest font-bold mb-1">Requested Amount</p>
+                    <p className="text-base font-bold font-mono text-[#100841]">{formatMMK(selectedRecord.amount)}</p>
                   </div>
-                  <div className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
-                    <p className="text-[8px] text-[#5a6b7c] uppercase tracking-widest font-bold mb-1">Cashout Channel</p>
-                    <p className="text-xs font-bold text-[#1e3a5f]">{selectedRecord.cashoutChannel.replace("_", " ")}</p>
+                  <div className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
+                    <p className="text-[8px] text-[#4f525d] uppercase tracking-widest font-bold mb-1">Cashout Channel</p>
+                    <p className="text-xs font-bold text-[#100841]">{selectedRecord.cashoutChannel.replace("_", " ")}</p>
                   </div>
-                  <div className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
-                    <p className="text-[8px] text-[#5a6b7c] uppercase tracking-widest font-bold mb-1">Target Account</p>
-                    <p className="text-xs font-bold text-[#1e3a5f]">{selectedRecord.bankName}</p>
+                  <div className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
+                    <p className="text-[8px] text-[#4f525d] uppercase tracking-widest font-bold mb-1">Target Account</p>
+                    <p className="text-xs font-bold text-[#100841]">{selectedRecord.bankName}</p>
                   </div>
-                  <div className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
-                    <p className="text-[8px] text-[#5a6b7c] uppercase tracking-widest font-bold mb-1">Ledger Reference</p>
+                  <div className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
+                    <p className="text-[8px] text-[#4f525d] uppercase tracking-widest font-bold mb-1">Ledger Reference</p>
                     <p className="text-xs font-mono font-bold text-slate-400">{selectedRecord.journalRef}</p>
                   </div>
                 </div>
 
                 <div className="mb-6">
-                  <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-3">State Flow Progression</p>
-                  <div className="p-4 bg-white border border-[#d1d9e0] rounded-[3px] flex items-center justify-center">
+                  <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest mb-3">State Flow Progression</p>
+                  <div className="p-4 bg-white border border-[#dfdfdf] rounded-[3px] flex items-center justify-center">
                     <StateFlowVisual status={selectedRecord.status} />
                   </div>
                 </div>
@@ -354,9 +354,9 @@ export function DisbursementPage() {
               </EnterpriseCard>
             </div>
           ) : (
-            <div className="text-center py-20 bg-slate-50 border border-dashed border-[#d1d9e0] rounded-[3px]">
+            <div className="text-center py-20 bg-slate-50 border border-dashed border-[#dfdfdf] rounded-[3px]">
               <Zap className="w-10 h-10 text-slate-200 mx-auto mb-3" />
-              <p className="text-[11px] font-bold text-[#5a6b7c] uppercase tracking-widest">Select a disbursement from the queue to view analysis</p>
+              <p className="text-[11px] font-bold text-[#4f525d] uppercase tracking-widest">Select a disbursement from the queue to view analysis</p>
             </div>
           )}
         </TabsContent>
@@ -374,7 +374,7 @@ function TimelineEntry({ label, value, status }: { label: string; value: string;
   };
   return (
     <div className="space-y-1">
-      <p className="text-[8px] text-[#5a6b7c] uppercase tracking-widest font-bold">{label}</p>
+      <p className="text-[8px] text-[#4f525d] uppercase tracking-widest font-bold">{label}</p>
       <div className={cn("text-[11px] font-mono font-bold", colors[status])}>{value}</div>
     </div>
   );

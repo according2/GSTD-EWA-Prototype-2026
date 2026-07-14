@@ -1,6 +1,6 @@
 /**
  * BankIntegrationPage — Pay Channel Integration, Prefund Accounts, Bank Service Fees
- * Design: Enterprise Fintech — Deep Navy (#1e3a5f) + Teal (#0ea5e9)
+ * Design: Enterprise Fintech — Deep Navy (#100841) + Teal (#31d891)
  */
 import { useState } from "react";
 import {
@@ -72,7 +72,7 @@ export function BankIntegrationPage() {
     {
       id: "id",
       header: "Channel ID",
-      accessor: (ch) => <span className="font-mono font-bold text-[#1e3a5f]">{ch.id}</span>,
+      accessor: (ch) => <span className="font-mono font-bold text-[#100841]">{ch.id}</span>,
       searchString: (ch) => ch.id
     },
     {
@@ -80,9 +80,9 @@ export function BankIntegrationPage() {
       header: "Counterparty Bank",
       accessor: (ch) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{ch.bankName}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{ch.bankName}</p>
           <div className="flex items-center gap-1 mt-0.5">
-            <span className="text-[9px] text-[#5a6b7c] font-mono">{ch.accountNumber}</span>
+            <span className="text-[9px] text-[#4f525d] font-mono">{ch.accountNumber}</span>
           </div>
         </div>
       ),
@@ -99,7 +99,7 @@ export function BankIntegrationPage() {
         };
         const Icon = icons[ch.channelType];
         return (
-          <div className="flex items-center gap-2 text-[#5a6b7c]">
+          <div className="flex items-center gap-2 text-[#4f525d]">
             <Icon className="w-3.5 h-3.5" />
             <span className="text-[10px] font-bold uppercase tracking-tight">{ch.channelType.replace("_", " ")}</span>
           </div>
@@ -118,7 +118,7 @@ export function BankIntegrationPage() {
             <span className={cn("font-mono font-bold text-[12px]", lowBalance ? "text-[#c62828]" : "text-[#2e7d32]")}>
               {formatMMK(ch.prefundBalance)}
             </span>
-            <span className="text-[8px] text-[#5a6b7c] uppercase">Min: {formatMMK(ch.minPrefund)}</span>
+            <span className="text-[8px] text-[#4f525d] uppercase">Min: {formatMMK(ch.minPrefund)}</span>
           </div>
         );
       }
@@ -126,7 +126,7 @@ export function BankIntegrationPage() {
     {
       id: "ledger",
       header: "Ledger Map",
-      accessor: (ch) => <span className="text-[10px] font-mono text-[#5a6b7c] bg-[#f8fafc] px-1.5 py-0.5 rounded-[2px] border border-[#d1d9e0]">{ch.ledgerAccount}</span>
+      accessor: (ch) => <span className="text-[10px] font-mono text-[#4f525d] bg-[#efefff] px-1.5 py-0.5 rounded-[2px] border border-[#dfdfdf]">{ch.ledgerAccount}</span>
     },
     {
       id: "status",
@@ -153,14 +153,14 @@ export function BankIntegrationPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Landmark className="w-5 h-5 text-[#0ea5e9]" />
+          <Landmark className="w-5 h-5 text-[#31d891]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Bank Integration Hub</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">Pay channel orchestration, prefund accounts, and bank ledger reconciliation</p>
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Bank Integration Hub</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">Pay channel orchestration, prefund accounts, and bank ledger reconciliation</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <EnterpriseButton variant="primary" className="h-8 py-0 px-3 flex items-center gap-1 text-[10px] bg-[#1e3a5f]">
+          <EnterpriseButton variant="primary" className="h-8 py-0 px-3 flex items-center gap-1 text-[10px] bg-[#100841]">
             <Plus className="w-3.5 h-3.5" /> Integrate New Channel
           </EnterpriseButton>
         </div>
@@ -212,52 +212,52 @@ export function BankIntegrationPage() {
           />
           
           {selectedChannel && (
-            <EnterpriseCard className="mt-6 p-6 border-[#d1d9e0] bg-[#f8fafc]">
+            <EnterpriseCard className="mt-6 p-6 border-[#dfdfdf] bg-[#efefff]">
                <div className="flex items-center justify-between mb-6">
                  <div className="flex items-center gap-2">
-                   <Building2 className="w-4 h-4 text-[#1e3a5f]" />
-                   <h3 className="text-[13px] font-bold text-[#1e3a5f] uppercase tracking-wider">{selectedChannel.bankName} — Technical Specification</h3>
+                   <Building2 className="w-4 h-4 text-[#100841]" />
+                   <h3 className="text-[13px] font-bold text-[#100841] uppercase tracking-wider">{selectedChannel.bankName} — Technical Specification</h3>
                  </div>
                  <EnterpriseButton variant="secondary" className="h-7 text-[10px]" onClick={() => setSelectedChannel(null)}>Close</EnterpriseButton>
                </div>
                
                <div className="grid grid-cols-4 gap-6">
                   <div className="space-y-1">
-                    <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Account Details</p>
-                    <p className="text-[12px] font-mono font-bold text-[#1e3a5f]">{selectedChannel.accountNumber}</p>
-                    <p className="text-[10px] text-[#5a6b7c]">{selectedChannel.channelType.replace("_", " ")}</p>
+                    <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Account Details</p>
+                    <p className="text-[12px] font-mono font-bold text-[#100841]">{selectedChannel.accountNumber}</p>
+                    <p className="text-[10px] text-[#4f525d]">{selectedChannel.channelType.replace("_", " ")}</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Prefund Liquidity</p>
+                    <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Prefund Liquidity</p>
                     <p className={cn("text-[14px] font-mono font-bold", selectedChannel.prefundBalance < selectedChannel.minPrefund ? "text-[#c62828]" : "text-[#2e7d32]")}>
                       {formatMMK(selectedChannel.prefundBalance)}
                     </p>
-                    <p className="text-[10px] text-[#5a6b7c]">Min Threshold: {formatMMK(selectedChannel.minPrefund)}</p>
+                    <p className="text-[10px] text-[#4f525d]">Min Threshold: {formatMMK(selectedChannel.minPrefund)}</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Service Fee Model</p>
+                    <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Service Fee Model</p>
                     <p className="text-[12px] font-bold text-[#e65100]">
                       {selectedChannel.serviceFeeType === "PERCENT" ? selectedChannel.serviceFee + "%" : formatMMK(selectedChannel.serviceFee)}
                     </p>
-                    <p className="text-[10px] text-[#5a6b7c] uppercase">Per Transaction</p>
+                    <p className="text-[10px] text-[#4f525d] uppercase">Per Transaction</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">GL Configuration</p>
-                    <p className="text-[12px] font-mono font-bold text-[#1e3a5f]">{selectedChannel.ledgerAccount}</p>
-                    <p className="text-[10px] text-[#5a6b7c] uppercase">Mapping: Assets/Bank</p>
+                    <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">GL Configuration</p>
+                    <p className="text-[12px] font-mono font-bold text-[#100841]">{selectedChannel.ledgerAccount}</p>
+                    <p className="text-[10px] text-[#4f525d] uppercase">Mapping: Assets/Bank</p>
                   </div>
                </div>
 
-               <div className="mt-8 p-4 bg-white border border-[#d1d9e0] rounded-[2px]">
-                  <p className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-4">Real-time Utilization Monitor</p>
+               <div className="mt-8 p-4 bg-white border border-[#dfdfdf] rounded-[2px]">
+                  <p className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest mb-4">Real-time Utilization Monitor</p>
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-[#1e3a5f]">
+                    <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-[#100841]">
                       <span>Prefund Depletion State</span>
                       <span className={selectedChannel.prefundBalance < selectedChannel.minPrefund ? "text-[#c62828]" : "text-[#2e7d32]"}>
                         {Math.round((selectedChannel.prefundBalance / (selectedChannel.minPrefund * 2)) * 100)}% Available
                       </span>
                     </div>
-                    <div className="w-full h-1.5 bg-[#f1f5f9] rounded-full overflow-hidden">
+                    <div className="w-full h-1.5 bg-[#efefff] rounded-full overflow-hidden">
                       <div 
                         className={cn("h-full", selectedChannel.prefundBalance < selectedChannel.minPrefund ? "bg-[#c62828]" : "bg-[#2e7d32]")}
                         style={{ width: `${Math.min(100, (selectedChannel.prefundBalance / (selectedChannel.minPrefund * 2)) * 100)}%` }}
@@ -281,8 +281,8 @@ export function BankIntegrationPage() {
           <EnterpriseTable
             data={ledgerFlows}
             columns={[
-              { id: "date", header: "Timestamp", accessor: (f) => <span className="text-[10px] text-[#5a6b7c] font-mono">{f.date}</span> },
-              { id: "channel", header: "Channel", accessor: (f) => <span className="text-[11px] font-bold text-[#1e3a5f]">{f.channelName}</span> },
+              { id: "date", header: "Timestamp", accessor: (f) => <span className="text-[10px] text-[#4f525d] font-mono">{f.date}</span> },
+              { id: "channel", header: "Channel", accessor: (f) => <span className="text-[11px] font-bold text-[#100841]">{f.channelName}</span> },
               { id: "type", header: "Posting Type", accessor: (f) => {
                 const variant = f.type === "PREFUND_DEPOSIT" ? "success" : f.type === "DISBURSEMENT_DEBIT" ? "info" : "warning";
                 return <EnterpriseBadge variant={variant} className="uppercase">{f.type.replace("_", " ")}</EnterpriseBadge>;
@@ -292,8 +292,8 @@ export function BankIntegrationPage() {
                   {f.amount >= 0 ? "+" : ""}{formatMMK(f.amount)}
                 </span>
               )},
-              { id: "balance", header: "Running Balance", isNumeric: true, align: "right", accessor: (f) => <span className="font-mono text-[11px] text-[#5a6b7c]">{formatMMK(f.balance)}</span> },
-              { id: "ref", header: "Journal Ref", accessor: (f) => <span className="text-[10px] font-mono text-[#1e3a5f] bg-[#f0f4f7] px-1 py-0.5 rounded-[2px]">{f.journalRef}</span> }
+              { id: "balance", header: "Running Balance", isNumeric: true, align: "right", accessor: (f) => <span className="font-mono text-[11px] text-[#4f525d]">{formatMMK(f.balance)}</span> },
+              { id: "ref", header: "Journal Ref", accessor: (f) => <span className="text-[10px] font-mono text-[#100841] bg-[#ffffff] px-1 py-0.5 rounded-[2px]">{f.journalRef}</span> }
             ]}
             rowKey={(f) => f.id}
             searchPlaceholder="Search by journal ref or channel..."
@@ -301,13 +301,13 @@ export function BankIntegrationPage() {
         </TabsContent>
 
         <TabsContent value="reconciliation" className="mt-4 outline-none">
-           <EnterpriseCard className="border-[#d1d9e0] p-6 bg-[#f8fafc]">
+           <EnterpriseCard className="border-[#dfdfdf] p-6 bg-[#efefff]">
               <div className="flex items-center justify-between mb-8">
                 <div>
-                  <h3 className="text-[13px] font-bold text-[#1e3a5f] uppercase tracking-wider">Automated Reconciliation Audit</h3>
-                  <p className="text-[10px] text-[#5a6b7c] uppercase mt-1">Variance analysis between system ledger and bank statements</p>
+                  <h3 className="text-[13px] font-bold text-[#100841] uppercase tracking-wider">Automated Reconciliation Audit</h3>
+                  <p className="text-[10px] text-[#4f525d] uppercase mt-1">Variance analysis between system ledger and bank statements</p>
                 </div>
-                <EnterpriseButton variant="primary" className="bg-[#1e3a5f] uppercase tracking-widest text-[10px] font-bold h-9">
+                <EnterpriseButton variant="primary" className="bg-[#100841] uppercase tracking-widest text-[10px] font-bold h-9">
                   <RefreshCcw className="w-3.5 h-3.5" /> Execute Full Recon
                 </EnterpriseButton>
               </div>
@@ -318,17 +318,17 @@ export function BankIntegrationPage() {
                   const variance = ch.prefundBalance - diff;
                   const isHealthy = Math.abs(variance) < 10000;
                   return (
-                    <div key={ch.id} className="p-4 bg-white border border-[#d1d9e0] rounded-[2px] shadow-sm">
+                    <div key={ch.id} className="p-4 bg-white border border-[#dfdfdf] rounded-[2px] shadow-sm">
                        <div className="flex justify-between items-center mb-4">
-                         <span className="text-[11px] font-bold text-[#1e3a5f]">{ch.bankName}</span>
+                         <span className="text-[11px] font-bold text-[#100841]">{ch.bankName}</span>
                          <EnterpriseBadge variant={isHealthy ? "success" : "error"}>{isHealthy ? "MATCHED" : "VARIANCE"}</EnterpriseBadge>
                        </div>
                        <div className="space-y-2">
-                         <div className="flex justify-between text-[10px] text-[#5a6b7c]"><span>System Ledger</span><span className="font-mono font-bold">{formatMMK(ch.prefundBalance)}</span></div>
-                         <div className="flex justify-between text-[10px] text-[#5a6b7c]"><span>Bank Statement</span><span className="font-mono">{formatMMK(diff)}</span></div>
+                         <div className="flex justify-between text-[10px] text-[#4f525d]"><span>System Ledger</span><span className="font-mono font-bold">{formatMMK(ch.prefundBalance)}</span></div>
+                         <div className="flex justify-between text-[10px] text-[#4f525d]"><span>Bank Statement</span><span className="font-mono">{formatMMK(diff)}</span></div>
                          <LedgerDivider />
                          <div className="flex justify-between text-[11px] font-bold">
-                           <span className="text-[#1e3a5f]">Variance</span>
+                           <span className="text-[#100841]">Variance</span>
                            <span className={isHealthy ? "text-[#2e7d32]" : "text-[#c62828]"}>{formatMMK(variance)}</span>
                          </div>
                        </div>

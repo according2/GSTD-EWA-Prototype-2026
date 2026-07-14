@@ -24,30 +24,30 @@ export function CircleLedgerPage() {
     {
       id: "journalId",
       header: "Journal ID",
-      accessor: (jl) => <span className="text-[11px] font-mono font-bold text-[#5a6b7c]">{jl.journalId}</span>,
+      accessor: (jl) => <span className="text-[11px] font-mono font-bold text-[#4f525d]">{jl.journalId}</span>,
       searchString: (jl) => jl.journalId
     },
     {
       id: "date",
       header: "Date",
-      accessor: (jl) => <span className="text-[11px] text-[#5a6b7c] font-mono">{jl.date}</span>
+      accessor: (jl) => <span className="text-[11px] text-[#4f525d] font-mono">{jl.date}</span>
     },
     {
       id: "description",
       header: "Description",
-      accessor: (jl) => <span className="text-[12px] text-[#1e3a5f] font-bold">{jl.description}</span>,
+      accessor: (jl) => <span className="text-[12px] text-[#100841] font-bold">{jl.description}</span>,
       searchString: (jl) => jl.description
     },
     {
       id: "accountCode",
       header: "GL Code",
-      accessor: (jl) => <span className="text-[11px] font-mono font-bold text-[#1e3a5f]">{jl.accountCode}</span>,
+      accessor: (jl) => <span className="text-[11px] font-mono font-bold text-[#100841]">{jl.accountCode}</span>,
       searchString: (jl) => jl.accountCode
     },
     {
       id: "accountName",
       header: "Account",
-      accessor: (jl) => <span className="text-[11px] text-[#5a6b7c] font-semibold">{jl.accountName}</span>,
+      accessor: (jl) => <span className="text-[11px] text-[#4f525d] font-semibold">{jl.accountName}</span>,
       searchString: (jl) => jl.accountName
     },
     {
@@ -56,7 +56,7 @@ export function CircleLedgerPage() {
       isNumeric: true,
       align: "right",
       accessor: (jl) => jl.debit > 0 ? jl.debit : 0,
-      cellClassName: (jl) => jl.debit > 0 ? "text-[#2e7d32] font-bold" : "text-[#b0bec5]"
+      cellClassName: (jl) => jl.debit > 0 ? "text-[#2e7d32] font-bold" : "text-[#c4c9ce]"
     },
     {
       id: "credit",
@@ -64,7 +64,7 @@ export function CircleLedgerPage() {
       isNumeric: true,
       align: "right",
       accessor: (jl) => jl.credit > 0 ? jl.credit : 0,
-      cellClassName: (jl) => jl.credit > 0 ? "text-[#c62828] font-bold" : "text-[#b0bec5]"
+      cellClassName: (jl) => jl.credit > 0 ? "text-[#c62828] font-bold" : "text-[#c4c9ce]"
     },
     {
       id: "referenceId",
@@ -75,7 +75,7 @@ export function CircleLedgerPage() {
     {
       id: "companyId",
       header: "Company",
-      accessor: (jl) => <span className="text-[11px] text-[#5a6b7c] font-semibold">{jl.companyId}</span>
+      accessor: (jl) => <span className="text-[11px] text-[#4f525d] font-semibold">{jl.companyId}</span>
     },
     {
       id: "postedBy",
@@ -97,13 +97,13 @@ export function CircleLedgerPage() {
     {
       id: "accountCode",
       header: "GL Code",
-      accessor: (gl) => <span className="text-[11px] font-mono font-bold text-[#1e3a5f]">{gl.accountCode}</span>,
+      accessor: (gl) => <span className="text-[11px] font-mono font-bold text-[#100841]">{gl.accountCode}</span>,
       searchString: (gl) => gl.accountCode
     },
     {
       id: "accountName",
       header: "Account Name",
-      accessor: (gl) => <span className="text-[12px] font-bold text-[#1e3a5f]">{gl.accountName}</span>,
+      accessor: (gl) => <span className="text-[12px] font-bold text-[#100841]">{gl.accountName}</span>,
       searchString: (gl) => gl.accountName
     },
     {
@@ -130,7 +130,7 @@ export function CircleLedgerPage() {
       isNumeric: true,
       align: "right",
       accessor: (gl) => gl.periodDebit,
-      cellClassName: (gl) => gl.periodDebit > 0 ? "text-[#2e7d32] font-bold" : "text-[#b0bec5]"
+      cellClassName: (gl) => gl.periodDebit > 0 ? "text-[#2e7d32] font-bold" : "text-[#c4c9ce]"
     },
     {
       id: "periodCredit",
@@ -138,7 +138,7 @@ export function CircleLedgerPage() {
       isNumeric: true,
       align: "right",
       accessor: (gl) => gl.periodCredit,
-      cellClassName: (gl) => gl.periodCredit > 0 ? "text-[#c62828] font-bold" : "text-[#b0bec5]"
+      cellClassName: (gl) => gl.periodCredit > 0 ? "text-[#c62828] font-bold" : "text-[#c4c9ce]"
     },
     {
       id: "closingBalance",
@@ -146,7 +146,7 @@ export function CircleLedgerPage() {
       isNumeric: true,
       align: "right",
       accessor: (gl) => gl.closingBalance,
-      cellClassName: () => "font-bold text-[#1e3a5f]"
+      cellClassName: () => "font-bold text-[#100841]"
     }
   ];
 
@@ -154,19 +154,19 @@ export function CircleLedgerPage() {
     {
       id: "accountCode",
       header: "GL Code",
-      accessor: (gl) => <span className="text-[11px] font-mono font-semibold text-[#5a6b7c]">{gl.accountCode}</span>,
+      accessor: (gl) => <span className="text-[11px] font-mono font-semibold text-[#4f525d]">{gl.accountCode}</span>,
       searchString: (gl) => gl.accountCode
     },
     {
       id: "accountName",
       header: "Account",
-      accessor: (gl) => <span className="text-[12px] font-bold text-[#1e3a5f]">{gl.accountName}</span>,
+      accessor: (gl) => <span className="text-[12px] font-bold text-[#100841]">{gl.accountName}</span>,
       searchString: (gl) => gl.accountName
     },
     {
       id: "type",
       header: "Type",
-      accessor: (gl) => <span className="text-[11px] text-[#5a6b7c] font-semibold">{gl.type}</span>
+      accessor: (gl) => <span className="text-[11px] text-[#4f525d] font-semibold">{gl.type}</span>
     },
     {
       id: "debit",
@@ -174,7 +174,7 @@ export function CircleLedgerPage() {
       isNumeric: true,
       align: "right",
       accessor: (gl) => gl.closingBalance > 0 ? gl.closingBalance : 0,
-      cellClassName: (gl) => gl.closingBalance > 0 ? "text-[#2e7d32] font-bold" : "text-[#b0bec5]"
+      cellClassName: (gl) => gl.closingBalance > 0 ? "text-[#2e7d32] font-bold" : "text-[#c4c9ce]"
     },
     {
       id: "credit",
@@ -182,7 +182,7 @@ export function CircleLedgerPage() {
       isNumeric: true,
       align: "right",
       accessor: (gl) => gl.closingBalance < 0 ? Math.abs(gl.closingBalance) : 0,
-      cellClassName: (gl) => gl.closingBalance < 0 ? "text-[#c62828] font-bold" : "text-[#b0bec5]"
+      cellClassName: (gl) => gl.closingBalance < 0 ? "text-[#c62828] font-bold" : "text-[#c4c9ce]"
     }
   ];
 
@@ -190,11 +190,11 @@ export function CircleLedgerPage() {
     <div className="space-y-4">
       {/* ===== Page Header ===== */}
       <div>
-        <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide flex items-center gap-2">
-          <Lock className="w-3.5 h-3.5 text-[#1e3a5f]/40" />
+        <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide flex items-center gap-2">
+          <Lock className="w-3.5 h-3.5 text-[#100841]/40" />
           Circle Ledger (GL Accounting)
         </h1>
-        <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">
+        <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">
           Double-entry accounting · Journal entries · GL balances · Trial balance
         </p>
       </div>
@@ -260,8 +260,8 @@ export function CircleLedgerPage() {
       </Tabs>
 
       {/* Chart of Accounts */}
-      <EnterpriseCard className="p-4 shadow-sm border-[#d1d9e0]">
-        <h3 className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-3">Chart of Accounts</h3>
+      <EnterpriseCard className="p-4 shadow-sm border-[#dfdfdf]">
+        <h3 className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest mb-3">Chart of Accounts</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {chartOfAccounts.map(acct => {
             const badgeVariant =
@@ -269,9 +269,9 @@ export function CircleLedgerPage() {
               acct.type === "Liability" ? "warning" :
               acct.type === "Income" ? "success" : "error";
             return (
-              <div key={acct.code} className="flex items-center gap-2.5 p-2 rounded-[3px] border border-[#d1d9e0] bg-[#f5f8fb] transition-colors hover:bg-white">
-                <span className="text-[11px] font-mono font-bold text-[#1e3a5f]">{acct.code}</span>
-                <span className="text-[11px] text-[#1e3a5f] font-bold">{acct.name}</span>
+              <div key={acct.code} className="flex items-center gap-2.5 p-2 rounded-[3px] border border-[#dfdfdf] bg-[#efefff] transition-colors hover:bg-white">
+                <span className="text-[11px] font-mono font-bold text-[#100841]">{acct.code}</span>
+                <span className="text-[11px] text-[#100841] font-bold">{acct.name}</span>
                 <div className="ml-auto">
                   <EnterpriseBadge variant={badgeVariant}>{acct.type}</EnterpriseBadge>
                 </div>

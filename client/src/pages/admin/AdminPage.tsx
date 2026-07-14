@@ -61,13 +61,13 @@ export function AdminPage() {
     {
       id: "label",
       header: "View Type",
-      accessor: (rm) => <EnterpriseBadge variant="info" className="bg-[#1e3a5f] text-white border-[#1e3a5f] font-bold">{rm.label}</EnterpriseBadge>,
+      accessor: (rm) => <EnterpriseBadge variant="info" className="bg-[#100841] text-white border-[#100841] font-bold">{rm.label}</EnterpriseBadge>,
       searchString: (rm) => rm.label
     },
     {
       id: "description",
       header: "Description",
-      accessor: (rm) => <span className="text-[12px] text-[#5a6b7c]">{rm.description}</span>,
+      accessor: (rm) => <span className="text-[12px] text-[#4f525d]">{rm.description}</span>,
       searchString: (rm) => rm.description
     },
     {
@@ -78,7 +78,7 @@ export function AdminPage() {
           {rolePermissions[rm.id].map(mId => {
             const mod = allModuleConfigs.find(config => config.id === mId);
             return (
-              <span key={mId} className="text-[9px] px-2 py-0.5 rounded-full bg-slate-100 text-[#5a6b7c] font-bold uppercase tracking-wider">
+              <span key={mId} className="text-[9px] px-2 py-0.5 rounded-full bg-slate-100 text-[#4f525d] font-bold uppercase tracking-wider">
                 {mod?.label || mId}
               </span>
             );
@@ -103,7 +103,7 @@ export function AdminPage() {
     {
       id: "id",
       header: "Log ID",
-      accessor: (a) => <span className="text-[11px] font-mono text-[#5a6b7c] font-bold">{a.id}</span>,
+      accessor: (a) => <span className="text-[11px] font-mono text-[#4f525d] font-bold">{a.id}</span>,
       searchString: (a) => a.id
     },
     {
@@ -115,24 +115,24 @@ export function AdminPage() {
     {
       id: "user",
       header: "User",
-      accessor: (a) => <span className="text-[12px] font-bold text-[#1e3a5f]">{a.user}</span>,
+      accessor: (a) => <span className="text-[12px] font-bold text-[#100841]">{a.user}</span>,
       searchString: (a) => a.user
     },
     {
       id: "module",
       header: "Module",
-      accessor: (a) => <span className="text-[11px] font-bold text-[#5a6b7c] uppercase tracking-wider">{a.module}</span>
+      accessor: (a) => <span className="text-[11px] font-bold text-[#4f525d] uppercase tracking-wider">{a.module}</span>
     },
     {
       id: "details",
       header: "Details",
-      accessor: (a) => <span className="text-[11px] text-[#5a6b7c] max-w-[300px] truncate block">{a.details}</span>,
+      accessor: (a) => <span className="text-[11px] text-[#4f525d] max-w-[300px] truncate block">{a.details}</span>,
       searchString: (a) => a.details
     },
     {
       id: "timestamp",
       header: "Timestamp",
-      accessor: (a) => <span className="text-[10px] font-mono text-[#90a4ae]">{a.timestamp}</span>
+      accessor: (a) => <span className="text-[10px] font-mono text-[#868c95]">{a.timestamp}</span>
     }
   ];
 
@@ -151,8 +151,8 @@ export function AdminPage() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Platform Admin Configuration</h1>
-          <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">System configuration, role management, and audit log</p>
+          <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Platform Admin Configuration</h1>
+          <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">System configuration, role management, and audit log</p>
         </div>
       </div>
 
@@ -167,16 +167,16 @@ export function AdminPage() {
         </TabsList>
 
         <TabsContent value="modules" className="outline-none space-y-4">
-          <EnterpriseCard className="p-4 border-[#d1d9e0] shadow-sm">
+          <EnterpriseCard className="p-4 border-[#dfdfdf] shadow-sm">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest">Module Access Configuration</h3>
-                <p className="text-[10px] text-[#5a6b7c] uppercase mt-1">Select a role to configure accessible modules</p>
+                <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest">Module Access Configuration</h3>
+                <p className="text-[10px] text-[#4f525d] uppercase mt-1">Select a role to configure accessible modules</p>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-[11px] font-bold text-[#1e3a5f] uppercase">Configuring:</span>
+                <span className="text-[11px] font-bold text-[#100841] uppercase">Configuring:</span>
                 <Select value={selectedRole} onValueChange={(val) => setSelectedRole(val as ViewTypeRole)}>
-                  <SelectTrigger className="w-[180px] h-8 text-[11px] font-bold border-[#d1d9e0]">
+                  <SelectTrigger className="w-[180px] h-8 text-[11px] font-bold border-[#dfdfdf]">
                     <SelectValue placeholder="Select Role" />
                   </SelectTrigger>
                   <SelectContent>
@@ -192,15 +192,15 @@ export function AdminPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {allModuleConfigs.map(mod => (
-                <div key={mod.id} className="flex items-start gap-3 p-3 rounded-[3px] bg-[#f8fafc] border border-[#d1d9e0] transition-colors hover:bg-white">
+                <div key={mod.id} className="flex items-start gap-3 p-3 rounded-[3px] bg-[#efefff] border border-[#dfdfdf] transition-colors hover:bg-white">
                   <Switch 
                     checked={rolePermissions[selectedRole].includes(mod.id)} 
                     onCheckedChange={(checked) => handleToggleModule(mod.id, checked)}
                     className="mt-1" 
                   />
                   <div>
-                    <p className="text-[12px] font-bold text-[#1e3a5f]">{mod.label}</p>
-                    <p className="text-[10px] text-[#5a6b7c] mt-0.5 leading-tight">Module ID: {mod.id}</p>
+                    <p className="text-[12px] font-bold text-[#100841]">{mod.label}</p>
+                    <p className="text-[10px] text-[#4f525d] mt-0.5 leading-tight">Module ID: {mod.id}</p>
                   </div>
                 </div>
               ))}
@@ -228,52 +228,52 @@ export function AdminPage() {
         </TabsContent>
 
         <TabsContent value="system" className="outline-none">
-          <EnterpriseCard className="p-4 border-[#d1d9e0] shadow-sm space-y-3">
-            <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-2">System Configuration</h3>
-            <div className="flex items-center justify-between p-3 rounded-[3px] bg-[#f8fafc] border border-[#d1d9e0]">
+          <EnterpriseCard className="p-4 border-[#dfdfdf] shadow-sm space-y-3">
+            <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-2">System Configuration</h3>
+            <div className="flex items-center justify-between p-3 rounded-[3px] bg-[#efefff] border border-[#dfdfdf]">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-[#e3f2fd] flex items-center justify-center">
-                  <Lock className="w-4 h-4 text-[#0ea5e9]" />
+                  <Lock className="w-4 h-4 text-[#31d891]" />
                 </div>
                 <div>
-                  <p className="text-[12px] font-bold text-[#1e3a5f]">Maker-Checker Enforcement</p>
-                  <p className="text-[10px] text-[#5a6b7c]">Require two-person approval for settlements and write-offs</p>
+                  <p className="text-[12px] font-bold text-[#100841]">Maker-Checker Enforcement</p>
+                  <p className="text-[10px] text-[#4f525d]">Require two-person approval for settlements and write-offs</p>
                 </div>
               </div>
               <Switch defaultChecked />
             </div>
-            <div className="flex items-center justify-between p-3 rounded-[3px] bg-[#f8fafc] border border-[#d1d9e0]">
+            <div className="flex items-center justify-between p-3 rounded-[3px] bg-[#efefff] border border-[#dfdfdf]">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-[#e8f5e9] flex items-center justify-center">
                   <ShieldCheck className="w-4 h-4 text-emerald-500" />
                 </div>
                 <div>
-                  <p className="text-[12px] font-bold text-[#1e3a5f]">Auto Approval for Trusted Employees</p>
-                  <p className="text-[10px] text-[#5a6b7c]">Skip manual review for employees with both verifications passed</p>
+                  <p className="text-[12px] font-bold text-[#100841]">Auto Approval for Trusted Employees</p>
+                  <p className="text-[10px] text-[#4f525d]">Skip manual review for employees with both verifications passed</p>
                 </div>
               </div>
               <Switch defaultChecked />
             </div>
-            <div className="flex items-center justify-between p-3 rounded-[3px] bg-[#f8fafc] border border-[#d1d9e0]">
+            <div className="flex items-center justify-between p-3 rounded-[3px] bg-[#efefff] border border-[#dfdfdf]">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-[#fff8e1] flex items-center justify-center">
                   <Key className="w-4 h-4 text-amber-500" />
                 </div>
                 <div>
-                  <p className="text-[12px] font-bold text-[#1e3a5f]">Late Fee Auto-Calculation</p>
-                  <p className="text-[10px] text-[#5a6b7c]">Automatically calculate late fees based on configured slab rates</p>
+                  <p className="text-[12px] font-bold text-[#100841]">Late Fee Auto-Calculation</p>
+                  <p className="text-[10px] text-[#4f525d]">Automatically calculate late fees based on configured slab rates</p>
                 </div>
               </div>
               <Switch defaultChecked />
             </div>
-            <div className="flex items-center justify-between p-3 rounded-[3px] bg-[#f8fafc] border border-[#d1d9e0]">
+            <div className="flex items-center justify-between p-3 rounded-[3px] bg-[#efefff] border border-[#dfdfdf]">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#e8eaf6] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-[#efefff] flex items-center justify-center">
                   <Globe className="w-4 h-4 text-blue-500" />
                 </div>
                 <div>
-                  <p className="text-[12px] font-bold text-[#1e3a5f]">Currency: MMK (Myanmar Kyat)</p>
-                  <p className="text-[10px] text-[#5a6b7c]">Platform default currency for all transactions</p>
+                  <p className="text-[12px] font-bold text-[#100841]">Currency: MMK (Myanmar Kyat)</p>
+                  <p className="text-[10px] text-[#4f525d]">Platform default currency for all transactions</p>
                 </div>
               </div>
               <EnterpriseBadge variant="neutral" className="text-[9px] font-bold">LOCKED</EnterpriseBadge>

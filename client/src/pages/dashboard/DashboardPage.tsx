@@ -1,7 +1,7 @@
 /**
  * DashboardPage — Analytical Command Dashboard
  * SAP Fiori Pattern: Analytical Page — KPI cards, charts, alerts
- * Design: Enterprise Fintech — Navy (#1e3a5f) + Teal (#0ea5e9) | Sharp corners | Structured
+ * Design: Enterprise Fintech — Navy (#100841) + Teal (#31d891) | Sharp corners | Structured
  */
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -21,7 +21,7 @@ import {
   LedgerDivider
 } from "@/components/EnterpriseComponents";
 
-const COLORS = ["#1e3a5f", "#0ea5e9", "#10b981", "#f59e0b", "#c62828"];
+const COLORS = ["#100841", "#31d891", "#10b981", "#f59e0b", "#c62828"];
 
 export function DashboardPage() {
   const { view } = useView();
@@ -64,10 +64,10 @@ export function DashboardPage() {
       {/* ===== Page Header — SAP Fiori Object Page Header ===== */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <LayoutGrid className="w-4 h-4 text-[#0ea5e9]" />
+          <LayoutGrid className="w-4 h-4 text-[#31d891]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Command Dashboard</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider">
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Command Dashboard</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider">
               {view === "HR" && "Employee lifecycle, onboarding, and payroll oversight"}
               {view === "Sales" && "Corporate portfolio, revenue, and client health"}
               {view === "Operations" && "Daily operations, disbursements, and settlements"}
@@ -78,7 +78,7 @@ export function DashboardPage() {
             </p>
           </div>
         </div>
-        <span className="text-[10px] font-mono text-[#5a6b7c] border border-[#d1d9e0] rounded-[2px] px-2 py-1 bg-white font-semibold">
+        <span className="text-[10px] font-mono text-[#4f525d] border border-[#dfdfdf] rounded-[2px] px-2 py-1 bg-white font-semibold">
           12 JUL 2026
         </span>
       </div>
@@ -93,7 +93,7 @@ export function DashboardPage() {
           change="1"
           changeDir="up"
           accentColor="navy"
-          icon={<Building2 className="w-3.5 h-3.5 text-[#1e3a5f]" />}
+          icon={<Building2 className="w-3.5 h-3.5 text-[#100841]" />}
           subValue={`${companies.length} total registered`}
         />
         <EnterpriseKpiCard
@@ -102,7 +102,7 @@ export function DashboardPage() {
           change="3"
           changeDir="up"
           accentColor="teal"
-          icon={<Users className="w-3.5 h-3.5 text-[#0ea5e9]" />}
+          icon={<Users className="w-3.5 h-3.5 text-[#31d891]" />}
           subValue={`${employees.length} total onboarded`}
         />
         <EnterpriseKpiCard
@@ -120,7 +120,7 @@ export function DashboardPage() {
           change="22%"
           changeDir="up"
           accentColor="teal"
-          icon={<ArrowUpRight className="w-3.5 h-3.5 text-[#0ea5e9]" />}
+          icon={<ArrowUpRight className="w-3.5 h-3.5 text-[#31d891]" />}
           subValue="This month"
         />
       </div>
@@ -158,7 +158,7 @@ export function DashboardPage() {
           label="Risk Score Avg"
           value={String(Math.round(riskAssessments.reduce((s, r) => s + r.totalScore, 0) / riskAssessments.length))}
           accentColor="navy"
-          icon={<ShieldAlert className="w-3.5 h-3.5 text-[#1e3a5f]" />}
+          icon={<ShieldAlert className="w-3.5 h-3.5 text-[#100841]" />}
           subValue="Weighted average across portfolio"
         />
       </div>
@@ -167,35 +167,35 @@ export function DashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
         {/* Budget Utilization by Company */}
         <EnterpriseCard className="p-4">
-          <h3 className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-3">Budget Utilization by Company</h3>
+          <h3 className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest mb-3">Budget Utilization by Company</h3>
           <ResponsiveContainer width="100%" height={220}>
             <BarChart data={companyData} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e8ecf0" />
-              <XAxis dataKey="name" tick={{ fontSize: 11, fill: "#64748b" }} />
-              <YAxis tick={{ fontSize: 11, fill: "#64748b" }} tickFormatter={(v) => `${v}M`} />
-              <Tooltip formatter={(v: number) => [formatMMK(v * 1000000), ""]} contentStyle={{ fontSize: 11, borderRadius: 3, border: "1px solid #d1d9e0" }} />
-              <Bar dataKey="used" name="Utilized" fill="#0ea5e9" radius={[2, 2, 0, 0]} />
-              <Bar dataKey="budget" name="Total Budget" fill="#1e3a5f" radius={[2, 2, 0, 0]} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#efefff" />
+              <XAxis dataKey="name" tick={{ fontSize: 11, fill: "#4f525d" }} />
+              <YAxis tick={{ fontSize: 11, fill: "#4f525d" }} tickFormatter={(v) => `${v}M`} />
+              <Tooltip formatter={(v: number) => [formatMMK(v * 1000000), ""]} contentStyle={{ fontSize: 11, borderRadius: 3, border: "1px solid #dfdfdf" }} />
+              <Bar dataKey="used" name="Utilized" fill="#31d891" radius={[2, 2, 0, 0]} />
+              <Bar dataKey="budget" name="Total Budget" fill="#100841" radius={[2, 2, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </EnterpriseCard>
 
         {/* Transaction Status Distribution */}
         <EnterpriseCard className="p-4">
-          <h3 className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-3">Transaction Status Distribution</h3>
+          <h3 className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest mb-3">Transaction Status Distribution</h3>
           <ResponsiveContainer width="100%" height={180}>
             <PieChart>
               <Pie data={statusData} cx="50%" cy="50%" innerRadius={40} outerRadius={65} paddingAngle={3} dataKey="value">
                 {statusData.map((_, i) => <Cell key={i} fill={COLORS[i]} />)}
               </Pie>
-              <Tooltip formatter={(v: number, n: string) => [`${v} transactions`, n]} contentStyle={{ fontSize: 11, borderRadius: 3, border: "1px solid #d1d9e0" }} />
+              <Tooltip formatter={(v: number, n: string) => [`${v} transactions`, n]} contentStyle={{ fontSize: 11, borderRadius: 3, border: "1px solid #dfdfdf" }} />
             </PieChart>
           </ResponsiveContainer>
           <div className="flex flex-wrap gap-4 justify-center mt-1">
             {statusData.map((d, i) => (
               <div key={d.name} className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-[1px]" style={{ backgroundColor: COLORS[i] }} />
-                <span className="text-[10px] font-medium text-[#5a6b7c]">{d.name} ({d.value})</span>
+                <span className="text-[10px] font-medium text-[#4f525d]">{d.name} ({d.value})</span>
               </div>
             ))}
           </div>
@@ -204,16 +204,16 @@ export function DashboardPage() {
 
       {/* ===== Monthly Financial Trend ===== */}
       <EnterpriseCard className="p-4">
-        <h3 className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-3">Monthly Financial Trend</h3>
+        <h3 className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest mb-3">Monthly Financial Trend</h3>
         <ResponsiveContainer width="100%" height={200}>
           <LineChart data={monthlyTrend} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e8ecf0" />
-            <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#64748b" }} />
-            <YAxis tick={{ fontSize: 11, fill: "#64748b" }} tickFormatter={(v) => `${(v / 1000000).toFixed(1)}M`} />
-            <Tooltip formatter={(v: number, n: string) => [formatMMK(v), n]} contentStyle={{ fontSize: 11, borderRadius: 3, border: "1px solid #d1d9e0" }} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#efefff" />
+            <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#4f525d" }} />
+            <YAxis tick={{ fontSize: 11, fill: "#4f525d" }} tickFormatter={(v) => `${(v / 1000000).toFixed(1)}M`} />
+            <Tooltip formatter={(v: number, n: string) => [formatMMK(v), n]} contentStyle={{ fontSize: 11, borderRadius: 3, border: "1px solid #dfdfdf" }} />
             <Legend wrapperStyle={{ fontSize: 10 }} />
-            <Line type="monotone" dataKey="disbursed" name="Disbursed" stroke="#1e3a5f" strokeWidth={2} dot={false} />
-            <Line type="monotone" dataKey="repaid" name="Repaid" stroke="#0ea5e9" strokeWidth={2} dot={false} />
+            <Line type="monotone" dataKey="disbursed" name="Disbursed" stroke="#100841" strokeWidth={2} dot={false} />
+            <Line type="monotone" dataKey="repaid" name="Repaid" stroke="#31d891" strokeWidth={2} dot={false} />
             <Line type="monotone" dataKey="feeRevenue" name="Fee Revenue" stroke="#2e7d32" strokeWidth={2} dot={false} />
           </LineChart>
         </ResponsiveContainer>
@@ -221,7 +221,7 @@ export function DashboardPage() {
 
       {/* ===== Pending Actions — SAP Fiori Message Strips ===== */}
       <div>
-        <h3 className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-2">Pending Actions & Alerts</h3>
+        <h3 className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest mb-2">Pending Actions & Alerts</h3>
         <div className="space-y-2">
           {pendingVerification > 0 && (
             <EnterpriseMessageStrip variant="warning" message={`${pendingVerification} Employee(s) Pending Verification — Employment verification and EWA auto-approval checks required.`} />

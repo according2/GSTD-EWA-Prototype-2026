@@ -81,7 +81,7 @@ export function ServiceCatalogPage() {
     {
       id: "id",
       header: "ID",
-      accessor: (s) => <span className="font-mono font-bold text-[#1e3a5f]">{s.id}</span>,
+      accessor: (s) => <span className="font-mono font-bold text-[#100841]">{s.id}</span>,
       searchString: (s) => s.id
     },
     {
@@ -95,8 +95,8 @@ export function ServiceCatalogPage() {
       header: "Service Name",
       accessor: (s) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{s.name}</p>
-          <p className="text-[9px] text-[#5a6b7c] line-clamp-1">{s.description}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{s.name}</p>
+          <p className="text-[9px] text-[#4f525d] line-clamp-1">{s.description}</p>
         </div>
       ),
       searchString: (s) => `${s.name} ${s.description}`
@@ -118,7 +118,7 @@ export function ServiceCatalogPage() {
     {
       id: "category",
       header: "Category",
-      accessor: (s) => <span className="text-[11px] text-[#5a6b7c] font-medium">{s.category}</span>
+      accessor: (s) => <span className="text-[11px] text-[#4f525d] font-medium">{s.category}</span>
     },
     {
       id: "status",
@@ -136,16 +136,16 @@ export function ServiceCatalogPage() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Layers className="w-4 h-4 text-[#0ea5e9]" />
+          <Layers className="w-4 h-4 text-[#31d891]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Service Registry</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Service Registry</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">
               Service classification, fee mapping & entity role assignment
             </p>
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <EnterpriseButton className="h-8 py-0 px-3 flex items-center gap-1 text-[10px] bg-[#1e3a5f] text-white">
+          <EnterpriseButton className="h-8 py-0 px-3 flex items-center gap-1 text-[10px] bg-[#100841] text-white">
             <Plus className="w-3.5 h-3.5" /> Define Service
           </EnterpriseButton>
         </div>
@@ -181,27 +181,27 @@ export function ServiceCatalogPage() {
 
         <TabsContent value="detail" className="mt-4 outline-none">
           {selectedService ? (
-            <EnterpriseCard className="p-4 shadow-sm border-t-2 border-t-[#1e3a5f]">
+            <EnterpriseCard className="p-4 shadow-sm border-t-2 border-t-[#100841]">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-[3px] bg-[#f0f4f7] flex items-center justify-center border border-[#d1d9e0]">
-                    <Layers className="w-5 h-5 text-[#1e3a5f]" />
+                  <div className="w-10 h-10 rounded-[3px] bg-[#ffffff] flex items-center justify-center border border-[#dfdfdf]">
+                    <Layers className="w-5 h-5 text-[#100841]" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-[#1e3a5f]">{selectedService.code} — {selectedService.name}</h3>
-                    <p className="text-[10px] text-[#5a6b7c] font-mono">{selectedService.category}</p>
+                    <h3 className="text-sm font-bold text-[#100841]">{selectedService.code} — {selectedService.name}</h3>
+                    <p className="text-[10px] text-[#4f525d] font-mono">{selectedService.category}</p>
                   </div>
                 </div>
                 <EnterpriseBadge variant={selectedService.status === "ACTIVE" ? "success" : "error"}>{selectedService.status}</EnterpriseBadge>
               </div>
 
-              <div className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px] mb-6">
-                <p className="text-[8px] text-[#5a6b7c] uppercase tracking-widest font-bold mb-1">Service Description</p>
-                <p className="text-xs text-[#1e3a5f] font-medium leading-relaxed">{selectedService.description}</p>
+              <div className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px] mb-6">
+                <p className="text-[8px] text-[#4f525d] uppercase tracking-widest font-bold mb-1">Service Description</p>
+                <p className="text-xs text-[#100841] font-medium leading-relaxed">{selectedService.description}</p>
               </div>
 
               <div className="mb-6">
-                 <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-3">Fee & Discount Mapping</p>
+                 <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest mb-3">Fee & Discount Mapping</p>
                  {selectedService.feeMappings.length > 0 ? (
                     <EnterpriseTable
                       data={selectedService.feeMappings}
@@ -214,25 +214,25 @@ export function ServiceCatalogPage() {
                       rowKey={(fm) => fm.id}
                     />
                  ) : (
-                    <div className="p-6 text-center bg-slate-50 border border-dashed border-[#d1d9e0] rounded-[3px]">
-                       <p className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest">No fee mappings configured</p>
+                    <div className="p-6 text-center bg-slate-50 border border-dashed border-[#dfdfdf] rounded-[3px]">
+                       <p className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest">No fee mappings configured</p>
                     </div>
                  )}
               </div>
 
               <div>
-                <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-3">Applicable Entity Roles</p>
+                <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest mb-3">Applicable Entity Roles</p>
                 <div className="flex items-center gap-2">
                   {selectedService.applicableTo.map(role => (
-                    <EnterpriseBadge key={role} variant="neutral" className="bg-white border-[#d1d9e0] text-[#1e3a5f]">{role}</EnterpriseBadge>
+                    <EnterpriseBadge key={role} variant="neutral" className="bg-white border-[#dfdfdf] text-[#100841]">{role}</EnterpriseBadge>
                   ))}
                 </div>
               </div>
             </EnterpriseCard>
           ) : (
-            <div className="text-center py-20 bg-slate-50 border border-dashed border-[#d1d9e0] rounded-[3px]">
+            <div className="text-center py-20 bg-slate-50 border border-dashed border-[#dfdfdf] rounded-[3px]">
               <Layers className="w-10 h-10 text-slate-200 mx-auto mb-3" />
-              <p className="text-[11px] font-bold text-[#5a6b7c] uppercase tracking-widest">Select a service to view technical specifications</p>
+              <p className="text-[11px] font-bold text-[#4f525d] uppercase tracking-widest">Select a service to view technical specifications</p>
             </div>
           )}
         </TabsContent>

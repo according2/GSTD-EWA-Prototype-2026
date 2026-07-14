@@ -3,7 +3,7 @@
  * Each tier: 2 types (percent / flat), attribute rules, logical conditions
  * Attributes: Late Day, Employee Tenure, Count per Circle, Day, Amount
  * Priority-based condition rule matching
- * Design: Enterprise Fintech — Deep Navy (#1e3a5f) + Teal (#0ea5e9) | Sharp corners
+ * Design: Enterprise Fintech — Deep Navy (#100841) + Teal (#31d891) | Sharp corners
  */
 import React, { useState, useMemo } from "react";
 import {
@@ -213,7 +213,7 @@ export function FeeHierarchyPage() {
     {
       id: "id",
       header: "Tier ID",
-      accessor: (ft) => <span className="font-mono font-bold text-[#1e3a5f]">{ft.id}</span>,
+      accessor: (ft) => <span className="font-mono font-bold text-[#100841]">{ft.id}</span>,
       searchString: (ft) => ft.id
     },
     {
@@ -221,10 +221,10 @@ export function FeeHierarchyPage() {
       header: "Rule Name / Definition",
       accessor: (ft) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{ft.name}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{ft.name}</p>
           <div className="flex items-center gap-1.5 mt-0.5">
-            <span className="text-[9px] text-[#5a6b7c] uppercase tracking-wider bg-[#f0f4f7] px-1 rounded-[1px]">Level {ft.tierLevel}</span>
-            <span className="text-[9px] text-[#5a6b7c] uppercase tracking-wider bg-[#f0f4f7] px-1 rounded-[1px]">Priority {ft.priority}</span>
+            <span className="text-[9px] text-[#4f525d] uppercase tracking-wider bg-[#ffffff] px-1 rounded-[1px]">Level {ft.tierLevel}</span>
+            <span className="text-[9px] text-[#4f525d] uppercase tracking-wider bg-[#ffffff] px-1 rounded-[1px]">Priority {ft.priority}</span>
           </div>
         </div>
       ),
@@ -249,7 +249,7 @@ export function FeeHierarchyPage() {
     {
       id: "conditions",
       header: "Logic Depth",
-      accessor: (ft) => <span className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest">{ft.conditions.length} Conditions</span>
+      accessor: (ft) => <span className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest">{ft.conditions.length} Conditions</span>
     },
     {
       id: "status",
@@ -408,16 +408,16 @@ export function FeeHierarchyPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Pyramid className="w-5 h-5 text-[#0ea5e9]" />
+          <Pyramid className="w-5 h-5 text-[#31d891]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Fee Hierarchy & Rule Engine</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">Attribute-based priority matching for dynamic fee calculation</p>
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Fee Hierarchy & Rule Engine</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">Attribute-based priority matching for dynamic fee calculation</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
           <EnterpriseButton
             variant="primary"
-            className="h-8 py-0 px-3 flex items-center gap-1 text-[10px] bg-[#1e3a5f]"
+            className="h-8 py-0 px-3 flex items-center gap-1 text-[10px] bg-[#100841]"
             onClick={() => {
               const nextId = `FT-${String(feeTiers.length + 1).padStart(3, "0")}`;
               setNewRule({
@@ -453,7 +453,7 @@ export function FeeHierarchyPage() {
           label="Logic Conditions Registered"
           value={feeTiers.reduce((sum, t) => sum + t.conditions.length, 0)}
           accentColor="neutral"
-          icon={<Settings className="w-3.5 h-3.5 text-[#5a6b7c]" />}
+          icon={<Settings className="w-3.5 h-3.5 text-[#4f525d]" />}
         />
         <EnterpriseKpiCard
           label="Estimated Average Margin"
@@ -472,7 +472,7 @@ export function FeeHierarchyPage() {
       {isCreatingRule && (
         <EnterpriseCard className="border-amber-400 bg-amber-50/20 p-5 space-y-4">
           <div className="flex justify-between items-center border-b border-amber-200 pb-2">
-            <h3 className="text-[12px] font-bold text-[#1e3a5f] uppercase tracking-wider flex items-center gap-1.5">
+            <h3 className="text-[12px] font-bold text-[#100841] uppercase tracking-wider flex items-center gap-1.5">
               <Settings size={14} className="text-amber-600 animate-spin" />
               Define New Dynamic Logic Tier Rule
             </h3>
@@ -482,34 +482,34 @@ export function FeeHierarchyPage() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
             <div className="space-y-1">
-              <label className="text-[8px] font-bold text-[#5a6b7c] uppercase">Rule/Tier ID</label>
+              <label className="text-[8px] font-bold text-[#4f525d] uppercase">Rule/Tier ID</label>
               <EnterpriseInput value={newRule.id} onChange={e => setNewRule(prev => ({ ...prev, id: e.target.value.toUpperCase() }))} className="font-mono" />
             </div>
             <div className="space-y-1 col-span-2">
-              <label className="text-[8px] font-bold text-[#5a6b7c] uppercase">Rule Name</label>
+              <label className="text-[8px] font-bold text-[#4f525d] uppercase">Rule Name</label>
               <EnterpriseInput value={newRule.name} onChange={e => setNewRule(prev => ({ ...prev, name: e.target.value }))} placeholder="e.g. Early Settlement Rebate" />
             </div>
             <div className="space-y-1">
-              <label className="text-[8px] font-bold text-[#5a6b7c] uppercase">Priority Level</label>
+              <label className="text-[8px] font-bold text-[#4f525d] uppercase">Priority Level</label>
               <EnterpriseInput type="number" value={newRule.priority} onChange={e => setNewRule(prev => ({ ...prev, priority: Number(e.target.value) }))} className="font-mono" />
             </div>
             <div className="space-y-1">
-              <label className="text-[8px] font-bold text-[#5a6b7c] uppercase">Fee Type</label>
+              <label className="text-[8px] font-bold text-[#4f525d] uppercase">Fee Type</label>
               <EnterpriseSelect value={newRule.feeType} onChange={e => setNewRule(prev => ({ ...prev, feeType: e.target.value as FeeType }))}>
                 <option value="PERCENT">PERCENT</option>
                 <option value="FLAT">FLAT</option>
               </EnterpriseSelect>
             </div>
             <div className="space-y-1">
-              <label className="text-[8px] font-bold text-[#5a6b7c] uppercase">Charge Value</label>
+              <label className="text-[8px] font-bold text-[#4f525d] uppercase">Charge Value</label>
               <EnterpriseInput type="number" value={newRule.value} onChange={e => setNewRule(prev => ({ ...prev, value: Number(e.target.value) }))} className="font-mono" />
             </div>
             <div className="space-y-1">
-              <label className="text-[8px] font-bold text-[#5a6b7c] uppercase">Scope Target</label>
+              <label className="text-[8px] font-bold text-[#4f525d] uppercase">Scope Target</label>
               <EnterpriseInput value={newRule.applicableTo} onChange={e => setNewRule(prev => ({ ...prev, applicableTo: e.target.value }))} />
             </div>
             <div className="space-y-1 flex items-end">
-              <EnterpriseButton variant="primary" className="w-full h-9 bg-[#1e3a5f]" onClick={handleSaveNewRule}>
+              <EnterpriseButton variant="primary" className="w-full h-9 bg-[#100841]" onClick={handleSaveNewRule}>
                 Save Logic Rule
               </EnterpriseButton>
             </div>
@@ -535,63 +535,63 @@ export function FeeHierarchyPage() {
           />
           
           {selectedTier && (
-            <EnterpriseCard className="mt-6 p-6 border-[#d1d9e0] bg-[#f8fafc]">
+            <EnterpriseCard className="mt-6 p-6 border-[#dfdfdf] bg-[#efefff]">
                <div className="flex items-center justify-between mb-6">
                  <div className="flex items-center gap-2">
-                   <Pyramid className="w-4 h-4 text-[#1e3a5f]" />
-                   <h3 className="text-[13px] font-bold text-[#1e3a5f] uppercase tracking-wider">{selectedTier.name} — Logical Breakdown</h3>
+                   <Pyramid className="w-4 h-4 text-[#100841]" />
+                   <h3 className="text-[13px] font-bold text-[#100841] uppercase tracking-wider">{selectedTier.name} — Logical Breakdown</h3>
                  </div>
                  <EnterpriseButton variant="secondary" className="h-7 text-[10px]" onClick={() => setSelectedTier(null)}>Close Analysis</EnterpriseButton>
                </div>
                
                <div className="grid grid-cols-4 gap-6 mb-8">
                   <div className="space-y-1">
-                    <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Hierarchy Depth</p>
-                    <p className="text-[14px] font-bold text-[#1e3a5f]">Level {selectedTier.tierLevel}</p>
-                    <p className="text-[10px] text-[#5a6b7c]">Priority Ranking: {selectedTier.priority}</p>
+                    <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Hierarchy Depth</p>
+                    <p className="text-[14px] font-bold text-[#100841]">Level {selectedTier.tierLevel}</p>
+                    <p className="text-[10px] text-[#4f525d]">Priority Ranking: {selectedTier.priority}</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Calculated Value</p>
+                    <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Calculated Value</p>
                     <p className={cn("text-[14px] font-mono font-bold", selectedTier.value < 0 ? "text-[#2e7d32]" : "text-[#e65100]")}>
                       {selectedTier.feeType === "PERCENT" ? (selectedTier.value > 0 ? "+" : "") + selectedTier.value + "%" : formatMMK(selectedTier.value)}
                     </p>
-                    <p className="text-[10px] text-[#5a6b7c] uppercase">Mode: {selectedTier.feeType}</p>
+                    <p className="text-[10px] text-[#4f525d] uppercase">Mode: {selectedTier.feeType}</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Application Scope</p>
-                    <p className="text-[12px] font-bold text-[#1e3a5f] uppercase">{selectedTier.applicableTo}</p>
-                    <p className="text-[10px] text-[#5a6b7c]">Target Entity</p>
+                    <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Application Scope</p>
+                    <p className="text-[12px] font-bold text-[#100841] uppercase">{selectedTier.applicableTo}</p>
+                    <p className="text-[10px] text-[#4f525d]">Target Entity</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Registry Status</p>
+                    <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Registry Status</p>
                     <EnterpriseBadge variant={selectedTier.status === "ACTIVE" ? "success" : "neutral"}>{selectedTier.status}</EnterpriseBadge>
-                    <p className="text-[10px] text-[#5a6b7c] uppercase mt-1">Live Environment</p>
+                    <p className="text-[10px] text-[#4f525d] uppercase mt-1">Live Environment</p>
                   </div>
                </div>
 
                <div className="space-y-4">
                   <div className="flex items-center gap-2">
-                    <Filter className="w-4 h-4 text-[#1e3a5f]" />
-                    <p className="text-[10px] font-bold text-[#1e3a5f] uppercase tracking-widest">Rule Conditional Logic (Sequential Chain)</p>
+                    <Filter className="w-4 h-4 text-[#100841]" />
+                    <p className="text-[10px] font-bold text-[#100841] uppercase tracking-widest">Rule Conditional Logic (Sequential Chain)</p>
                   </div>
                   
-                  <div className="border border-[#d1d9e0] rounded-[2px] overflow-hidden bg-white">
+                  <div className="border border-[#dfdfdf] rounded-[2px] overflow-hidden bg-white">
                     <EnterpriseTable
                       data={selectedTier.conditions}
                       columns={[
-                        { id: "id", header: "ID", accessor: (c) => <span className="text-[10px] font-mono text-[#5a6b7c]">{c.id}</span> },
+                        { id: "id", header: "ID", accessor: (c) => <span className="text-[10px] font-mono text-[#4f525d]">{c.id}</span> },
                         { id: "attr", header: "Attribute", accessor: (c) => {
                           const icons: Record<string, any> = { LATE_DAY: Clock, EMPLOYEE_TENURE: Calendar, AMOUNT: TrendingUp, COUNT_PER_CIRCLE: Users };
                           const Icon = icons[c.attribute] || Settings;
                           return (
                             <div className="flex items-center gap-1.5">
-                              <Icon className="w-3 h-3 text-[#5a6b7c]" />
-                              <span className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-tight">{c.attribute.replace("_", " ")}</span>
+                              <Icon className="w-3 h-3 text-[#4f525d]" />
+                              <span className="text-[11px] font-bold text-[#100841] uppercase tracking-tight">{c.attribute.replace("_", " ")}</span>
                             </div>
                           );
                         }},
-                        { id: "op", header: "Operator", accessor: (c) => <span className="text-[10px] font-bold text-[#1e3a5f] bg-[#f0f4f7] px-1.5 py-0.5 rounded-[2px]">{c.operator}</span> },
-                        { id: "val", header: "Value", accessor: (c) => <span className="text-[11px] font-mono font-bold text-[#1e3a5f]">{c.value}</span> },
+                        { id: "op", header: "Operator", accessor: (c) => <span className="text-[10px] font-bold text-[#100841] bg-[#ffffff] px-1.5 py-0.5 rounded-[2px]">{c.operator}</span> },
+                        { id: "val", header: "Value", accessor: (c) => <span className="text-[11px] font-mono font-bold text-[#100841]">{c.value}</span> },
                         { id: "link", header: "Linkage", accessor: (c) => <EnterpriseBadge variant={c.logicalOp === "AND" ? "info" : "warning"}>{c.logicalOp}</EnterpriseBadge> }
                       ]}
                       rowKey={(c) => c.id}
@@ -599,15 +599,15 @@ export function FeeHierarchyPage() {
                     />
                   </div>
 
-                  <div className="p-4 bg-[#1e3a5f]/5 border border-[#1e3a5f]/10 rounded-[2px]">
+                  <div className="p-4 bg-[#100841]/5 border border-[#100841]/10 rounded-[2px]">
                     <div className="flex items-center gap-2 mb-2">
-                      <Calculator className="w-3.5 h-3.5 text-[#1e3a5f]" />
-                      <p className="text-[9px] font-bold text-[#1e3a5f] uppercase tracking-widest">Evaluation Pseudocode</p>
+                      <Calculator className="w-3.5 h-3.5 text-[#100841]" />
+                      <p className="text-[9px] font-bold text-[#100841] uppercase tracking-widest">Evaluation Pseudocode</p>
                     </div>
-                    <p className="text-[11px] font-mono text-[#5a6b7c] leading-relaxed">
+                    <p className="text-[11px] font-mono text-[#4f525d] leading-relaxed">
                       IF {selectedTier.conditions.map((c, i) => (
                         <span key={c.id}>
-                          {i > 0 && <span className="text-[#0ea5e9] font-bold"> {c.logicalOp} </span>}
+                          {i > 0 && <span className="text-[#31d891] font-bold"> {c.logicalOp} </span>}
                           ({c.attribute} {c.operator} {c.value})
                         </span>
                       ))} THEN APPLY <span className="text-[#e65100] font-bold">{selectedTier.value}{selectedTier.feeType === "PERCENT" ? "%" : " MMK"}</span>
@@ -623,14 +623,14 @@ export function FeeHierarchyPage() {
            <EnterpriseTable
               data={feeTiers.flatMap(ft => ft.conditions.map(c => ({ ...c, tierName: ft.name, tierStatus: ft.status })))}
               columns={[
-                { id: "id", header: "Rule ID", accessor: (c) => <span className="text-[10px] font-mono text-[#5a6b7c]">{c.id}</span> },
-                { id: "tier", header: "Associated Tier", accessor: (c) => <span className="text-[11px] font-bold text-[#1e3a5f]">{c.tierName}</span> },
-                { id: "attr", header: "Attribute", accessor: (c) => <span className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-tight">{c.attribute.replace("_", " ")}</span> },
+                { id: "id", header: "Rule ID", accessor: (c) => <span className="text-[10px] font-mono text-[#4f525d]">{c.id}</span> },
+                { id: "tier", header: "Associated Tier", accessor: (c) => <span className="text-[11px] font-bold text-[#100841]">{c.tierName}</span> },
+                { id: "attr", header: "Attribute", accessor: (c) => <span className="text-[10px] font-bold text-[#4f525d] uppercase tracking-tight">{c.attribute.replace("_", " ")}</span> },
                 { id: "logic", header: "Logic Statement", accessor: (c) => (
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] text-[#5a6b7c] uppercase font-bold">{c.operator}</span>
+                    <span className="text-[10px] text-[#4f525d] uppercase font-bold">{c.operator}</span>
                     <ArrowRight className="w-3 h-3 text-slate-300" />
-                    <span className="text-[11px] font-mono font-bold text-[#1e3a5f]">{c.value}</span>
+                    <span className="text-[11px] font-mono font-bold text-[#100841]">{c.value}</span>
                   </div>
                 )},
                 { id: "status", header: "Rule State", accessor: (c) => <EnterpriseBadge variant={c.tierStatus === "ACTIVE" ? "success" : "neutral"}>{c.tierStatus}</EnterpriseBadge> }
@@ -645,56 +645,56 @@ export function FeeHierarchyPage() {
            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
               {/* Left Panel: Inputs */}
               <div className="lg:col-span-5 space-y-4">
-                <EnterpriseCard className="p-6 border-[#d1d9e0] bg-white space-y-5">
-                  <div className="flex items-center gap-2 border-b border-[#e8ecf0] pb-2">
-                    <Calculator className="w-4 h-4 text-[#1e3a5f]" />
-                    <h3 className="text-[13px] font-bold text-[#1e3a5f] uppercase tracking-wider">Fee Calculation Simulator</h3>
+                <EnterpriseCard className="p-6 border-[#dfdfdf] bg-white space-y-5">
+                  <div className="flex items-center gap-2 border-b border-[#efefff] pb-2">
+                    <Calculator className="w-4 h-4 text-[#100841]" />
+                    <h3 className="text-[13px] font-bold text-[#100841] uppercase tracking-wider">Fee Calculation Simulator</h3>
                   </div>
                   
                   <div className="space-y-4">
                      <div className="space-y-1">
-                       <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Transaction Drawdown Amount (MMK)</label>
+                       <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Transaction Drawdown Amount (MMK)</label>
                        <EnterpriseInput
                          type="number"
                          value={simAmount}
                          onChange={e => setSimAmount(Number(e.target.value))}
-                         className="font-mono font-bold text-sm text-[#1e3a5f]"
+                         className="font-mono font-bold text-sm text-[#100841]"
                        />
                      </div>
                      <div className="space-y-1">
-                       <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Arrears Late Period (Days)</label>
+                       <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Arrears Late Period (Days)</label>
                        <EnterpriseInput
                          type="number"
                          value={simLateDays}
                          onChange={e => setSimLateDays(Number(e.target.value))}
-                         className="font-mono font-bold text-sm text-[#1e3a5f]"
+                         className="font-mono font-bold text-sm text-[#100841]"
                        />
                      </div>
                      <div className="space-y-1">
-                       <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Employee Tenure (Months)</label>
+                       <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Employee Tenure (Months)</label>
                        <EnterpriseInput
                          type="number"
                          value={simTenure}
                          onChange={e => setSimTenure(Number(e.target.value))}
-                         className="font-mono font-bold text-sm text-[#1e3a5f]"
+                         className="font-mono font-bold text-sm text-[#100841]"
                        />
                      </div>
                      <div className="space-y-1">
-                       <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest font-bold">Transaction Count Per Period (Circles)</label>
+                       <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest font-bold">Transaction Count Per Period (Circles)</label>
                        <EnterpriseInput
                          type="number"
                          value={simCountPerCircle}
                          onChange={e => setSimCountPerCircle(Number(e.target.value))}
-                         className="font-mono font-bold text-sm text-[#1e3a5f]"
+                         className="font-mono font-bold text-sm text-[#100841]"
                        />
                      </div>
                      <div className="space-y-1">
-                       <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest font-bold">Calendar Day of Request</label>
+                       <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest font-bold">Calendar Day of Request</label>
                        <EnterpriseInput
                          type="number"
                          value={simDay}
                          onChange={e => setSimDay(Number(e.target.value))}
-                         className="font-mono font-bold text-sm text-[#1e3a5f]"
+                         className="font-mono font-bold text-sm text-[#100841]"
                          min={1}
                          max={31}
                        />
@@ -706,17 +706,17 @@ export function FeeHierarchyPage() {
               {/* Right Panel: Output Tracing & Summary */}
               <div className="lg:col-span-7 space-y-4">
                 {/* Mathematical Summation Banner */}
-                <div className="p-5 bg-white border border-[#d1d9e0] rounded-[3px] shadow-sm space-y-3.5">
-                  <div className="flex justify-between items-center border-b border-[#e8ecf0] pb-2">
-                    <span className="text-[10px] font-bold text-[#1e3a5f] uppercase tracking-wider">Dynamic Trace Summation</span>
-                    <span className="text-[9px] text-[#5a6b7c] font-mono">Precision Calculated</span>
+                <div className="p-5 bg-white border border-[#dfdfdf] rounded-[3px] shadow-sm space-y-3.5">
+                  <div className="flex justify-between items-center border-b border-[#efefff] pb-2">
+                    <span className="text-[10px] font-bold text-[#100841] uppercase tracking-wider">Dynamic Trace Summation</span>
+                    <span className="text-[9px] text-[#4f525d] font-mono">Precision Calculated</span>
                   </div>
 
                   <div className="space-y-2">
                     {/* Disbursement Match Row */}
                     <div className="flex justify-between items-center text-[11px]">
-                      <span className="text-[#5a6b7c] flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#0ea5e9]" />
+                      <span className="text-[#4f525d] flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#31d891]" />
                         Disbursement Bracket:
                         <strong className="text-slate-700">
                           {simulationEvaluation.disbursementRule?.id || "None"}
@@ -735,7 +735,7 @@ export function FeeHierarchyPage() {
                     {/* Discount Match Row */}
                     {simulationEvaluation.discountFee > 0 && (
                       <div className="flex justify-between items-center text-[11px]">
-                        <span className="text-[#5a6b7c] flex items-center gap-1.5">
+                        <span className="text-[#4f525d] flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#2e7d32]" />
                           Discount Adjustment:
                           <strong className="text-emerald-700 font-semibold">
@@ -751,7 +751,7 @@ export function FeeHierarchyPage() {
                     {/* Penalty Match Row */}
                     {simulationEvaluation.lateFee > 0 && (
                       <div className="flex justify-between items-center text-[11px]">
-                        <span className="text-[#5a6b7c] flex items-center gap-1.5">
+                        <span className="text-[#4f525d] flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#c62828]" />
                           Late Penalties Match:
                           <strong className="text-[#c62828]">
@@ -767,7 +767,7 @@ export function FeeHierarchyPage() {
                     {/* Flat Service Fee Match Row */}
                     {simulationEvaluation.flatFee > 0 && (
                       <div className="flex justify-between items-center text-[11px]">
-                        <span className="text-[#5a6b7c] flex items-center gap-1.5">
+                        <span className="text-[#4f525d] flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
                           Flat Service Charge (Day 1-7):
                         </span>
@@ -782,8 +782,8 @@ export function FeeHierarchyPage() {
                     {/* Final Net Fee display */}
                     <div className="flex justify-between items-center">
                       <div>
-                        <span className="text-[#1e3a5f] font-extrabold uppercase text-[12px] tracking-wider block">Net Computed EWA Fee:</span>
-                        <span className="text-[9px] text-[#5a6b7c] italic block">Inclusive of matched discounts & penalty additions.</span>
+                        <span className="text-[#100841] font-extrabold uppercase text-[12px] tracking-wider block">Net Computed EWA Fee:</span>
+                        <span className="text-[9px] text-[#4f525d] italic block">Inclusive of matched discounts & penalty additions.</span>
                       </div>
                       <span className="font-mono text-2xl font-extrabold text-[#e65100]">
                         {formatMMK(simulationEvaluation.netFee)}
@@ -793,10 +793,10 @@ export function FeeHierarchyPage() {
                 </div>
 
                 {/* Live Console Tracing */}
-                <EnterpriseCard className="p-5 bg-white border border-[#d1d9e0]">
-                  <div className="flex items-center gap-1.5 mb-3 border-b border-[#e8ecf0] pb-1.5">
+                <EnterpriseCard className="p-5 bg-white border border-[#dfdfdf]">
+                  <div className="flex items-center gap-1.5 mb-3 border-b border-[#efefff] pb-1.5">
                     <CheckCircle className="w-4 h-4 text-emerald-600" />
-                    <h4 className="text-[10px] font-bold text-[#1e3a5f] uppercase tracking-wider">Policy Calculation Trace Outputs</h4>
+                    <h4 className="text-[10px] font-bold text-[#100841] uppercase tracking-wider">Policy Calculation Trace Outputs</h4>
                   </div>
                   <div className="bg-slate-900 text-slate-200 p-4 rounded-[2px] font-mono text-[10.5px] space-y-1.5 max-h-[220px] overflow-y-auto leading-normal">
                     {simulationEvaluation.logs.map((log, idx) => {

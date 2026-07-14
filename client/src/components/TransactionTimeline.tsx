@@ -87,7 +87,7 @@ export function TransactionTimeline({ transactions }: TransactionTimelineProps) 
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1.5">
-                      <span className="text-[10px] font-mono font-bold text-[#1e3a5f]">{txn.id}</span>
+                      <span className="text-[10px] font-mono font-bold text-[#100841]">{txn.id}</span>
                       <EnterpriseBadge variant={sc.variant}>
                         {sc.label}
                       </EnterpriseBadge>
@@ -96,7 +96,7 @@ export function TransactionTimeline({ transactions }: TransactionTimelineProps) 
                     <div className="flex items-center gap-4 text-xs">
                       <div>
                         <p className="text-[9px] text-slate-400 uppercase tracking-wider">Disbursed</p>
-                        <p className="font-mono font-bold text-[#1e3a5f]">{formatMMK(txn.netAmount)}</p>
+                        <p className="font-mono font-bold text-[#100841]">{formatMMK(txn.netAmount)}</p>
                       </div>
                       <div>
                         <p className="text-[9px] text-slate-400 uppercase tracking-wider">Fee</p>

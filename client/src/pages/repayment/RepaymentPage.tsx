@@ -46,14 +46,14 @@ function WorkflowSteps({ status }: { status: string }) {
           <div 
             className={cn(
               "w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold transition-colors",
-              i <= currentIndex ? "bg-[#1e3a5f] text-white" : "bg-slate-200 text-slate-400"
+              i <= currentIndex ? "bg-[#100841] text-white" : "bg-slate-200 text-slate-400"
             )}
             title={step.replace("_", " ")}
           >
             {i + 1}
           </div>
           {i < steps.length - 1 && (
-            <div className={cn("w-2.5 h-[1.5px] transition-colors", i < currentIndex ? "bg-[#1e3a5f]" : "bg-slate-200")} />
+            <div className={cn("w-2.5 h-[1.5px] transition-colors", i < currentIndex ? "bg-[#100841]" : "bg-slate-200")} />
           )}
         </div>
       ))}
@@ -71,7 +71,7 @@ export function RepaymentPage() {
     {
       id: "id",
       header: "ID",
-      accessor: (req) => <span className="font-mono font-bold text-[#1e3a5f]">{req.id}</span>,
+      accessor: (req) => <span className="font-mono font-bold text-[#100841]">{req.id}</span>,
       searchString: (req) => req.id
     },
     {
@@ -79,8 +79,8 @@ export function RepaymentPage() {
       header: "Company",
       accessor: (req) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{req.companyName}</p>
-          <p className="text-[9px] text-[#5a6b7c] font-mono">{req.companyId}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{req.companyName}</p>
+          <p className="text-[9px] text-[#4f525d] font-mono">{req.companyId}</p>
         </div>
       ),
       searchString: (req) => `${req.companyName} ${req.companyId}`
@@ -90,8 +90,8 @@ export function RepaymentPage() {
       header: "Initiator",
       accessor: (req) => (
         <div>
-          <p className="text-[12px] text-[#1e3a5f] font-semibold">{req.initiatorName}</p>
-          <p className="text-[10px] text-[#5a6b7c] font-mono">{req.initiator}</p>
+          <p className="text-[12px] text-[#100841] font-semibold">{req.initiatorName}</p>
+          <p className="text-[10px] text-[#4f525d] font-mono">{req.initiator}</p>
         </div>
       ),
       searchString: (req) => req.initiatorName
@@ -99,7 +99,7 @@ export function RepaymentPage() {
     {
       id: "period",
       header: "Period",
-      accessor: (req) => <span className="font-semibold text-[#5a6b7c]">{req.period}</span>
+      accessor: (req) => <span className="font-semibold text-[#4f525d]">{req.period}</span>
     },
     {
       id: "totalAmount",
@@ -125,7 +125,7 @@ export function RepaymentPage() {
     {
       id: "paymentMethod",
       header: "Payment",
-      accessor: (req) => <span className="font-semibold text-[#5a6b7c]">{req.paymentMethod}</span>
+      accessor: (req) => <span className="font-semibold text-[#4f525d]">{req.paymentMethod}</span>
     },
     {
       id: "status",
@@ -181,19 +181,19 @@ export function RepaymentPage() {
     {
       id: "id",
       header: "ID",
-      accessor: (set) => <span className="font-mono font-bold text-[#1e3a5f]">{set.id}</span>,
+      accessor: (set) => <span className="font-mono font-bold text-[#100841]">{set.id}</span>,
       searchString: (set) => set.id
     },
     {
       id: "companyName",
       header: "Company",
-      accessor: (set) => <span className="text-[12px] font-bold text-[#1e3a5f]">{set.companyName}</span>,
+      accessor: (set) => <span className="text-[12px] font-bold text-[#100841]">{set.companyName}</span>,
       searchString: (set) => set.companyName
     },
     {
       id: "submittedBy",
       header: "Submitted By",
-      accessor: (set) => <span className="text-[11px] text-[#5a6b7c] font-semibold">{set.submittedBy}</span>,
+      accessor: (set) => <span className="text-[11px] text-[#4f525d] font-semibold">{set.submittedBy}</span>,
       searchString: (set) => set.submittedBy
     },
     {
@@ -206,7 +206,7 @@ export function RepaymentPage() {
     {
       id: "paymentMethod",
       header: "Method",
-      accessor: (set) => <span className="text-[11px] text-[#5a6b7c] font-semibold">{set.paymentMethod}</span>
+      accessor: (set) => <span className="text-[11px] text-[#4f525d] font-semibold">{set.paymentMethod}</span>
     },
     {
       id: "bankReference",
@@ -259,8 +259,8 @@ export function RepaymentPage() {
       header: "Employee",
       accessor: (item) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{item.employeeName}</p>
-          <p className="text-[9px] text-[#5a6b7c] font-mono">{item.employeeId}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{item.employeeName}</p>
+          <p className="text-[9px] text-[#4f525d] font-mono">{item.employeeId}</p>
         </div>
       ),
       searchString: (item) => `${item.employeeName} ${item.employeeId}`
@@ -294,7 +294,7 @@ export function RepaymentPage() {
       isNumeric: true,
       align: "right",
       accessor: (item) => item.total,
-      cellClassName: () => "font-bold text-[#1e3a5f]"
+      cellClassName: () => "font-bold text-[#100841]"
     },
     {
       id: "allocationPct",
@@ -302,7 +302,7 @@ export function RepaymentPage() {
       isNumeric: true,
       align: "right",
       accessor: (item) => item.allocationPct + "%",
-      cellClassName: () => "font-bold text-[#5a6b7c]"
+      cellClassName: () => "font-bold text-[#4f525d]"
     },
     {
       id: "allocatedAmount",
@@ -318,10 +318,10 @@ export function RepaymentPage() {
     <div className="space-y-4">
       {/* ===== Page Header ===== */}
       <div className="flex items-center gap-2">
-        <Layers className="w-4 h-4 text-[#0ea5e9]" />
+        <Layers className="w-4 h-4 text-[#31d891]" />
         <div>
-          <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Repayment & Settlement</h1>
-          <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">
+          <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Repayment & Settlement</h1>
+          <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">
             Audit-safe reconciliation for Earned Wage Access distributions
           </p>
         </div>
@@ -352,8 +352,8 @@ export function RepaymentPage() {
           {/* Expanded Items Breakdown */}
           <div className="space-y-3">
             <div className="flex items-center gap-2 px-1">
-              <FileText className="w-3.5 h-3.5 text-[#0ea5e9]" />
-              <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-wider">
+              <FileText className="w-3.5 h-3.5 text-[#31d891]" />
+              <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-wider">
                 Breakdown Items — {activeRepaymentRequest.id} ({activeRepaymentRequest.companyName})
               </h3>
             </div>

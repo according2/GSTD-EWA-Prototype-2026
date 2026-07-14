@@ -31,8 +31,8 @@ export function BudgetPage() {
       header: "Company",
       accessor: (c) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{c.name}</p>
-          <p className="text-[9px] text-[#5a6b7c] font-mono">{c.id}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{c.name}</p>
+          <p className="text-[9px] text-[#4f525d] font-mono">{c.id}</p>
         </div>
       ),
       searchString: (c) => `${c.name} ${c.id}`
@@ -92,7 +92,7 @@ export function BudgetPage() {
     {
       id: "company",
       header: "Company",
-      accessor: (c) => <span className="text-[12px] font-bold text-[#1e3a5f]">{c.name}</span>,
+      accessor: (c) => <span className="text-[12px] font-bold text-[#100841]">{c.name}</span>,
       searchString: (c) => c.name
     },
     {
@@ -135,8 +135,8 @@ export function BudgetPage() {
       {/* ===== Page Header ===== */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Budget Management</h1>
-          <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">
+          <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Budget Management</h1>
+          <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">
             Institutional liquidity & exposure monitoring
           </p>
         </div>
@@ -154,13 +154,13 @@ export function BudgetPage() {
         <EnterpriseKpiCard
           label="Total Portfolio Budget"
           value={formatMMK(totalBudget)}
-          icon={<DollarSign className="w-3.5 h-3.5 text-[#1e3a5f]" />}
+          icon={<DollarSign className="w-3.5 h-3.5 text-[#100841]" />}
           subValue={`${companies.length} companies allocated`}
         />
         <EnterpriseKpiCard
           label="Aggregate Utilization"
           value={formatMMK(totalUtilized)}
-          icon={<TrendingUp className="w-3.5 h-3.5 text-[#0ea5e9]" />}
+          icon={<TrendingUp className="w-3.5 h-3.5 text-[#31d891]" />}
           subValue={`${utilizationPct}% overall utilization`}
         />
         <EnterpriseKpiCard
@@ -213,9 +213,9 @@ export function BudgetPage() {
         </TabsContent>
 
         <TabsContent value="requests" className="mt-4 outline-none">
-          <div className="p-20 text-center bg-slate-50 border border-dashed border-[#d1d9e0] rounded-[3px]">
+          <div className="p-20 text-center bg-slate-50 border border-dashed border-[#dfdfdf] rounded-[3px]">
              <TrendingUp className="w-10 h-10 text-slate-200 mx-auto mb-3" />
-             <p className="text-[11px] font-bold text-[#5a6b7c] uppercase tracking-widest">No pending budget allocation requests</p>
+             <p className="text-[11px] font-bold text-[#4f525d] uppercase tracking-widest">No pending budget allocation requests</p>
           </div>
         </TabsContent>
       </Tabs>

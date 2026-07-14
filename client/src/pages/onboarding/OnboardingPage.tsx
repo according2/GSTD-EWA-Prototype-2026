@@ -40,14 +40,14 @@ export function OnboardingPage() {
   }
 
   return (
-    <div className="h-[calc(100vh-80px)] flex flex-col bg-[#f8fafc] font-sans">
+    <div className="h-[calc(100vh-80px)] flex flex-col bg-[#efefff] font-sans">
       {/* Spacious Top Navigation Tabs */}
-      <div className="bg-white border-b border-[#d1d9e0] px-6 py-2 flex items-center justify-between">
+      <div className="bg-white border-b border-[#dfdfdf] px-6 py-2 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <button
             onClick={() => setActiveTab("dashboard")}
             className={`py-2 text-[12px] font-bold uppercase tracking-wider transition-all relative ${
-              activeTab === "dashboard" ? "text-[#0ea5e9]" : "text-[#5a6b7c] hover:text-[#1e3a5f]"
+              activeTab === "dashboard" ? "text-[#31d891]" : "text-[#4f525d] hover:text-[#100841]"
             }`}
           >
             <span className="flex items-center gap-1.5">
@@ -55,14 +55,14 @@ export function OnboardingPage() {
               Onboarding Portal
             </span>
             {activeTab === "dashboard" && (
-              <div className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#0ea5e9]" />
+              <div className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#31d891]" />
             )}
           </button>
 
           <button
             onClick={() => setActiveTab("new_onboarding")}
             className={`py-2 text-[12px] font-bold uppercase tracking-wider transition-all relative ${
-              activeTab === "new_onboarding" ? "text-[#0ea5e9]" : "text-[#5a6b7c] hover:text-[#1e3a5f]"
+              activeTab === "new_onboarding" ? "text-[#31d891]" : "text-[#4f525d] hover:text-[#100841]"
             }`}
           >
             <span className="flex items-center gap-1.5">
@@ -70,14 +70,14 @@ export function OnboardingPage() {
               New Corporate Onboarding (Spacious Tab)
             </span>
             {activeTab === "new_onboarding" && (
-              <div className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#0ea5e9]" />
+              <div className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#31d891]" />
             )}
           </button>
 
           <button
             onClick={() => setActiveTab("new_budget")}
             className={`py-2 text-[12px] font-bold uppercase tracking-wider transition-all relative ${
-              activeTab === "new_budget" ? "text-[#0ea5e9]" : "text-[#5a6b7c] hover:text-[#1e3a5f]"
+              activeTab === "new_budget" ? "text-[#31d891]" : "text-[#4f525d] hover:text-[#100841]"
             }`}
           >
             <span className="flex items-center gap-1.5">
@@ -85,7 +85,7 @@ export function OnboardingPage() {
               New Budget Request
             </span>
             {activeTab === "new_budget" && (
-              <div className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#0ea5e9]" />
+              <div className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#31d891]" />
             )}
           </button>
         </div>
@@ -105,11 +105,11 @@ export function OnboardingPage() {
         )}
 
         {activeTab === "new_onboarding" && (
-          <div className="bg-white border border-[#d1d9e0] rounded-[3px] h-full overflow-hidden flex flex-col">
-            <div className="bg-[#1e3a5f] text-white px-5 py-3 flex items-center justify-between">
+          <div className="bg-white border border-[#dfdfdf] rounded-[3px] h-full overflow-hidden flex flex-col">
+            <div className="bg-[#100841] text-white px-5 py-3 flex items-center justify-between">
               <div>
                 <h3 className="text-[13px] font-bold uppercase tracking-wider">Spacious Corporate Onboarding Flow</h3>
-                <p className="text-[9px] text-[#0ea5e9] uppercase tracking-widest font-bold mt-0.5">
+                <p className="text-[9px] text-[#31d891] uppercase tracking-widest font-bold mt-0.5">
                   Filled with realistic default data for immediate demo trace-through
                 </p>
               </div>
@@ -131,11 +131,11 @@ export function OnboardingPage() {
         )}
 
         {activeTab === "new_budget" && (
-          <div className="bg-white border border-[#d1d9e0] rounded-[3px] h-full overflow-hidden flex flex-col">
-            <div className="bg-[#1e3a5f] text-white px-5 py-3 flex items-center justify-between">
+          <div className="bg-white border border-[#dfdfdf] rounded-[3px] h-full overflow-hidden flex flex-col">
+            <div className="bg-[#100841] text-white px-5 py-3 flex items-center justify-between">
               <div>
                 <h3 className="text-[13px] font-bold uppercase tracking-wider">Spacious Budget Request Flow</h3>
-                <p className="text-[9px] text-[#0ea5e9] uppercase tracking-widest font-bold mt-0.5">
+                <p className="text-[9px] text-[#31d891] uppercase tracking-widest font-bold mt-0.5">
                   Request incremental EWA fund allocations for approved entities
                 </p>
               </div>

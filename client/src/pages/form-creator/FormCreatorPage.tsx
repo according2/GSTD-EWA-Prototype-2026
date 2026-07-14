@@ -30,7 +30,7 @@ export function FormCreatorPage() {
     {
       id: "id",
       header: "ID",
-      accessor: (ft) => <span className="font-mono font-bold text-[#1e3a5f]">{ft.id}</span>,
+      accessor: (ft) => <span className="font-mono font-bold text-[#100841]">{ft.id}</span>,
       searchString: (ft) => ft.id
     },
     {
@@ -38,8 +38,8 @@ export function FormCreatorPage() {
       header: "Template Definition",
       accessor: (ft) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{ft.name}</p>
-          <p className="text-[10px] text-[#5a6b7c] truncate max-w-[300px]">{ft.description}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{ft.name}</p>
+          <p className="text-[10px] text-[#4f525d] truncate max-w-[300px]">{ft.description}</p>
         </div>
       ),
       searchString: (ft) => `${ft.name} ${ft.description}`
@@ -49,7 +49,7 @@ export function FormCreatorPage() {
       header: "Depth",
       isNumeric: true,
       align: "center",
-      accessor: (ft) => <span className="text-[11px] font-bold text-[#1e3a5f] bg-[#f0f4f7] px-2 rounded-[1px]">{ft.fields} Fields</span>
+      accessor: (ft) => <span className="text-[11px] font-bold text-[#100841] bg-[#ffffff] px-2 rounded-[1px]">{ft.fields} Fields</span>
     },
     {
       id: "version",
@@ -72,12 +72,12 @@ export function FormCreatorPage() {
     {
       id: "id",
       header: "Field ID",
-      accessor: (f) => <span className="text-[10px] font-mono font-bold text-[#1e3a5f]">{f.id}</span>
+      accessor: (f) => <span className="text-[10px] font-mono font-bold text-[#100841]">{f.id}</span>
     },
     {
       id: "name",
       header: "Label",
-      accessor: (f) => <span className="text-[11px] font-bold text-[#1e3a5f]">{f.name}</span>
+      accessor: (f) => <span className="text-[11px] font-bold text-[#100841]">{f.name}</span>
     },
     {
       id: "type",
@@ -92,7 +92,7 @@ export function FormCreatorPage() {
     {
       id: "validation",
       header: "Logic Rules",
-      accessor: (f) => <span className="text-[10px] text-[#5a6b7c] font-mono">{f.validation}</span>
+      accessor: (f) => <span className="text-[10px] text-[#4f525d] font-mono">{f.validation}</span>
     }
   ];
 
@@ -119,14 +119,14 @@ export function FormCreatorPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <LayoutTemplate className="w-5 h-5 text-[#0ea5e9]" />
+          <LayoutTemplate className="w-5 h-5 text-[#31d891]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Enterprise Form Builder</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">Dynamic JSON Schema generation for KYC and EWA requests</p>
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Enterprise Form Builder</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">Dynamic JSON Schema generation for KYC and EWA requests</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <EnterpriseButton variant="primary" className="h-8 py-0 px-3 flex items-center gap-1 text-[10px] bg-[#1e3a5f]">
+          <EnterpriseButton variant="primary" className="h-8 py-0 px-3 flex items-center gap-1 text-[10px] bg-[#100841]">
             <Plus className="w-3.5 h-3.5" /> Create Template
           </EnterpriseButton>
         </div>
@@ -145,7 +145,7 @@ export function FormCreatorPage() {
           label="Total Fields"
           value={formTemplates.reduce((sum, t) => sum + t.fields, 0)}
           accentColor="neutral"
-          icon={<FileText className="w-3.5 h-3.5 text-[#5a6b7c]" />}
+          icon={<FileText className="w-3.5 h-3.5 text-[#4f525d]" />}
         />
         <EnterpriseKpiCard
           label="Schema Integrity"
@@ -164,8 +164,8 @@ export function FormCreatorPage() {
       <div className="space-y-6">
         <section className="space-y-3">
           <div className="flex items-center gap-2">
-            <Settings className="w-4 h-4 text-[#1e3a5f]" />
-            <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest">Template Registry</h3>
+            <Settings className="w-4 h-4 text-[#100841]" />
+            <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest">Template Registry</h3>
           </div>
           <EnterpriseTable
             data={formTemplates}
@@ -178,8 +178,8 @@ export function FormCreatorPage() {
 
         <section className="space-y-3">
           <div className="flex items-center gap-2">
-            <FileText className="w-4 h-4 text-[#1e3a5f]" />
-            <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest">Active Field Configuration — {formTemplates[0].name}</h3>
+            <FileText className="w-4 h-4 text-[#100841]" />
+            <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest">Active Field Configuration — {formTemplates[0].name}</h3>
           </div>
           <EnterpriseTable
             data={formFields}

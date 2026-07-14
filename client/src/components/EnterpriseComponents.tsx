@@ -41,12 +41,12 @@ export function EnterpriseKpiCard({
   ...props
 }: EnterpriseKpiCardProps) {
   return (
-    <div className={cn("kpi-card bg-white border border-[#d1d9e0] rounded-[3px] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.06)]", className)} {...props}>
+    <div className={cn("kpi-card bg-white border border-[#dfdfdf] rounded-[3px] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.06)]", className)} {...props}>
       <div className="flex items-center justify-between mb-2">
-        <p className="text-[8px] text-[#5a6b7c] uppercase tracking-widest font-semibold">{label}</p>
+        <p className="text-[8px] text-[#4f525d] uppercase tracking-widest font-semibold">{label}</p>
         {icon && <span className="shrink-0">{icon}</span>}
       </div>
-      <p className="text-xl font-bold text-[#1e3a5f] font-mono tracking-tight leading-none mb-1">{value}</p>
+      <p className="text-xl font-bold text-[#100841] font-mono tracking-tight leading-none mb-1">{value}</p>
       
       {(subValue || change) && (
         <div className="flex items-center gap-1.5 mt-1">
@@ -59,7 +59,7 @@ export function EnterpriseKpiCard({
             </span>
           )}
           {subValue && (
-            <p className="text-[9px] text-[#5a6b7c] font-medium font-mono">{subValue}</p>
+            <p className="text-[9px] text-[#4f525d] font-medium font-mono">{subValue}</p>
           )}
         </div>
       )}
@@ -167,8 +167,8 @@ export function EnterpriseSelect({ className, children, ...props }: EnterpriseSe
 // =============================================================================
 export function LedgerDivider({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn("relative h-px bg-[#d1d9e0] my-4 flex items-center justify-end", className)} {...props}>
-      <span className="absolute right-0 w-2.5 h-1 bg-[#0ea5e9]" />
+    <div className={cn("relative h-px bg-[#dfdfdf] my-4 flex items-center justify-end", className)} {...props}>
+      <span className="absolute right-0 w-2.5 h-1 bg-[#31d891]" />
     </div>
   );
 }

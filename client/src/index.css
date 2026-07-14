@@ -1,16 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Heap dual-typeface split: Inter = Circular Standard (display/structure), Plus Jakarta Sans = Lettera Text (prose) */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* Tight 4px radius scale — Heap runs the tightest in the analytics peer group */
+  --radius-sm: calc(var(--radius) - 1px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 6px);
+  --radius-xl: calc(var(--radius) + 12px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -43,49 +46,60 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  /* EWA Enterprise Brand Colors */
-  --color-ewa-navy: oklch(0.2 0.05 250);
-  --color-ewa-teal: oklch(0.55 0.12 210);
-  --color-ewa-amber: oklch(0.72 0.12 75);
-  --color-ewa-red: oklch(0.5 0.16 25);
-  --color-ewa-emerald: oklch(0.55 0.14 155);
+  /* Heap brand tokens */
+  --color-mint: #31d891;
+  --color-mint-muted: #31a679;
+  --color-mint-dark: #31715f;
+  --color-ink: #111111;
+  --color-navy: #100841;
+  --color-hairline: #dfdfdf;
+  /* Legacy EWA aliases remapped to Heap palette */
+  --color-ewa-navy: #100841;
+  --color-ewa-teal: #31d891;
+  --color-ewa-amber: #e65100;
+  --color-ewa-red: #df0134;
+  --color-ewa-emerald: #31a679;
 }
 
 :root {
-  --radius: 0.25rem;
-  /* SAP Fiori-Inspired Enterprise Fintech — Professional, Structured, Authoritative */
-  --background: oklch(0.965 0.005 250);
-  --foreground: oklch(0.15 0.02 250);
-  --card: oklch(0.995 0 0);
-  --card-foreground: oklch(0.15 0.02 250);
-  --popover: oklch(0.995 0 0);
-  --popover-foreground: oklch(0.15 0.02 250);
-  --primary: oklch(0.2 0.05 250);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.005 250);
-  --secondary-foreground: oklch(0.2 0.05 250);
-  --muted: oklch(0.93 0.005 250);
-  --muted-foreground: oklch(0.4 0.015 250);
-  --accent: oklch(0.94 0.01 210);
-  --accent-foreground: oklch(0.2 0.05 250);
-  --destructive: oklch(0.5 0.16 25);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.87 0.008 250);
-  --input: oklch(0.87 0.008 250);
-  --ring: oklch(0.55 0.12 210);
-  --chart-1: oklch(0.2 0.05 250);
-  --chart-2: oklch(0.55 0.12 210);
-  --chart-3: oklch(0.55 0.14 155);
-  --chart-4: oklch(0.72 0.12 75);
-  --chart-5: oklch(0.5 0.16 25);
-  --sidebar: oklch(0.965 0.005 250);
-  --sidebar-foreground: oklch(0.15 0.02 250);
-  --sidebar-primary: oklch(0.55 0.12 210);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.94 0.01 210);
-  --sidebar-accent-foreground: oklch(0.2 0.05 250);
-  --sidebar-border: oklch(0.87 0.008 250);
-  --sidebar-ring: oklch(0.55 0.12 210);
+  /* Heap: tight 4px radius */
+  --radius: 4px;
+  /* Heap — pure-white editorial canvas, ink-black text, mint voltage on borders only */
+  --background: #ffffff;
+  --foreground: #111111;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  /* Primary = ink-black fill (button body), never mint fill */
+  --primary: #111111;
+  --primary-foreground: #ffffff;
+  --secondary: #efefff;
+  --secondary-foreground: #111111;
+  --muted: #efefff;
+  --muted-foreground: #4f525d;
+  --accent: #efefff;
+  --accent-foreground: #111111;
+  --destructive: #df0134;
+  --destructive-foreground: #ffffff;
+  --border: #dfdfdf;
+  --input: #dfdfdf;
+  /* Focus ring carries the mint voltage */
+  --ring: #31d891;
+  --chart-1: #31d891;
+  --chart-2: #100841;
+  --chart-3: #31715f;
+  --chart-4: #31a679;
+  --chart-5: #df0134;
+  /* Sidebar = deep-navy dark shell */
+  --sidebar: #100841;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #31d891;
+  --sidebar-primary-foreground: #111111;
+  --sidebar-accent: rgba(255, 255, 255, 0.06);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #31d891;
 }
 
 @layer base {
@@ -94,7 +108,13 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
-    font-feature-settings: "tnum" on, "lnum" on, "cv01" on;
+    font-feature-settings: "tnum" on, "lnum" on;
+  }
+  /* Circular Standard register — structural headings via Inter, restrained weight, negative tracking */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans;
+    font-weight: 500;
+    letter-spacing: -0.02em;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -130,96 +150,106 @@
       max-width: 1440px;
     }
   }
+
+  /* Lettera Text register — editorial body prose via Plus Jakarta Sans */
+  .font-prose {
+    @apply font-serif;
+  }
+
+  /* Mint text-marker — the only inline brand fill Heap permits */
+  .mark-highlight {
+    @apply bg-[#31d891] text-[#111111] px-1;
+  }
 }
 
-/* ===== SAP FIORI-INSPIRED ENTERPRISE COMPONENTS ===== */
+/* ===== HEAP DESIGN SYSTEM — flat, editorial, mint-voltage on borders ===== */
 
-/* Enterprise Table — structured, column-aligned, SAP ALV style */
+/* Enterprise Table — structured, column-aligned, hairline borders */
 .table-enterprise {
   @apply w-full text-[11px] border-collapse;
 }
 .table-enterprise thead th {
-  @apply text-left py-2 px-3 font-bold text-[#5a6b7c] uppercase tracking-wider border-b border-[#d1d9e0] bg-[#f0f4f7] sticky top-0 z-10 whitespace-nowrap;
+  @apply text-left py-2 px-3 font-bold text-[#4f525d] uppercase tracking-wider border-b border-[#dfdfdf] bg-[#efefff] sticky top-0 z-10 whitespace-nowrap;
 }
 .table-enterprise tbody td {
-  @apply py-2.5 px-3 border-b border-[#e8ecf0];
+  @apply py-2.5 px-3 border-b border-[#efefff];
 }
 .table-enterprise tbody tr {
-  @apply hover:bg-[#f5f8fb] transition-colors;
+  @apply hover:bg-[#efefff] transition-colors;
 }
 .table-enterprise tbody tr.selected {
-  @apply bg-[#e8f0fe];
+  @apply bg-[#31d891]/10;
 }
 
-/* Enterprise Card — sharp corners, minimal shadow, structured border */
+/* Card — white fill, 4px radius, hairline border, NO shadow (elevation from border alone) */
 .card-enterprise {
-  @apply bg-white border border-[#d1d9e0] rounded-[3px] shadow-[0_1px_3px_rgba(0,0,0,0.06)];
+  @apply bg-white border border-[#dfdfdf] rounded-[4px];
 }
 
-/* Enterprise KPI Card — prominent number, clear label, subtle top border */
+/* KPI Card — mint voltage as a 2px top border marker */
 .kpi-card {
-  @apply bg-white border border-[#d1d9e0] rounded-[3px] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.06)];
-  border-top-width: 3px;
+  @apply bg-white border border-[#dfdfdf] rounded-[4px] p-4;
+  border-top: 2px solid #31d891;
 }
 
-/* Tab Panel Enterprise — clean, structured */
+/* Tab Panel — flat, hairline-bordered */
 .tab-panel-enterprise {
-  @apply bg-white border border-[#d1d9e0] rounded-[3px] p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)];
+  @apply bg-white border border-[#dfdfdf] rounded-[4px] p-5;
 }
 
-/* Bulk Action Bar — SAP Fiori toolbar style */
+/* Bulk Action Bar — deep-navy island with mint top border */
 .bulk-action-bar {
-  @apply fixed bottom-0 left-0 right-0 bg-[#1e3a5f] text-white px-5 py-3 z-50 shadow-[0_-2px_8px_rgba(0,0,0,0.15)] border-t-2 border-[#0ea5e9] flex items-center justify-between;
+  @apply fixed bottom-0 left-0 right-0 bg-[#100841] text-white px-5 py-3 z-50 border-t-2 border-[#31d891] flex items-center justify-between;
 }
 
-/* Enterprise Toolbar — action bar pattern */
+/* Toolbar — flat action bar */
 .enterprise-toolbar {
-  @apply flex items-center justify-between bg-white border border-[#d1d9e0] rounded-[3px] px-4 py-2.5 shadow-[0_1px_3px_rgba(0,0,0,0.06)];
+  @apply flex items-center justify-between bg-white border border-[#dfdfdf] rounded-[4px] px-4 py-2.5;
 }
 
-/* Enterprise Status Badge — semantic colors, SAP Fiori style */
+/* Status Badges — functional semantics, flat 4px pills */
 .status-badge-success {
-  @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-[2px] bg-[#e8f5e9] text-[#2e7d32] border border-[#c8e6c9];
+  @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-[4px] bg-[#e8f5e9] text-[#1b5e20] border border-[#c8e6c9];
 }
 .status-badge-warning {
-  @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-[2px] bg-[#fff3e0] text-[#e65100] border border-[#ffe0b2];
+  @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-[4px] bg-[#fff3e0] text-[#e65100] border border-[#ffe0b2];
 }
 .status-badge-error {
-  @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-[2px] bg-[#fce4ec] text-[#c62828] border border-[#ffcdd2];
+  @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-[4px] bg-[#fce4ec] text-[#a80125] border border-[#ffcdd2];
 }
 .status-badge-info {
-  @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-[2px] bg-[#e3f2fd] text-[#1565c0] border border-[#bbdefb];
+  @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-[4px] bg-[#efefff] text-[#100841] border border-[#dfdfdf];
 }
 .status-badge-neutral {
-  @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-[2px] bg-[#f5f5f5] text-[#616161] border border-[#e0e0e0];
+  @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-[4px] bg-[#efefff] text-[#4f525d] border border-[#dfdfdf];
 }
 
-/* Enterprise Button variants */
+/* Buttons — Heap signature: ink-black fill, 2px mint border; hover flips border to ink */
 .btn-enterprise-primary {
-  @apply inline-flex items-center gap-1.5 px-4 py-1.5 bg-[#1e3a5f] text-white text-[11px] font-semibold rounded-[3px] border border-[#152a40] shadow-sm hover:bg-[#152a40] transition-colors;
+  @apply inline-flex items-center gap-1.5 px-4 py-1.5 bg-[#111111] text-white text-[11px] font-semibold rounded-[4px] border-2 border-[#31d891] hover:border-[#111111] transition-colors;
 }
 .btn-enterprise-secondary {
-  @apply inline-flex items-center gap-1.5 px-4 py-1.5 bg-white text-[#1e3a5f] text-[11px] font-semibold rounded-[3px] border border-[#d1d9e0] shadow-sm hover:bg-[#f5f8fb] transition-colors;
+  @apply inline-flex items-center gap-1.5 px-4 py-1.5 bg-transparent text-[#111111] text-[11px] font-semibold rounded-[4px] border-2 border-[#31d891] hover:bg-[#efefff] transition-colors;
 }
 .btn-enterprise-danger {
-  @apply inline-flex items-center gap-1.5 px-4 py-1.5 bg-[#c62828] text-white text-[11px] font-semibold rounded-[3px] border border-[#a31e1e] shadow-sm hover:bg-[#a31e1e] transition-colors;
+  @apply inline-flex items-center gap-1.5 px-4 py-1.5 bg-[#df0134] text-white text-[11px] font-semibold rounded-[4px] border-2 border-[#a80125] hover:bg-[#a80125] transition-colors;
 }
 
-/* Enterprise Message Strip — SAP Fiori style */
+/* Message Strips — functional, left-border accent */
 .message-strip-info {
-  @apply flex items-center gap-2 px-4 py-2.5 bg-[#e3f2fd] border-l-4 border-[#1565c0] text-[11px] text-[#0d47a1] rounded-r-[3px];
+  @apply flex items-center gap-2 px-4 py-2.5 bg-[#efefff] border-l-4 border-[#100841] text-[11px] text-[#100841] rounded-r-[4px];
 }
 .message-strip-warning {
-  @apply flex items-center gap-2 px-4 py-2.5 bg-[#fff8e1] border-l-4 border-[#f9a825] text-[11px] text-[#e65100] rounded-r-[3px];
+  @apply flex items-center gap-2 px-4 py-2.5 bg-[#fff8e1] border-l-4 border-[#e65100] text-[11px] text-[#e65100] rounded-r-[4px];
 }
 .message-strip-error {
-  @apply flex items-center gap-2 px-4 py-2.5 bg-[#fce4ec] border-l-4 border-[#c62828] text-[11px] text-[#b71c1c] rounded-r-[3px];
+  @apply flex items-center gap-2 px-4 py-2.5 bg-[#fce4ec] border-l-4 border-[#a80125] text-[11px] text-[#a80125] rounded-r-[4px];
 }
 .message-strip-success {
-  @apply flex items-center gap-2 px-4 py-2.5 bg-[#e8f5e9] border-l-4 border-[#2e7d32] text-[11px] text-[#1b5e20] rounded-r-[3px];
+  @apply flex items-center gap-2 px-4 py-2.5 bg-[#e8f5e9] border-l-4 border-[#1b5e20] text-[11px] text-[#1b5e20] rounded-r-[4px];
 }
 
-/* Enterprise Progress Stepper */
+/* Progress Stepper — mint = completed, navy = active */
 .step-indicator {
   @apply flex items-center gap-0;
 }
@@ -227,71 +257,71 @@
   @apply flex items-center justify-center w-6 h-6 rounded-full text-[9px] font-bold border;
 }
 .step-node-active {
-  @apply bg-[#0ea5e9] text-white border-[#0ea5e9];
+  @apply bg-[#100841] text-white border-[#100841];
 }
 .step-node-completed {
-  @apply bg-[#2e7d32] text-white border-[#2e7d32];
+  @apply bg-[#31d891] text-[#111111] border-[#31d891];
 }
 .step-node-pending {
-  @apply bg-white text-[#90a4ae] border-[#cfd8dc];
+  @apply bg-white text-[#868c95] border-[#dfdfdf];
 }
 .step-connector {
   @apply w-8 h-0.5;
 }
 .step-connector-active {
-  @apply bg-[#0ea5e9];
+  @apply bg-[#31d891];
 }
 .step-connector-pending {
-  @apply bg-[#cfd8dc];
+  @apply bg-[#dfdfdf];
 }
 
-/* Enterprise Input Fields */
+/* Input Fields — hairline border, mint focus ring */
 .input-enterprise {
-  @apply w-full px-3 py-1.5 text-[11px] border border-[#d1d9e0] rounded-[3px] bg-white focus:border-[#0ea5e9] focus:ring-1 focus:ring-[#0ea5e9]/20 outline-none transition-colors;
+  @apply w-full px-3 py-1.5 text-[11px] border border-[#dfdfdf] rounded-[4px] bg-white focus:border-[#31d891] focus:ring-1 focus:ring-[#31d891]/30 outline-none transition-colors;
 }
 
-/* Enterprise Select */
+/* Select */
 .select-enterprise {
-  @apply px-3 py-1.5 text-[11px] border border-[#d1d9e0] rounded-[3px] bg-white focus:border-[#0ea5e9] outline-none;
+  @apply px-3 py-1.5 text-[11px] border border-[#dfdfdf] rounded-[4px] bg-white focus:border-[#31d891] outline-none;
 }
 
-/* Enterprise Modal Overlay */
+/* Modal Overlay — flat, hairline border (no shadow system) */
 .modal-enterprise {
   @apply fixed inset-0 bg-black/40 z-[100] flex items-center justify-center;
 }
 .modal-enterprise-content {
-  @apply bg-white rounded-[4px] shadow-[0_8px_32px_rgba(0,0,0,0.15)] border border-[#d1d9e0] max-w-[600px] w-full max-h-[85vh] overflow-hidden;
+  @apply bg-white rounded-[4px] border border-[#dfdfdf] max-w-[600px] w-full max-h-[85vh] overflow-hidden;
 }
 .modal-enterprise-header {
-  @apply flex items-center justify-between px-5 py-3 border-b border-[#d1d9e0] bg-[#f8fafc];
+  @apply flex items-center justify-between px-5 py-3 border-b border-[#dfdfdf] bg-[#efefff];
 }
 .modal-enterprise-body {
   @apply p-5 overflow-y-auto;
 }
 .modal-enterprise-footer {
-  @apply flex items-center justify-end gap-2 px-5 py-3 border-t border-[#d1d9e0] bg-[#f8fafc];
+  @apply flex items-center justify-end gap-2 px-5 py-3 border-t border-[#dfdfdf] bg-[#efefff];
 }
 
-/* Enterprise Pagination */
+/* Pagination — ink active state */
 .pagination-enterprise {
   @apply flex items-center gap-1 justify-end py-2 px-3;
 }
 .pagination-enterprise button {
-  @apply px-2 py-1 text-[10px] font-semibold border border-[#d1d9e0] rounded-[2px] bg-white text-[#5a6b7c] hover:bg-[#f5f8fb] transition-colors;
+  @apply px-2 py-1 text-[10px] font-semibold border border-[#dfdfdf] rounded-[4px] bg-white text-[#4f525d] hover:bg-[#efefff] transition-colors;
 }
 .pagination-enterprise button.active {
-  @apply bg-[#1e3a5f] text-white border-[#1e3a5f];
+  @apply bg-[#111111] text-white border-[#111111];
 }
 .pagination-enterprise button:disabled {
   @apply opacity-40 cursor-not-allowed;
 }
 
-/* Enterprise Checkbox */
+/* Checkbox */
 .checkbox-enterprise {
-  @apply w-4 h-4 rounded-[2px] border border-[#d1d9e0] accent-[#0ea5e9];
+  @apply w-4 h-4 rounded-[2px] border border-[#dfdfdf] accent-[#31d891];
 }
 
-/* Enterprise Divider */
+/* Divider */
 .divider-enterprise {
-  @apply h-px bg-[#d1d9e0] my-3;
+  @apply h-px bg-[#dfdfdf] my-3;
 }
