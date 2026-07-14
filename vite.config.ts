@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
@@ -10,6 +11,11 @@ import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 // Manus Debug Collector - Vite Plugin
 // Writes browser logs directly to files, trimmed when exceeding size limit
 // =============================================================================
+import { fileURLToPath } from 'node:url';
+import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
+const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
+
+// More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 
 const PROJECT_ROOT = import.meta.dirname;
 const LOG_DIR = path.join(PROJECT_ROOT, ".manus-logs");
@@ -17,19 +23,18 @@ const MAX_LOG_SIZE_BYTES = 1 * 1024 * 1024; // 1MB per log file
 const TRIM_TARGET_BYTES = Math.floor(MAX_LOG_SIZE_BYTES * 0.6); // Trim to 60% to avoid constant re-trimming
 
 type LogSource = "browserConsole" | "networkRequests" | "sessionReplay";
-
 function ensureLogDir() {
   if (!fs.existsSync(LOG_DIR)) {
-    fs.mkdirSync(LOG_DIR, { recursive: true });
+    fs.mkdirSync(LOG_DIR, {
+      recursive: true
+    });
   }
 }
-
 function trimLogFile(logPath: string, maxSize: number) {
   try {
     if (!fs.existsSync(logPath) || fs.statSync(logPath).size <= maxSize) {
       return;
     }
-
     const lines = fs.readFileSync(logPath, "utf-8").split("\n");
     const keptLines: string[] = [];
     let keptBytes = 0;
@@ -42,21 +47,18 @@ function trimLogFile(logPath: string, maxSize: number) {
       keptLines.unshift(lines[i]);
       keptBytes += lineBytes;
     }
-
     fs.writeFileSync(logPath, keptLines.join("\n"), "utf-8");
   } catch {
     /* ignore trim errors */
   }
 }
-
 function writeToLogFile(source: LogSource, entries: unknown[]) {
   if (entries.length === 0) return;
-
   ensureLogDir();
   const logPath = path.join(LOG_DIR, `${source}.log`);
 
   // Format entries with timestamps
-  const lines = entries.map((entry) => {
+  const lines = entries.map(entry => {
     const ts = new Date().toISOString();
     return `[${ts}] ${JSON.stringify(entry)}`;
   });
@@ -77,33 +79,28 @@ function writeToLogFile(source: LogSource, entries: unknown[]) {
 function vitePluginManusDebugCollector(): Plugin {
   return {
     name: "manus-debug-collector",
-
     transformIndexHtml(html) {
       if (process.env.NODE_ENV === "production") {
         return html;
       }
       return {
         html,
-        tags: [
-          {
-            tag: "script",
-            attrs: {
-              src: "/__manus__/debug-collector.js",
-              defer: true,
-            },
-            injectTo: "head",
+        tags: [{
+          tag: "script",
+          attrs: {
+            src: "/__manus__/debug-collector.js",
+            defer: true
           },
-        ],
+          injectTo: "head"
+        }]
       };
     },
-
     configureServer(server: ViteDevServer) {
       // POST /__manus__/logs: Browser sends logs (written directly to files)
       server.middlewares.use("/__manus__/logs", (req, res, next) => {
         if (req.method !== "POST") {
           return next();
         }
-
         const handlePayload = (payload: any) => {
           // Write logs directly to files
           if (payload.consoleLogs?.length > 0) {
@@ -115,41 +112,52 @@ function vitePluginManusDebugCollector(): Plugin {
           if (payload.sessionEvents?.length > 0) {
             writeToLogFile("sessionReplay", payload.sessionEvents);
           }
-
-          res.writeHead(200, { "Content-Type": "application/json" });
-          res.end(JSON.stringify({ success: true }));
+          res.writeHead(200, {
+            "Content-Type": "application/json"
+          });
+          res.end(JSON.stringify({
+            success: true
+          }));
         };
-
-        const reqBody = (req as { body?: unknown }).body;
+        const reqBody = (req as {
+          body?: unknown;
+        }).body;
         if (reqBody && typeof reqBody === "object") {
           try {
             handlePayload(reqBody);
           } catch (e) {
-            res.writeHead(400, { "Content-Type": "application/json" });
-            res.end(JSON.stringify({ success: false, error: String(e) }));
+            res.writeHead(400, {
+              "Content-Type": "application/json"
+            });
+            res.end(JSON.stringify({
+              success: false,
+              error: String(e)
+            }));
           }
           return;
         }
-
         let body = "";
-        req.on("data", (chunk) => {
+        req.on("data", chunk => {
           body += chunk.toString();
         });
-
         req.on("end", () => {
           try {
             const payload = JSON.parse(body);
             handlePayload(payload);
           } catch (e) {
-            res.writeHead(400, { "Content-Type": "application/json" });
-            res.end(JSON.stringify({ success: false, error: String(e) }));
+            res.writeHead(400, {
+              "Content-Type": "application/json"
+            });
+            res.end(JSON.stringify({
+              success: false,
+              error: String(e)
+            }));
           }
         });
       });
-    },
+    }
   };
 }
-
 function vitePluginStorageProxy(): Plugin {
   return {
     name: "manus-storage-proxy",
@@ -157,54 +165,64 @@ function vitePluginStorageProxy(): Plugin {
       server.middlewares.use("/manus-storage", async (req, res) => {
         const key = req.url?.replace(/^\//, "");
         if (!key) {
-          res.writeHead(400, { "Content-Type": "text/plain" });
+          res.writeHead(400, {
+            "Content-Type": "text/plain"
+          });
           res.end("Missing storage key");
           return;
         }
-
         const forgeBaseUrl = (process.env.BUILT_IN_FORGE_API_URL || "").replace(/\/+$/, "");
         const forgeKey = process.env.BUILT_IN_FORGE_API_KEY;
-
         if (!forgeBaseUrl || !forgeKey) {
-          res.writeHead(500, { "Content-Type": "text/plain" });
+          res.writeHead(500, {
+            "Content-Type": "text/plain"
+          });
           res.end("Storage proxy not configured");
           return;
         }
-
         try {
           const forgeUrl = new URL("v1/storage/presign/get", forgeBaseUrl + "/");
           forgeUrl.searchParams.set("path", key);
-
           const forgeResp = await fetch(forgeUrl, {
-            headers: { Authorization: `Bearer ${forgeKey}` },
+            headers: {
+              Authorization: `Bearer ${forgeKey}`
+            }
           });
-
           if (!forgeResp.ok) {
-            res.writeHead(502, { "Content-Type": "text/plain" });
+            res.writeHead(502, {
+              "Content-Type": "text/plain"
+            });
             res.end("Storage backend error");
             return;
           }
-
-          const { url } = (await forgeResp.json()) as { url: string };
+          const {
+            url
+          } = (await forgeResp.json()) as {
+            url: string;
+          };
           if (!url) {
-            res.writeHead(502, { "Content-Type": "text/plain" });
+            res.writeHead(502, {
+              "Content-Type": "text/plain"
+            });
             res.end("Empty signed URL");
             return;
           }
-
-          res.writeHead(307, { Location: url, "Cache-Control": "no-store" });
+          res.writeHead(307, {
+            Location: url,
+            "Cache-Control": "no-store"
+          });
           res.end();
         } catch {
-          res.writeHead(502, { "Content-Type": "text/plain" });
+          res.writeHead(502, {
+            "Content-Type": "text/plain"
+          });
           res.end("Storage proxy error");
         }
       });
-    },
+    }
   };
 }
-
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
-
 export default defineConfig({
   base: process.env.VITE_BASE || (process.env.NODE_ENV === 'production' ? '/GSTD-EWA-Prototype-2026/' : '/'),
   plugins,
@@ -212,31 +230,45 @@ export default defineConfig({
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
       "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
-    },
+      "@assets": path.resolve(import.meta.dirname, "attached_assets")
+    }
   },
   envDir: path.resolve(import.meta.dirname),
   root: "client",
   build: {
     outDir: "../dist/public",
-    emptyOutDir: true,
+    emptyOutDir: true
   },
   server: {
     port: 3000,
     strictPort: true,
     host: true,
-    allowedHosts: [
-      ".manuspre.computer",
-      ".manus.computer",
-      ".manus-asia.computer",
-      ".manuscomputer.ai",
-      ".manusvm.computer",
-      "localhost",
-      "127.0.0.1",
-    ],
+    allowedHosts: [".manuspre.computer", ".manus.computer", ".manus-asia.computer", ".manuscomputer.ai", ".manusvm.computer", "localhost", "127.0.0.1"],
     fs: {
       strict: true,
-      deny: ["**/.*"],
-    },
+      deny: ["**/.*"]
+    }
   },
+  test: {
+    workspace: [{
+      extends: true,
+      plugins: [
+      // The plugin will run tests for the stories defined in your Storybook config
+      // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
+      storybookTest({
+        configDir: path.join(dirname, '.storybook')
+      })],
+      test: {
+        name: 'storybook',
+        browser: {
+          enabled: true,
+          headless: true,
+          provider: 'playwright',
+          instances: [{
+            browser: 'chromium'
+          }]
+        }
+      }
+    }]
+  }
 });
