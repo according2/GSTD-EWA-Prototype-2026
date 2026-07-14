@@ -69,7 +69,7 @@ function StateMachine({ caseData }: { caseData: WorkflowCase }) {
 
   return (
     <div className="space-y-3">
-      <p className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest">State Machine Visualization</p>
+      <p className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest">State Machine Visualization</p>
       <div className="flex items-center gap-0 overflow-x-auto py-2">
         {path.map((step, i) => {
           const isActive = i === currentIndex;
@@ -79,15 +79,15 @@ function StateMachine({ caseData }: { caseData: WorkflowCase }) {
             <div key={step} className="flex items-center">
               <div className={cn(
                 "flex flex-col items-center px-3 py-1.5 rounded-[2px] border transition-colors",
-                isActive ? "bg-[#1e3a5f] text-white border-[#1e3a5f]" :
+                isActive ? "bg-[#100841] text-white border-[#100841]" :
                 isComplete ? "bg-emerald-500 text-white border-emerald-500" :
                 isRejected ? "bg-[#fce4ec] text-[#b71c1c] border-[#ef9a9a]" :
-                "bg-[#f8fafc] text-[#5a6b7c] border-[#d1d9e0]"
+                "bg-[#efefff] text-[#4f525d] border-[#dfdfdf]"
               )}>
                 <span className="text-[8px] font-bold uppercase tracking-wider whitespace-nowrap">{step.replace("_", " ")}</span>
               </div>
               {i < path.length - 1 && (
-                <div className={cn("w-6 h-0.5 transition-colors", isComplete ? "bg-emerald-500" : isActive ? "bg-[#1e3a5f]" : "bg-[#d1d9e0]")} />
+                <div className={cn("w-6 h-0.5 transition-colors", isComplete ? "bg-emerald-500" : isActive ? "bg-[#100841]" : "bg-[#dfdfdf]")} />
               )}
             </div>
           );
@@ -111,16 +111,16 @@ function SLATimer({ remaining }: { remaining: string }) {
 /* ===== AUDIT TRAIL TIMELINE ===== */
 function AuditTimeline({ activities }: { activities: WorkflowActivity[] }) {
   const typeIcons: Record<string, { icon: React.ElementType; color: string; bg: string }> = {
-    "created": { icon: Activity, color: "text-[#1e3a5f]", bg: "bg-[#e3f2fd]" },
-    "submitted": { icon: Play, color: "text-[#0ea5e9]", bg: "bg-[#e1f5fe]" },
+    "created": { icon: Activity, color: "text-[#100841]", bg: "bg-[#e3f2fd]" },
+    "submitted": { icon: Play, color: "text-[#31d891]", bg: "bg-[#e1f5fe]" },
     "approved": { icon: CheckCircle2, color: "text-emerald-600", bg: "bg-[#e8f5e9]" },
     "rejected": { icon: XCircle, color: "text-[#c62828]", bg: "bg-[#fce4ec]" },
     "returned": { icon: RotateCcw, color: "text-[#e65100]", bg: "bg-[#fff8e1]" },
     "escalated": { icon: AlertCircle, color: "text-[#c62828]", bg: "bg-[#fce4ec]" },
-    "assigned": { icon: Users, color: "text-[#0d47a1]", bg: "bg-[#e8eaf6]" },
-    "claimed": { icon: UserCheck, color: "text-[#0d47a1]", bg: "bg-[#e8eaf6]" },
+    "assigned": { icon: Users, color: "text-[#0d47a1]", bg: "bg-[#efefff]" },
+    "claimed": { icon: UserCheck, color: "text-[#0d47a1]", bg: "bg-[#efefff]" },
     "completed": { icon: CheckCircle2, color: "text-emerald-600", bg: "bg-[#e8f5e9]" },
-    "comment": { icon: MessageSquare, color: "text-[#5a6b7c]", bg: "bg-[#f5f8fb]" },
+    "comment": { icon: MessageSquare, color: "text-[#4f525d]", bg: "bg-[#efefff]" },
   };
   return (
     <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
@@ -130,26 +130,26 @@ function AuditTimeline({ activities }: { activities: WorkflowActivity[] }) {
         return (
           <div key={a.id} className="flex gap-4">
             <div className="flex flex-col items-center">
-              <div className={cn("w-8 h-8 rounded-full flex items-center justify-center border border-[#d1d9e0]", ti.bg)}>
+              <div className={cn("w-8 h-8 rounded-full flex items-center justify-center border border-[#dfdfdf]", ti.bg)}>
                 <Icon className={cn("w-4 h-4", ti.color)} />
               </div>
-              {i < activities.length - 1 && <div className="w-[1px] flex-1 bg-[#d1d9e0] my-1" />}
+              {i < activities.length - 1 && <div className="w-[1px] flex-1 bg-[#dfdfdf] my-1" />}
             </div>
             <div className="pb-6 flex-1">
               <div className="flex items-center justify-between">
-                <span className="text-[12px] font-bold text-[#1e3a5f]">{a.action}</span>
-                <span className="text-[10px] text-[#5a6b7c] font-mono">{a.timestamp}</span>
+                <span className="text-[12px] font-bold text-[#100841]">{a.action}</span>
+                <span className="text-[10px] text-[#4f525d] font-mono">{a.timestamp}</span>
               </div>
-              <p className="text-[10px] text-[#5a6b7c] mt-0.5 font-medium">{a.actor} · <span className="uppercase tracking-wider">{a.actorRole}</span></p>
+              <p className="text-[10px] text-[#4f525d] mt-0.5 font-medium">{a.actor} · <span className="uppercase tracking-wider">{a.actorRole}</span></p>
               {a.details && (
-                <div className="mt-2 p-2 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
-                  <p className="text-[10px] text-[#5a6b7c] leading-relaxed">{a.details}</p>
+                <div className="mt-2 p-2 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
+                  <p className="text-[10px] text-[#4f525d] leading-relaxed">{a.details}</p>
                 </div>
               )}
               {a.fromState && a.toState && (
                 <div className="flex items-center gap-2 mt-2">
                   <span className="text-[9px] font-bold text-[#e65100] uppercase tracking-wider bg-[#fff8e1] px-1.5 py-0.5 rounded-[2px]">{a.fromState.replace("_", " ")}</span>
-                  <ArrowRight className="w-3 h-3 text-[#5a6b7c]" />
+                  <ArrowRight className="w-3 h-3 text-[#4f525d]" />
                   <span className="text-[9px] font-bold text-[#2e7d32] uppercase tracking-wider bg-[#e8f5e9] px-1.5 py-0.5 rounded-[2px]">{a.toState.replace("_", " ")}</span>
                 </div>
               )}
@@ -174,10 +174,10 @@ function CaseDetailPanel({ caseData, onClose }: { caseData: WorkflowCase; onClos
 
   return (
     <Sheet open onOpenChange={onClose}>
-      <SheetContent side="right" className="w-[550px] p-0 border-l-[#d1d9e0]">
+      <SheetContent side="right" className="w-[550px] p-0 border-l-[#dfdfdf]">
         <div className="h-full flex flex-col">
-          <SheetHeader className="p-6 border-b border-[#d1d9e0] bg-[#f8fafc]">
-            <SheetTitle className="text-[15px] font-bold text-[#1e3a5f] flex items-center gap-2 uppercase tracking-wide">
+          <SheetHeader className="p-6 border-b border-[#dfdfdf] bg-[#efefff]">
+            <SheetTitle className="text-[15px] font-bold text-[#100841] flex items-center gap-2 uppercase tracking-wide">
               <CaseTypeIcon type={caseData.type} />
               {caseData.id} — {caseData.title}
             </SheetTitle>
@@ -187,14 +187,14 @@ function CaseDetailPanel({ caseData, onClose }: { caseData: WorkflowCase; onClos
             {/* Case Info Grid */}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                 <div><p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-1">Status</p><EnterpriseBadge variant={caseData.status === "Approved" ? "success" : "info"}>{caseData.status.replace("_", " ")}</EnterpriseBadge></div>
-                 <div><p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-1">Subject</p><p className="text-[12px] font-bold text-[#1e3a5f]">{caseData.subject}</p></div>
-                 <div><p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-1">Priority</p><PriorityBadge priority={caseData.priority} /></div>
+                 <div><p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest mb-1">Status</p><EnterpriseBadge variant={caseData.status === "Approved" ? "success" : "info"}>{caseData.status.replace("_", " ")}</EnterpriseBadge></div>
+                 <div><p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest mb-1">Subject</p><p className="text-[12px] font-bold text-[#100841]">{caseData.subject}</p></div>
+                 <div><p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest mb-1">Priority</p><PriorityBadge priority={caseData.priority} /></div>
               </div>
               <div className="space-y-4">
-                 <div><p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-1">Owner</p><p className="text-[12px] font-bold text-[#1e3a5f]">{caseData.currentOwner}</p><p className="text-[10px] text-[#5a6b7c] uppercase">{caseData.ownerRole}</p></div>
-                 <div><p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-1">SLA</p><SLATimer remaining={caseData.slaRemaining} /></div>
-                 <div><p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-1">Related ID</p><p className="text-[11px] font-mono font-bold text-[#0ea5e9]">{caseData.relatedId || "—"}</p></div>
+                 <div><p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest mb-1">Owner</p><p className="text-[12px] font-bold text-[#100841]">{caseData.currentOwner}</p><p className="text-[10px] text-[#4f525d] uppercase">{caseData.ownerRole}</p></div>
+                 <div><p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest mb-1">SLA</p><SLATimer remaining={caseData.slaRemaining} /></div>
+                 <div><p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest mb-1">Related ID</p><p className="text-[11px] font-mono font-bold text-[#31d891]">{caseData.relatedId || "—"}</p></div>
               </div>
             </div>
 
@@ -205,12 +205,12 @@ function CaseDetailPanel({ caseData, onClose }: { caseData: WorkflowCase; onClos
 
             {/* Tabs */}
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="w-full justify-start rounded-none bg-transparent border-b border-[#d1d9e0] p-0 h-auto">
+              <TabsList className="w-full justify-start rounded-none bg-transparent border-b border-[#dfdfdf] p-0 h-auto">
                 {tabs.map(tab => (
                   <TabsTrigger 
                     key={tab.id} 
                     value={tab.id}
-                    className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#1e3a5f] data-[state=active]:bg-transparent px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-[#5a6b7c] data-[state=active]:text-[#1e3a5f]"
+                    className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#100841] data-[state=active]:bg-transparent px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-[#4f525d] data-[state=active]:text-[#100841]"
                   >
                     {tab.label}
                   </TabsTrigger>
@@ -219,8 +219,8 @@ function CaseDetailPanel({ caseData, onClose }: { caseData: WorkflowCase; onClos
 
               <div className="pt-4">
                 <TabsContent value="overview" className="mt-0 outline-none space-y-4">
-                  <div className="p-4 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
-                    <p className="text-[12px] text-[#5a6b7c] leading-relaxed">
+                  <div className="p-4 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
+                    <p className="text-[12px] text-[#4f525d] leading-relaxed">
                       This case is currently at the <strong>{caseData.currentStep}</strong> stage. 
                       The next action is required from <strong>{caseData.currentOwner}</strong> ({caseData.ownerRole}). 
                       SLA expires in <strong>{caseData.slaRemaining}</strong>.
@@ -234,9 +234,9 @@ function CaseDetailPanel({ caseData, onClose }: { caseData: WorkflowCase; onClos
 
                 <TabsContent value="actions" className="mt-0 outline-none space-y-3">
                   {caseActivities.map(a => (
-                    <div key={a.id} className="flex items-center justify-between text-[11px] p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
-                      <span className="font-bold text-[#1e3a5f] uppercase tracking-wide">{a.action}</span>
-                      <span className="font-mono text-[#5a6b7c]">{a.actor}</span>
+                    <div key={a.id} className="flex items-center justify-between text-[11px] p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
+                      <span className="font-bold text-[#100841] uppercase tracking-wide">{a.action}</span>
+                      <span className="font-mono text-[#4f525d]">{a.actor}</span>
                     </div>
                   ))}
                   {caseActivities.length === 0 && (
@@ -250,10 +250,10 @@ function CaseDetailPanel({ caseData, onClose }: { caseData: WorkflowCase; onClos
             </Tabs>
           </div>
 
-          <div className="p-6 border-t border-[#d1d9e0] bg-[#f8fafc] flex items-center gap-3">
+          <div className="p-6 border-t border-[#dfdfdf] bg-[#efefff] flex items-center gap-3">
              {caseData.status !== "Completed" && caseData.status !== "Rejected" && caseData.status !== "Cancelled" && (
                 <>
-                  <EnterpriseButton variant="primary" className="flex-1 h-10 uppercase tracking-widest text-[11px] font-bold bg-[#1e3a5f]">
+                  <EnterpriseButton variant="primary" className="flex-1 h-10 uppercase tracking-widest text-[11px] font-bold bg-[#100841]">
                     <CheckCircle2 className="w-4 h-4" /> Approve
                   </EnterpriseButton>
                   <EnterpriseButton variant="secondary" className="flex-1 h-10 uppercase tracking-widest text-[11px] font-bold border-[#c62828] text-[#c62828] hover:bg-[#fce4ec]">
@@ -287,7 +287,7 @@ export function WorkflowPage() {
     {
       id: "id",
       header: "ID",
-      accessor: (item) => <span className="font-mono font-bold text-[#1e3a5f]">{item.id}</span>,
+      accessor: (item) => <span className="font-mono font-bold text-[#100841]">{item.id}</span>,
       searchString: (item) => item.id
     },
     {
@@ -295,10 +295,10 @@ export function WorkflowPage() {
       header: "Case Context",
       accessor: (item) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{item.caseTitle}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{item.caseTitle}</p>
           <div className="flex items-center gap-1 mt-0.5">
             <CaseTypeIcon type={item.caseType} />
-            <span className="text-[9px] text-[#5a6b7c] uppercase font-bold tracking-tighter">{item.caseType.replace("_", " ")}</span>
+            <span className="text-[9px] text-[#4f525d] uppercase font-bold tracking-tighter">{item.caseType.replace("_", " ")}</span>
           </div>
         </div>
       ),
@@ -307,7 +307,7 @@ export function WorkflowPage() {
     {
       id: "step",
       header: "Current Step",
-      accessor: (item) => <span className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-wider bg-[#f8fafc] px-2 py-1 border border-[#d1d9e0] rounded-[2px]">{item.stepName}</span>
+      accessor: (item) => <span className="text-[11px] font-bold text-[#100841] uppercase tracking-wider bg-[#efefff] px-2 py-1 border border-[#dfdfdf] rounded-[2px]">{item.stepName}</span>
     },
     {
       id: "status",
@@ -358,7 +358,7 @@ export function WorkflowPage() {
     {
       id: "id",
       header: "Case ID",
-      accessor: (c) => <span className="font-mono font-bold text-[#1e3a5f]">{c.id}</span>,
+      accessor: (c) => <span className="font-mono font-bold text-[#100841]">{c.id}</span>,
       searchString: (c) => c.id
     },
     {
@@ -366,8 +366,8 @@ export function WorkflowPage() {
       header: "Request Title",
       accessor: (c) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{c.title}</p>
-          <p className="text-[10px] text-[#5a6b7c]">{c.subject}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{c.title}</p>
+          <p className="text-[10px] text-[#4f525d]">{c.subject}</p>
         </div>
       ),
       searchString: (c) => c.title
@@ -378,7 +378,7 @@ export function WorkflowPage() {
       accessor: (c) => (
         <div className="flex items-center gap-1">
           <CaseTypeIcon type={c.type} />
-          <span className="text-[10px] text-[#5a6b7c] font-bold uppercase">{c.type.replace("_", " ")}</span>
+          <span className="text-[10px] text-[#4f525d] font-bold uppercase">{c.type.replace("_", " ")}</span>
         </div>
       )
     },
@@ -390,15 +390,15 @@ export function WorkflowPage() {
     {
       id: "step",
       header: "Current Step",
-      accessor: (c) => <span className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-wider">{c.currentStep}</span>
+      accessor: (c) => <span className="text-[11px] font-bold text-[#100841] uppercase tracking-wider">{c.currentStep}</span>
     },
     {
       id: "owner",
       header: "Current Owner",
       accessor: (c) => (
         <div>
-          <p className="text-[11px] font-bold text-[#1e3a5f]">{c.currentOwner}</p>
-          <p className="text-[9px] text-[#5a6b7c] uppercase tracking-tighter">{c.ownerRole}</p>
+          <p className="text-[11px] font-bold text-[#100841]">{c.currentOwner}</p>
+          <p className="text-[9px] text-[#4f525d] uppercase tracking-tighter">{c.ownerRole}</p>
         </div>
       )
     },
@@ -422,10 +422,10 @@ export function WorkflowPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Activity className="w-5 h-5 text-[#0ea5e9]" />
+          <Activity className="w-5 h-5 text-[#31d891]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Enterprise Workflow Engine</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">Unified case management and audit-safe task orchestration</p>
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Enterprise Workflow Engine</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">Unified case management and audit-safe task orchestration</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -508,8 +508,8 @@ export function WorkflowPage() {
             searchPlaceholder="Search historical cases..."
           />
           
-          <EnterpriseCard className="p-4 border-[#d1d9e0] shadow-sm">
-             <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-4">Recent Audit Stream</h3>
+          <EnterpriseCard className="p-4 border-[#dfdfdf] shadow-sm">
+             <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-4">Recent Audit Stream</h3>
              <AuditTimeline activities={workflowActivities.slice(-6).reverse()} />
           </EnterpriseCard>
         </TabsContent>
@@ -523,7 +523,7 @@ export function WorkflowPage() {
       {/* Action Modal */}
       <Dialog open={!!workItemAction} onOpenChange={() => setWorkItemAction(null)}>
         <DialogContent className="max-w-md p-0 border-none rounded-[3px] overflow-hidden">
-          <div className="bg-[#1e3a5f] p-4 flex items-center justify-between">
+          <div className="bg-[#100841] p-4 flex items-center justify-between">
              <h2 className="text-[14px] font-bold text-white uppercase tracking-wider">Process Work Item</h2>
              <EnterpriseBadge variant="neutral" className="bg-white/10 text-white border-white/20">{workItemAction?.id}</EnterpriseBadge>
           </div>
@@ -532,16 +532,16 @@ export function WorkflowPage() {
             {workItemAction && (
               <>
                 <div className="space-y-4">
-                  <div className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px] space-y-2">
-                    <div className="flex justify-between items-center"><span className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest">Case Context</span><span className="text-[11px] font-bold text-[#1e3a5f]">{workItemAction.caseTitle}</span></div>
-                    <div className="flex justify-between items-center"><span className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest">Current Step</span><span className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest">{workItemAction.stepName}</span></div>
-                    <div className="flex justify-between items-center"><span className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest">Priority</span><PriorityBadge priority={workItemAction.priority} /></div>
+                  <div className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px] space-y-2">
+                    <div className="flex justify-between items-center"><span className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest">Case Context</span><span className="text-[11px] font-bold text-[#100841]">{workItemAction.caseTitle}</span></div>
+                    <div className="flex justify-between items-center"><span className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest">Current Step</span><span className="text-[11px] font-bold text-[#100841] uppercase tracking-widest">{workItemAction.stepName}</span></div>
+                    <div className="flex justify-between items-center"><span className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest">Priority</span><PriorityBadge priority={workItemAction.priority} /></div>
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[11px] font-bold text-[#5a6b7c] uppercase tracking-widest">Action Selection</label>
+                    <label className="text-[11px] font-bold text-[#4f525d] uppercase tracking-widest">Action Selection</label>
                     <div className="grid grid-cols-2 gap-2">
-                      <EnterpriseButton variant="primary" className="bg-[#1e3a5f] uppercase tracking-widest text-[10px] h-10">
+                      <EnterpriseButton variant="primary" className="bg-[#100841] uppercase tracking-widest text-[10px] h-10">
                         <CheckCircle2 className="w-3.5 h-3.5" /> Approve
                       </EnterpriseButton>
                       <EnterpriseButton variant="secondary" className="border-[#c62828] text-[#c62828] hover:bg-[#fce4ec] uppercase tracking-widest text-[10px] h-10">
@@ -551,17 +551,17 @@ export function WorkflowPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[11px] font-bold text-[#5a6b7c] uppercase tracking-widest">Decision Remarks</label>
-                    <Textarea placeholder="Enter mandatory reason for rejection or optional comment for approval..." className="text-[12px] border-[#d1d9e0] rounded-[2px]" rows={4} />
+                    <label className="text-[11px] font-bold text-[#4f525d] uppercase tracking-widest">Decision Remarks</label>
+                    <Textarea placeholder="Enter mandatory reason for rejection or optional comment for approval..." className="text-[12px] border-[#dfdfdf] rounded-[2px]" rows={4} />
                   </div>
                 </div>
               </>
             )}
           </div>
 
-          <div className="p-4 bg-[#f8fafc] border-t border-[#d1d9e0] flex justify-end gap-2">
+          <div className="p-4 bg-[#efefff] border-t border-[#dfdfdf] flex justify-end gap-2">
              <EnterpriseButton variant="secondary" className="h-9 px-4 uppercase tracking-widest text-[10px] font-bold" onClick={() => setWorkItemAction(null)}>Cancel</EnterpriseButton>
-             <EnterpriseButton variant="primary" className="h-9 px-6 bg-[#1e3a5f] uppercase tracking-widest text-[10px] font-bold">Confirm Transaction</EnterpriseButton>
+             <EnterpriseButton variant="primary" className="h-9 px-6 bg-[#100841] uppercase tracking-widest text-[10px] font-bold">Confirm Transaction</EnterpriseButton>
           </div>
         </DialogContent>
       </Dialog>

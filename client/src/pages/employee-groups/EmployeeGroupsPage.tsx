@@ -1,7 +1,7 @@
 /**
  * EmployeeGroupsPage — Employee Group & Category Management
  * Group-level policies, category-based fee rules, budget allocation by group
- * Design: Enterprise Fintech — Deep Navy (#1e3a5f) + Teal (#0ea5e9)
+ * Design: Enterprise Fintech — Deep Navy (#100841) + Teal (#31d891)
  */
 import { useState } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -66,13 +66,13 @@ export function EmployeeGroupsPage() {
     {
       id: "id",
       header: "ID",
-      accessor: (g) => <span className="text-[10px] font-mono font-bold text-[#1e3a5f]">{g.id}</span>,
+      accessor: (g) => <span className="text-[10px] font-mono font-bold text-[#100841]">{g.id}</span>,
       searchString: (g) => g.id
     },
     {
       id: "code",
       header: "Code",
-      accessor: (g) => <span className="text-[11px] font-mono font-bold text-[#5a6b7c]">{g.code}</span>,
+      accessor: (g) => <span className="text-[11px] font-mono font-bold text-[#4f525d]">{g.code}</span>,
       searchString: (g) => g.code
     },
     {
@@ -80,8 +80,8 @@ export function EmployeeGroupsPage() {
       header: "Group Name",
       accessor: (g) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{g.name}</p>
-          <p className="text-[9px] text-[#5a6b7c]">{g.description}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{g.name}</p>
+          <p className="text-[9px] text-[#4f525d]">{g.description}</p>
         </div>
       ),
       searchString: (g) => `${g.name} ${g.description}`
@@ -89,7 +89,7 @@ export function EmployeeGroupsPage() {
     {
       id: "company",
       header: "Company",
-      accessor: (g) => <span className="text-[11px] text-[#5a6b7c] font-medium">{g.companyName}</span>
+      accessor: (g) => <span className="text-[11px] text-[#4f525d] font-medium">{g.companyName}</span>
     },
     {
       id: "employees",
@@ -121,7 +121,7 @@ export function EmployeeGroupsPage() {
     {
       id: "feeTierOverride",
       header: "Fee Override",
-      accessor: (g) => <span className="text-[10px] font-mono text-[#5a6b7c]">{g.feeTierOverride || "—"}</span>
+      accessor: (g) => <span className="text-[10px] font-mono text-[#4f525d]">{g.feeTierOverride || "—"}</span>
     },
     {
       id: "status",
@@ -134,7 +134,7 @@ export function EmployeeGroupsPage() {
     {
       id: "category",
       header: "Category",
-      accessor: (cat) => <span className="text-[12px] font-bold text-[#1e3a5f]">{cat.category}</span>,
+      accessor: (cat) => <span className="text-[12px] font-bold text-[#100841]">{cat.category}</span>,
       searchString: (cat) => cat.category
     },
     {
@@ -200,10 +200,10 @@ export function EmployeeGroupsPage() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Users className="w-4 h-4 text-[#0ea5e9]" />
+          <Users className="w-4 h-4 text-[#31d891]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Employee Groups & Categories</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">Policy management by employee cohort</p>
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Employee Groups & Categories</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">Policy management by employee cohort</p>
           </div>
         </div>
         <EnterpriseButton variant="primary" className="h-8 py-0 px-3 flex items-center gap-1 text-[10px]">
@@ -233,10 +233,10 @@ export function EmployeeGroupsPage() {
         <TabsContent value="detail" className="outline-none space-y-4">
           {selectedGroup ? (
             <div className="space-y-4">
-              <EnterpriseCard className="p-4 border-[#d1d9e0] shadow-sm">
+              <EnterpriseCard className="p-4 border-[#dfdfdf] shadow-sm">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-[13px] font-bold text-[#1e3a5f] flex items-center gap-2 uppercase tracking-wide">
-                    <Users className="w-4 h-4 text-[#0ea5e9]" />
+                  <h3 className="text-[13px] font-bold text-[#100841] flex items-center gap-2 uppercase tracking-wide">
+                    <Users className="w-4 h-4 text-[#31d891]" />
                     {selectedGroup.code} — {selectedGroup.name}
                   </h3>
                   <div className="flex items-center gap-2">
@@ -259,66 +259,66 @@ export function EmployeeGroupsPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-3">
-                    <h4 className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest">Budget Utilization</h4>
-                    <div className="p-4 rounded-[3px] bg-[#f8fafc] border border-[#d1d9e0]">
+                    <h4 className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest">Budget Utilization</h4>
+                    <div className="p-4 rounded-[3px] bg-[#efefff] border border-[#dfdfdf]">
                       <div className="flex items-center justify-between text-[11px] font-bold mb-2">
-                        <span className="text-[#5a6b7c]">Usage Rate</span>
-                        <span className="text-[#1e3a5f]">{Math.round((selectedGroup.budgetUtilized / selectedGroup.budgetAllocation) * 100)}%</span>
+                        <span className="text-[#4f525d]">Usage Rate</span>
+                        <span className="text-[#100841]">{Math.round((selectedGroup.budgetUtilized / selectedGroup.budgetAllocation) * 100)}%</span>
                       </div>
-                      <div className="w-full bg-[#e2e8f0] rounded-full h-2">
+                      <div className="w-full bg-[#dfdfdf] rounded-full h-2">
                         <div 
                           className={`h-2 rounded-full transition-all duration-500 ${
-                            (selectedGroup.budgetUtilized / selectedGroup.budgetAllocation) > 0.8 ? "bg-red-500" : "bg-[#0ea5e9]"
+                            (selectedGroup.budgetUtilized / selectedGroup.budgetAllocation) > 0.8 ? "bg-red-500" : "bg-[#31d891]"
                           }`} 
                           style={{ width: `${Math.round((selectedGroup.budgetUtilized / selectedGroup.budgetAllocation) * 100)}%` }} 
                         />
                       </div>
                       <div className="flex items-center justify-between text-[10px] mt-2">
-                        <span className="text-[#90a4ae]">Remaining: {formatMMK(selectedGroup.budgetAllocation - selectedGroup.budgetUtilized)}</span>
-                        <span className="text-[#90a4ae]">Limit: {formatMMK(selectedGroup.budgetAllocation)}</span>
+                        <span className="text-[#868c95]">Remaining: {formatMMK(selectedGroup.budgetAllocation - selectedGroup.budgetUtilized)}</span>
+                        <span className="text-[#868c95]">Limit: {formatMMK(selectedGroup.budgetAllocation)}</span>
                       </div>
                     </div>
                   </div>
                   <div className="space-y-3">
-                    <h4 className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest">Policy Overrides</h4>
-                    <div className="p-4 rounded-[3px] bg-[#f8fafc] border border-[#d1d9e0] h-[92px] flex flex-col justify-center">
-                      <p className="text-[12px] font-mono font-bold text-[#1e3a5f] uppercase">{selectedGroup.feeTierOverride || "System Default"}</p>
-                      <p className="text-[10px] text-[#5a6b7c] mt-1 italic">Overrides company-level fee structures for this specific cohort.</p>
+                    <h4 className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest">Policy Overrides</h4>
+                    <div className="p-4 rounded-[3px] bg-[#efefff] border border-[#dfdfdf] h-[92px] flex flex-col justify-center">
+                      <p className="text-[12px] font-mono font-bold text-[#100841] uppercase">{selectedGroup.feeTierOverride || "System Default"}</p>
+                      <p className="text-[10px] text-[#4f525d] mt-1 italic">Overrides company-level fee structures for this specific cohort.</p>
                     </div>
                   </div>
                 </div>
               </EnterpriseCard>
 
-              <EnterpriseCard className="p-4 border-[#d1d9e0] shadow-sm">
+              <EnterpriseCard className="p-4 border-[#dfdfdf] shadow-sm">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest">Category Policy Settings</h3>
+                  <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest">Category Policy Settings</h3>
                   <EnterpriseButton variant="secondary" className="h-7 text-[9px] px-2"><Settings className="w-3 h-3 mr-1" /> Edit Policy</EnterpriseButton>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                    <div className="space-y-1">
-                      <p className="text-[9px] text-[#90a4ae] uppercase tracking-wider">Repayment Rule</p>
-                      <p className="text-[11px] font-bold text-[#1e3a5f]">Direct Deduction</p>
+                      <p className="text-[9px] text-[#868c95] uppercase tracking-wider">Repayment Rule</p>
+                      <p className="text-[11px] font-bold text-[#100841]">Direct Deduction</p>
                    </div>
                    <div className="space-y-1">
-                      <p className="text-[9px] text-[#90a4ae] uppercase tracking-wider">Daily Disbursement Limit</p>
-                      <p className="text-[11px] font-bold text-[#1e3a5f]">{formatMMK(Math.round(selectedGroup.budgetAllocation / selectedGroup.employeeCount * 0.1))}</p>
+                      <p className="text-[9px] text-[#868c95] uppercase tracking-wider">Daily Disbursement Limit</p>
+                      <p className="text-[11px] font-bold text-[#100841]">{formatMMK(Math.round(selectedGroup.budgetAllocation / selectedGroup.employeeCount * 0.1))}</p>
                    </div>
                    <div className="space-y-1">
-                      <p className="text-[9px] text-[#90a4ae] uppercase tracking-wider">Cycle Transaction Cap</p>
-                      <p className="text-[11px] font-bold text-[#1e3a5f]">5 Transactions</p>
+                      <p className="text-[9px] text-[#868c95] uppercase tracking-wider">Cycle Transaction Cap</p>
+                      <p className="text-[11px] font-bold text-[#100841]">5 Transactions</p>
                    </div>
                    <div className="space-y-1">
-                      <p className="text-[9px] text-[#90a4ae] uppercase tracking-wider">Cool-off Period</p>
-                      <p className="text-[11px] font-bold text-[#1e3a5f]">24 Hours</p>
+                      <p className="text-[9px] text-[#868c95] uppercase tracking-wider">Cool-off Period</p>
+                      <p className="text-[11px] font-bold text-[#100841]">24 Hours</p>
                    </div>
                 </div>
               </EnterpriseCard>
             </div>
           ) : (
-            <div className="bg-[#f8fafc] border border-dashed border-[#d1d9e0] rounded-[3px] py-20 flex flex-col items-center justify-center text-center">
-              <Users className="w-12 h-12 text-[#d1d9e0] mb-4" />
-              <h3 className="text-[14px] font-bold text-[#5a6b7c]">No Group Selected</h3>
-              <p className="text-[11px] text-[#90a4ae] max-w-[250px] mt-1">Please select an employee group from the registry to view its configuration and metrics.</p>
+            <div className="bg-[#efefff] border border-dashed border-[#dfdfdf] rounded-[3px] py-20 flex flex-col items-center justify-center text-center">
+              <Users className="w-12 h-12 text-[#dfdfdf] mb-4" />
+              <h3 className="text-[14px] font-bold text-[#4f525d]">No Group Selected</h3>
+              <p className="text-[11px] text-[#868c95] max-w-[250px] mt-1">Please select an employee group from the registry to view its configuration and metrics.</p>
               <EnterpriseButton variant="secondary" className="mt-6 h-8 text-[10px]" onClick={() => {
                 // Focus back to groups tab logic if needed
               }}>Browse Registry</EnterpriseButton>

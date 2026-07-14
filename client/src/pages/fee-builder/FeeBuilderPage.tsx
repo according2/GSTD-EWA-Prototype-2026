@@ -1,6 +1,6 @@
 /**
  * FeeBuilderPage — Fee Builder & Policy Engine
- * Design: Enterprise Precision — Navy (#1e3a5f) + Teal (#0ea5e9) | Sharp corners | Structured layouts
+ * Design: Enterprise Precision — Navy (#100841) + Teal (#31d891) | Sharp corners | Structured layouts
  * Focus: Complete 4-layer hierarchical policy engine, editing, forking, interactive simulation, and audit logs.
  */
 import React, { useState, useEffect, useMemo } from "react";
@@ -697,10 +697,10 @@ export function FeeBuilderPage() {
       {/* HEADER SECTION */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Settings className="w-5 h-5 text-[#0ea5e9]" />
+          <Settings className="w-5 h-5 text-[#31d891]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Fee Builder & Policy Config</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">Define multi-layer rule hierarchies and distribution models</p>
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Fee Builder & Policy Config</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">Define multi-layer rule hierarchies and distribution models</p>
           </div>
         </div>
         <div className="flex gap-2">
@@ -722,7 +722,7 @@ export function FeeBuilderPage() {
           value={fees.length}
           subValue="Active & draft definitions"
           accentColor="neutral"
-          icon={<Layers className="w-4 h-4 text-[#1e3a5f]" />}
+          icon={<Layers className="w-4 h-4 text-[#100841]" />}
         />
         <EnterpriseKpiCard
           label="Active Policies"
@@ -743,20 +743,20 @@ export function FeeBuilderPage() {
           value="99.8%"
           subValue="94 validation passes"
           accentColor="success"
-          icon={<Calculator className="w-4 h-4 text-[#0ea5e9]" />}
+          icon={<Calculator className="w-4 h-4 text-[#31d891]" />}
         />
       </div>
 
       {/* NAVIGATION TABS */}
-      <div className="border-b border-[#d1d9e0] flex items-center justify-between">
+      <div className="border-b border-[#dfdfdf] flex items-center justify-between">
         <div className="flex gap-2">
           <button
             onClick={() => { setActiveTab("registry"); setInspectFee(null); }}
             className={cn(
               "px-4 py-2 text-[11px] font-bold uppercase tracking-wider border-b-2 transition-all",
               activeTab === "registry"
-                ? "border-[#0ea5e9] text-[#1e3a5f] bg-[#0ea5e9]/5"
-                : "border-transparent text-[#5a6b7c] hover:text-[#1e3a5f]"
+                ? "border-[#31d891] text-[#100841] bg-[#31d891]/5"
+                : "border-transparent text-[#4f525d] hover:text-[#100841]"
             )}
           >
             Fee Registry ({fees.length})
@@ -766,8 +766,8 @@ export function FeeBuilderPage() {
             className={cn(
               "px-4 py-2 text-[11px] font-bold uppercase tracking-wider border-b-2 transition-all",
               activeTab === "editor"
-                ? "border-[#0ea5e9] text-[#1e3a5f] bg-[#0ea5e9]/5"
-                : "border-transparent text-[#5a6b7c] hover:text-[#1e3a5f]"
+                ? "border-[#31d891] text-[#100841] bg-[#31d891]/5"
+                : "border-transparent text-[#4f525d] hover:text-[#100841]"
             )}
           >
             {isNewRule ? "Create Fee Rule" : `Editor: ${editorFee.id}`}
@@ -777,8 +777,8 @@ export function FeeBuilderPage() {
             className={cn(
               "px-4 py-2 text-[11px] font-bold uppercase tracking-wider border-b-2 transition-all",
               activeTab === "simulator"
-                ? "border-[#0ea5e9] text-[#1e3a5f] bg-[#0ea5e9]/5"
-                : "border-transparent text-[#5a6b7c] hover:text-[#1e3a5f]"
+                ? "border-[#31d891] text-[#100841] bg-[#31d891]/5"
+                : "border-transparent text-[#4f525d] hover:text-[#100841]"
             )}
           >
             Engine Simulator
@@ -788,8 +788,8 @@ export function FeeBuilderPage() {
             className={cn(
               "px-4 py-2 text-[11px] font-bold uppercase tracking-wider border-b-2 transition-all",
               activeTab === "audit"
-                ? "border-[#0ea5e9] text-[#1e3a5f] bg-[#0ea5e9]/5"
-                : "border-transparent text-[#5a6b7c] hover:text-[#1e3a5f]"
+                ? "border-[#31d891] text-[#100841] bg-[#31d891]/5"
+                : "border-transparent text-[#4f525d] hover:text-[#100841]"
             )}
           >
             System Audit Log
@@ -810,7 +810,7 @@ export function FeeBuilderPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Registry Table Area */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex gap-2 items-center bg-white p-3 rounded-[3px] border border-[#d1d9e0]">
+            <div className="flex gap-2 items-center bg-white p-3 rounded-[3px] border border-[#dfdfdf]">
               <div className="flex-1">
                 <EnterpriseInput
                   placeholder="Search fee registry by code, name, description..."
@@ -834,22 +834,22 @@ export function FeeBuilderPage() {
               </div>
             </div>
 
-            <div className="border border-[#d1d9e0] rounded-[3px] overflow-hidden bg-white shadow-sm">
+            <div className="border border-[#dfdfdf] rounded-[3px] overflow-hidden bg-white shadow-sm">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#f8fafc] border-b border-[#d1d9e0]">
-                    <th className="px-4 py-2.5 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">ID / PRI</th>
-                    <th className="px-4 py-2.5 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Fee Rule Definition</th>
-                    <th className="px-4 py-2.5 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Subject</th>
-                    <th className="px-4 py-2.5 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Pricing Tiers</th>
-                    <th className="px-4 py-2.5 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Status</th>
-                    <th className="px-4 py-2.5 text-right text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Actions</th>
+                  <tr className="bg-[#efefff] border-b border-[#dfdfdf]">
+                    <th className="px-4 py-2.5 text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">ID / PRI</th>
+                    <th className="px-4 py-2.5 text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Fee Rule Definition</th>
+                    <th className="px-4 py-2.5 text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Subject</th>
+                    <th className="px-4 py-2.5 text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Pricing Tiers</th>
+                    <th className="px-4 py-2.5 text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Status</th>
+                    <th className="px-4 py-2.5 text-right text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#e8ecf0]">
+                <tbody className="divide-y divide-[#efefff]">
                   {filteredFees.length === 0 ? (
                     <tr>
-                      <td colSpan={6} className="text-center py-8 text-[11px] text-[#5a6b7c] italic">
+                      <td colSpan={6} className="text-center py-8 text-[11px] text-[#4f525d] italic">
                         No policy rules found matching your filters.
                       </td>
                     </tr>
@@ -858,31 +858,31 @@ export function FeeBuilderPage() {
                       <tr
                         key={fee.id}
                         className={cn(
-                          "hover:bg-[#f8fafc] transition-colors cursor-pointer",
-                          inspectFee?.id === fee.id && "bg-[#0ea5e9]/5"
+                          "hover:bg-[#efefff] transition-colors cursor-pointer",
+                          inspectFee?.id === fee.id && "bg-[#31d891]/5"
                         )}
                         onClick={() => setInspectFee(fee)}
                       >
                         <td className="px-4 py-3">
-                          <p className="font-mono font-bold text-[#1e3a5f] text-[11px]">{fee.id}</p>
-                          <p className="text-[9px] text-[#90a4ae] font-mono mt-0.5">PRI: {fee.priority}</p>
+                          <p className="font-mono font-bold text-[#100841] text-[11px]">{fee.id}</p>
+                          <p className="text-[9px] text-[#868c95] font-mono mt-0.5">PRI: {fee.priority}</p>
                         </td>
                         <td className="px-4 py-3 max-w-[240px]">
-                          <p className="font-bold text-[#1e3a5f] text-[12px] truncate">{fee.name}</p>
-                          <p className="text-[10px] text-[#5a6b7c] truncate mt-0.5">{fee.description}</p>
+                          <p className="font-bold text-[#100841] text-[12px] truncate">{fee.name}</p>
+                          <p className="text-[10px] text-[#4f525d] truncate mt-0.5">{fee.description}</p>
                         </td>
                         <td className="px-4 py-3">
-                          <p className="text-[11px] font-semibold text-[#1e3a5f]">{fee.chargeSubject}</p>
-                          <p className="text-[9px] text-[#90a4ae] uppercase tracking-tight">{fee.chargeParty} Pays</p>
+                          <p className="text-[11px] font-semibold text-[#100841]">{fee.chargeSubject}</p>
+                          <p className="text-[9px] text-[#868c95] uppercase tracking-tight">{fee.chargeParty} Pays</p>
                         </td>
                         <td className="px-4 py-3">
                           <div className="flex flex-col gap-0.5">
                             {fee.tiers.map((t, i) => (
-                              <span key={i} className="text-[10px] font-mono text-[#5a6b7c]">
+                              <span key={i} className="text-[10px] font-mono text-[#4f525d]">
                                 {t.startValue === 0 && t.endValue === 999999999
                                   ? "All amounts"
                                   : `${t.startValue / 1000}k-${t.endValue === 999999999 ? "∞" : t.endValue / 1000 + "k"}`}
-                                <strong className="text-[#0ea5e9] ml-1">
+                                <strong className="text-[#31d891] ml-1">
                                   {t.calcType === "Flat" ? `${t.flatAmount} MMK` : `${t.percentRate}%`}
                                 </strong>
                               </span>
@@ -896,7 +896,7 @@ export function FeeBuilderPage() {
                           <div className="flex gap-1.5 justify-end">
                             <button
                               onClick={() => handleForkClick(fee)}
-                              className="p-1 text-slate-400 hover:text-[#0ea5e9] transition-colors hover:bg-[#f0f4f7] rounded-[2px]"
+                              className="p-1 text-slate-400 hover:text-[#31d891] transition-colors hover:bg-[#ffffff] rounded-[2px]"
                               title="Fork / Version Copy"
                             >
                               <Copy size={13} />
@@ -904,7 +904,7 @@ export function FeeBuilderPage() {
                             {(fee.status === "Draft" || fee.status === "Inactive") && (
                               <button
                                 onClick={() => handleEditClick(fee)}
-                                className="p-1 text-slate-400 hover:text-amber-600 transition-colors hover:bg-[#f0f4f7] rounded-[2px]"
+                                className="p-1 text-slate-400 hover:text-amber-600 transition-colors hover:bg-[#ffffff] rounded-[2px]"
                                 title="Edit Definition"
                               >
                                 <Edit2 size={13} />
@@ -913,7 +913,7 @@ export function FeeBuilderPage() {
                             <button
                               onClick={() => handleToggleStatus(fee)}
                               className={cn(
-                                "p-1 rounded-[2px] transition-colors text-slate-400 hover:bg-[#f0f4f7]",
+                                "p-1 rounded-[2px] transition-colors text-slate-400 hover:bg-[#ffffff]",
                                 fee.status === "Active" ? "hover:text-red-500" : "hover:text-[#2e7d32]"
                               )}
                               title={fee.status === "Active" ? "Deactivate policy" : "Activate policy"}
@@ -923,7 +923,7 @@ export function FeeBuilderPage() {
                             {(fee.status === "Draft" || fee.status === "Inactive") && (
                               <button
                                 onClick={() => handleDeleteRule(fee.id, fee.name)}
-                                className="p-1 text-slate-400 hover:text-red-600 transition-colors hover:bg-[#f0f4f7] rounded-[2px]"
+                                className="p-1 text-slate-400 hover:text-red-600 transition-colors hover:bg-[#ffffff] rounded-[2px]"
                                 title="Delete Rule"
                               >
                                 <Trash2 size={13} />
@@ -942,11 +942,11 @@ export function FeeBuilderPage() {
           {/* Detailed Audit & Inspect Drawer Side panel */}
           <div className="lg:col-span-1 space-y-4">
             {inspectFee ? (
-              <EnterpriseCard className="border-[#d1d9e0] overflow-hidden bg-white shadow-sm flex flex-col h-full">
+              <EnterpriseCard className="border-[#dfdfdf] overflow-hidden bg-white shadow-sm flex flex-col h-full">
                 {/* Panel Header */}
-                <div className="bg-[#1e3a5f] text-white p-3.5 flex items-center justify-between">
+                <div className="bg-[#100841] text-white p-3.5 flex items-center justify-between">
                   <div>
-                    <span className="font-mono text-[9px] bg-[#0ea5e9]/20 text-[#0ea5e9] border border-[#0ea5e9]/30 px-1.5 py-0.5 rounded-[1px] tracking-widest font-bold">
+                    <span className="font-mono text-[9px] bg-[#31d891]/20 text-[#31d891] border border-[#31d891]/30 px-1.5 py-0.5 rounded-[1px] tracking-widest font-bold">
                       {inspectFee.id}
                     </span>
                     <h3 className="text-[12px] font-bold uppercase tracking-wider mt-1">{inspectFee.name}</h3>
@@ -960,44 +960,44 @@ export function FeeBuilderPage() {
                 <div className="p-4 space-y-4 overflow-y-auto max-h-[500px]">
                   {/* L1 Summary */}
                   <div>
-                    <h4 className="text-[9px] font-bold text-[#90a4ae] uppercase tracking-widest border-b border-[#e8ecf0] pb-1 mb-2">Layer 1: Header Context</h4>
+                    <h4 className="text-[9px] font-bold text-[#868c95] uppercase tracking-widest border-b border-[#efefff] pb-1 mb-2">Layer 1: Header Context</h4>
                     <div className="grid grid-cols-2 gap-2.5 text-[11px]">
                       <div>
-                        <span className="text-[#5a6b7c] block">Charge Party:</span>
-                        <strong className="text-[#1e3a5f]">{inspectFee.chargeParty}</strong>
+                        <span className="text-[#4f525d] block">Charge Party:</span>
+                        <strong className="text-[#100841]">{inspectFee.chargeParty}</strong>
                       </div>
                       <div>
-                        <span className="text-[#5a6b7c] block">Subject:</span>
-                        <strong className="text-[#1e3a5f]">{inspectFee.chargeSubject}</strong>
+                        <span className="text-[#4f525d] block">Subject:</span>
+                        <strong className="text-[#100841]">{inspectFee.chargeSubject}</strong>
                       </div>
                       <div>
-                        <span className="text-[#5a6b7c] block">Priority:</span>
-                        <strong className="text-[#1e3a5f] font-mono">Level {inspectFee.priority}</strong>
+                        <span className="text-[#4f525d] block">Priority:</span>
+                        <strong className="text-[#100841] font-mono">Level {inspectFee.priority}</strong>
                       </div>
                       <div>
-                        <span className="text-[#5a6b7c] block">Validity:</span>
-                        <strong className="text-[#1e3a5f] font-mono text-[10px]">{inspectFee.effectiveDate} ↔ {inspectFee.expiredDate}</strong>
+                        <span className="text-[#4f525d] block">Validity:</span>
+                        <strong className="text-[#100841] font-mono text-[10px]">{inspectFee.effectiveDate} ↔ {inspectFee.expiredDate}</strong>
                       </div>
                       <div>
-                        <span className="text-[#5a6b7c] block">Refund Engine:</span>
-                        <strong className="text-[#1e3a5f]">{inspectFee.refundBehavior}</strong>
+                        <span className="text-[#4f525d] block">Refund Engine:</span>
+                        <strong className="text-[#100841]">{inspectFee.refundBehavior}</strong>
                       </div>
                       <div>
-                        <span className="text-[#5a6b7c] block">Tax Behavior:</span>
-                        <strong className="text-[#1e3a5f]">{inspectFee.taxBehavior} ({inspectFee.taxCode})</strong>
+                        <span className="text-[#4f525d] block">Tax Behavior:</span>
+                        <strong className="text-[#100841]">{inspectFee.taxBehavior} ({inspectFee.taxCode})</strong>
                       </div>
                     </div>
                   </div>
 
                   {/* L2 Criteria Summary */}
                   <div>
-                    <h4 className="text-[9px] font-bold text-[#90a4ae] uppercase tracking-widest border-b border-[#e8ecf0] pb-1 mb-2">Layer 2: Match Rules (AND Logic)</h4>
+                    <h4 className="text-[9px] font-bold text-[#868c95] uppercase tracking-widest border-b border-[#efefff] pb-1 mb-2">Layer 2: Match Rules (AND Logic)</h4>
                     <div className="space-y-1.5">
                       {inspectFee.criteria.map((crit, i) => (
-                        <div key={i} className="flex items-center justify-between bg-[#f8fafc] border border-[#d1d9e0] p-1.5 rounded-[2px] text-[10px]">
-                          <span className="font-bold text-[#1e3a5f]">{crit.attrLabel}</span>
+                        <div key={i} className="flex items-center justify-between bg-[#efefff] border border-[#dfdfdf] p-1.5 rounded-[2px] text-[10px]">
+                          <span className="font-bold text-[#100841]">{crit.attrLabel}</span>
                           <span className="text-slate-400 font-mono text-[9px]">{crit.operator.toUpperCase()}</span>
-                          <strong className="text-[#0ea5e9] font-mono">{crit.value}</strong>
+                          <strong className="text-[#31d891] font-mono">{crit.value}</strong>
                         </div>
                       ))}
                     </div>
@@ -1005,12 +1005,12 @@ export function FeeBuilderPage() {
 
                   {/* L3 Tiers Summary */}
                   <div>
-                    <h4 className="text-[9px] font-bold text-[#90a4ae] uppercase tracking-widest border-b border-[#e8ecf0] pb-1 mb-2">Layer 3: Pricing Tiers & Caps</h4>
+                    <h4 className="text-[9px] font-bold text-[#868c95] uppercase tracking-widest border-b border-[#efefff] pb-1 mb-2">Layer 3: Pricing Tiers & Caps</h4>
                     <div className="space-y-2">
                       {inspectFee.tiers.map((t, i) => (
-                        <div key={i} className="border border-[#d1d9e0] p-2 bg-[#fffcf5] border-l-2 border-l-amber-500 text-[11px] space-y-1 rounded-[2px]">
+                        <div key={i} className="border border-[#dfdfdf] p-2 bg-[#fffcf5] border-l-2 border-l-amber-500 text-[11px] space-y-1 rounded-[2px]">
                           <div className="flex justify-between font-bold">
-                            <span className="text-[#1e3a5f]">Priority {t.priorityOrder} Bracket</span>
+                            <span className="text-[#100841]">Priority {t.priorityOrder} Bracket</span>
                             <span className="text-[#e65100] font-mono">
                               {t.calcType === "Flat" 
                                 ? formatCurrency(t.flatAmount) 
@@ -1019,7 +1019,7 @@ export function FeeBuilderPage() {
                                   : `${formatCurrency(t.flatAmount)} + ${t.percentRate}%`}
                             </span>
                           </div>
-                          <div className="flex justify-between text-[9px] text-[#5a6b7c] font-mono">
+                          <div className="flex justify-between text-[9px] text-[#4f525d] font-mono">
                             <span>Range: {formatCurrency(t.startValue)} ↔ {t.endValue === 999999999 ? "∞" : formatCurrency(t.endValue)}</span>
                           </div>
                           {t.calcType !== "Flat" && (t.minCap > 0 || t.maxCap > 0) && (
@@ -1035,15 +1035,15 @@ export function FeeBuilderPage() {
 
                   {/* L4 Distribution Summary */}
                   <div>
-                    <h4 className="text-[9px] font-bold text-[#90a4ae] uppercase tracking-widest border-b border-[#e8ecf0] pb-1 mb-2">Layer 4: Settlement Splits</h4>
+                    <h4 className="text-[9px] font-bold text-[#868c95] uppercase tracking-widest border-b border-[#efefff] pb-1 mb-2">Layer 4: Settlement Splits</h4>
                     <div className="space-y-1.5">
                       {inspectFee.distribution.map((dist, i) => (
-                        <div key={i} className="flex items-center justify-between text-[11px] p-1.5 border border-[#d1d9e0] rounded-[2px] bg-white">
+                        <div key={i} className="flex items-center justify-between text-[11px] p-1.5 border border-[#dfdfdf] rounded-[2px] bg-white">
                           <div className="min-w-0">
-                            <p className="font-bold text-[#1e3a5f] truncate">{dist.entityName}</p>
-                            <p className="text-[9px] text-[#5a6b7c] font-mono">GL D:{dist.debitGlCode} | C:{dist.creditGlCode}</p>
+                            <p className="font-bold text-[#100841] truncate">{dist.entityName}</p>
+                            <p className="text-[9px] text-[#4f525d] font-mono">GL D:{dist.debitGlCode} | C:{dist.creditGlCode}</p>
                           </div>
-                          <span className="font-mono text-[11px] text-[#0ea5e9] bg-[#0ea5e9]/5 px-1.5 py-0.5 font-bold rounded-[1px] shrink-0">
+                          <span className="font-mono text-[11px] text-[#31d891] bg-[#31d891]/5 px-1.5 py-0.5 font-bold rounded-[1px] shrink-0">
                             {dist.percentage}%
                           </span>
                         </div>
@@ -1052,10 +1052,10 @@ export function FeeBuilderPage() {
                   </div>
                 </div>
 
-                <div className="mt-auto p-3 bg-[#f8fafc] border-t border-[#d1d9e0] flex gap-2">
+                <div className="mt-auto p-3 bg-[#efefff] border-t border-[#dfdfdf] flex gap-2">
                   <EnterpriseButton
                     variant="primary"
-                    className="flex-1 text-[10px] h-8 flex items-center justify-center gap-1 bg-[#1e3a5f]"
+                    className="flex-1 text-[10px] h-8 flex items-center justify-center gap-1 bg-[#100841]"
                     onClick={() => {
                       setSimSelectedFeeId(inspectFee.id);
                       setActiveTab("simulator");
@@ -1075,11 +1075,11 @@ export function FeeBuilderPage() {
                 </div>
               </EnterpriseCard>
             ) : (
-              <div className="border border-dashed border-[#d1d9e0] rounded-[3px] p-8 text-center bg-white text-slate-400 space-y-3 flex flex-col justify-center items-center h-[420px]">
+              <div className="border border-dashed border-[#dfdfdf] rounded-[3px] p-8 text-center bg-white text-slate-400 space-y-3 flex flex-col justify-center items-center h-[420px]">
                 <Layers className="w-8 h-8 text-slate-300" />
                 <div>
-                  <p className="font-bold text-[#1e3a5f] text-[12px] uppercase">Inspection Ledger Pane</p>
-                  <p className="text-[10px] mt-1 max-w-[180px] mx-auto text-[#5a6b7c]">Select any fee rule from the registry to inspect its 4-layer pricing hierarchy & distribution keys.</p>
+                  <p className="font-bold text-[#100841] text-[12px] uppercase">Inspection Ledger Pane</p>
+                  <p className="text-[10px] mt-1 max-w-[180px] mx-auto text-[#4f525d]">Select any fee rule from the registry to inspect its 4-layer pricing hierarchy & distribution keys.</p>
                 </div>
               </div>
             )}
@@ -1089,13 +1089,13 @@ export function FeeBuilderPage() {
 
       {/* ─── TAB 2: RULE EDITOR ─── */}
       {activeTab === "editor" && (
-        <EnterpriseCard className="border-[#d1d9e0] bg-white p-5 space-y-6">
-          <div className="flex items-center justify-between border-b border-[#d1d9e0] pb-3">
+        <EnterpriseCard className="border-[#dfdfdf] bg-white p-5 space-y-6">
+          <div className="flex items-center justify-between border-b border-[#dfdfdf] pb-3">
             <div>
-              <h2 className="text-[13px] font-bold text-[#1e3a5f] uppercase tracking-wider">
+              <h2 className="text-[13px] font-bold text-[#100841] uppercase tracking-wider">
                 {isNewRule ? "Create Brand New Policy Rule" : `Modify Fee Rule Definitions: ${editorFee.id}`}
               </h2>
-              <p className="text-[10px] text-[#5a6b7c] mt-0.5">Draft version will undergo automated QA checks before administrative activation.</p>
+              <p className="text-[10px] text-[#4f525d] mt-0.5">Draft version will undergo automated QA checks before administrative activation.</p>
             </div>
             <div className="flex gap-2">
               <EnterpriseButton variant="secondary" className="h-8 text-[10px]" onClick={() => setActiveTab("registry")}>
@@ -1104,7 +1104,7 @@ export function FeeBuilderPage() {
               <EnterpriseButton variant="primary" className="h-8 text-[10px] bg-emerald-700 hover:bg-emerald-800" onClick={() => handleSaveEditorRule("Draft")}>
                 Save as Draft
               </EnterpriseButton>
-              <EnterpriseButton variant="primary" className="h-8 text-[10px] bg-[#1e3a5f]" onClick={() => handleSaveEditorRule("Active")}>
+              <EnterpriseButton variant="primary" className="h-8 text-[10px] bg-[#100841]" onClick={() => handleSaveEditorRule("Active")}>
                 Save & Make Active
               </EnterpriseButton>
             </div>
@@ -1115,13 +1115,13 @@ export function FeeBuilderPage() {
             <div className="space-y-6">
               {/* L1 HEADER FORM */}
               <div className="space-y-3">
-                <h3 className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-[0.2em] flex items-center gap-1.5 border-b border-[#e8ecf0] pb-1">
-                  <FileText size={14} className="text-[#0ea5e9]" />
+                <h3 className="text-[10px] font-bold text-[#4f525d] uppercase tracking-[0.2em] flex items-center gap-1.5 border-b border-[#efefff] pb-1">
+                  <FileText size={14} className="text-[#31d891]" />
                   Layer 1: Fee Header Metadata
                 </h3>
                 <div className="grid grid-cols-2 gap-3.5">
                   <div className="space-y-1">
-                    <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Fee Policy ID</label>
+                    <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Fee Policy ID</label>
                     <EnterpriseInput
                       value={editorFee.id}
                       onChange={e => updateL1Field("id", e.target.value.toUpperCase())}
@@ -1131,7 +1131,7 @@ export function FeeBuilderPage() {
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Descriptive Name</label>
+                    <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Descriptive Name</label>
                     <EnterpriseInput
                       value={editorFee.name}
                       onChange={e => updateL1Field("name", e.target.value)}
@@ -1139,7 +1139,7 @@ export function FeeBuilderPage() {
                     />
                   </div>
                   <div className="col-span-2 space-y-1">
-                    <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Context Description</label>
+                    <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Context Description</label>
                     <textarea
                       value={editorFee.description}
                       onChange={e => updateL1Field("description", e.target.value)}
@@ -1148,7 +1148,7 @@ export function FeeBuilderPage() {
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Charge Bearer Party</label>
+                    <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Charge Bearer Party</label>
                     <EnterpriseSelect
                       value={editorFee.chargeParty}
                       onChange={e => updateL1Field("chargeParty", e.target.value)}
@@ -1158,7 +1158,7 @@ export function FeeBuilderPage() {
                     </EnterpriseSelect>
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Charge Subject Account</label>
+                    <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Charge Subject Account</label>
                     <EnterpriseSelect
                       value={editorFee.chargeSubject}
                       onChange={e => updateL1Field("chargeSubject", e.target.value)}
@@ -1168,7 +1168,7 @@ export function FeeBuilderPage() {
                     </EnterpriseSelect>
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Evaluation Priority</label>
+                    <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Evaluation Priority</label>
                     <EnterpriseInput
                       type="number"
                       value={editorFee.priority}
@@ -1178,7 +1178,7 @@ export function FeeBuilderPage() {
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">VAT Behavior</label>
+                    <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">VAT Behavior</label>
                     <EnterpriseSelect
                       value={editorFee.taxBehavior}
                       onChange={e => updateL1Field("taxBehavior", e.target.value)}
@@ -1188,7 +1188,7 @@ export function FeeBuilderPage() {
                     </EnterpriseSelect>
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Effective Date</label>
+                    <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Effective Date</label>
                     <EnterpriseInput
                       type="date"
                       value={editorFee.effectiveDate}
@@ -1197,7 +1197,7 @@ export function FeeBuilderPage() {
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Expiry Date</label>
+                    <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Expiry Date</label>
                     <EnterpriseInput
                       type="date"
                       value={editorFee.expiredDate}
@@ -1210,14 +1210,14 @@ export function FeeBuilderPage() {
 
               {/* L2 CRITERIA BUILDER */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between border-b border-[#e8ecf0] pb-1">
-                  <h3 className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-[0.2em] flex items-center gap-1.5">
-                    <Tag size={14} className="text-[#0ea5e9]" />
+                <div className="flex items-center justify-between border-b border-[#efefff] pb-1">
+                  <h3 className="text-[10px] font-bold text-[#4f525d] uppercase tracking-[0.2em] flex items-center gap-1.5">
+                    <Tag size={14} className="text-[#31d891]" />
                     Layer 2: Dynamic Criteria Filters (AND logic)
                   </h3>
                   <button
                     onClick={addCriteriaRow}
-                    className="text-[#0ea5e9] text-[9px] font-bold uppercase tracking-wider flex items-center gap-1 hover:underline"
+                    className="text-[#31d891] text-[9px] font-bold uppercase tracking-wider flex items-center gap-1 hover:underline"
                   >
                     <PlusCircle size={12} /> Add Condition
                   </button>
@@ -1225,12 +1225,12 @@ export function FeeBuilderPage() {
 
                 <div className="space-y-2 max-h-[220px] overflow-y-auto pr-1">
                   {editorFee.criteria.length === 0 ? (
-                    <div className="p-3 text-center text-[#5a6b7c] border border-dashed border-[#d1d9e0] italic text-[10px] rounded-[2px]">
+                    <div className="p-3 text-center text-[#4f525d] border border-dashed border-[#dfdfdf] italic text-[10px] rounded-[2px]">
                       No triggering criteria specified. Rule will execute universally for all transactions.
                     </div>
                   ) : (
                     editorFee.criteria.map((crit, i) => (
-                      <div key={i} className="flex gap-2 items-center bg-[#f8fafc] p-2 border border-[#d1d9e0] rounded-[2px]">
+                      <div key={i} className="flex gap-2 items-center bg-[#efefff] p-2 border border-[#dfdfdf] rounded-[2px]">
                         <div className="w-1/3">
                           <EnterpriseSelect
                             value={crit.attrCode}
@@ -1283,14 +1283,14 @@ export function FeeBuilderPage() {
             <div className="space-y-6">
               {/* L3 PRICING TIERS */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between border-b border-[#e8ecf0] pb-1">
-                  <h3 className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-[0.2em] flex items-center gap-1.5">
-                    <Layers size={14} className="text-[#0ea5e9]" />
+                <div className="flex items-center justify-between border-b border-[#efefff] pb-1">
+                  <h3 className="text-[10px] font-bold text-[#4f525d] uppercase tracking-[0.2em] flex items-center gap-1.5">
+                    <Layers size={14} className="text-[#31d891]" />
                     Layer 3: Pricing Tiers calculation brackets
                   </h3>
                   <button
                     onClick={addTierRow}
-                    className="text-[#0ea5e9] text-[9px] font-bold uppercase tracking-wider flex items-center gap-1 hover:underline"
+                    className="text-[#31d891] text-[9px] font-bold uppercase tracking-wider flex items-center gap-1 hover:underline"
                   >
                     <PlusCircle size={12} /> Add Tier Bracket
                   </button>
@@ -1300,9 +1300,9 @@ export function FeeBuilderPage() {
                   {editorFee.tiers.map((t, i) => (
                     <div key={i} className="bg-[#fffcf7] p-2.5 border border-[#ffecb3] border-l-3 border-l-amber-500 rounded-[2px] text-[11px] space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="font-bold text-[#1e3a5f] uppercase text-[10px]">Tier Bracket #{i + 1} (Priority Order)</span>
+                        <span className="font-bold text-[#100841] uppercase text-[10px]">Tier Bracket #{i + 1} (Priority Order)</span>
                         <div className="flex items-center gap-1.5">
-                          <span className="text-[9px] text-[#5a6b7c]">Calculation Mode:</span>
+                          <span className="text-[9px] text-[#4f525d]">Calculation Mode:</span>
                           <EnterpriseSelect
                             value={t.calcType}
                             onChange={e => updateTierRow(i, "calcType", e.target.value)}
@@ -1349,23 +1349,23 @@ export function FeeBuilderPage() {
                       <div className="grid grid-cols-4 gap-2 items-center">
                         {t.calcType !== "Percent" && (
                           <div className="col-span-2 space-y-0.5">
-                            <label className="text-[8px] uppercase tracking-wider text-[#1e3a5f] font-bold">Flat Charge (MMK)</label>
+                            <label className="text-[8px] uppercase tracking-wider text-[#100841] font-bold">Flat Charge (MMK)</label>
                             <EnterpriseInput
                               type="number"
                               value={t.flatAmount}
                               onChange={e => updateTierRow(i, "flatAmount", Number(e.target.value))}
-                              className="!py-1 !px-2 font-mono !bg-[#0ea5e9]/5 font-bold"
+                              className="!py-1 !px-2 font-mono !bg-[#31d891]/5 font-bold"
                             />
                           </div>
                         )}
                         {t.calcType !== "Flat" && (
                           <div className="col-span-2 space-y-0.5">
-                            <label className="text-[8px] uppercase tracking-wider text-[#1e3a5f] font-bold">Percentage Rate (%)</label>
+                            <label className="text-[8px] uppercase tracking-wider text-[#100841] font-bold">Percentage Rate (%)</label>
                             <EnterpriseInput
                               type="number"
                               value={t.percentRate}
                               onChange={e => updateTierRow(i, "percentRate", Number(e.target.value))}
-                              className="!py-1 !px-2 font-mono !bg-[#0ea5e9]/5 font-bold"
+                              className="!py-1 !px-2 font-mono !bg-[#31d891]/5 font-bold"
                               step="0.1"
                             />
                           </div>
@@ -1410,14 +1410,14 @@ export function FeeBuilderPage() {
 
               {/* L4 SETTLEMENT DISTRIBUTION SPLITS */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between border-b border-[#e8ecf0] pb-1">
-                  <h3 className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-[0.2em] flex items-center gap-1.5">
-                    <Landmark size={14} className="text-[#0ea5e9]" />
+                <div className="flex items-center justify-between border-b border-[#efefff] pb-1">
+                  <h3 className="text-[10px] font-bold text-[#4f525d] uppercase tracking-[0.2em] flex items-center gap-1.5">
+                    <Landmark size={14} className="text-[#31d891]" />
                     Layer 4: Settlement Allocation Splits (Sum to 100%)
                   </h3>
                   <button
                     onClick={addDistributionRow}
-                    className="text-[#0ea5e9] text-[9px] font-bold uppercase tracking-wider flex items-center gap-1 hover:underline"
+                    className="text-[#31d891] text-[9px] font-bold uppercase tracking-wider flex items-center gap-1 hover:underline"
                   >
                     <PlusCircle size={12} /> Add Recipient Entity
                   </button>
@@ -1425,7 +1425,7 @@ export function FeeBuilderPage() {
 
                 <div className="space-y-2 max-h-[220px] overflow-y-auto pr-1">
                   {editorFee.distribution.map((dist, i) => (
-                    <div key={i} className="grid grid-cols-12 gap-1.5 items-center bg-[#f8fafc] p-2 border border-[#d1d9e0] rounded-[2px]">
+                    <div key={i} className="grid grid-cols-12 gap-1.5 items-center bg-[#efefff] p-2 border border-[#dfdfdf] rounded-[2px]">
                       <div className="col-span-3">
                         <EnterpriseSelect
                           value={dist.entityType}
@@ -1452,7 +1452,7 @@ export function FeeBuilderPage() {
                           value={dist.percentage}
                           onChange={e => updateDistributionRow(i, "percentage", Number(e.target.value))}
                           placeholder="%"
-                          className="!py-0.5 !px-1 font-mono text-center !bg-[#0ea5e9]/5 font-bold !text-[#0ea5e9] !text-[10px]"
+                          className="!py-0.5 !px-1 font-mono text-center !bg-[#31d891]/5 font-bold !text-[#31d891] !text-[10px]"
                           max={100}
                         />
                       </div>
@@ -1473,7 +1473,7 @@ export function FeeBuilderPage() {
                           type="checkbox"
                           checked={dist.isTaxBearing}
                           onChange={e => updateDistributionRow(i, "isTaxBearing", e.target.checked)}
-                          className="rounded-[1px] border-[#d1d9e0]"
+                          className="rounded-[1px] border-[#dfdfdf]"
                           title="Is Entity Absorbing Tax?"
                         />
                         <span className="text-[8px] text-slate-400 block">TAX</span>
@@ -1523,15 +1523,15 @@ export function FeeBuilderPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Controls Panel (Left) */}
           <div className="lg:col-span-5 space-y-4">
-            <EnterpriseCard className="border-[#d1d9e0] bg-white p-5 space-y-4">
-              <div className="flex items-center gap-2 border-b border-[#e8ecf0] pb-2">
-                <Calculator className="text-[#1e3a5f] w-4.5 h-4.5" />
-                <h3 className="text-[13px] font-bold text-[#1e3a5f] uppercase tracking-wider">Engine Simulation Controls</h3>
+            <EnterpriseCard className="border-[#dfdfdf] bg-white p-5 space-y-4">
+              <div className="flex items-center gap-2 border-b border-[#efefff] pb-2">
+                <Calculator className="text-[#100841] w-4.5 h-4.5" />
+                <h3 className="text-[13px] font-bold text-[#100841] uppercase tracking-wider">Engine Simulation Controls</h3>
               </div>
 
               <div className="space-y-3.5">
                 <div className="space-y-1">
-                  <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Select Target Policy Rule</label>
+                  <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Select Target Policy Rule</label>
                   <EnterpriseSelect
                     value={simSelectedFeeId}
                     onChange={e => setSimSelectedFeeId(e.target.value)}
@@ -1551,22 +1551,22 @@ export function FeeBuilderPage() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Transaction Drawdown Amount</label>
+                  <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Transaction Drawdown Amount</label>
                   <div className="relative flex items-center">
-                    <span className="absolute left-3 text-[12px] font-bold text-[#5a6b7c] font-mono">MMK</span>
+                    <span className="absolute left-3 text-[12px] font-bold text-[#4f525d] font-mono">MMK</span>
                     <input
                       type="number"
                       value={simAmount}
                       onChange={e => setSimAmount(Number(e.target.value))}
-                      className="input-enterprise w-full pl-12 font-mono font-bold text-[#1e3a5f] text-sm outline-none"
+                      className="input-enterprise w-full pl-12 font-mono font-bold text-[#100841] text-sm outline-none"
                       placeholder="Enter amount..."
                     />
                   </div>
-                  <p className="text-[9px] text-[#90a4ae] italic">Adjust transactional values to test cap ceilings and tiered ranges.</p>
+                  <p className="text-[9px] text-[#868c95] italic">Adjust transactional values to test cap ceilings and tiered ranges.</p>
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Disbursement Payout Channel</label>
+                  <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Disbursement Payout Channel</label>
                   <EnterpriseSelect
                     value={simChannel}
                     onChange={e => setSimChannel(e.target.value)}
@@ -1581,7 +1581,7 @@ export function FeeBuilderPage() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Arrears Late Period (Days)</label>
+                  <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Arrears Late Period (Days)</label>
                   <EnterpriseInput
                     type="number"
                     value={simDaysLate}
@@ -1589,12 +1589,12 @@ export function FeeBuilderPage() {
                     className="font-mono font-bold"
                     min={0}
                   />
-                  <p className="text-[9px] text-[#90a4ae] italic">Non-zero integers trigger overdue penalty logic.</p>
+                  <p className="text-[9px] text-[#868c95] italic">Non-zero integers trigger overdue penalty logic.</p>
                 </div>
 
                 <EnterpriseButton
                   variant="primary"
-                  className="w-full bg-[#1e3a5f] uppercase tracking-wider text-[11px] font-bold h-10 mt-2 flex items-center justify-center gap-2"
+                  className="w-full bg-[#100841] uppercase tracking-wider text-[11px] font-bold h-10 mt-2 flex items-center justify-center gap-2"
                   onClick={handleRunSimulation}
                 >
                   <Play size={14} /> Calculate Fee Metrics
@@ -1603,15 +1603,15 @@ export function FeeBuilderPage() {
             </EnterpriseCard>
 
             {/* Quick Context Card */}
-            <div className="p-4 bg-[#f0f4f7] border border-[#d1d9e0] rounded-[3px] text-[11px] text-[#5a6b7c] space-y-2">
-              <div className="flex items-center gap-1.5 font-bold text-[#1e3a5f] uppercase text-[10px]">
-                <Info size={12} className="text-[#0ea5e9]" />
+            <div className="p-4 bg-[#ffffff] border border-[#dfdfdf] rounded-[3px] text-[11px] text-[#4f525d] space-y-2">
+              <div className="flex items-center gap-1.5 font-bold text-[#100841] uppercase text-[10px]">
+                <Info size={12} className="text-[#31d891]" />
                 Fintech Engine Logic Info
               </div>
               <p className="leading-relaxed">
                 Fees are matched on AND criteria in <strong>Layer 2</strong>. If matched, we step into <strong>Layer 3</strong> where amount ranges evaluate sequentially.
               </p>
-              <p className="leading-relaxed font-semibold text-[#1e3a5f]">
+              <p className="leading-relaxed font-semibold text-[#100841]">
                 Remember: The system stops searching on the FIRST matching bracket. No summing of preceding tiers takes place.
               </p>
             </div>
@@ -1629,7 +1629,7 @@ export function FeeBuilderPage() {
                     : "bg-red-50 border-red-200"
                 )}>
                   <div>
-                    <span className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest block">Simulated Final Charge</span>
+                    <span className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest block">Simulated Final Charge</span>
                     {simResult.success ? (
                       <p className="text-3xl font-extrabold font-mono text-[#2e7d32] mt-1 tracking-tight">
                         {formatCurrency(simResult.finalFee)}
@@ -1645,8 +1645,8 @@ export function FeeBuilderPage() {
                   </div>
                   {simResult.success && (
                     <div className="text-right shrink-0">
-                      <span className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest block">Basic Math Formula</span>
-                      <p className="font-mono text-[11px] font-bold text-[#1e3a5f] bg-[#1e3a5f]/5 px-2 py-1 rounded-[1px] mt-1 border border-[#1e3a5f]/10">
+                      <span className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest block">Basic Math Formula</span>
+                      <p className="font-mono text-[11px] font-bold text-[#100841] bg-[#100841]/5 px-2 py-1 rounded-[1px] mt-1 border border-[#100841]/10">
                         {simResult.formula}
                       </p>
                       {simResult.rawFee !== simResult.finalFee && (
@@ -1659,9 +1659,9 @@ export function FeeBuilderPage() {
                 </div>
 
                 {/* Audit Run Logs (Tracing) */}
-                <EnterpriseCard className="border-[#d1d9e0] bg-white p-5 space-y-3">
-                  <h4 className="text-[10px] font-bold text-[#1e3a5f] uppercase tracking-[0.2em] border-b border-[#e8ecf0] pb-1.5 flex items-center gap-1.5">
-                    <History size={14} className="text-[#0ea5e9]" />
+                <EnterpriseCard className="border-[#dfdfdf] bg-white p-5 space-y-3">
+                  <h4 className="text-[10px] font-bold text-[#100841] uppercase tracking-[0.2em] border-b border-[#efefff] pb-1.5 flex items-center gap-1.5">
+                    <History size={14} className="text-[#31d891]" />
                     Sequential Policy Evaluation Logs
                   </h4>
                   <div className="bg-slate-900 text-slate-200 p-4 rounded-[2px] font-mono text-[11px] space-y-1.5 max-h-[220px] overflow-y-auto leading-normal">
@@ -1682,35 +1682,35 @@ export function FeeBuilderPage() {
 
                 {/* Distribution allocation card splits */}
                 {simResult.success && (
-                  <EnterpriseCard className="border-[#d1d9e0] bg-white p-5 space-y-3">
-                    <h4 className="text-[10px] font-bold text-[#1e3a5f] uppercase tracking-[0.2em] border-b border-[#e8ecf0] pb-1.5 flex items-center gap-1.5">
-                      <Landmark size={14} className="text-[#0ea5e9]" />
+                  <EnterpriseCard className="border-[#dfdfdf] bg-white p-5 space-y-3">
+                    <h4 className="text-[10px] font-bold text-[#100841] uppercase tracking-[0.2em] border-b border-[#efefff] pb-1.5 flex items-center gap-1.5">
+                      <Landmark size={14} className="text-[#31d891]" />
                       Layer 4: Real-time Double Entry Allocation Splits
                     </h4>
-                    <div className="border border-[#d1d9e0] rounded-[2px] overflow-hidden">
+                    <div className="border border-[#dfdfdf] rounded-[2px] overflow-hidden">
                       <table className="w-full text-[11px] text-left">
                         <thead>
-                          <tr className="bg-[#f8fafc] border-b border-[#d1d9e0]">
-                            <th className="p-2 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Entity Name / Role</th>
-                            <th className="p-2 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">GL Debit</th>
-                            <th className="p-2 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">GL Credit</th>
-                            <th className="p-2 text-center text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Share</th>
-                            <th className="p-2 text-right text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Computed Share</th>
+                          <tr className="bg-[#efefff] border-b border-[#dfdfdf]">
+                            <th className="p-2 text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Entity Name / Role</th>
+                            <th className="p-2 text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">GL Debit</th>
+                            <th className="p-2 text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">GL Credit</th>
+                            <th className="p-2 text-center text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Share</th>
+                            <th className="p-2 text-right text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Computed Share</th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-[#e8ecf0]">
+                        <tbody className="divide-y divide-[#efefff]">
                           {simResult.splits.map((split: any, idx: number) => (
-                            <tr key={idx} className="hover:bg-[#f8fafc]">
+                            <tr key={idx} className="hover:bg-[#efefff]">
                               <td className="p-2">
-                                <span className="font-bold text-[#1e3a5f]">{split.entityName}</span>
-                                <span className="text-[9px] bg-slate-100 text-[#5a6b7c] px-1 rounded-[1px] ml-1.5 uppercase font-semibold">
+                                <span className="font-bold text-[#100841]">{split.entityName}</span>
+                                <span className="text-[9px] bg-slate-100 text-[#4f525d] px-1 rounded-[1px] ml-1.5 uppercase font-semibold">
                                   {split.entityType}
                                 </span>
                               </td>
-                              <td className="p-2 font-mono text-[#5a6b7c] font-bold">{split.debitGlCode}</td>
-                              <td className="p-2 font-mono text-[#5a6b7c] font-bold">{split.creditGlCode}</td>
-                              <td className="p-2 font-mono text-center text-[#0ea5e9] font-bold">{split.percentage}%</td>
-                              <td className="p-2 font-mono text-right font-bold text-[#1e3a5f]">{formatCurrency(split.amount)}</td>
+                              <td className="p-2 font-mono text-[#4f525d] font-bold">{split.debitGlCode}</td>
+                              <td className="p-2 font-mono text-[#4f525d] font-bold">{split.creditGlCode}</td>
+                              <td className="p-2 font-mono text-center text-[#31d891] font-bold">{split.percentage}%</td>
+                              <td className="p-2 font-mono text-right font-bold text-[#100841]">{formatCurrency(split.amount)}</td>
                             </tr>
                           ))}
                         </tbody>
@@ -1720,11 +1720,11 @@ export function FeeBuilderPage() {
                 )}
               </div>
             ) : (
-              <div className="border border-dashed border-[#d1d9e0] rounded-[3px] p-12 text-center bg-white text-slate-400 space-y-4 h-[440px] flex flex-col justify-center items-center">
+              <div className="border border-dashed border-[#dfdfdf] rounded-[3px] p-12 text-center bg-white text-slate-400 space-y-4 h-[440px] flex flex-col justify-center items-center">
                 <Calculator className="w-10 h-10 text-slate-300 animate-pulse" />
                 <div>
-                  <p className="font-bold text-[#1e3a5f] text-sm uppercase">Awakening policy engine simulator</p>
-                  <p className="text-[11px] mt-1.5 max-w-sm mx-auto text-[#5a6b7c]">Configure drawdown parameters on the left and click "Calculate Fee Metrics" to generate sequential, layer-by-layer ledger tracing logs and automated split allocations.</p>
+                  <p className="font-bold text-[#100841] text-sm uppercase">Awakening policy engine simulator</p>
+                  <p className="text-[11px] mt-1.5 max-w-sm mx-auto text-[#4f525d]">Configure drawdown parameters on the left and click "Calculate Fee Metrics" to generate sequential, layer-by-layer ledger tracing logs and automated split allocations.</p>
                 </div>
               </div>
             )}
@@ -1734,20 +1734,20 @@ export function FeeBuilderPage() {
 
       {/* ─── TAB 4: AUDIT HISTORY VIEW ─── */}
       {activeTab === "audit" && (
-        <EnterpriseCard className="border-[#d1d9e0] bg-white p-5 space-y-4">
-          <div className="flex items-center justify-between border-b border-[#e8ecf0] pb-2">
+        <EnterpriseCard className="border-[#dfdfdf] bg-white p-5 space-y-4">
+          <div className="flex items-center justify-between border-b border-[#efefff] pb-2">
             <div className="flex items-center gap-1.5">
-              <History className="text-[#1e3a5f] w-4.5 h-4.5" />
-              <h3 className="text-[13px] font-bold text-[#1e3a5f] uppercase tracking-wider">Chronological System Audit Trail</h3>
+              <History className="text-[#100841] w-4.5 h-4.5" />
+              <h3 className="text-[13px] font-bold text-[#100841] uppercase tracking-wider">Chronological System Audit Trail</h3>
             </div>
-            <span className="text-[9px] text-[#5a6b7c] uppercase tracking-widest font-bold">QA Integrity Verified</span>
+            <span className="text-[9px] text-[#4f525d] uppercase tracking-widest font-bold">QA Integrity Verified</span>
           </div>
 
           <div className="space-y-3">
             {audits.map((log, i) => (
-              <div key={i} className="flex gap-4 p-3 border border-[#d1d9e0] rounded-[2px] bg-[#f8fafc] text-[11px]">
+              <div key={i} className="flex gap-4 p-3 border border-[#dfdfdf] rounded-[2px] bg-[#efefff] text-[11px]">
                 <div className="w-32 shrink-0">
-                  <span className="text-[10px] font-mono text-[#5a6b7c] block">{log.timestamp}</span>
+                  <span className="text-[10px] font-mono text-[#4f525d] block">{log.timestamp}</span>
                   <span className="text-[9px] text-slate-400 font-medium block truncate mt-0.5" title={log.user}>{log.user}</span>
                 </div>
                 <div className="w-24 shrink-0">
@@ -1762,10 +1762,10 @@ export function FeeBuilderPage() {
                   </span>
                 </div>
                 <div className="flex-1">
-                  <p className="font-bold text-[#1e3a5f]">
-                    Rule: <span className="font-mono bg-white border border-[#d1d9e0] px-1 py-0.5 text-[9px] rounded-[1px] font-semibold">{log.feeId}</span> {log.feeName}
+                  <p className="font-bold text-[#100841]">
+                    Rule: <span className="font-mono bg-white border border-[#dfdfdf] px-1 py-0.5 text-[9px] rounded-[1px] font-semibold">{log.feeId}</span> {log.feeName}
                   </p>
-                  <p className="text-[#5a6b7c] mt-1 text-[11px] leading-relaxed italic">
+                  <p className="text-[#4f525d] mt-1 text-[11px] leading-relaxed italic">
                     "{log.details}"
                   </p>
                 </div>

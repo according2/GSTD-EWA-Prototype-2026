@@ -39,7 +39,7 @@ function FieldRow({ label, value, highlight }: { label: string; value: React.Rea
   return (
     <div className="flex items-center justify-between py-1.5 border-b border-slate-100 last:border-0">
       <span className="text-xs text-slate-500">{label}</span>
-      <span className={`text-xs font-mono font-medium ${highlight ? "text-[#1e3a5f]" : "text-slate-700"}`}>{value}</span>
+      <span className={`text-xs font-mono font-medium ${highlight ? "text-[#100841]" : "text-slate-700"}`}>{value}</span>
     </div>
   );
 }
@@ -96,8 +96,8 @@ function PersonalTab({ emp }: { emp: Employee }) {
             </EnterpriseBadge>
           </div>
         </div>
-        <div className="mt-3 p-3 rounded bg-[#1e3a5f]/5 border border-[#1e3a5f]/10">
-          <p className="text-[11px] text-[#1e3a5f]/80 font-medium">Both Employment Verification AND EWA Auto-Approval must pass for Trusted status and instant disbursement eligibility.</p>
+        <div className="mt-3 p-3 rounded bg-[#100841]/5 border border-[#100841]/10">
+          <p className="text-[11px] text-[#100841]/80 font-medium">Both Employment Verification AND EWA Auto-Approval must pass for Trusted status and instant disbursement eligibility.</p>
         </div>
       </SectionCard>
     </div>
@@ -165,7 +165,7 @@ function PayrollTab({ emp }: { emp: Employee }) {
       <SectionCard title="Transaction Count">
         <div className="flex gap-4">
           <div className="text-center p-3 bg-white rounded border border-slate-200 flex-1">
-            <p className="text-lg font-bold text-[#1e3a5f] font-mono">{empTxns.length}</p>
+            <p className="text-lg font-bold text-[#100841] font-mono">{empTxns.length}</p>
             <p className="text-[10px] text-slate-400 uppercase tracking-wider">Total Requests</p>
           </div>
           <div className="text-center p-3 bg-white rounded border border-slate-200 flex-1">
@@ -208,7 +208,7 @@ function BudgetTab({ emp }: { emp: Employee }) {
             <span className="font-bold">{utilization.toFixed(1)}%</span>
           </div>
           <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-[#0ea5e9] to-[#1e3a5f] rounded-full transition-all" style={{ width: `${utilization}%` }} />
+            <div className="h-full bg-gradient-to-r from-[#31d891] to-[#100841] rounded-full transition-all" style={{ width: `${utilization}%` }} />
           </div>
         </div>
       </SectionCard>
@@ -292,7 +292,7 @@ function DocumentsTab({ emp }: { emp: Employee }) {
             </div>
             <div className="flex items-center gap-2">
               <EnterpriseBadge variant="success" className="text-[10px]">{doc.status}</EnterpriseBadge>
-              <Eye className="w-3 h-3 text-slate-300 cursor-pointer hover:text-[#0ea5e9]" />
+              <Eye className="w-3 h-3 text-slate-300 cursor-pointer hover:text-[#31d891]" />
             </div>
           </div>
         ))}
@@ -400,7 +400,7 @@ function TransactionsTab({ emp }: { emp: Employee }) {
         <SectionCard title="Transaction Summary">
           <div className="grid grid-cols-4 gap-3">
             <div className="text-center p-2 bg-white rounded border border-slate-200">
-              <p className="text-sm font-bold text-[#1e3a5f] font-mono">{empTxns.length}</p>
+              <p className="text-sm font-bold text-[#100841] font-mono">{empTxns.length}</p>
               <p className="text-[9px] text-slate-400 uppercase">Total</p>
             </div>
             <div className="text-center p-2 bg-white rounded border border-slate-200">
@@ -412,7 +412,7 @@ function TransactionsTab({ emp }: { emp: Employee }) {
               <p className="text-[9px] text-slate-400 uppercase">Fees</p>
             </div>
             <div className="text-center p-2 bg-white rounded border border-slate-200">
-              <p className="text-sm font-bold text-[#1e3a5f] font-mono">{formatMMK(empTxns.reduce((s, t) => s + t.netAmount, 0))}</p>
+              <p className="text-sm font-bold text-[#100841] font-mono">{formatMMK(empTxns.reduce((s, t) => s + t.netAmount, 0))}</p>
               <p className="text-[9px] text-slate-400 uppercase">Net Paid</p>
             </div>
           </div>
@@ -451,8 +451,8 @@ export function EmployeeDetailSheet({ employee, onClose }: Props) {
         <div className="shrink-0 border-b border-slate-200 bg-slate-50/80">
           <div className="flex items-center justify-between px-5 py-3">
             <div>
-              <SheetTitle className="text-sm font-bold text-[#1e3a5f] flex items-center gap-2">
-                <Lock className="w-4 h-4 text-[#1e3a5f]/40" />
+              <SheetTitle className="text-sm font-bold text-[#100841] flex items-center gap-2">
+                <Lock className="w-4 h-4 text-[#100841]/40" />
                 {employee.name}
               </SheetTitle>
               <SheetDescription className="text-[10px] text-slate-400 uppercase tracking-wider mt-0.5">
@@ -471,7 +471,7 @@ export function EmployeeDetailSheet({ employee, onClose }: Props) {
           <div className="flex items-center gap-4 px-5 py-2 border-t border-slate-100 bg-white">
             <div className="flex items-center gap-1.5">
               <span className="text-[10px] text-slate-400 uppercase">Salary</span>
-              <span className="text-xs font-mono font-bold text-[#1e3a5f]">{formatMMK(employee.salary)}</span>
+              <span className="text-xs font-mono font-bold text-[#100841]">{formatMMK(employee.salary)}</span>
             </div>
             <div className="w-px h-4 bg-slate-200" />
             <div className="flex items-center gap-1.5">
@@ -493,7 +493,7 @@ export function EmployeeDetailSheet({ employee, onClose }: Props) {
           </div>
 
           {/* Ledger divider */}
-          <div className="h-[1px] bg-gradient-to-r from-transparent via-[#0ea5e9]/30 to-transparent" />
+          <div className="h-[1px] bg-gradient-to-r from-transparent via-[#31d891]/30 to-transparent" />
         </div>
 
         {/* Tabs + Content */}
@@ -507,8 +507,8 @@ export function EmployeeDetailSheet({ employee, onClose }: Props) {
                   <TabsTrigger
                     key={tab.id}
                     value={tab.id}
-                    className={`px-3 py-2.5 text-[11px] font-medium rounded-none border-b-2 transition-all data-[state=active]:border-[#0ea5e9] data-[state=active]:text-[#1e3a5f] data-[state=active]:bg-white ${
-                      isActive ? "border-[#0ea5e9] text-[#1e3a5f] bg-white" : "border-transparent text-slate-500 hover:text-slate-700"
+                    className={`px-3 py-2.5 text-[11px] font-medium rounded-none border-b-2 transition-all data-[state=active]:border-[#31d891] data-[state=active]:text-[#100841] data-[state=active]:bg-white ${
+                      isActive ? "border-[#31d891] text-[#100841] bg-white" : "border-transparent text-slate-500 hover:text-slate-700"
                     }`}
                   >
                     <Icon className="w-3 h-3 mr-1.5" />

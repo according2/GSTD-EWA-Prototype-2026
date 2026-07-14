@@ -221,19 +221,19 @@ export function EnterpriseTable<T>({
   const endRecordNum = Math.min(currentPage * pageSize, totalRecords);
 
   return (
-    <div className="space-y-3 bg-white border border-[#d1d9e0] rounded-[3px] shadow-[0_1px_3px_rgba(0,0,0,0.06)] overflow-hidden">
+    <div className="space-y-3 bg-white border border-[#dfdfdf] rounded-[3px] shadow-[0_1px_3px_rgba(0,0,0,0.06)] overflow-hidden">
       {/* ===== 1. TABLE CONTROL TOOLBAR ===== */}
-      <div className="p-3 bg-slate-50 border-b border-[#d1d9e0] flex items-center gap-3 flex-wrap justify-between">
+      <div className="p-3 bg-slate-50 border-b border-[#dfdfdf] flex items-center gap-3 flex-wrap justify-between">
         <div className="flex items-center gap-2 flex-1 min-w-[280px]">
           {/* Main search bar */}
           <div className="relative flex-1">
-            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#90a4ae]" />
+            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#868c95]" />
             <input
               type="text"
               placeholder={searchPlaceholder}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-8 pr-3 py-1.5 text-[11px] border border-[#d1d9e0] rounded-[3px] bg-white focus:border-[#1e3a5f] focus:ring-1 focus:ring-[#1e3a5f]/20 outline-none transition-colors"
+              className="w-full pl-8 pr-3 py-1.5 text-[11px] border border-[#dfdfdf] rounded-[3px] bg-white focus:border-[#100841] focus:ring-1 focus:ring-[#100841]/20 outline-none transition-colors"
             />
             {search && (
               <button 
@@ -252,8 +252,8 @@ export function EnterpriseTable<T>({
               className={cn(
                 "inline-flex items-center gap-1.5 px-3 py-1.5 border rounded-[3px] text-[11px] font-semibold transition-colors cursor-pointer",
                 showAdvancedFilters 
-                  ? "bg-[#1e3a5f] text-white border-[#1e3a5f]" 
-                  : "bg-white text-[#1e3a5f] border-[#d1d9e0] hover:bg-[#f5f8fb]"
+                  ? "bg-[#100841] text-white border-[#100841]" 
+                  : "bg-white text-[#100841] border-[#dfdfdf] hover:bg-[#efefff]"
               )}
             >
               <SlidersHorizontal className="w-3.5 h-3.5" />
@@ -281,7 +281,7 @@ export function EnterpriseTable<T>({
               </button>
             </div>
           )}
-          <span className="text-[10px] text-[#5a6b7c] font-mono uppercase tracking-wider font-bold">
+          <span className="text-[10px] text-[#4f525d] font-mono uppercase tracking-wider font-bold">
             {totalRecords > 0 ? `Showing ${startRecordNum}-${endRecordNum} of ${totalRecords} Records` : "0 Records"}
           </span>
         </div>
@@ -289,16 +289,16 @@ export function EnterpriseTable<T>({
 
       {/* ===== 2. COLLAPSIBLE ADVANCED FILTER PANEL ===== */}
       {filters.length > 0 && showAdvancedFilters && (
-        <div className="p-3 bg-[#f8fafc] border-b border-[#d1d9e0] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 animate-in fade-in slide-in-from-top-1 duration-150">
+        <div className="p-3 bg-[#efefff] border-b border-[#dfdfdf] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 animate-in fade-in slide-in-from-top-1 duration-150">
           {filters.map((filter) => (
             <div key={filter.id} className="space-y-1">
-              <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">{filter.label}</label>
+              <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">{filter.label}</label>
               <select
                 value={filterValues[filter.id] || "All"}
                 onChange={(e) => {
                   setFilterValues({ ...filterValues, [filter.id]: e.target.value });
                 }}
-                className="w-full px-2.5 py-1.5 text-[11px] border border-[#d1d9e0] rounded-[3px] bg-white text-[#1e3a5f] outline-none focus:border-[#1e3a5f] focus:ring-1 focus:ring-[#1e3a5f]/20"
+                className="w-full px-2.5 py-1.5 text-[11px] border border-[#dfdfdf] rounded-[3px] bg-white text-[#100841] outline-none focus:border-[#100841] focus:ring-1 focus:ring-[#100841]/20"
               >
                 <option value="All">All {filter.label}s</option>
                 {filter.options.map((opt) => (
@@ -327,14 +327,14 @@ export function EnterpriseTable<T>({
       <div className="overflow-x-auto px-4 pb-2">
         <table className="w-full text-[11px] border-collapse">
           <thead>
-            <tr className="bg-[#f0f4f7] border-b border-[#d1d9e0]">
+            <tr className="bg-[#ffffff] border-b border-[#dfdfdf]">
               {selectable && (
                 <th className="w-10 text-center py-2 px-3">
                   <input
                     type="checkbox"
                     checked={isAllPaginatedRowsSelected}
                     onChange={(e) => handleSelectAll(e.target.checked)}
-                    className="w-3.5 h-3.5 rounded-[2px] border border-[#d1d9e0] accent-[#1e3a5f] cursor-pointer"
+                    className="w-3.5 h-3.5 rounded-[2px] border border-[#dfdfdf] accent-[#100841] cursor-pointer"
                   />
                 </th>
               )}
@@ -342,7 +342,7 @@ export function EnterpriseTable<T>({
                 <th
                   key={col.id}
                   className={cn(
-                    "py-2 px-3 font-bold text-[#5a6b7c] uppercase tracking-wider text-left whitespace-nowrap",
+                    "py-2 px-3 font-bold text-[#4f525d] uppercase tracking-wider text-left whitespace-nowrap",
                     col.align === "right" && "text-right",
                     col.align === "center" && "text-center"
                   )}
@@ -351,7 +351,7 @@ export function EnterpriseTable<T>({
                 </th>
               ))}
               {actions.length > 0 && (
-                <th className="w-12 text-center py-2 px-3 font-bold text-[#5a6b7c] uppercase tracking-wider">
+                <th className="w-12 text-center py-2 px-3 font-bold text-[#4f525d] uppercase tracking-wider">
                   Actions
                 </th>
               )}
@@ -365,7 +365,7 @@ export function EnterpriseTable<T>({
                 <tr
                   key={id}
                   className={cn(
-                    "hover:bg-[#f5f8fb] border-b border-[#e8ecf0] transition-colors relative",
+                    "hover:bg-[#efefff] border-b border-[#efefff] transition-colors relative",
                     isSelected && "bg-[#e8f0fe] hover:bg-[#e1ecfe]"
                   )}
                 >
@@ -375,7 +375,7 @@ export function EnterpriseTable<T>({
                         type="checkbox"
                         checked={isSelected}
                         onChange={(e) => handleSelectRow(row, e.target.checked)}
-                        className="w-3.5 h-3.5 rounded-[2px] border border-[#d1d9e0] accent-[#1e3a5f] cursor-pointer"
+                        className="w-3.5 h-3.5 rounded-[2px] border border-[#dfdfdf] accent-[#100841] cursor-pointer"
                       />
                     </td>
                   )}
@@ -409,7 +409,7 @@ export function EnterpriseTable<T>({
                       {activeActionMenuRowId === id && (
                         <div
                           ref={actionMenuRef}
-                          className="absolute right-3 top-8 bg-white border border-[#d1d9e0] rounded-[3px] shadow-[0_4px_12px_rgba(0,0,0,0.12)] p-1 z-50 min-w-[120px] text-left animate-in fade-in duration-100"
+                          className="absolute right-3 top-8 bg-white border border-[#dfdfdf] rounded-[3px] shadow-[0_4px_12px_rgba(0,0,0,0.12)] p-1 z-50 min-w-[120px] text-left animate-in fade-in duration-100"
                         >
                           {actions.map((act) => (
                             <button
@@ -420,12 +420,12 @@ export function EnterpriseTable<T>({
                                 setActiveActionMenuRowId(null);
                               }}
                               className={cn(
-                                "w-full flex items-center gap-2 px-2.5 py-1.5 rounded-[2px] text-[10px] text-left font-semibold hover:bg-[#f5f8fb] transition-colors cursor-pointer",
+                                "w-full flex items-center gap-2 px-2.5 py-1.5 rounded-[2px] text-[10px] text-left font-semibold hover:bg-[#efefff] transition-colors cursor-pointer",
                                 act.variant === "danger" 
                                   ? "text-red-600 hover:bg-red-50" 
                                   : act.variant === "success" 
                                     ? "text-emerald-600 hover:bg-emerald-50" 
-                                    : "text-[#1e3a5f]"
+                                    : "text-[#100841]"
                               )}
                             >
                               {act.icon && <span className="shrink-0">{act.icon}</span>}
@@ -445,9 +445,9 @@ export function EnterpriseTable<T>({
               <tr>
                 <td
                   colSpan={columns.length + (selectable ? 1 : 0) + (actions.length > 0 ? 1 : 0)}
-                  className="py-12 text-center text-[#90a4ae]"
+                  className="py-12 text-center text-[#868c95]"
                 >
-                  <AlertCircle className="w-6 h-6 text-[#d1d9e0] mx-auto mb-2" />
+                  <AlertCircle className="w-6 h-6 text-[#dfdfdf] mx-auto mb-2" />
                   <p className="text-[11px] font-semibold">{noDataText}</p>
                 </td>
               </tr>
@@ -457,7 +457,7 @@ export function EnterpriseTable<T>({
           {/* ===== 4. SUMMARY FOOTER ROW ===== */}
           {showSummaries && totalRecords > 0 && (columns.some((col) => col.isNumeric) || summary) && (
             <tfoot>
-              <tr className="bg-[#f0f4f7] border-t-2 border-[#d1d9e0] font-bold">
+              <tr className="bg-[#ffffff] border-t-2 border-[#dfdfdf] font-bold">
                 {selectable && <td className="py-2 px-3" />}
                 {columns.map((col, idx) => {
                   const isFirstCell = idx === 0;
@@ -467,7 +467,7 @@ export function EnterpriseTable<T>({
                       <td
                         key={col.id}
                         className={cn(
-                          "py-2 px-3 font-mono tabular-nums text-[#1e3a5f]",
+                          "py-2 px-3 font-mono tabular-nums text-[#100841]",
                           col.align === "right" && "text-right"
                         )}
                       >
@@ -476,7 +476,7 @@ export function EnterpriseTable<T>({
                     );
                   }
                   return (
-                    <td key={col.id} className="py-2 px-3 text-[#5a6b7c] text-[10px] uppercase tracking-wider font-bold">
+                    <td key={col.id} className="py-2 px-3 text-[#4f525d] text-[10px] uppercase tracking-wider font-bold">
                       {isFirstCell ? (summary?.label || "Total Summary") : ""}
                     </td>
                   );
@@ -490,22 +490,22 @@ export function EnterpriseTable<T>({
 
       {/* ===== 5. PAGINATION CONTROLS ===== */}
       {totalPages > 1 && (
-        <div className="p-3 bg-slate-50 border-t border-[#d1d9e0] flex items-center justify-between gap-4">
-          <span className="text-[10px] text-[#5a6b7c] font-mono">
+        <div className="p-3 bg-slate-50 border-t border-[#dfdfdf] flex items-center justify-between gap-4">
+          <span className="text-[10px] text-[#4f525d] font-mono">
             Page {currentPage} of {totalPages}
           </span>
           <div className="flex items-center gap-1">
             <button
               onClick={() => setCurrentPage(1)}
               disabled={currentPage === 1}
-              className="px-2 py-1 text-[10px] font-semibold border border-[#d1d9e0] rounded-[2px] bg-white text-[#5a6b7c] hover:bg-[#f5f8fb] transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+              className="px-2 py-1 text-[10px] font-semibold border border-[#dfdfdf] rounded-[2px] bg-white text-[#4f525d] hover:bg-[#efefff] transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
             >
               First
             </button>
             <button
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="p-1 border border-[#d1d9e0] rounded-[2px] bg-white text-[#5a6b7c] hover:bg-[#f5f8fb] transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+              className="p-1 border border-[#dfdfdf] rounded-[2px] bg-white text-[#4f525d] hover:bg-[#efefff] transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
             >
               <ChevronLeft className="w-3.5 h-3.5" />
             </button>
@@ -522,8 +522,8 @@ export function EnterpriseTable<T>({
                     className={cn(
                       "px-2.5 py-1 text-[10px] font-bold border rounded-[2px] cursor-pointer transition-colors",
                       currentPage === pageNum
-                        ? "bg-[#1e3a5f] text-white border-[#1e3a5f]"
-                        : "bg-white text-[#5a6b7c] border-[#d1d9e0] hover:bg-[#f5f8fb]"
+                        ? "bg-[#100841] text-white border-[#100841]"
+                        : "bg-white text-[#4f525d] border-[#dfdfdf] hover:bg-[#efefff]"
                     )}
                   >
                     {pageNum}
@@ -543,14 +543,14 @@ export function EnterpriseTable<T>({
             <button
               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="p-1 border border-[#d1d9e0] rounded-[2px] bg-white text-[#5a6b7c] hover:bg-[#f5f8fb] transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+              className="p-1 border border-[#dfdfdf] rounded-[2px] bg-white text-[#4f525d] hover:bg-[#efefff] transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
             >
               <ChevronRight className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={() => setCurrentPage(totalPages)}
               disabled={currentPage === totalPages}
-              className="px-2 py-1 text-[10px] font-semibold border border-[#d1d9e0] rounded-[2px] bg-white text-[#5a6b7c] hover:bg-[#f5f8fb] transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+              className="px-2 py-1 text-[10px] font-semibold border border-[#dfdfdf] rounded-[2px] bg-white text-[#4f525d] hover:bg-[#efefff] transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
             >
               Last
             </button>

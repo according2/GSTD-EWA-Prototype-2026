@@ -33,8 +33,8 @@ export function NotificationsPage() {
       header: "Alert Type",
       accessor: (n) => (
         <div className="flex items-center gap-2">
-          {!n.read && <span className="w-2 h-2 rounded-full bg-[#0ea5e9]" />}
-          <span className="text-[12px] font-bold text-[#1e3a5f] uppercase tracking-tight">{n.type}</span>
+          {!n.read && <span className="w-2 h-2 rounded-full bg-[#31d891]" />}
+          <span className="text-[12px] font-bold text-[#100841] uppercase tracking-tight">{n.type}</span>
         </div>
       ),
       searchString: (n) => n.type
@@ -42,7 +42,7 @@ export function NotificationsPage() {
     {
       id: "message",
       header: "Payload / Message",
-      accessor: (n) => <p className="text-[11px] text-[#5a6b7c] font-medium leading-relaxed max-w-[400px]">{n.message}</p>,
+      accessor: (n) => <p className="text-[11px] text-[#4f525d] font-medium leading-relaxed max-w-[400px]">{n.message}</p>,
       searchString: (n) => n.message
     },
     {
@@ -52,7 +52,7 @@ export function NotificationsPage() {
         const icons: Record<string, any> = { "Email": Mail, "SMS": MessageSquare, "Push": Bell };
         const Icon = icons[n.channel] || Mail;
         return (
-          <div className="flex items-center gap-1.5 text-[#1e3a5f] bg-[#f5f8fb] px-2 py-0.5 rounded-[2px] border border-[#d1d9e0]">
+          <div className="flex items-center gap-1.5 text-[#100841] bg-[#efefff] px-2 py-0.5 rounded-[2px] border border-[#dfdfdf]">
             <Icon className="w-3 h-3" />
             <span className="text-[10px] font-bold uppercase tracking-wider">{n.channel}</span>
           </div>
@@ -62,12 +62,12 @@ export function NotificationsPage() {
     {
       id: "recipients",
       header: "Target Groups",
-      accessor: (n) => <span className="text-[10px] text-[#5a6b7c] font-mono font-bold uppercase">{n.recipients}</span>
+      accessor: (n) => <span className="text-[10px] text-[#4f525d] font-mono font-bold uppercase">{n.recipients}</span>
     },
     {
       id: "timestamp",
       header: "Transmission",
-      accessor: (n) => <span className="text-[10px] text-[#5a6b7c] font-mono">{n.timestamp}</span>
+      accessor: (n) => <span className="text-[10px] text-[#4f525d] font-mono">{n.timestamp}</span>
     },
     {
       id: "status",
@@ -81,10 +81,10 @@ export function NotificationsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <BellRing className="w-5 h-5 text-[#0ea5e9]" />
+          <BellRing className="w-5 h-5 text-[#31d891]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Enterprise Notification Service</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">Automated multi-channel alerts and system event broadcasts</p>
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Enterprise Notification Service</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">Automated multi-channel alerts and system event broadcasts</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -110,7 +110,7 @@ export function NotificationsPage() {
           label="Email Dispatched"
           value={1240}
           accentColor="neutral"
-          icon={<Mail className="w-3.5 h-3.5 text-[#5a6b7c]" />}
+          icon={<Mail className="w-3.5 h-3.5 text-[#4f525d]" />}
         />
         <EnterpriseKpiCard
           label="SMS Sent"
@@ -126,11 +126,11 @@ export function NotificationsPage() {
         />
       </div>
 
-      <EnterpriseCard className="border-[#d1d9e0] shadow-sm">
-        <div className="p-4 bg-[#f8fafc] border-b border-[#d1d9e0] flex items-center justify-between">
+      <EnterpriseCard className="border-[#dfdfdf] shadow-sm">
+        <div className="p-4 bg-[#efefff] border-b border-[#dfdfdf] flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Filter className="w-4 h-4 text-[#1e3a5f]" />
-            <span className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest">Notification Audit Log</span>
+            <Filter className="w-4 h-4 text-[#100841]" />
+            <span className="text-[11px] font-bold text-[#100841] uppercase tracking-widest">Notification Audit Log</span>
           </div>
         </div>
         <EnterpriseTable

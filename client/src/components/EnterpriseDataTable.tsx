@@ -157,7 +157,7 @@ export function EnterpriseDataTable<T extends Record<string, any>>({
                   >
                     <button
                       onClick={() => col.sortable && toggleSort(String(col.key))}
-                      className={`flex items-center gap-1.5 ${col.sortable ? "hover:text-[#1e3a5f]" : ""}`}
+                      className={`flex items-center gap-1.5 ${col.sortable ? "hover:text-[#100841]" : ""}`}
                     >
                       {col.header}
                       {col.sortable && sortKey === String(col.key) && (
@@ -214,7 +214,7 @@ export function EnterpriseDataTable<T extends Record<string, any>>({
         <div className="flex items-center justify-between px-3 py-2 border-t border-slate-200 bg-slate-50/50">
           <div className="flex items-center gap-2">
             {selectedItems.length > 0 && (
-              <span className="text-[10px] font-medium text-[#1e3a5f]">
+              <span className="text-[10px] font-medium text-[#100841]">
                 <CheckSquare className="w-3 h-3 inline mr-1" />
                 {selectedItems.length} selected
               </span>

@@ -115,7 +115,7 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
   return (
     <div className="flex-1 flex overflow-hidden h-full">
       {/* Sidebar Progress Stepper */}
-      <div className="w-60 border-r border-[#d1d9e0] bg-[#f8fafc] flex flex-col p-5 overflow-y-auto shrink-0">
+      <div className="w-60 border-r border-[#dfdfdf] bg-[#efefff] flex flex-col p-5 overflow-y-auto shrink-0">
         <div className="space-y-3.5">
           {stages.map((name, index) => {
             const isActive = currentStep === index;
@@ -134,20 +134,20 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
               >
                 <div className={cn(
                   "step-node shrink-0 w-6 h-6 rounded-full flex items-center justify-center border text-[10px] font-mono font-extrabold",
-                  isActive ? "bg-[#0ea5e9] border-[#0ea5e9] text-white" : isCompleted ? "bg-[#2e7d32] border-[#2e7d32] text-white" : "bg-white border-[#d1d9e0] text-[#5a6b7c]"
+                  isActive ? "bg-[#31d891] border-[#31d891] text-white" : isCompleted ? "bg-[#2e7d32] border-[#2e7d32] text-white" : "bg-white border-[#dfdfdf] text-[#4f525d]"
                 )}>
                   {isCompleted ? <Check size={12} /> : index + 1}
                 </div>
                 <div className="min-w-0">
                   <span className={cn(
                     "text-[10px] font-bold uppercase tracking-wider block truncate",
-                    isActive ? "text-[#0ea5e9]" : isCompleted ? "text-[#2e7d32]" : "text-[#5a6b7c]"
+                    isActive ? "text-[#31d891]" : isCompleted ? "text-[#2e7d32]" : "text-[#4f525d]"
                   )}>
                     {name}
                   </span>
                 </div>
                 {isActive && (
-                  <motion.div layoutId="active-marker" className="absolute -right-5 top-1/2 -translate-y-1/2 w-1.5 h-7 bg-[#0ea5e9] rounded-l-full" />
+                  <motion.div layoutId="active-marker" className="absolute -right-5 top-1/2 -translate-y-1/2 w-1.5 h-7 bg-[#31d891] rounded-l-full" />
                 )}
               </button>
             );
@@ -159,11 +159,11 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
       <div className="flex-1 flex flex-col bg-white overflow-hidden">
         <div className="flex-1 overflow-y-auto p-6">
           <div className="max-w-2xl mx-auto space-y-6">
-            <div className="border-b border-[#e8ecf0] pb-3">
-              <h2 className="text-[14px] font-bold text-[#1e3a5f] uppercase tracking-wider">
+            <div className="border-b border-[#efefff] pb-3">
+              <h2 className="text-[14px] font-bold text-[#100841] uppercase tracking-wider">
                 {stages[currentStep]} Step Content
               </h2>
-              <p className="text-[10px] text-[#5a6b7c] mt-0.5 uppercase tracking-wide">
+              <p className="text-[10px] text-[#4f525d] mt-0.5 uppercase tracking-wide">
                 Provide or confirm the registered values to advance company setup.
               </p>
             </div>
@@ -179,7 +179,7 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
                 </div>
                 <div className="card-enterprise p-5 space-y-4">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest">Phone Number</label>
+                    <label className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest">Phone Number</label>
                     <input 
                       type="text" 
                       value={contactNumber}
@@ -200,7 +200,7 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
 
             {currentStep === 1 && (
               <div className="space-y-4">
-                <p className="text-[11px] text-[#5a6b7c]">Verify all corporate legal filings. The system automatically prefilled verified files for testing.</p>
+                <p className="text-[11px] text-[#4f525d]">Verify all corporate legal filings. The system automatically prefilled verified files for testing.</p>
                 <div className="grid gap-2.5">
                   {[
                     "Business Registration (Form 6/26)",
@@ -208,17 +208,17 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
                     "Director Identity Card / NRIC",
                     "Bank Account Details (Company)"
                   ].map((docName, i) => (
-                    <div key={i} className="card-enterprise p-3 flex items-center justify-between hover:bg-[#f8fafc] transition-all">
+                    <div key={i} className="card-enterprise p-3 flex items-center justify-between hover:bg-[#efefff] transition-all">
                       <div className="flex items-center gap-3">
                         <div className="p-1.5 rounded-[2px] border bg-[#e8f5e9] text-[#2e7d32] border-[#c8e6c9]">
                           <FileCheck size={14} />
                         </div>
                         <div>
-                          <p className="text-[11px] font-bold text-[#1e3a5f]">{docName}</p>
+                          <p className="text-[11px] font-bold text-[#100841]">{docName}</p>
                           <span className="text-[8px] bg-[#e8f5e9] text-[#2e7d32] font-extrabold uppercase px-1 py-0.5 rounded-[1px] tracking-wide">verified</span>
                         </div>
                       </div>
-                      <span className="text-[10px] text-[#5a6b7c] font-mono">Attachment_V3.pdf</span>
+                      <span className="text-[10px] text-[#4f525d] font-mono">Attachment_V3.pdf</span>
                     </div>
                   ))}
                 </div>
@@ -229,7 +229,7 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest block">Working Days</label>
+                    <label className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest block">Working Days</label>
                     <div className="flex flex-wrap gap-1">
                       {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(day => (
                         <button 
@@ -237,8 +237,8 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
                           className={cn(
                             "w-8 h-8 rounded-[2px] text-[10px] font-bold border transition-all",
                             ["Mon", "Tue", "Wed", "Thu", "Fri"].includes(day) 
-                              ? "bg-[#1e3a5f] text-white border-[#1e3a5f]" 
-                              : "bg-white text-[#90a4ae] border-[#d1d9e0]"
+                              ? "bg-[#100841] text-white border-[#100841]" 
+                              : "bg-white text-[#868c95] border-[#dfdfdf]"
                           )}
                         >
                           {day}
@@ -248,7 +248,7 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest block">Repayment Method</label>
+                    <label className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest block">Repayment Method</label>
                     <select className="select-enterprise w-full">
                       <option>Last Day of Month (30th/31st)</option>
                       <option>25th of Month</option>
@@ -257,21 +257,21 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
                   </div>
                 </div>
 
-                <div className="card-enterprise p-4 space-y-3 border-t-2 border-t-[#0ea5e9]">
-                  <h4 className="text-[10px] font-bold text-[#0ea5e9] uppercase tracking-[0.2em] flex items-center gap-2">
+                <div className="card-enterprise p-4 space-y-3 border-t-2 border-t-[#31d891]">
+                  <h4 className="text-[10px] font-bold text-[#31d891] uppercase tracking-[0.2em] flex items-center gap-2">
                     <Clock size={14} />
                     Payroll Cycle Setup
                   </h4>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className="text-[9px] text-[#5a6b7c] uppercase font-bold tracking-wider">Salary Cut-off Day</label>
+                      <label className="text-[9px] text-[#4f525d] uppercase font-bold tracking-wider">Salary Cut-off Day</label>
                       <input type="number" defaultValue={25} className="input-enterprise font-bold font-mono" />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="text-[9px] text-[#5a6b7c] uppercase font-bold tracking-wider">EWA Eligible Days Range</label>
+                      <label className="text-[9px] text-[#4f525d] uppercase font-bold tracking-wider">EWA Eligible Days Range</label>
                       <div className="flex items-center gap-2">
                         <input type="number" defaultValue={1} className="input-enterprise text-center font-bold" />
-                        <span className="text-[#90a4ae] text-[10px]">to</span>
+                        <span className="text-[#868c95] text-[10px]">to</span>
                         <input type="number" defaultValue={20} className="input-enterprise text-center font-bold" />
                       </div>
                     </div>
@@ -284,16 +284,16 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-x-4 gap-y-3">
                   <div className="space-y-1.5">
-                    <label className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest block">Company Legal Name</label>
+                    <label className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest block">Company Legal Name</label>
                     <input 
                       type="text" 
                       value={companyName}
                       onChange={(e) => setCompanyName(e.target.value)}
-                      className="input-enterprise font-bold text-[#1e3a5f]"
+                      className="input-enterprise font-bold text-[#100841]"
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest block">Registration Number</label>
+                    <label className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest block">Registration Number</label>
                     <input 
                       type="text" 
                       value={registrationNumber}
@@ -302,7 +302,7 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
                     />
                   </div>
                   <div className="col-span-2 space-y-1.5">
-                    <label className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest block">Corporate Address</label>
+                    <label className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest block">Corporate Address</label>
                     <textarea 
                       rows={2} 
                       value={address}
@@ -311,7 +311,7 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest block">Owner / Director Name</label>
+                    <label className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest block">Owner / Director Name</label>
                     <input 
                       type="text" 
                       value={ownerName}
@@ -320,7 +320,7 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest block">Owner NRC ID</label>
+                    <label className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest block">Owner NRC ID</label>
                     <input 
                       type="text" 
                       value={ownerId}
@@ -334,26 +334,26 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
 
             {currentStep === 4 && (
               <div className="space-y-4">
-                <p className="text-[11px] text-[#5a6b7c]">Verified workforce to be enrolled into the EWA ledger benefits.</p>
-                <div className="border border-[#d1d9e0] rounded-[3px] overflow-hidden max-h-[220px] overflow-y-auto">
+                <p className="text-[11px] text-[#4f525d]">Verified workforce to be enrolled into the EWA ledger benefits.</p>
+                <div className="border border-[#dfdfdf] rounded-[3px] overflow-hidden max-h-[220px] overflow-y-auto">
                   <table className="w-full text-left border-collapse">
-                    <thead className="bg-[#f8fafc] sticky top-0 border-b border-[#d1d9e0]">
+                    <thead className="bg-[#efefff] sticky top-0 border-b border-[#dfdfdf]">
                       <tr>
-                        <th className="px-3 py-2 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Employee</th>
-                        <th className="px-3 py-2 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Position</th>
-                        <th className="px-3 py-2 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Base Salary</th>
-                        <th className="px-3 py-2 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Status</th>
+                        <th className="px-3 py-2 text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Employee</th>
+                        <th className="px-3 py-2 text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Position</th>
+                        <th className="px-3 py-2 text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Base Salary</th>
+                        <th className="px-3 py-2 text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Status</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-[#f1f5f9]">
+                    <tbody className="divide-y divide-[#efefff]">
                       {employees.map((emp) => (
-                        <tr key={emp.id} className="hover:bg-[#f8fafc] transition-colors">
+                        <tr key={emp.id} className="hover:bg-[#efefff] transition-colors">
                           <td className="px-3 py-2">
-                            <p className="text-[11px] font-bold text-[#1e3a5f]">{emp.name}</p>
+                            <p className="text-[11px] font-bold text-[#100841]">{emp.name}</p>
                             <span className="text-[8px] font-mono text-slate-400">{emp.id}</span>
                           </td>
-                          <td className="px-3 py-2 text-[10px] text-[#5a6b7c]">{emp.position}</td>
-                          <td className="px-3 py-2 text-[10px] font-mono text-[#1e3a5f] font-bold">MMK {emp.salary.toLocaleString()}</td>
+                          <td className="px-3 py-2 text-[10px] text-[#4f525d]">{emp.position}</td>
+                          <td className="px-3 py-2 text-[10px] font-mono text-[#100841] font-bold">MMK {emp.salary.toLocaleString()}</td>
                           <td className="px-3 py-2">
                             <span className="status-badge-success !text-[8px] !px-1.5">verified</span>
                           </td>
@@ -371,36 +371,36 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
                   <Calculator size={20} className="text-[#1565c0]" />
                 </div>
                 <div className="text-center">
-                  <h3 className="text-[13px] font-bold text-[#1e3a5f] uppercase tracking-wider">Dynamic Budget Proposal</h3>
-                  <p className="text-[10px] text-[#5a6b7c] mt-0.5">Proposed EWA pool allocation based on verified workforce salaries.</p>
+                  <h3 className="text-[13px] font-bold text-[#100841] uppercase tracking-wider">Dynamic Budget Proposal</h3>
+                  <p className="text-[10px] text-[#4f525d] mt-0.5">Proposed EWA pool allocation based on verified workforce salaries.</p>
                 </div>
 
-                <div className="w-full max-w-md card-enterprise overflow-hidden border-t-2 border-t-[#1e3a5f]">
+                <div className="w-full max-w-md card-enterprise overflow-hidden border-t-2 border-t-[#100841]">
                   <div className="p-4 space-y-3">
-                    <div className="flex items-center justify-between border-b border-[#f1f5f9] pb-2 text-[11px]">
-                      <span className="text-[#5a6b7c] font-medium">Aggregated Monthly Payroll</span>
-                      <span className="font-mono text-[#1e3a5f] font-bold">MMK {employees.reduce((sum, e) => sum + e.salary, 0).toLocaleString()}</span>
+                    <div className="flex items-center justify-between border-b border-[#efefff] pb-2 text-[11px]">
+                      <span className="text-[#4f525d] font-medium">Aggregated Monthly Payroll</span>
+                      <span className="font-mono text-[#100841] font-bold">MMK {employees.reduce((sum, e) => sum + e.salary, 0).toLocaleString()}</span>
                     </div>
-                    <div className="flex items-center justify-between border-b border-[#f1f5f9] pb-2 text-[11px]">
-                      <span className="text-[#5a6b7c] font-medium">Standard EWA Liquidity Cap</span>
-                      <span className="font-mono text-[#0ea5e9] font-bold">30% Max</span>
+                    <div className="flex items-center justify-between border-b border-[#efefff] pb-2 text-[11px]">
+                      <span className="text-[#4f525d] font-medium">Standard EWA Liquidity Cap</span>
+                      <span className="font-mono text-[#31d891] font-bold">30% Max</span>
                     </div>
                     <div className="flex items-center justify-between pt-1">
-                      <span className="text-[10px] font-bold text-[#1e3a5f] uppercase tracking-wider">Requested Budget Pool</span>
+                      <span className="text-[10px] font-bold text-[#100841] uppercase tracking-wider">Requested Budget Pool</span>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[10px] text-[#5a6b7c] font-bold">MMK</span>
+                        <span className="text-[10px] text-[#4f525d] font-bold">MMK</span>
                         <input 
                           type="number"
                           value={budgetAmount}
                           onChange={(e) => setBudgetAmount(Number(e.target.value))}
-                          className="input-enterprise !w-32 text-right font-mono font-bold text-[#0ea5e9] !py-0.5"
+                          className="input-enterprise !w-32 text-right font-mono font-bold text-[#31d891] !py-0.5"
                         />
                       </div>
                     </div>
                   </div>
-                  <div className="bg-[#f8fafc] px-3 py-2 border-t border-[#d1d9e0] flex items-center gap-1.5">
+                  <div className="bg-[#efefff] px-3 py-2 border-t border-[#dfdfdf] flex items-center gap-1.5">
                     <ShieldCheck size={12} className="text-[#2e7d32]" />
-                    <p className="text-[9px] text-[#5a6b7c] italic font-bold uppercase tracking-tight">EWA Limit pre-validated by compliance rules</p>
+                    <p className="text-[9px] text-[#4f525d] italic font-bold uppercase tracking-tight">EWA Limit pre-validated by compliance rules</p>
                   </div>
                 </div>
               </div>
@@ -416,8 +416,8 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
                   </div>
                 </div>
                 <div className="card-enterprise p-5 text-center space-y-3">
-                  <p className="text-[12px] font-bold text-[#1e3a5f]">Pre-fill and proceed to registration.</p>
-                  <p className="text-[10px] text-[#5a6b7c] leading-relaxed">
+                  <p className="text-[12px] font-bold text-[#100841]">Pre-fill and proceed to registration.</p>
+                  <p className="text-[10px] text-[#4f525d] leading-relaxed">
                     By submitting now, this company registration is created dynamically at Stage 6 (Operation Review) allowing you to view and interact with real back-office actions instantly.
                   </p>
                 </div>
@@ -427,7 +427,7 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
         </div>
 
         {/* Spacious Wizard Footer */}
-        <div className="border-t border-[#d1d9e0] bg-[#f8fafc] px-6 py-3.5 flex items-center justify-between shrink-0">
+        <div className="border-t border-[#dfdfdf] bg-[#efefff] px-6 py-3.5 flex items-center justify-between shrink-0">
           <button 
             onClick={handleBack}
             disabled={currentStep === 0}
@@ -450,7 +450,7 @@ export default function OnboardingWizard({ initialMode = "onboarding", onRequest
                 setBudgetAmount(5000000);
                 setCurrentStep(stages.length - 1);
               }}
-              className="btn-enterprise-secondary !border-dashed text-[#0ea5e9] hover:border-[#0ea5e9]"
+              className="btn-enterprise-secondary !border-dashed text-[#31d891] hover:border-[#31d891]"
             >
               Quick Auto-Fill
             </button>

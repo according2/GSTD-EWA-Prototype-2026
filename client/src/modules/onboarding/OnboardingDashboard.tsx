@@ -39,8 +39,8 @@ export default function OnboardingDashboard({ requests = MOCK_ONBOARDING_REQUEST
       {/* Header Section — Enterprise Toolbar Pattern */}
       <div className="enterprise-toolbar mb-4">
         <div>
-          <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Company Onboarding</h1>
-          <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">Manage corporate registrations and EWA budget requests.</p>
+          <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Company Onboarding</h1>
+          <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">Manage corporate registrations and EWA budget requests.</p>
         </div>
         <button 
           onClick={onNewOnboarding}
@@ -54,10 +54,10 @@ export default function OnboardingDashboard({ requests = MOCK_ONBOARDING_REQUEST
       {/* Main Container — Tab Panel Enterprise */}
       <div className="tab-panel-enterprise flex-1 flex flex-col min-h-0">
         {/* Tab Selection */}
-        <div className="flex items-center gap-6 border-b border-[#d1d9e0] mb-4">
+        <div className="flex items-center gap-6 border-b border-[#dfdfdf] mb-4">
           <button 
             onClick={() => setActiveTab("requests")}
-            className={`pb-2 text-[11px] font-bold uppercase tracking-wider transition-all relative ${activeTab === "requests" ? "text-[#0ea5e9]" : "text-[#5a6b7c] hover:text-[#1e3a5f]"}`}
+            className={`pb-2 text-[11px] font-bold uppercase tracking-wider transition-all relative ${activeTab === "requests" ? "text-[#31d891]" : "text-[#4f525d] hover:text-[#100841]"}`}
           >
             My Requests
             {returnedRequestsCount > 0 && (
@@ -65,11 +65,11 @@ export default function OnboardingDashboard({ requests = MOCK_ONBOARDING_REQUEST
                 {returnedRequestsCount}
               </span>
             )}
-            {activeTab === "requests" && <motion.div layoutId="tab-underline" className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0ea5e9]" />}
+            {activeTab === "requests" && <motion.div layoutId="tab-underline" className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#31d891]" />}
           </button>
           <button 
             onClick={() => setActiveTab("tasks")}
-            className={`pb-2 text-[11px] font-bold uppercase tracking-wider transition-all relative ${activeTab === "tasks" ? "text-[#0ea5e9]" : "text-[#5a6b7c] hover:text-[#1e3a5f]"}`}
+            className={`pb-2 text-[11px] font-bold uppercase tracking-wider transition-all relative ${activeTab === "tasks" ? "text-[#31d891]" : "text-[#4f525d] hover:text-[#100841]"}`}
           >
             My Tasks
             {pendingTasksCount > 0 && (
@@ -77,14 +77,14 @@ export default function OnboardingDashboard({ requests = MOCK_ONBOARDING_REQUEST
                 {pendingTasksCount}
               </span>
             )}
-            {activeTab === "tasks" && <motion.div layoutId="tab-underline" className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0ea5e9]" />}
+            {activeTab === "tasks" && <motion.div layoutId="tab-underline" className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#31d891]" />}
           </button>
         </div>
 
         {/* Search and Filters */}
         <div className="flex items-center gap-3 mb-4">
           <div className="flex-1 relative">
-            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[#90a4ae]" size={14} />
+            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[#868c95]" size={14} />
             <input 
               type="text"
               placeholder={`Search ${activeTab}...`}
@@ -156,19 +156,19 @@ function RequestCard({ request, onClick }: { request: OnboardingRequest; onClick
   return (
     <div 
       onClick={onClick}
-      className="card-enterprise p-3 hover:border-[#0ea5e9]/50 transition-all group cursor-pointer"
+      className="card-enterprise p-3 hover:border-[#31d891]/50 transition-all group cursor-pointer"
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-2.5">
-          <div className="p-2 rounded-[2px] bg-[#f8fafc] border border-[#d1d9e0]">
-            <FileText size={16} className="text-[#1e3a5f]" />
+          <div className="p-2 rounded-[2px] bg-[#efefff] border border-[#dfdfdf]">
+            <FileText size={16} className="text-[#100841]" />
           </div>
           <div>
-            <h3 className="text-[12px] font-bold text-[#1e3a5f] group-hover:text-[#0ea5e9] transition-colors">{request.companyName}</h3>
+            <h3 className="text-[12px] font-bold text-[#100841] group-hover:text-[#31d891] transition-colors">{request.companyName}</h3>
             <div className="flex items-center gap-2 mt-0.5">
-              <span className="text-[9px] font-mono text-[#90a4ae] uppercase tracking-wider">{request.id}</span>
-              <span className="w-0.5 h-0.5 rounded-full bg-[#d1d9e0]" />
-              <span className="text-[9px] text-[#5a6b7c] uppercase tracking-wider font-semibold">{request.type.replace('_', ' ')}</span>
+              <span className="text-[9px] font-mono text-[#868c95] uppercase tracking-wider">{request.id}</span>
+              <span className="w-0.5 h-0.5 rounded-full bg-[#dfdfdf]" />
+              <span className="text-[9px] text-[#4f525d] uppercase tracking-wider font-semibold">{request.type.replace('_', ' ')}</span>
             </div>
           </div>
         </div>
@@ -180,20 +180,20 @@ function RequestCard({ request, onClick }: { request: OnboardingRequest; onClick
       {/* Progress Section */}
       <div className="space-y-1.5">
         <div className="flex items-center justify-between text-[10px]">
-          <span className="text-[#5a6b7c] font-medium uppercase tracking-tight">Stage: <span className="text-[#1e3a5f] font-bold">{STAGE_NAMES[request.currentStage]}</span></span>
-          <span className="text-[#0ea5e9] font-bold font-mono">{request.progress}%</span>
+          <span className="text-[#4f525d] font-medium uppercase tracking-tight">Stage: <span className="text-[#100841] font-bold">{STAGE_NAMES[request.currentStage]}</span></span>
+          <span className="text-[#31d891] font-bold font-mono">{request.progress}%</span>
         </div>
-        <div className="h-1 w-full bg-[#f1f5f9] rounded-full overflow-hidden">
+        <div className="h-1 w-full bg-[#efefff] rounded-full overflow-hidden">
           <motion.div 
             initial={{ width: 0 }}
             animate={{ width: `${request.progress}%` }}
-            className="h-full bg-[#0ea5e9]"
+            className="h-full bg-[#31d891]"
           />
         </div>
       </div>
 
-      <div className="mt-3 pt-3 border-t border-[#f1f5f9] flex items-center justify-between">
-        <div className="flex items-center gap-3 text-[10px] text-[#90a4ae] font-medium">
+      <div className="mt-3 pt-3 border-t border-[#efefff] flex items-center justify-between">
+        <div className="flex items-center gap-3 text-[10px] text-[#868c95] font-medium">
           <div className="flex items-center gap-1">
             <Clock size={11} />
             <span>{new Date(request.submissionDate).toLocaleDateString()}</span>
@@ -205,7 +205,7 @@ function RequestCard({ request, onClick }: { request: OnboardingRequest; onClick
             </div>
           )}
         </div>
-        <button className="flex items-center gap-1 text-[10px] font-bold text-[#0ea5e9] hover:underline uppercase tracking-wide">
+        <button className="flex items-center gap-1 text-[10px] font-bold text-[#31d891] hover:underline uppercase tracking-wide">
           View Detail
           <ArrowRight size={11} />
         </button>
@@ -216,21 +216,21 @@ function RequestCard({ request, onClick }: { request: OnboardingRequest; onClick
 
 function TaskCard({ task }: { task: OnboardingTask }) {
   const priorityStyles = {
-    low: "text-[#5a6b7c] bg-[#f5f5f5] border-[#e0e0e0]",
+    low: "text-[#4f525d] bg-[#efefff] border-[#dfdfdf]",
     medium: "text-[#e65100] bg-[#fff3e0] border-[#ffe0b2]",
     high: "text-[#c62828] bg-[#fce4ec] border-[#ffcdd2]",
   };
 
   return (
-    <div className="card-enterprise p-3 hover:border-[#0ea5e9]/50 transition-all group">
+    <div className="card-enterprise p-3 hover:border-[#31d891]/50 transition-all group">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2.5">
-          <div className="p-1.5 rounded-[2px] bg-[#f8fafc] border border-[#d1d9e0]">
-            <CheckCircle2 size={16} className="text-[#0ea5e9]" />
+          <div className="p-1.5 rounded-[2px] bg-[#efefff] border border-[#dfdfdf]">
+            <CheckCircle2 size={16} className="text-[#31d891]" />
           </div>
           <div>
-            <h3 className="text-[12px] font-bold text-[#1e3a5f] group-hover:text-[#0ea5e9] transition-colors">{task.actionRequired}</h3>
-            <p className="text-[10px] text-[#5a6b7c] mt-0.5 font-medium">{task.companyName} • {task.requestType.replace('_', ' ')}</p>
+            <h3 className="text-[12px] font-bold text-[#100841] group-hover:text-[#31d891] transition-colors">{task.actionRequired}</h3>
+            <p className="text-[10px] text-[#4f525d] mt-0.5 font-medium">{task.companyName} • {task.requestType.replace('_', ' ')}</p>
           </div>
         </div>
         <span className={`px-1.5 py-0.5 rounded-[2px] text-[8px] font-bold uppercase tracking-widest border ${priorityStyles[task.priority]}`}>
@@ -241,16 +241,16 @@ function TaskCard({ task }: { task: OnboardingTask }) {
       <div className="flex items-center justify-between mt-4">
         <div className="flex items-center gap-4">
           <div className="flex flex-col gap-0.5">
-            <span className="text-[8px] text-[#90a4ae] uppercase font-bold tracking-widest">Assignee</span>
-            <div className="flex items-center gap-1 text-[10px] text-[#1e3a5f] font-semibold">
-              <User size={11} className="text-[#0ea5e9]" />
+            <span className="text-[8px] text-[#868c95] uppercase font-bold tracking-widest">Assignee</span>
+            <div className="flex items-center gap-1 text-[10px] text-[#100841] font-semibold">
+              <User size={11} className="text-[#31d891]" />
               <span>{task.assignedRole}</span>
             </div>
           </div>
           <div className="flex flex-col gap-0.5">
-            <span className="text-[8px] text-[#90a4ae] uppercase font-bold tracking-widest">Due</span>
-            <div className="flex items-center gap-1 text-[10px] text-[#1e3a5f] font-semibold">
-              <Clock size={11} className="text-[#90a4ae]" />
+            <span className="text-[8px] text-[#868c95] uppercase font-bold tracking-widest">Due</span>
+            <div className="flex items-center gap-1 text-[10px] text-[#100841] font-semibold">
+              <Clock size={11} className="text-[#868c95]" />
               <span>{new Date(task.dueDate).toLocaleDateString()}</span>
             </div>
           </div>

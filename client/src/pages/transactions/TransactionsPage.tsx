@@ -36,7 +36,7 @@ export function TransactionsPage() {
     {
       id: "id",
       header: "TXN ID",
-      accessor: (tx) => <span className="font-mono font-bold text-[#1e3a5f]">{tx.id}</span>,
+      accessor: (tx) => <span className="font-mono font-bold text-[#100841]">{tx.id}</span>,
       searchString: (tx) => tx.id
     },
     {
@@ -44,8 +44,8 @@ export function TransactionsPage() {
       header: "Employee",
       accessor: (tx) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{tx.employeeName}</p>
-          <p className="text-[9px] text-[#5a6b7c] font-mono">{tx.employeeId}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{tx.employeeName}</p>
+          <p className="text-[9px] text-[#4f525d] font-mono">{tx.employeeId}</p>
         </div>
       ),
       searchString: (tx) => `${tx.employeeName} ${tx.employeeId}`
@@ -53,7 +53,7 @@ export function TransactionsPage() {
     {
       id: "company",
       header: "Company",
-      accessor: (tx) => <span className="text-[11px] text-[#5a6b7c] font-medium">{tx.companyName}</span>,
+      accessor: (tx) => <span className="text-[11px] text-[#4f525d] font-medium">{tx.companyName}</span>,
       searchString: (tx) => tx.companyName
     },
     {
@@ -80,12 +80,12 @@ export function TransactionsPage() {
     {
       id: "payout",
       header: "Payout Method",
-      accessor: (tx) => <span className="text-[11px] text-[#5a6b7c] font-medium">{tx.payoutMethod}</span>
+      accessor: (tx) => <span className="text-[11px] text-[#4f525d] font-medium">{tx.payoutMethod}</span>
     },
     {
       id: "requested",
       header: "Requested",
-      accessor: (tx) => <span className="text-[11px] text-[#5a6b7c] font-mono">{tx.requestDate}</span>
+      accessor: (tx) => <span className="text-[11px] text-[#4f525d] font-mono">{tx.requestDate}</span>
     },
     {
       id: "status",
@@ -149,8 +149,8 @@ export function TransactionsPage() {
       {/* ===== Page Header ===== */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Transaction Monitor</h1>
-          <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">
+          <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Transaction Monitor</h1>
+          <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">
             Audit-safe tracking for all EWA disbursements
           </p>
         </div>

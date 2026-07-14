@@ -1,7 +1,7 @@
 /**
  * LimitationsPage — Transaction & Amount Limits
  * Per day, per week, per month, per cycle, per txn, per count per cycle
- * Design: Enterprise Fintech — Deep Navy (#1e3a5f) + Teal (#0ea5e9)
+ * Design: Enterprise Fintech — Deep Navy (#100841) + Teal (#31d891)
  */
 import { useState } from "react";
 import {
@@ -65,7 +65,7 @@ export function LimitationsPage() {
     {
       id: "id",
       header: "ID",
-      accessor: (l) => <span className="font-mono font-bold text-[#1e3a5f]">{l.id}</span>,
+      accessor: (l) => <span className="font-mono font-bold text-[#100841]">{l.id}</span>,
       searchString: (l) => l.id
     },
     {
@@ -73,8 +73,8 @@ export function LimitationsPage() {
       header: "Rule Name",
       accessor: (l) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{l.name}</p>
-          <p className="text-[9px] text-[#5a6b7c] font-mono">{l.code}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{l.name}</p>
+          <p className="text-[9px] text-[#4f525d] font-mono">{l.code}</p>
         </div>
       ),
       searchString: (l) => `${l.name} ${l.code}`
@@ -90,12 +90,12 @@ export function LimitationsPage() {
     {
       id: "target",
       header: "Target Entity",
-      accessor: (l) => <span className="text-[11px] text-[#5a6b7c] font-medium">{l.targetName}</span>
+      accessor: (l) => <span className="text-[11px] text-[#4f525d] font-medium">{l.targetName}</span>
     },
     {
       id: "period",
       header: "Period",
-      accessor: (l) => <EnterpriseBadge variant="neutral" className="bg-[#f5f8fb] text-[#1e3a5f]">{l.period.replace("PER_", "")}</EnterpriseBadge>
+      accessor: (l) => <EnterpriseBadge variant="neutral" className="bg-[#efefff] text-[#100841]">{l.period.replace("PER_", "")}</EnterpriseBadge>
     },
     {
       id: "value",
@@ -124,14 +124,14 @@ export function LimitationsPage() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Shield className="w-5 h-5 text-[#0ea5e9]" />
+          <Shield className="w-5 h-5 text-[#31d891]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Limitation Control Center</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">Hierarchical risk limits and transaction caps management</p>
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Limitation Control Center</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">Hierarchical risk limits and transaction caps management</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <EnterpriseButton variant="primary" className="h-8 py-0 px-3 flex items-center gap-1 text-[10px] bg-[#1e3a5f]">
+          <EnterpriseButton variant="primary" className="h-8 py-0 px-3 flex items-center gap-1 text-[10px] bg-[#100841]">
             <Plus className="w-3.5 h-3.5" /> Define New Limit
           </EnterpriseButton>
         </div>
@@ -183,55 +183,55 @@ export function LimitationsPage() {
           />
           
           {selectedRule && (
-            <EnterpriseCard className="mt-6 p-6 border-[#d1d9e0] bg-[#f8fafc]">
+            <EnterpriseCard className="mt-6 p-6 border-[#dfdfdf] bg-[#efefff]">
                <div className="flex items-center justify-between mb-6">
                  <div className="flex items-center gap-2">
-                   <Settings className="w-4 h-4 text-[#1e3a5f]" />
-                   <h3 className="text-[13px] font-bold text-[#1e3a5f] uppercase tracking-wider">{selectedRule.name} Details</h3>
+                   <Settings className="w-4 h-4 text-[#100841]" />
+                   <h3 className="text-[13px] font-bold text-[#100841] uppercase tracking-wider">{selectedRule.name} Details</h3>
                  </div>
                  <EnterpriseButton variant="secondary" className="h-7 text-[10px]" onClick={() => setSelectedRule(null)}>Close</EnterpriseButton>
                </div>
                
                <div className="grid grid-cols-4 gap-6">
                   <div className="space-y-1">
-                    <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Scope / Level</p>
+                    <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Scope / Level</p>
                     <EnterpriseBadge variant="info">{selectedRule.scope}</EnterpriseBadge>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Periodicity</p>
-                    <p className="text-[12px] font-bold text-[#1e3a5f] uppercase">{selectedRule.period.replace("PER_", "")}</p>
+                    <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Periodicity</p>
+                    <p className="text-[12px] font-bold text-[#100841] uppercase">{selectedRule.period.replace("PER_", "")}</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Threshold Value</p>
+                    <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Threshold Value</p>
                     <p className="text-[14px] font-mono font-bold text-[#e65100]">{selectedRule.limitType === "AMOUNT" ? formatMMK(selectedRule.value) : `${selectedRule.value} ${selectedRule.currency}`}</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest">Target Entity</p>
-                    <p className="text-[12px] font-bold text-[#1e3a5f]">{selectedRule.targetName}</p>
+                    <p className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest">Target Entity</p>
+                    <p className="text-[12px] font-bold text-[#100841]">{selectedRule.targetName}</p>
                   </div>
                </div>
 
-               <div className="mt-8 p-4 bg-white border border-[#d1d9e0] rounded-[2px]">
-                  <p className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-4">Inheritance Hierarchy</p>
+               <div className="mt-8 p-4 bg-white border border-[#dfdfdf] rounded-[2px]">
+                  <p className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest mb-4">Inheritance Hierarchy</p>
                   <div className="flex items-center gap-4">
                     <div className="flex flex-col items-center gap-1">
                       <EnterpriseBadge variant="neutral" className="opacity-50">Global</EnterpriseBadge>
-                      <ArrowRight className="w-3 h-3 text-[#d1d9e0]" />
+                      <ArrowRight className="w-3 h-3 text-[#dfdfdf]" />
                     </div>
                     <div className="flex flex-col items-center gap-1">
-                      <EnterpriseBadge variant="neutral" className={selectedRule.scope === "COMPANY" ? "bg-[#1e3a5f] text-white" : "opacity-50"}>Company</EnterpriseBadge>
-                      <ArrowRight className="w-3 h-3 text-[#d1d9e0]" />
+                      <EnterpriseBadge variant="neutral" className={selectedRule.scope === "COMPANY" ? "bg-[#100841] text-white" : "opacity-50"}>Company</EnterpriseBadge>
+                      <ArrowRight className="w-3 h-3 text-[#dfdfdf]" />
                     </div>
                     <div className="flex flex-col items-center gap-1">
-                      <EnterpriseBadge variant="neutral" className={selectedRule.scope === "GROUP" ? "bg-[#1e3a5f] text-white" : "opacity-50"}>Group</EnterpriseBadge>
-                      <ArrowRight className="w-3 h-3 text-[#d1d9e0]" />
+                      <EnterpriseBadge variant="neutral" className={selectedRule.scope === "GROUP" ? "bg-[#100841] text-white" : "opacity-50"}>Group</EnterpriseBadge>
+                      <ArrowRight className="w-3 h-3 text-[#dfdfdf]" />
                     </div>
                     <div className="flex flex-col items-center gap-1">
-                      <EnterpriseBadge variant="neutral" className={selectedRule.scope === "EMPLOYEE" ? "bg-[#1e3a5f] text-white" : "opacity-50"}>Employee</EnterpriseBadge>
+                      <EnterpriseBadge variant="neutral" className={selectedRule.scope === "EMPLOYEE" ? "bg-[#100841] text-white" : "opacity-50"}>Employee</EnterpriseBadge>
                     </div>
                   </div>
-                  <p className="text-[10px] text-[#5a6b7c] mt-4 leading-relaxed font-medium">
-                    Specific overrides at the <span className="text-[#1e3a5f] font-bold">EMPLOYEE</span> level take precedence over 
+                  <p className="text-[10px] text-[#4f525d] mt-4 leading-relaxed font-medium">
+                    Specific overrides at the <span className="text-[#100841] font-bold">EMPLOYEE</span> level take precedence over 
                     Group, Company, and Global configurations. The effective limit is calculated by selecting the 
                     most specific applicable rule in the chain.
                   </p>
@@ -241,49 +241,49 @@ export function LimitationsPage() {
         </TabsContent>
 
         <TabsContent value="matrix" className="mt-4 outline-none">
-          <EnterpriseCard className="border-[#d1d9e0] overflow-hidden">
-             <div className="p-4 bg-[#f8fafc] border-b border-[#d1d9e0]">
-                <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest">Configuration Matrix</h3>
+          <EnterpriseCard className="border-[#dfdfdf] overflow-hidden">
+             <div className="p-4 bg-[#efefff] border-b border-[#dfdfdf]">
+                <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest">Configuration Matrix</h3>
              </div>
              <div className="overflow-x-auto">
                <table className="w-full text-left border-collapse">
                  <thead>
-                   <tr className="bg-[#f1f5f9]">
-                     <th className="p-3 text-[10px] font-bold text-[#1e3a5f] uppercase tracking-wider border-b border-r border-[#d1d9e0]">Scope</th>
-                     <th className="p-3 text-[10px] font-bold text-[#1e3a5f] uppercase tracking-wider border-b border-[#d1d9e0] text-center">Per TXN</th>
-                     <th className="p-3 text-[10px] font-bold text-[#1e3a5f] uppercase tracking-wider border-b border-[#d1d9e0] text-center">Per Day</th>
-                     <th className="p-3 text-[10px] font-bold text-[#1e3a5f] uppercase tracking-wider border-b border-[#d1d9e0] text-center">Per Week</th>
-                     <th className="p-3 text-[10px] font-bold text-[#1e3a5f] uppercase tracking-wider border-b border-[#d1d9e0] text-center">Per Month</th>
-                     <th className="p-3 text-[10px] font-bold text-[#1e3a5f] uppercase tracking-wider border-b border-[#d1d9e0] text-center">Per Cycle</th>
+                   <tr className="bg-[#efefff]">
+                     <th className="p-3 text-[10px] font-bold text-[#100841] uppercase tracking-wider border-b border-r border-[#dfdfdf]">Scope</th>
+                     <th className="p-3 text-[10px] font-bold text-[#100841] uppercase tracking-wider border-b border-[#dfdfdf] text-center">Per TXN</th>
+                     <th className="p-3 text-[10px] font-bold text-[#100841] uppercase tracking-wider border-b border-[#dfdfdf] text-center">Per Day</th>
+                     <th className="p-3 text-[10px] font-bold text-[#100841] uppercase tracking-wider border-b border-[#dfdfdf] text-center">Per Week</th>
+                     <th className="p-3 text-[10px] font-bold text-[#100841] uppercase tracking-wider border-b border-[#dfdfdf] text-center">Per Month</th>
+                     <th className="p-3 text-[10px] font-bold text-[#100841] uppercase tracking-wider border-b border-[#dfdfdf] text-center">Per Cycle</th>
                    </tr>
                  </thead>
                  <tbody>
                    <tr className="hover:bg-slate-50 transition-colors">
-                     <td className="p-3 border-r border-b border-[#d1d9e0]"><EnterpriseBadge variant="info">GLOBAL</EnterpriseBadge></td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] font-mono text-[11px]">5K - 200K</td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] text-slate-300">—</td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] text-slate-300">—</td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] text-slate-300">—</td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] text-slate-300">—</td>
+                     <td className="p-3 border-r border-b border-[#dfdfdf]"><EnterpriseBadge variant="info">GLOBAL</EnterpriseBadge></td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] font-mono text-[11px]">5K - 200K</td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] text-slate-300">—</td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] text-slate-300">—</td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] text-slate-300">—</td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] text-slate-300">—</td>
                    </tr>
                    <tr className="hover:bg-slate-50 transition-colors">
-                     <td className="p-3 border-r border-b border-[#d1d9e0]"><EnterpriseBadge variant="warning">COMPANY</EnterpriseBadge></td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] text-slate-300">—</td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] font-mono text-[11px] text-[#e65100]">5M MMK</td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] font-mono text-[11px] text-[#e65100]">25M MMK</td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] font-mono text-[11px] text-[#e65100]">100M MMK</td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] font-mono text-[11px] text-[#e65100]">120M MMK</td>
+                     <td className="p-3 border-r border-b border-[#dfdfdf]"><EnterpriseBadge variant="warning">COMPANY</EnterpriseBadge></td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] text-slate-300">—</td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] font-mono text-[11px] text-[#e65100]">5M MMK</td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] font-mono text-[11px] text-[#e65100]">25M MMK</td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] font-mono text-[11px] text-[#e65100]">100M MMK</td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] font-mono text-[11px] text-[#e65100]">120M MMK</td>
                    </tr>
                    <tr className="hover:bg-slate-50 transition-colors">
-                     <td className="p-3 border-r border-b border-[#d1d9e0]"><EnterpriseBadge variant="warning">GROUP</EnterpriseBadge></td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] text-slate-300">—</td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] font-mono text-[11px] text-[#e65100]">3M MMK</td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] text-slate-300">—</td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] font-mono text-[11px] text-[#e65100]">12M MMK</td>
-                     <td className="p-3 text-center border-b border-[#d1d9e0] text-slate-300">—</td>
+                     <td className="p-3 border-r border-b border-[#dfdfdf]"><EnterpriseBadge variant="warning">GROUP</EnterpriseBadge></td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] text-slate-300">—</td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] font-mono text-[11px] text-[#e65100]">3M MMK</td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] text-slate-300">—</td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] font-mono text-[11px] text-[#e65100]">12M MMK</td>
+                     <td className="p-3 text-center border-b border-[#dfdfdf] text-slate-300">—</td>
                    </tr>
                    <tr className="hover:bg-slate-50 transition-colors">
-                     <td className="p-3 border-r border-[#d1d9e0]"><EnterpriseBadge variant="success">EMPLOYEE</EnterpriseBadge></td>
+                     <td className="p-3 border-r border-[#dfdfdf]"><EnterpriseBadge variant="success">EMPLOYEE</EnterpriseBadge></td>
                      <td className="p-3 text-center font-mono text-[11px] text-[#e65100]">MAX 200K</td>
                      <td className="p-3 text-center font-mono text-[11px] text-[#e65100]">200K MMK</td>
                      <td className="p-3 text-center text-slate-300">—</td>
@@ -310,8 +310,8 @@ export function LimitationsPage() {
             ]}
             columns={[
               { id: "scope", header: "Scope", accessor: (u) => <EnterpriseBadge variant={u.scope === "COMPANY" ? "warning" : u.scope === "GROUP" ? "warning" : "success"}>{u.scope}</EnterpriseBadge> },
-              { id: "target", header: "Target", accessor: (u) => <span className="text-[11px] font-bold text-[#1e3a5f]">{u.target}</span> },
-              { id: "period", header: "Period", accessor: (u) => <span className="text-[10px] uppercase font-bold text-[#5a6b7c]">{u.period}</span> },
+              { id: "target", header: "Target", accessor: (u) => <span className="text-[11px] font-bold text-[#100841]">{u.target}</span> },
+              { id: "period", header: "Period", accessor: (u) => <span className="text-[10px] uppercase font-bold text-[#4f525d]">{u.period}</span> },
               { id: "used", header: "Used", isNumeric: true, align: "right", accessor: (u) => formatMMK(u.used) },
               { id: "limit", header: "Limit", isNumeric: true, align: "right", accessor: (u) => formatMMK(u.limit) },
               { id: "pct", header: "Usage %", accessor: (u) => {
@@ -319,7 +319,7 @@ export function LimitationsPage() {
                 return (
                   <div className="flex flex-col items-center gap-1">
                     <span className={cn("text-[11px] font-mono font-bold", pct > 80 ? "text-[#c62828]" : "text-[#2e7d32]")}>{pct}%</span>
-                    <div className="w-16 h-1 bg-[#e2e8f0] rounded-full overflow-hidden">
+                    <div className="w-16 h-1 bg-[#dfdfdf] rounded-full overflow-hidden">
                       <div className={cn("h-full", pct > 80 ? "bg-[#c62828]" : "bg-[#2e7d32]")} style={{ width: `${pct}%` }} />
                     </div>
                   </div>

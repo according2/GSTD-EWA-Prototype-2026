@@ -1,7 +1,7 @@
 /**
  * DocumentationPage — Knowledge Base & Platform Guide
  * SAP Fiori-Inspired: Structured documentation with searchable module guides
- * Design: Enterprise Fintech — Navy (#1e3a5f) + Teal (#0ea5e9) | Sharp corners | Structured layout
+ * Design: Enterprise Fintech — Navy (#100841) + Teal (#31d891) | Sharp corners | Structured layout
  */
 import { useState, useMemo } from "react";
 import {
@@ -516,12 +516,12 @@ function PlatformOverview() {
   return (
     <div className="space-y-8">
       {/* Hero Section */}
-      <div className="bg-[#1e3a5f] rounded-[3px] p-8 text-white">
+      <div className="bg-[#100841] rounded-[3px] p-8 text-white">
         <div className="flex items-start gap-4">
-          <BookOpen className="w-8 h-8 text-[#0ea5e9] shrink-0 mt-1" />
+          <BookOpen className="w-8 h-8 text-[#31d891] shrink-0 mt-1" />
           <div>
             <h2 className="text-xl font-bold mb-2">EWA 3.0 2026 — Standalone Earned Wage Access Platform</h2>
-            <p className="text-[#94b8d4] text-[11px] leading-relaxed max-w-3xl">
+            <p className="text-[#868c95] text-[11px] leading-relaxed max-w-3xl">
               EWA 3.0 replaces 8 legacy systems with a unified, SaaS-ready platform enabling corporate employees to access earned wages
               before payday. The platform features multi-channel disbursement, automated risk assessment, circle-based ledger accounting,
               and integrated Maker-Checker workflows across 5 unified portals.
@@ -532,24 +532,24 @@ function PlatformOverview() {
 
       {/* Key Benefits */}
       <div>
-        <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-4">Platform Benefits</h3>
+        <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-4">Platform Benefits</h3>
         <div className="grid grid-cols-2 gap-3">
           {[
-            { title: "Full DW Independence", desc: "Eliminate dependency on 8 legacy systems", icon: <Zap className="w-4 h-4 text-[#0ea5e9]" /> },
-            { title: "Unified Platform", desc: "Replace 6 portals with 3 unified portals + Mobile App", icon: <Users className="w-4 h-4 text-[#0ea5e9]" /> },
-            { title: "Multi-Channel Disbursement", desc: "Real-time via KBZ Pay/Wave/CB Pay, QR, OTC", icon: <Repeat className="w-4 h-4 text-[#0ea5e9]" /> },
-            { title: "Risk-Based Credit Engine", desc: "Automated company risk scoring (5 tiers A-E)", icon: <Shield className="w-4 h-4 text-[#0ea5e9]" /> },
-            { title: "Circle Based Ledger", desc: "Immutable double-entry accounting with audit trail", icon: <BookOpen className="w-4 h-4 text-[#0ea5e9]" /> },
-            { title: "Maker-Checker Everywhere", desc: "Dual-approval for KYC, repayment, upload, budget", icon: <CheckCircle2 className="w-4 h-4 text-[#0ea5e9]" /> },
+            { title: "Full DW Independence", desc: "Eliminate dependency on 8 legacy systems", icon: <Zap className="w-4 h-4 text-[#31d891]" /> },
+            { title: "Unified Platform", desc: "Replace 6 portals with 3 unified portals + Mobile App", icon: <Users className="w-4 h-4 text-[#31d891]" /> },
+            { title: "Multi-Channel Disbursement", desc: "Real-time via KBZ Pay/Wave/CB Pay, QR, OTC", icon: <Repeat className="w-4 h-4 text-[#31d891]" /> },
+            { title: "Risk-Based Credit Engine", desc: "Automated company risk scoring (5 tiers A-E)", icon: <Shield className="w-4 h-4 text-[#31d891]" /> },
+            { title: "Circle Based Ledger", desc: "Immutable double-entry accounting with audit trail", icon: <BookOpen className="w-4 h-4 text-[#31d891]" /> },
+            { title: "Maker-Checker Everywhere", desc: "Dual-approval for KYC, repayment, upload, budget", icon: <CheckCircle2 className="w-4 h-4 text-[#31d891]" /> },
           ].map((item, i) => (
-            <div key={i} className="bg-white rounded-[3px] border border-[#d1d9e0] p-4">
+            <div key={i} className="bg-white rounded-[3px] border border-[#dfdfdf] p-4">
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-[3px] bg-[#e8f4fd] flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-[3px] bg-[#efefff] flex items-center justify-center shrink-0">
                   {item.icon}
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold text-[#1e3a5f] mb-1">{item.title}</p>
-                  <p className="text-[9px] text-[#5a6b7c]">{item.desc}</p>
+                  <p className="text-[10px] font-bold text-[#100841] mb-1">{item.title}</p>
+                  <p className="text-[9px] text-[#4f525d]">{item.desc}</p>
                 </div>
               </div>
             </div>
@@ -559,15 +559,15 @@ function PlatformOverview() {
 
       {/* Architecture Overview */}
       <div>
-        <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-4">System Components</h3>
-        <div className="bg-white rounded-[3px] border border-[#d1d9e0]">
+        <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-4">System Components</h3>
+        <div className="bg-white rounded-[3px] border border-[#dfdfdf]">
           <table className="w-full text-[9px]">
             <thead>
-              <tr className="bg-[#f5f8fb] border-b border-[#d1d9e0]">
-                <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">#</th>
-                <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">Component</th>
-                <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">Technology</th>
-                <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">Purpose</th>
+              <tr className="bg-[#efefff] border-b border-[#dfdfdf]">
+                <th className="text-left px-4 py-2 font-semibold text-[#100841]">#</th>
+                <th className="text-left px-4 py-2 font-semibold text-[#100841]">Component</th>
+                <th className="text-left px-4 py-2 font-semibold text-[#100841]">Technology</th>
+                <th className="text-left px-4 py-2 font-semibold text-[#100841]">Purpose</th>
               </tr>
             </thead>
             <tbody>
@@ -586,11 +586,11 @@ function PlatformOverview() {
                 ["C-12", "Form Creator Engine", "JSON Schema + React", "Dynamic KYC forms — configurable per tenant without code"],
                 ["C-13", "Circle Ledger Engine", "PostgreSQL + Custom GL", "Double-entry accounting: journal entries, balance verification"],
               ].map(([id, name, tech, purpose], i) => (
-                <tr key={i} className="border-b border-[#e8ecf0] hover:bg-[#f9fbfc]">
-                  <td className="px-4 py-2 text-[#5a6b7c] font-mono">{id}</td>
-                  <td className="px-4 py-2 font-semibold text-[#1e3a5f]">{name}</td>
-                  <td className="px-4 py-2 text-[#5a6b7c]">{tech}</td>
-                  <td className="px-4 py-2 text-[#5a6b7c]">{purpose}</td>
+                <tr key={i} className="border-b border-[#efefff] hover:bg-[#ffffff]">
+                  <td className="px-4 py-2 text-[#4f525d] font-mono">{id}</td>
+                  <td className="px-4 py-2 font-semibold text-[#100841]">{name}</td>
+                  <td className="px-4 py-2 text-[#4f525d]">{tech}</td>
+                  <td className="px-4 py-2 text-[#4f525d]">{purpose}</td>
                 </tr>
               ))}
             </tbody>
@@ -606,22 +606,22 @@ function ArchitectureContent() {
   return (
     <div className="space-y-8">
       <div>
-        <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-4">System Architecture Layers</h3>
+        <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-4">System Architecture Layers</h3>
         <div className="space-y-4">
           {[
-            { layer: "Portal Layer", color: "bg-[#1e3a5f]", items: "Corporate Portal, Admin Portal, Ops Portal, Risk Portal, Finance Portal, Mobile App" },
-            { layer: "API Gateway", color: "bg-[#0ea5e9]", items: "Auth, RBAC, Rate Limiting, RLS Context, Audit Logging" },
-            { layer: "Microservices", color: "bg-[#0ea5e9]/70", items: "Auth Service, Employee Service, Advance Service, Ledger Service, Form Creator Service" },
+            { layer: "Portal Layer", color: "bg-[#100841]", items: "Corporate Portal, Admin Portal, Ops Portal, Risk Portal, Finance Portal, Mobile App" },
+            { layer: "API Gateway", color: "bg-[#31d891]", items: "Auth, RBAC, Rate Limiting, RLS Context, Audit Logging" },
+            { layer: "Microservices", color: "bg-[#31d891]/70", items: "Auth Service, Employee Service, Advance Service, Ledger Service, Form Creator Service" },
             { layer: "Engine & Infrastructure", color: "bg-[#10b981]", items: "Temporal Workflow, GoRule Decision Engine, N8N Integration, Circle Ledger, Redis Cache" },
             { layer: "Data Layer", color: "bg-[#f59e0b]", items: "PostgreSQL 15 with Row-Level Security (operator_id + company_id), Audit logs on ALL tables" },
-            { layer: "External Systems", color: "bg-[#6366f1]", items: "KBZ Pay, Wave Money, CB Pay, MoPayment Gateway, SMS/Email Gateway, DICA Registry" },
+            { layer: "External Systems", color: "bg-[#100841]", items: "KBZ Pay, Wave Money, CB Pay, MoPayment Gateway, SMS/Email Gateway, DICA Registry" },
           ].map((item, i) => (
             <div key={i} className="flex items-start gap-3">
               <div className={`w-32 h-10 rounded-[3px] ${item.color} flex items-center justify-center shrink-0`}>
                 <span className="text-[9px] font-bold text-white">{item.layer}</span>
               </div>
-              <div className="flex-1 bg-white rounded-[3px] border border-[#d1d9e0] px-4 py-2">
-                <p className="text-[9px] text-[#5a6b7c]">{item.items}</p>
+              <div className="flex-1 bg-white rounded-[3px] border border-[#dfdfdf] px-4 py-2">
+                <p className="text-[9px] text-[#4f525d]">{item.items}</p>
               </div>
             </div>
           ))}
@@ -629,9 +629,9 @@ function ArchitectureContent() {
       </div>
 
       <div>
-        <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-4">Entity Hierarchy</h3>
-        <div className="bg-white rounded-[3px] border border-[#d1d9e0] p-4">
-          <pre className="text-[9px] text-[#5a6b7c] leading-relaxed font-mono">
+        <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-4">Entity Hierarchy</h3>
+        <div className="bg-white rounded-[3px] border border-[#dfdfdf] p-4">
+          <pre className="text-[9px] text-[#4f525d] leading-relaxed font-mono">
 {`Platform (EWA Standalone)
 └── Operator (Country Tenant — Myanmar, Thailand, Vietnam)
     └── Company (DICA registered entity)
@@ -658,14 +658,14 @@ function ArchitectureContent() {
       </div>
 
       <div>
-        <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-4">Corporate vs SME Comparison</h3>
-        <div className="bg-white rounded-[3px] border border-[#d1d9e0]">
+        <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-4">Corporate vs SME Comparison</h3>
+        <div className="bg-white rounded-[3px] border border-[#dfdfdf]">
           <table className="w-full text-[9px]">
             <thead>
-              <tr className="bg-[#f5f8fb] border-b border-[#d1d9e0]">
-                <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">Dimension</th>
-                <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">Corporate</th>
-                <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">SME</th>
+              <tr className="bg-[#efefff] border-b border-[#dfdfdf]">
+                <th className="text-left px-4 py-2 font-semibold text-[#100841]">Dimension</th>
+                <th className="text-left px-4 py-2 font-semibold text-[#100841]">Corporate</th>
+                <th className="text-left px-4 py-2 font-semibold text-[#100841]">SME</th>
               </tr>
             </thead>
             <tbody>
@@ -679,10 +679,10 @@ function ArchitectureContent() {
                 ["Upload Workflow", "Diff preview → Maker → Checker", "Direct upload → immediate apply"],
                 ["Reports", "All reports with branch drill-down", "Core reports, no branch dimension"],
               ].map(([dim, corp, sme], i) => (
-                <tr key={i} className="border-b border-[#e8ecf0] hover:bg-[#f9fbfc]">
-                  <td className="px-4 py-2 font-semibold text-[#1e3a5f]">{dim}</td>
-                  <td className="px-4 py-2 text-[#5a6b7c]">{corp}</td>
-                  <td className="px-4 py-2 text-[#5a6b7c]">{sme}</td>
+                <tr key={i} className="border-b border-[#efefff] hover:bg-[#ffffff]">
+                  <td className="px-4 py-2 font-semibold text-[#100841]">{dim}</td>
+                  <td className="px-4 py-2 text-[#4f525d]">{corp}</td>
+                  <td className="px-4 py-2 text-[#4f525d]">{sme}</td>
                 </tr>
               ))}
             </tbody>
@@ -696,21 +696,21 @@ function ArchitectureContent() {
 /* ─── Workflows Content ─── */
 function WorkflowsContent() {
   const lifecyclePhases = [
-    { phase: 0, title: "Company Onboarding & Risk Assessment", desc: "Ops/Self-Register → KYC Review → Financial Docs → Credit Assessment → Budget Approval → Integration → ACTIVE", color: "bg-[#1e3a5f]" },
-    { phase: 1, title: "HR Setup & Employee Import", desc: "HR Login → Upload Roster → Diff Engine Preview → Maker-Checker Approval", color: "bg-[#0ea5e9]" },
-    { phase: 2, title: "Employee Registration & KYC", desc: "Employee Downloads App → Self-Registration → KYC Upload (NRC + Selfie + OCR)", color: "bg-[#0ea5e9]" },
-    { phase: 3, title: "Employee Verification & Trusted Status", desc: "Employee Submits Employment Info → 3-Scenario Verification Engine", color: "bg-[#0ea5e9]" },
+    { phase: 0, title: "Company Onboarding & Risk Assessment", desc: "Ops/Self-Register → KYC Review → Financial Docs → Credit Assessment → Budget Approval → Integration → ACTIVE", color: "bg-[#100841]" },
+    { phase: 1, title: "HR Setup & Employee Import", desc: "HR Login → Upload Roster → Diff Engine Preview → Maker-Checker Approval", color: "bg-[#31d891]" },
+    { phase: 2, title: "Employee Registration & KYC", desc: "Employee Downloads App → Self-Registration → KYC Upload (NRC + Selfie + OCR)", color: "bg-[#31d891]" },
+    { phase: 3, title: "Employee Verification & Trusted Status", desc: "Employee Submits Employment Info → 3-Scenario Verification Engine", color: "bg-[#31d891]" },
     { phase: 4, title: "Credit Assessment & Budget Allocation", desc: "Corporate Uploads Financial Docs → Risk Officer Review → Finance Approval", color: "bg-[#10b981]" },
     { phase: 5, title: "Wage Advance Request", desc: "Employee Opens App → 4-Step Advance Flow (Amount → Payout → Review → Confirm)", color: "bg-[#10b981]" },
     { phase: 6, title: "Disbursement", desc: "Multi-Channel Payout: Real-Time / QR Manual / MoPayment / OTC Cash Code", color: "bg-[#f59e0b]" },
     { phase: 7, title: "Repayment & Settlement", desc: "Repayment Due → Payroll Auto / Manual Portal / Auto-Deduct → Maker-Checker", color: "bg-[#f59e0b]" },
-    { phase: 8, title: "Circle Ledger Closure & Reporting", desc: "End of Cycle → Reconciliation → Trial Balance → P&L → Risk Recalc → 7-Year Archive", color: "bg-[#6366f1]" },
+    { phase: 8, title: "Circle Ledger Closure & Reporting", desc: "End of Cycle → Reconciliation → Trial Balance → P&L → Risk Recalc → 7-Year Archive", color: "bg-[#100841]" },
   ];
 
   return (
     <div className="space-y-8">
       <div>
-        <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-4">EWA Lifecycle — 8 Phases</h3>
+        <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-4">EWA Lifecycle — 8 Phases</h3>
         <div className="space-y-3">
           {lifecyclePhases.map((phase) => (
             <div key={phase.phase} className="flex items-start gap-3">
@@ -718,8 +718,8 @@ function WorkflowsContent() {
                 <span className="text-[8px] font-bold text-white">Phase {phase.phase}</span>
               </div>
               <div className="flex-1">
-                <p className="text-[10px] font-bold text-[#1e3a5f]">{phase.title}</p>
-                <p className="text-[9px] text-[#5a6b7c] mt-0.5">{phase.desc}</p>
+                <p className="text-[10px] font-bold text-[#100841]">{phase.title}</p>
+                <p className="text-[9px] text-[#4f525d] mt-0.5">{phase.desc}</p>
               </div>
             </div>
           ))}
@@ -727,11 +727,11 @@ function WorkflowsContent() {
       </div>
 
       <div>
-        <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-4">Key Workflow State Machines</h3>
+        <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-4">Key Workflow State Machines</h3>
         <div className="grid grid-cols-2 gap-4">
           {/* Employee Onboarding State Machine */}
-          <div className="bg-white rounded-[3px] border border-[#d1d9e0] p-4">
-            <h4 className="text-[10px] font-bold text-[#1e3a5f] mb-3">Employee Onboarding</h4>
+          <div className="bg-white rounded-[3px] border border-[#dfdfdf] p-4">
+            <h4 className="text-[10px] font-bold text-[#100841] mb-3">Employee Onboarding</h4>
             <div className="space-y-2">
               {[
                 { state: "Draft", next: "Pending Validation", trigger: "Submit" },
@@ -740,17 +740,17 @@ function WorkflowsContent() {
                 { state: "Active", next: "Inactive", trigger: "Deactivate" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-[8px]">
-                  <span className="bg-[#e8f4fd] text-[#1e3a5f] px-2 py-0.5 rounded-[2px] font-mono">{item.state}</span>
-                  <ChevronRight className="w-3 h-3 text-[#0ea5e9]" />
-                  <span className="text-[#5a6b7c]">{item.next}</span>
+                  <span className="bg-[#efefff] text-[#100841] px-2 py-0.5 rounded-[2px] font-mono">{item.state}</span>
+                  <ChevronRight className="w-3 h-3 text-[#31d891]" />
+                  <span className="text-[#4f525d]">{item.next}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Budget Overflow State Machine */}
-          <div className="bg-white rounded-[3px] border border-[#d1d9e0] p-4">
-            <h4 className="text-[10px] font-bold text-[#1e3a5f] mb-3">Budget Overflow Approval</h4>
+          <div className="bg-white rounded-[3px] border border-[#dfdfdf] p-4">
+            <h4 className="text-[10px] font-bold text-[#100841] mb-3">Budget Overflow Approval</h4>
             <div className="space-y-2">
               {[
                 { state: "Draft", next: "Submitted", trigger: "Submit Request" },
@@ -761,16 +761,16 @@ function WorkflowsContent() {
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-[8px]">
                   <span className="bg-[#fef3c7] text-[#92400e] px-2 py-0.5 rounded-[2px] font-mono">{item.state}</span>
-                  <ChevronRight className="w-3 h-3 text-[#0ea5e9]" />
-                  <span className="text-[#5a6b7c]">{item.next}</span>
+                  <ChevronRight className="w-3 h-3 text-[#31d891]" />
+                  <span className="text-[#4f525d]">{item.next}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Settlement State Machine */}
-          <div className="bg-white rounded-[3px] border border-[#d1d9e0] p-4">
-            <h4 className="text-[10px] font-bold text-[#1e3a5f] mb-3">Settlement Verification</h4>
+          <div className="bg-white rounded-[3px] border border-[#dfdfdf] p-4">
+            <h4 className="text-[10px] font-bold text-[#100841] mb-3">Settlement Verification</h4>
             <div className="space-y-2">
               {[
                 { state: "Submitted", next: "Maker Verified", trigger: "Ops Verify" },
@@ -779,16 +779,16 @@ function WorkflowsContent() {
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-[8px]">
                   <span className="bg-[#dcfce7] text-[#166534] px-2 py-0.5 rounded-[2px] font-mono">{item.state}</span>
-                  <ChevronRight className="w-3 h-3 text-[#0ea5e9]" />
-                  <span className="text-[#5a6b7c]">{item.next}</span>
+                  <ChevronRight className="w-3 h-3 text-[#31d891]" />
+                  <span className="text-[#4f525d]">{item.next}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Disbursement State Machine */}
-          <div className="bg-white rounded-[3px] border border-[#d1d9e0] p-4">
-            <h4 className="text-[10px] font-bold text-[#1e3a5f] mb-3">Disbursement Engine</h4>
+          <div className="bg-white rounded-[3px] border border-[#dfdfdf] p-4">
+            <h4 className="text-[10px] font-bold text-[#100841] mb-3">Disbursement Engine</h4>
             <div className="space-y-2">
               {[
                 { state: "Requested", next: "Validating", trigger: "7-Point Check" },
@@ -798,8 +798,8 @@ function WorkflowsContent() {
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-[8px]">
                   <span className="bg-[#f0fdf4] text-[#166534] px-2 py-0.5 rounded-[2px] font-mono">{item.state}</span>
-                  <ChevronRight className="w-3 h-3 text-[#0ea5e9]" />
-                  <span className="text-[#5a6b7c]">{item.next}</span>
+                  <ChevronRight className="w-3 h-3 text-[#31d891]" />
+                  <span className="text-[#4f525d]">{item.next}</span>
                 </div>
               ))}
             </div>
@@ -813,33 +813,33 @@ function WorkflowsContent() {
 /* ─── Roles & Permissions Content ─── */
 function RolesContent() {
   const roles = [
-    { role: "HR", icon: <Users className="w-4 h-4" />, color: "bg-[#0ea5e9]", desc: "Employee onboarding, roster management, verification, payroll, budget requests", modules: "Onboarding, Employees, Groups, Budget, Reports, Payroll" },
+    { role: "HR", icon: <Users className="w-4 h-4" />, color: "bg-[#31d891]", desc: "Employee onboarding, roster management, verification, payroll, budget requests", modules: "Onboarding, Employees, Groups, Budget, Reports, Payroll" },
     { role: "Sales", icon: <Users className="w-4 h-4" />, color: "bg-[#10b981]", desc: "Customer engagement metrics, employee adoption tracking, reports", modules: "Dashboard, Reports" },
     { role: "Operations", icon: <Zap className="w-4 h-4" />, color: "bg-[#f59e0b]", desc: "Transaction monitoring, settlement verification, disbursement control, QR processing", modules: "Transactions, Repayment, Settlement, Risk, Disbursement, Workflow" },
-    { role: "Back Office", icon: <FileText className="w-4 h-4" />, color: "bg-[#6366f1]", desc: "Payroll reconciliation, employee data management, reports", modules: "Employees, Payroll, Reports, Transactions" },
+    { role: "Back Office", icon: <FileText className="w-4 h-4" />, color: "bg-[#100841]", desc: "Payroll reconciliation, employee data management, reports", modules: "Employees, Payroll, Reports, Transactions" },
     { role: "Finance", icon: <Wallet className="w-4 h-4" />, color: "bg-[#8b5cf6]", desc: "Settlement approval, GL reconciliation, budget approval, financial reports", modules: "Circle Ledger, Budget, Settlement, Payroll, Reports, Disbursement" },
     { role: "Risk", icon: <ShieldAlert className="w-4 h-4" />, color: "bg-[#ef4444]", desc: "Company risk scoring, budget management, overdue monitoring, ghost detection", modules: "Risk, Budget, Employees, Reports, Write-Off, Workflow" },
-    { role: "Platform Admin", icon: <Settings className="w-4 h-4" />, color: "bg-[#1e3a5f]", desc: "Full platform control: module config, GoRule, integrations, Form Creator, audit", modules: "All 24 modules" },
+    { role: "Platform Admin", icon: <Settings className="w-4 h-4" />, color: "bg-[#100841]", desc: "Full platform control: module config, GoRule, integrations, Form Creator, audit", modules: "All 24 modules" },
   ];
 
   return (
     <div className="space-y-8">
       <div>
-        <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-4">Portal Roles & Scope</h3>
+        <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-4">Portal Roles & Scope</h3>
         <div className="space-y-3">
           {roles.map((role, i) => (
-            <div key={i} className="bg-white rounded-[3px] border border-[#d1d9e0] p-4">
+            <div key={i} className="bg-white rounded-[3px] border border-[#dfdfdf] p-4">
               <div className="flex items-start gap-3">
                 <div className={`w-8 h-8 rounded-[3px] ${role.color} flex items-center justify-center shrink-0 text-white`}>
                   {role.icon}
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <h4 className="text-[10px] font-bold text-[#1e3a5f]">{role.role}</h4>
-                    <span className="text-[8px] text-[#5a6b7c]">Portal</span>
+                    <h4 className="text-[10px] font-bold text-[#100841]">{role.role}</h4>
+                    <span className="text-[8px] text-[#4f525d]">Portal</span>
                   </div>
-                  <p className="text-[9px] text-[#5a6b7c] mb-2">{role.desc}</p>
-                  <p className="text-[8px] text-[#0ea5e9] font-mono">{role.modules}</p>
+                  <p className="text-[9px] text-[#4f525d] mb-2">{role.desc}</p>
+                  <p className="text-[8px] text-[#31d891] font-mono">{role.modules}</p>
                 </div>
               </div>
             </div>
@@ -848,9 +848,9 @@ function RolesContent() {
       </div>
 
       <div>
-        <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-4">Role-Based View Switching</h3>
-        <div className="bg-[#e8f4fd] rounded-[3px] border border-[#0ea5e9]/20 p-4">
-          <p className="text-[9px] text-[#1e3a5f] leading-relaxed">
+        <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-4">Role-Based View Switching</h3>
+        <div className="bg-[#efefff] rounded-[3px] border border-[#31d891]/20 p-4">
+          <p className="text-[9px] text-[#100841] leading-relaxed">
             The platform includes a <strong>View As</strong> dropdown in the top-right header that allows instant switching
             between all 7 roles. Each role sees a different set of modules in the sidebar navigation. This enables
             comprehensive testing and demonstration of the platform from any role's perspective without needing separate accounts.
@@ -866,15 +866,15 @@ function APIContent() {
   return (
     <div className="space-y-8">
       <div>
-        <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-4">Partner API Endpoints</h3>
-        <div className="bg-white rounded-[3px] border border-[#d1d9e0]">
+        <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-4">Partner API Endpoints</h3>
+        <div className="bg-white rounded-[3px] border border-[#dfdfdf]">
           <table className="w-full text-[9px]">
             <thead>
-              <tr className="bg-[#f5f8fb] border-b border-[#d1d9e0]">
-                <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">Endpoint</th>
-                <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">Method</th>
-                <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">Description</th>
-                <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">Auth</th>
+              <tr className="bg-[#efefff] border-b border-[#dfdfdf]">
+                <th className="text-left px-4 py-2 font-semibold text-[#100841]">Endpoint</th>
+                <th className="text-left px-4 py-2 font-semibold text-[#100841]">Method</th>
+                <th className="text-left px-4 py-2 font-semibold text-[#100841]">Description</th>
+                <th className="text-left px-4 py-2 font-semibold text-[#100841]">Auth</th>
               </tr>
             </thead>
             <tbody>
@@ -888,15 +888,15 @@ function APIContent() {
                 ["/api/v1/disbursement/destinations", "GET", "Supported payout channels", "OAuth 2.0"],
                 ["/webhooks/{partnerId}", "POST", "Real-time event notifications", "HMAC-SHA256"],
               ].map(([ep, method, desc, auth], i) => (
-                <tr key={i} className="border-b border-[#e8ecf0] hover:bg-[#f9fbfc]">
-                  <td className="px-4 py-2 font-mono text-[#0ea5e9]">{ep}</td>
+                <tr key={i} className="border-b border-[#efefff] hover:bg-[#ffffff]">
+                  <td className="px-4 py-2 font-mono text-[#31d891]">{ep}</td>
                   <td className="px-4 py-2">
                     <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-[2px] ${
-                      method === "GET" ? "bg-[#e8f4fd] text-[#0ea5e9]" : "bg-[#dcfce7] text-[#166534]"
+                      method === "GET" ? "bg-[#efefff] text-[#31d891]" : "bg-[#dcfce7] text-[#166534]"
                     }`}>{method}</span>
                   </td>
-                  <td className="px-4 py-2 text-[#5a6b7c]">{desc}</td>
-                  <td className="px-4 py-2 text-[#5a6b7c]">{auth}</td>
+                  <td className="px-4 py-2 text-[#4f525d]">{desc}</td>
+                  <td className="px-4 py-2 text-[#4f525d]">{auth}</td>
                 </tr>
               ))}
             </tbody>
@@ -905,7 +905,7 @@ function APIContent() {
       </div>
 
       <div>
-        <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-4">Integration Architecture</h3>
+        <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-4">Integration Architecture</h3>
         <div className="space-y-3">
           {[
             { name: "KBZ Pay", type: "Real-Time Payment", protocol: "N8N Connector", status: "Active" },
@@ -916,11 +916,11 @@ function APIContent() {
             { name: "Email Gateway", type: "Notification", protocol: "SMTP / REST", status: "Active" },
             { name: "DICA Registry", type: "Company Verification", protocol: "External API", status: "Planned" },
           ].map((item, i) => (
-            <div key={i} className="bg-white rounded-[3px] border border-[#d1d9e0] px-4 py-2 flex items-center gap-3">
+            <div key={i} className="bg-white rounded-[3px] border border-[#dfdfdf] px-4 py-2 flex items-center gap-3">
               <div className="w-3 h-3 rounded-full bg-[#10b981] shrink-0" />
-              <span className="text-[9px] font-bold text-[#1e3a5f] w-28">{item.name}</span>
-              <span className="text-[9px] text-[#5a6b7c] w-32">{item.type}</span>
-              <span className="text-[8px] font-mono text-[#0ea5e9] bg-[#e8f4fd] px-1.5 py-0.5 rounded-[2px]">{item.protocol}</span>
+              <span className="text-[9px] font-bold text-[#100841] w-28">{item.name}</span>
+              <span className="text-[9px] text-[#4f525d] w-32">{item.type}</span>
+              <span className="text-[8px] font-mono text-[#31d891] bg-[#efefff] px-1.5 py-0.5 rounded-[2px]">{item.protocol}</span>
               <span className="text-[8px] text-[#166534] bg-[#dcfce7] px-1.5 py-0.5 rounded-[2px] ml-auto">{item.status}</span>
             </div>
           ))}
@@ -938,54 +938,54 @@ function ModuleGuideDetail({ guide }: { guide: ModuleGuide }) {
   return (
     <div className="space-y-6">
       {/* Module Header */}
-      <div className="bg-[#1e3a5f] rounded-[3px] p-6 text-white">
+      <div className="bg-[#100841] rounded-[3px] p-6 text-white">
         <div className="flex items-start gap-4">
-          <div className="w-10 h-10 rounded-[3px] bg-[#0ea5e9]/20 flex items-center justify-center shrink-0">
-            <FileText className="w-5 h-5 text-[#0ea5e9]" />
+          <div className="w-10 h-10 rounded-[3px] bg-[#31d891]/20 flex items-center justify-center shrink-0">
+            <FileText className="w-5 h-5 text-[#31d891]" />
           </div>
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-1">
               <h2 className="text-lg font-bold">{guide.title}</h2>
-              <span className="text-[9px] bg-[#0ea5e9]/30 text-[#67e8f9] px-2 py-0.5 rounded-[2px] font-mono">
+              <span className="text-[9px] bg-[#31d891]/30 text-[#67e8f9] px-2 py-0.5 rounded-[2px] font-mono">
                 {guide.category}
               </span>
             </div>
-            <p className="text-[10px] text-[#94b8d4]">{guide.portal}</p>
-            <p className="text-[10px] text-[#94b8d4] mt-1">Actors: {guide.actors.join(", ")}</p>
+            <p className="text-[10px] text-[#868c95]">{guide.portal}</p>
+            <p className="text-[10px] text-[#868c95] mt-1">Actors: {guide.actors.join(", ")}</p>
           </div>
         </div>
       </div>
 
       {/* Description */}
-      <div className="bg-white rounded-[3px] border border-[#d1d9e0] p-4">
-        <p className="text-[10px] text-[#5a6b7c] leading-relaxed">{guide.description}</p>
+      <div className="bg-white rounded-[3px] border border-[#dfdfdf] p-4">
+        <p className="text-[10px] text-[#4f525d] leading-relaxed">{guide.description}</p>
       </div>
 
       {/* Features */}
       <div>
         <button
           onClick={() => setShowFeatures(!showFeatures)}
-          className="flex items-center gap-2 text-[10px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-3 hover:text-[#0ea5e9] transition-colors"
+          className="flex items-center gap-2 text-[10px] font-bold text-[#100841] uppercase tracking-widest mb-3 hover:text-[#31d891] transition-colors"
         >
           <ChevronRight className={`w-3 h-3 transition-transform ${showFeatures ? "rotate-90" : ""}`} />
           Features ({guide.features.length})
         </button>
         {showFeatures && (
-          <div className="bg-white rounded-[3px] border border-[#d1d9e0]">
+          <div className="bg-white rounded-[3px] border border-[#dfdfdf]">
             <table className="w-full text-[9px]">
               <thead>
-                <tr className="bg-[#f5f8fb] border-b border-[#d1d9e0]">
-                  <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">Feature</th>
-                  <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">Actor</th>
-                  <th className="text-left px-4 py-2 font-semibold text-[#1e3a5f]">Outcome</th>
+                <tr className="bg-[#efefff] border-b border-[#dfdfdf]">
+                  <th className="text-left px-4 py-2 font-semibold text-[#100841]">Feature</th>
+                  <th className="text-left px-4 py-2 font-semibold text-[#100841]">Actor</th>
+                  <th className="text-left px-4 py-2 font-semibold text-[#100841]">Outcome</th>
                 </tr>
               </thead>
               <tbody>
                 {guide.features.map((f, i) => (
-                  <tr key={i} className="border-b border-[#e8ecf0] hover:bg-[#f9fbfc]">
-                    <td className="px-4 py-2 font-semibold text-[#1e3a5f]">{f.feature}</td>
-                    <td className="px-4 py-2 text-[#5a6b7c]">{f.actor}</td>
-                    <td className="px-4 py-2 text-[#5a6b7c]">{f.outcome}</td>
+                  <tr key={i} className="border-b border-[#efefff] hover:bg-[#ffffff]">
+                    <td className="px-4 py-2 font-semibold text-[#100841]">{f.feature}</td>
+                    <td className="px-4 py-2 text-[#4f525d]">{f.actor}</td>
+                    <td className="px-4 py-2 text-[#4f525d]">{f.outcome}</td>
                   </tr>
                 ))}
               </tbody>
@@ -998,7 +998,7 @@ function ModuleGuideDetail({ guide }: { guide: ModuleGuide }) {
       <div>
         <button
           onClick={() => setShowSteps(!showSteps)}
-          className="flex items-center gap-2 text-[10px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-3 hover:text-[#0ea5e9] transition-colors"
+          className="flex items-center gap-2 text-[10px] font-bold text-[#100841] uppercase tracking-widest mb-3 hover:text-[#31d891] transition-colors"
         >
           <ChevronRight className={`w-3 h-3 transition-transform ${showSteps ? "rotate-90" : ""}`} />
           Step-by-Step Guide ({guide.steps.length} steps)
@@ -1006,18 +1006,18 @@ function ModuleGuideDetail({ guide }: { guide: ModuleGuide }) {
         {showSteps && (
           <div className="space-y-3">
             {guide.steps.map((step) => (
-              <div key={step.step} className="bg-white rounded-[3px] border border-[#d1d9e0] p-4">
+              <div key={step.step} className="bg-white rounded-[3px] border border-[#dfdfdf] p-4">
                 <div className="flex items-start gap-3">
-                  <div className="w-7 h-7 rounded-[3px] bg-[#1e3a5f] flex items-center justify-center shrink-0">
+                  <div className="w-7 h-7 rounded-[3px] bg-[#100841] flex items-center justify-center shrink-0">
                     <span className="text-[10px] font-bold text-white">{step.step}</span>
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-[10px] font-bold text-[#1e3a5f] mb-1">{step.title}</h4>
-                    <p className="text-[9px] text-[#5a6b7c] leading-relaxed">{step.description}</p>
+                    <h4 className="text-[10px] font-bold text-[#100841] mb-1">{step.title}</h4>
+                    <p className="text-[9px] text-[#4f525d] leading-relaxed">{step.description}</p>
                     {step.tip && (
                       <div className="mt-2 flex items-start gap-1.5">
-                        <Info className="w-3 h-3 text-[#0ea5e9] shrink-0 mt-0.5" />
-                        <p className="text-[8px] text-[#0ea5e9] bg-[#e8f4fd] px-2 py-1 rounded-[2px]">{step.tip}</p>
+                        <Info className="w-3 h-3 text-[#31d891] shrink-0 mt-0.5" />
+                        <p className="text-[8px] text-[#31d891] bg-[#efefff] px-2 py-1 rounded-[2px]">{step.tip}</p>
                       </div>
                     )}
                   </div>
@@ -1031,18 +1031,18 @@ function ModuleGuideDetail({ guide }: { guide: ModuleGuide }) {
       {/* Workflows */}
       {guide.workflows && guide.workflows.length > 0 && (
         <div>
-          <h4 className="text-[10px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-3">State Machines</h4>
+          <h4 className="text-[10px] font-bold text-[#100841] uppercase tracking-widest mb-3">State Machines</h4>
           <div className="space-y-3">
             {guide.workflows.map((wf, i) => (
-              <div key={i} className="bg-white rounded-[3px] border border-[#d1d9e0] p-4">
-                <h5 className="text-[9px] font-bold text-[#1e3a5f] mb-2">{wf.name}</h5>
+              <div key={i} className="bg-white rounded-[3px] border border-[#dfdfdf] p-4">
+                <h5 className="text-[9px] font-bold text-[#100841] mb-2">{wf.name}</h5>
                 <div className="flex items-center gap-1 flex-wrap">
                   {wf.states.map((state, j) => (
                     <div key={j} className="flex items-center gap-1">
-                      <span className="text-[8px] font-mono bg-[#e8f4fd] text-[#1e3a5f] px-2 py-0.5 rounded-[2px] border border-[#0ea5e9]/20">
+                      <span className="text-[8px] font-mono bg-[#efefff] text-[#100841] px-2 py-0.5 rounded-[2px] border border-[#31d891]/20">
                         {state}
                       </span>
-                      {j < wf.states.length - 1 && <ChevronRight className="w-2.5 h-2.5 text-[#0ea5e9]" />}
+                      {j < wf.states.length - 1 && <ChevronRight className="w-2.5 h-2.5 text-[#31d891]" />}
                     </div>
                   ))}
                 </div>
@@ -1055,10 +1055,10 @@ function ModuleGuideDetail({ guide }: { guide: ModuleGuide }) {
       {/* Integrations */}
       {guide.integrations && guide.integrations.length > 0 && (
         <div>
-          <h4 className="text-[10px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-3">Integrations</h4>
+          <h4 className="text-[10px] font-bold text-[#100841] uppercase tracking-widest mb-3">Integrations</h4>
           <div className="flex flex-wrap gap-2">
             {guide.integrations.map((int, i) => (
-              <span key={i} className="text-[8px] bg-[#f5f8fb] text-[#5a6b7c] px-2 py-1 rounded-[2px] border border-[#d1d9e0] font-mono">
+              <span key={i} className="text-[8px] bg-[#efefff] text-[#4f525d] px-2 py-1 rounded-[2px] border border-[#dfdfdf] font-mono">
                 {int}
               </span>
             ))}
@@ -1068,10 +1068,10 @@ function ModuleGuideDetail({ guide }: { guide: ModuleGuide }) {
       {/* Integrations */}
       {guide.integrations && guide.integrations.length > 0 && (
         <div>
-          <h4 className="text-[10px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-3">Integrations</h4>
+          <h4 className="text-[10px] font-bold text-[#100841] uppercase tracking-widest mb-3">Integrations</h4>
           <div className="flex flex-wrap gap-2">
             {guide.integrations.map((int, i) => (
-              <span key={i} className="text-[8px] bg-[#f5f8fb] text-[#5a6b7c] px-2 py-1 rounded-[2px] border border-[#d1d9e0] font-mono">
+              <span key={i} className="text-[8px] bg-[#efefff] text-[#4f525d] px-2 py-1 rounded-[2px] border border-[#dfdfdf] font-mono">
                 {int}
               </span>
             ))}
@@ -1089,7 +1089,7 @@ function DesignSystemContent() {
   return (
     <div className="space-y-6">
       {/* Intro */}
-      <div className="bg-[#1e3a5f] text-white p-5 rounded-[3px] border border-[#0ea5e9]/20 relative overflow-hidden">
+      <div className="bg-[#100841] text-white p-5 rounded-[3px] border border-[#31d891]/20 relative overflow-hidden">
         <div className="relative z-10">
           <h2 className="text-base font-bold uppercase tracking-wider mb-1">EWA 3.0 Enterprise Design System</h2>
           <p className="text-xs text-slate-300 max-w-2xl leading-relaxed">
@@ -1097,40 +1097,40 @@ function DesignSystemContent() {
             It utilizes sharp corners, monospace number treatments, authoritative typography, and a single source of truth structure for code maintainability.
           </p>
         </div>
-        <div className="absolute right-0 bottom-0 top-0 w-1/3 bg-gradient-to-l from-[#0ea5e9]/10 to-transparent pointer-events-none" />
+        <div className="absolute right-0 bottom-0 top-0 w-1/3 bg-gradient-to-l from-[#31d891]/10 to-transparent pointer-events-none" />
       </div>
 
       {/* Grid of Design Tokens */}
       <div className="grid grid-cols-2 gap-4">
         {/* Colors */}
         <EnterpriseCard className="p-4">
-          <h3 className="text-xs font-bold text-[#1e3a5f] uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">1. Visual Theme Swatches</h3>
+          <h3 className="text-xs font-bold text-[#100841] uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">1. Visual Theme Swatches</h3>
           <div className="grid grid-cols-2 gap-2">
             <div className="p-2 border border-slate-100 rounded-[2px] flex items-center gap-2 bg-white">
-              <span className="w-4 h-4 bg-[#1e3a5f] border border-slate-200 shrink-0 block" />
+              <span className="w-4 h-4 bg-[#100841] border border-slate-200 shrink-0 block" />
               <div>
-                <p className="text-[9px] font-bold text-[#1e3a5f] leading-none">EWA NAVY</p>
-                <p className="text-[8px] text-slate-400 font-mono">#1e3a5f</p>
+                <p className="text-[9px] font-bold text-[#100841] leading-none">EWA NAVY</p>
+                <p className="text-[8px] text-slate-400 font-mono">#100841</p>
               </div>
             </div>
             <div className="p-2 border border-slate-100 rounded-[2px] flex items-center gap-2 bg-white">
-              <span className="w-4 h-4 bg-[#0ea5e9] border border-slate-200 shrink-0 block" />
+              <span className="w-4 h-4 bg-[#31d891] border border-slate-200 shrink-0 block" />
               <div>
-                <p className="text-[9px] font-bold text-[#1e3a5f] leading-none">EWA TEAL</p>
-                <p className="text-[8px] text-slate-400 font-mono">#0ea5e9</p>
+                <p className="text-[9px] font-bold text-[#100841] leading-none">EWA TEAL</p>
+                <p className="text-[8px] text-slate-400 font-mono">#31d891</p>
               </div>
             </div>
             <div className="p-2 border border-slate-100 rounded-[2px] flex items-center gap-2 bg-white">
               <span className="w-4 h-4 bg-[#2e7d32] border border-slate-200 shrink-0 block" />
               <div>
-                <p className="text-[9px] font-bold text-[#1e3a5f] leading-none">SUCCESS</p>
+                <p className="text-[9px] font-bold text-[#100841] leading-none">SUCCESS</p>
                 <p className="text-[8px] text-slate-400 font-mono">#2e7d32</p>
               </div>
             </div>
             <div className="p-2 border border-slate-100 rounded-[2px] flex items-center gap-2 bg-white">
               <span className="w-4 h-4 bg-[#e65100] border border-slate-200 shrink-0 block" />
               <div>
-                <p className="text-[9px] font-bold text-[#1e3a5f] leading-none">PENDING</p>
+                <p className="text-[9px] font-bold text-[#100841] leading-none">PENDING</p>
                 <p className="text-[8px] text-slate-400 font-mono">#e65100</p>
               </div>
             </div>
@@ -1139,11 +1139,11 @@ function DesignSystemContent() {
 
         {/* Typography */}
         <EnterpriseCard className="p-4">
-          <h3 className="text-xs font-bold text-[#1e3a5f] uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">2. Typography Pairings</h3>
+          <h3 className="text-xs font-bold text-[#100841] uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">2. Typography Pairings</h3>
           <div className="space-y-3">
             <div>
               <p className="text-[8px] text-slate-400 uppercase tracking-widest leading-none mb-1">Display Headings</p>
-              <p className="text-sm font-bold text-[#1e3a5f] font-sans tracking-tight">Inter Sans-Serif (Bold & Tight)</p>
+              <p className="text-sm font-bold text-[#100841] font-sans tracking-tight">Inter Sans-Serif (Bold & Tight)</p>
             </div>
             <div>
               <p className="text-[8px] text-slate-400 uppercase tracking-widest leading-none mb-1">Quantitative Ledger</p>
@@ -1155,7 +1155,7 @@ function DesignSystemContent() {
 
       {/* KPI Cards Showcase */}
       <div className="space-y-2">
-        <h3 className="text-xs font-bold text-[#1e3a5f] uppercase tracking-wider">3. Enterprise KPI Cards</h3>
+        <h3 className="text-xs font-bold text-[#100841] uppercase tracking-wider">3. Enterprise KPI Cards</h3>
         <div className="grid grid-cols-5 gap-2">
           <EnterpriseKpiCard label="Platform Total" value="84,102" accentColor="navy" />
           <EnterpriseKpiCard label="Active Caps" value="1.25%" accentColor="teal" />
@@ -1169,7 +1169,7 @@ function DesignSystemContent() {
       <div className="grid grid-cols-2 gap-4">
         {/* Badges */}
         <EnterpriseCard className="p-4">
-          <h3 className="text-xs font-bold text-[#1e3a5f] uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">4. SAP Fiori Status Badges</h3>
+          <h3 className="text-xs font-bold text-[#100841] uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">4. SAP Fiori Status Badges</h3>
           <div className="flex flex-wrap gap-2">
             <EnterpriseBadge variant="success">Completed</EnterpriseBadge>
             <EnterpriseBadge variant="warning">Pending Approval</EnterpriseBadge>
@@ -1181,7 +1181,7 @@ function DesignSystemContent() {
 
         {/* Buttons */}
         <EnterpriseCard className="p-4">
-          <h3 className="text-xs font-bold text-[#1e3a5f] uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">5. Console Action Buttons</h3>
+          <h3 className="text-xs font-bold text-[#100841] uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">5. Console Action Buttons</h3>
           <div className="flex flex-wrap gap-2 items-center">
             <EnterpriseButton variant="primary" onClick={() => setBtnClicks(c => c + 1)}>
               Primary Action ({btnClicks})
@@ -1198,7 +1198,7 @@ function DesignSystemContent() {
 
       {/* Alerts and Dividers */}
       <div className="space-y-3">
-        <h3 className="text-xs font-bold text-[#1e3a5f] uppercase tracking-wider">6. Interactive Message Strips & Signature Motif</h3>
+        <h3 className="text-xs font-bold text-[#100841] uppercase tracking-wider">6. Interactive Message Strips & Signature Motif</h3>
         <div className="space-y-2">
           <EnterpriseMessageStrip variant="info" message="Information Strip: System configuration rules are active and binding." />
           <EnterpriseMessageStrip variant="warning" message="Warning Strip: Maker batch has pending checker review (exceeds standard risk tolerance)." />
@@ -1254,17 +1254,17 @@ export function DocumentationPage() {
   return (
     <div className="flex h-full gap-0">
       {/* Left Sidebar — Documentation Navigation */}
-      <div className={`w-64 shrink-0 bg-white border-r border-[#d1d9e0] flex flex-col ${sidebarOpen ? "block" : "hidden"} transition-all`}>
+      <div className={`w-64 shrink-0 bg-white border-r border-[#dfdfdf] flex flex-col ${sidebarOpen ? "block" : "hidden"} transition-all`}>
         {/* Search */}
-        <div className="p-3 border-b border-[#d1d9e0]">
+        <div className="p-3 border-b border-[#dfdfdf]">
           <div className="relative">
-            <Search className="w-3 h-3 text-[#90a4ae] absolute left-2 top-1/2 -translate-y-1/2" />
+            <Search className="w-3 h-3 text-[#868c95] absolute left-2 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search modules..."
               value={searchQuery}
               onChange={(e) => { setSearchQuery(e.target.value); setActiveSection("modules"); }}
-              className="w-full pl-7 pr-2 py-1.5 text-[9px] bg-[#f5f8fb] border border-[#d1d9e0] rounded-[3px] text-[#1e3a5f] placeholder:text-[#90a4ae] focus:outline-none focus:border-[#0ea5e9]"
+              className="w-full pl-7 pr-2 py-1.5 text-[9px] bg-[#efefff] border border-[#dfdfdf] rounded-[3px] text-[#100841] placeholder:text-[#868c95] focus:outline-none focus:border-[#31d891]"
             />
           </div>
         </div>
@@ -1277,11 +1277,11 @@ export function DocumentationPage() {
                 onClick={() => { setActiveSection(section.id); setSelectedModule(null); }}
                 className={`w-full flex items-center gap-2 px-3 py-2 text-[9px] transition-colors ${
                   activeSection === section.id && !selectedModule
-                    ? "bg-[#1e3a5f]/5 text-[#1e3a5f] font-semibold border-r-2 border-[#0ea5e9]"
-                    : "text-[#5a6b7c] hover:bg-[#f5f8fb]"
+                    ? "bg-[#100841]/5 text-[#100841] font-semibold border-r-2 border-[#31d891]"
+                    : "text-[#4f525d] hover:bg-[#efefff]"
                 }`}
               >
-                <span className={activeSection === section.id ? "text-[#0ea5e9]" : "text-[#90a4ae]"}>{section.icon}</span>
+                <span className={activeSection === section.id ? "text-[#31d891]" : "text-[#868c95]"}>{section.icon}</span>
                 <span>{section.title}</span>
               </button>
             </div>
@@ -1289,8 +1289,8 @@ export function DocumentationPage() {
 
           {/* Module Guides Sub-Navigation */}
           {(activeSection === "modules" || searchQuery) && (
-            <div className="mt-2 pt-2 border-t border-[#e8ecf0]">
-              <p className="px-3 py-1 text-[8px] font-bold text-[#90a4ae] uppercase tracking-widest">
+            <div className="mt-2 pt-2 border-t border-[#efefff]">
+              <p className="px-3 py-1 text-[8px] font-bold text-[#868c95] uppercase tracking-widest">
                 Module Guides ({filteredModules.length})
               </p>
               {filteredModules.map((guide) => (
@@ -1299,8 +1299,8 @@ export function DocumentationPage() {
                   onClick={() => { setSelectedModule(guide.id); }}
                   className={`w-full flex items-center gap-2 px-3 py-1.5 text-[9px] transition-colors ${
                     selectedModule === guide.id
-                      ? "bg-[#e8f4fd] text-[#0ea5e9] font-semibold"
-                      : "text-[#5a6b7c] hover:bg-[#f5f8fb]"
+                      ? "bg-[#efefff] text-[#31d891] font-semibold"
+                      : "text-[#4f525d] hover:bg-[#efefff]"
                   }`}
                 >
                   <FileText className="w-3 h-3 shrink-0" />
@@ -1315,40 +1315,40 @@ export function DocumentationPage() {
       {/* Toggle Sidebar */}
       <button
         onClick={() => setSidebarOpen(!sidebarOpen)}
-        className="absolute left-0 top-[22px] z-10 w-4 h-4 bg-white border border-[#d1d9e0] rounded-r-[2px] flex items-center justify-center text-[#90a4ae] hover:text-[#1e3a5f]"
+        className="absolute left-0 top-[22px] z-10 w-4 h-4 bg-white border border-[#dfdfdf] rounded-r-[2px] flex items-center justify-center text-[#868c95] hover:text-[#100841]"
       >
         {sidebarOpen ? <ChevronLeft className="w-2.5 h-2.5" /> : <ChevronRight className="w-2.5 h-2.5" />}
       </button>
 
       {/* Main Content Area */}
-      <div className="flex-1 overflow-auto bg-[#f0f4f7] p-6">
+      <div className="flex-1 overflow-auto bg-[#ffffff] p-6">
         {/* Breadcrumb / Header */}
         <div className="mb-6">
-          <div className="flex items-center gap-2 text-[9px] text-[#90a4ae] mb-2">
+          <div className="flex items-center gap-2 text-[9px] text-[#868c95] mb-2">
             <BookOpen className="w-3 h-3" />
             <span>Documentation</span>
             <ChevronRight className="w-2.5 h-2.5" />
             {selectedModule ? (
               <>
-                <span className="text-[#0ea5e9]">{selectedGuide?.title}</span>
+                <span className="text-[#31d891]">{selectedGuide?.title}</span>
               </>
             ) : (
-              <span className="text-[#1e3a5f] font-semibold">
+              <span className="text-[#100841] font-semibold">
                 {DOC_SECTIONS.find(s => s.id === activeSection)?.title}
               </span>
             )}
           </div>
           {selectedModule && selectedGuide && (
             <div className="flex items-center gap-2">
-              <h1 className="text-lg font-bold text-[#1e3a5f]">{selectedGuide.title}</h1>
-              <span className="text-[9px] bg-[#e8f4fd] text-[#0ea5e9] px-2 py-0.5 rounded-[2px] font-mono">
+              <h1 className="text-lg font-bold text-[#100841]">{selectedGuide.title}</h1>
+              <span className="text-[9px] bg-[#efefff] text-[#31d891] px-2 py-0.5 rounded-[2px] font-mono">
                 {selectedGuide.category}
               </span>
-              <span className="text-[9px] text-[#5a6b7c]">{selectedGuide.portal}</span>
+              <span className="text-[9px] text-[#4f525d]">{selectedGuide.portal}</span>
             </div>
           )}
           {!selectedModule && (
-            <h1 className="text-lg font-bold text-[#1e3a5f]">
+            <h1 className="text-lg font-bold text-[#100841]">
               {DOC_SECTIONS.find(s => s.id === activeSection)?.title}
             </h1>
           )}

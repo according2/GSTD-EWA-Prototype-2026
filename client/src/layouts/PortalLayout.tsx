@@ -1,7 +1,7 @@
 /**
  * PortalLayout — Enterprise Shell
  * SAP Fiori-Inspired: Grouped Side Navigation | Structured Toolbar | Main Content Area
- * Design: Enterprise Fintech — Navy (#1e3a5f) + Teal (#0ea5e9) | Sharp corners | Structured layout
+ * Design: Enterprise Fintech — Navy (#100841) + Teal (#31d891) | Sharp corners | Structured layout
  */
 import { useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
@@ -157,16 +157,16 @@ export function PortalLayout() {
   };
 
   return (
-    <div className="flex h-screen bg-[#f0f4f7] overflow-hidden font-sans">
+    <div className="flex h-screen bg-[#ffffff] overflow-hidden font-sans">
       {/* ===== SIDEBAR — SAP Fiori Side Navigation ===== */}
       <aside
-        className={`flex flex-col bg-[#1e3a5f] text-white transition-all duration-200 shrink-0 border-r border-white/5 ${
+        className={`flex flex-col bg-[#100841] text-white transition-all duration-200 shrink-0 border-r border-white/5 ${
           collapsed ? "w-14" : "w-60"
         }`}
       >
         {/* Logo Area */}
         <Link href="/" className={`flex items-center gap-2.5 px-3 py-4 border-b border-white/8 hover:bg-white/5 transition-colors cursor-pointer ${collapsed ? "justify-center px-0" : ""}`}>
-          <div className="w-8 h-8 rounded-[3px] bg-[#0ea5e9]/20 flex items-center justify-center shrink-0 border border-[#0ea5e9]/30">
+          <div className="w-8 h-8 rounded-[3px] bg-[#31d891]/20 flex items-center justify-center shrink-0 border border-[#31d891]/30">
             <img src="https://ewa-group.com/wp-content/uploads/2020/07/EWA_Presentation.pdf-image-006-removebg-preview.png" alt="EWA" className="w-6 h-6 object-contain" />
           </div>
           {!collapsed && (
@@ -201,12 +201,12 @@ export function PortalLayout() {
                       onClick={() => navigateTo(mod.id)}
                       className={`w-full flex items-center gap-2.5 px-3 py-[7px] text-[11px] transition-all duration-100 border-l-2 ${
                         isActive
-                          ? "bg-[#0ea5e9]/15 text-[#0ea5e9] border-l-[#0ea5e9] font-semibold"
+                          ? "bg-[#31d891]/15 text-[#31d891] border-l-[#31d891] font-semibold"
                           : "text-white/55 hover:bg-white/[0.04] hover:text-white/80 border-l-transparent"
                       } ${collapsed ? "justify-center px-0" : ""}`}
                       title={collapsed ? mod.label : undefined}
                     >
-                      <Icon className={`w-[15px] h-[15px] shrink-0 ${isActive ? "text-[#0ea5e9]" : "text-white/40"}`} />
+                      <Icon className={`w-[15px] h-[15px] shrink-0 ${isActive ? "text-[#31d891]" : "text-white/40"}`} />
                       {!collapsed && <span className="truncate">{mod.label}</span>}
                     </button>
                   );
@@ -231,22 +231,22 @@ export function PortalLayout() {
       {/* ===== MAIN AREA ===== */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Top Command Bar — SAP Fiori Shell Header */}
-        <header className="h-[44px] bg-white border-b border-[#d1d9e0] flex items-center justify-between px-4 shrink-0">
+        <header className="h-[44px] bg-white border-b border-[#dfdfdf] flex items-center justify-between px-4 shrink-0">
           <div className="flex items-center gap-3 min-w-0">
             <button onClick={() => setCollapsed(!collapsed)} className="lg:hidden text-slate-400 hover:text-slate-600">
               <Menu className="w-4 h-4" />
             </button>
             <div className="flex items-center gap-2">
-              <Lock className="w-3.5 h-3.5 text-[#0ea5e9]/50" />
+              <Lock className="w-3.5 h-3.5 text-[#31d891]/50" />
               <div>
-                <h2 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-wide">{activeModule.label}</h2>
+                <h2 className="text-[11px] font-bold text-[#100841] uppercase tracking-wide">{activeModule.label}</h2>
               </div>
             </div>
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
             {/* View Type Indicator */}
-            <span className="text-[9px] text-[#5a6b7c] uppercase tracking-widest">View as</span>
+            <span className="text-[9px] text-[#4f525d] uppercase tracking-widest">View as</span>
             <div className="relative">
               <button
                 onClick={() => setViewDropdownOpen(!viewDropdownOpen)}
@@ -261,14 +261,14 @@ export function PortalLayout() {
                 <ChevronDown className="w-2.5 h-2.5 opacity-60" />
               </button>
               {viewDropdownOpen && (
-                <div className="absolute right-0 top-full mt-1 bg-white rounded-[3px] shadow-[0_4px_16px_rgba(0,0,0,0.12)] border border-[#d1d9e0] p-1 min-w-[180px] z-50">
-                  <p className="px-2.5 py-1.5 text-[8px] font-bold text-[#90a4ae] uppercase tracking-widest border-b border-[#e8ecf0] mb-0.5">Command View</p>
+                <div className="absolute right-0 top-full mt-1 bg-white rounded-[3px] shadow-[0_4px_16px_rgba(0,0,0,0.12)] border border-[#dfdfdf] p-1 min-w-[180px] z-50">
+                  <p className="px-2.5 py-1.5 text-[8px] font-bold text-[#868c95] uppercase tracking-widest border-b border-[#efefff] mb-0.5">Command View</p>
                   {(["HR", "Sales", "Operations", "Back Office", "Finance", "Risk", "Platform Admin"] as ViewType[]).map(v => (
                     <button
                       key={v}
                       onClick={() => { setView(v); setViewDropdownOpen(false); }}
                       className={`w-full flex items-center gap-2 px-2.5 py-1.5 rounded-[2px] text-[10px] transition-colors ${
-                        view === v ? "bg-[#1e3a5f]/5 font-semibold text-[#1e3a5f]" : "hover:bg-[#f5f8fb] text-[#5a6b7c]"
+                        view === v ? "bg-[#100841]/5 font-semibold text-[#100841]" : "hover:bg-[#efefff] text-[#4f525d]"
                       }`}
                     >
                       <span className={`w-2 h-2 rounded-full ${VIEW_COLORS[v]}`} />
@@ -279,25 +279,25 @@ export function PortalLayout() {
               )}
             </div>
 
-            <div className="w-px h-5 bg-[#d1d9e0]" />
+            <div className="w-px h-5 bg-[#dfdfdf]" />
 
             {/* ZIP Download Button */}
             <button
               onClick={handleDownloadZip}
               disabled={zipDownloading}
-              className="flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-semibold text-white bg-[#0ea5e9] hover:bg-[#0284c7] disabled:opacity-50 rounded-[3px] transition-colors uppercase tracking-wider shadow-sm"
+              className="flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-semibold text-white bg-[#31d891] hover:bg-[#111111] disabled:opacity-50 rounded-[3px] transition-colors uppercase tracking-wider shadow-sm"
               title="Download all project files as ZIP"
             >
               <Package className="w-3 h-3" />
               {zipDownloading ? "..." : "ZIP"}
             </button>
 
-            <div className="w-px h-5 bg-[#d1d9e0]" />
+            <div className="w-px h-5 bg-[#dfdfdf]" />
 
             {/* Language Toggle */}
             <button
               onClick={() => setLang(lang === "en" ? "my" : "en")}
-              className="flex items-center gap-1 px-2 py-1 text-[10px] text-[#5a6b7c] hover:text-[#1e3a5f] rounded-[3px] hover:bg-[#f5f8fb] transition-colors uppercase tracking-wider"
+              className="flex items-center gap-1 px-2 py-1 text-[10px] text-[#4f525d] hover:text-[#100841] rounded-[3px] hover:bg-[#efefff] transition-colors uppercase tracking-wider"
             >
               <Languages className="w-3 h-3" />
               {lang === "en" ? "EN" : "MM"}

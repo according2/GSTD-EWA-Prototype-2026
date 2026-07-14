@@ -181,20 +181,20 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
   };
 
   return (
-    <div className="flex flex-col h-full bg-[#f8fafc] text-[#1e3a5f] font-sans">
+    <div className="flex flex-col h-full bg-[#efefff] text-[#100841] font-sans">
       
       {/* Dynamic Navigation Header */}
-      <div className="px-6 py-3.5 border-b border-[#d1d9e0] bg-white flex items-center justify-between shadow-sm">
+      <div className="px-6 py-3.5 border-b border-[#dfdfdf] bg-white flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-4">
           <button 
             onClick={onBack} 
-            className="p-1.5 hover:bg-[#f8fafc] rounded-[3px] text-[#5a6b7c] hover:text-[#1e3a5f] transition-all border border-transparent hover:border-[#d1d9e0]"
+            className="p-1.5 hover:bg-[#efefff] rounded-[3px] text-[#4f525d] hover:text-[#100841] transition-all border border-transparent hover:border-[#dfdfdf]"
           >
             <ArrowLeft size={16} />
           </button>
           <div>
             <div className="flex items-center gap-3">
-              <h2 className="text-[14px] font-bold text-[#1e3a5f] tracking-tight uppercase">{request.companyName}</h2>
+              <h2 className="text-[14px] font-bold text-[#100841] tracking-tight uppercase">{request.companyName}</h2>
               <span className={cn(
                 "px-2 py-0.5 rounded-[2px] font-mono font-bold text-[8px] uppercase tracking-wider border",
                 request.status === 'completed' ? "bg-[#e8f5e9] text-[#2e7d32] border-[#c8e6c9]" : "bg-[#fff3e0] text-[#e65100] border-[#ffe0b2]"
@@ -202,15 +202,15 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                 {request.status.replace('_', ' ')}
               </span>
             </div>
-            <p className="text-[9px] text-[#5a6b7c] uppercase tracking-widest font-bold mt-0.5">
+            <p className="text-[9px] text-[#4f525d] uppercase tracking-widest font-bold mt-0.5">
               Request ID: {request.id} • Type: {request.type.replace('_', ' ')}
             </p>
           </div>
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="text-[10px] font-mono text-[#5a6b7c] bg-[#f1f5f9] px-2.5 py-1 rounded-[1px] border border-[#d1d9e0]">
-            Current Stage: <span className="text-[#1e3a5f] font-bold uppercase">{STAGE_NAMES[request.currentStage]}</span>
+          <div className="text-[10px] font-mono text-[#4f525d] bg-[#efefff] px-2.5 py-1 rounded-[1px] border border-[#dfdfdf]">
+            Current Stage: <span className="text-[#100841] font-bold uppercase">{STAGE_NAMES[request.currentStage]}</span>
           </div>
           <button 
             onClick={onBack}
@@ -225,14 +225,14 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
       <div className="flex-1 overflow-hidden flex min-h-0">
         
         {/* Left Sidebar Panel: Sequential Clickable Stage Timeline */}
-        <div className="w-80 border-r border-[#d1d9e0] bg-white flex flex-col shrink-0 min-h-0">
+        <div className="w-80 border-r border-[#dfdfdf] bg-white flex flex-col shrink-0 min-h-0">
           
-          <div className="p-4 border-b border-[#e8ecf0] bg-[#f8fafc]">
-            <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest flex items-center gap-2">
-              <History size={15} className="text-[#0ea5e9]" />
+          <div className="p-4 border-b border-[#efefff] bg-[#efefff]">
+            <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest flex items-center gap-2">
+              <History size={15} className="text-[#31d891]" />
               Onboarding Audit Steps
             </h3>
-            <p className="text-[9px] text-[#5a6b7c] mt-0.5 uppercase tracking-wide">
+            <p className="text-[9px] text-[#4f525d] mt-0.5 uppercase tracking-wide">
               Click any step below to review historical data and submit review logs.
             </p>
           </div>
@@ -254,10 +254,10 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                   className={cn(
                     "w-full text-left p-2.5 rounded-[3px] border transition-all flex items-start gap-3 relative group",
                     isSelected 
-                      ? "bg-[#f0f9ff] border-[#0ea5e9] ring-1 ring-[#0ea5e9]/15" 
+                      ? "bg-[#efefff] border-[#31d891] ring-1 ring-[#31d891]/15" 
                       : isCurrent 
-                        ? "bg-amber-50/20 border-amber-300 hover:bg-[#f8fafc]"
-                        : "bg-white border-[#d1d9e0] hover:bg-[#f8fafc]"
+                        ? "bg-amber-50/20 border-amber-300 hover:bg-[#efefff]"
+                        : "bg-white border-[#dfdfdf] hover:bg-[#efefff]"
                   )}
                 >
                   {/* Timeline Badge Indicators */}
@@ -267,7 +267,7 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                       ? "bg-[#e8f5e9] border-[#2e7d32] text-[#2e7d32]" 
                       : isCurrent 
                         ? "bg-[#fff3e0] border-[#e65100] text-[#e65100]" 
-                        : "bg-white border-[#d1d9e0] text-[#90a4ae]"
+                        : "bg-white border-[#dfdfdf] text-[#868c95]"
                   )}>
                     {isCompleted ? <CheckCircle2 size={11} /> : i + 1}
                   </div>
@@ -275,12 +275,12 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                   <div className="min-w-0 flex-1">
                     <p className={cn(
                       "text-[10px] font-bold uppercase tracking-wide truncate",
-                      isSelected ? "text-[#0ea5e9]" : isCompleted ? "text-[#2e7d32]" : "text-[#1e3a5f]"
+                      isSelected ? "text-[#31d891]" : isCompleted ? "text-[#2e7d32]" : "text-[#100841]"
                     )}>
                       {name}
                     </p>
                     <div className="flex items-center gap-2 mt-0.5">
-                      <span className="text-[8px] text-[#90a4ae] font-semibold uppercase">
+                      <span className="text-[8px] text-[#868c95] font-semibold uppercase">
                         {isCompleted ? "Verified Step" : isCurrent ? "Active Attention" : "Sequential Queue"}
                       </span>
                       {stageComments.length > 0 && (
@@ -301,9 +301,9 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
           </div>
 
           {/* Left Panel Bottom: Submit Audit Log comment */}
-          <div className="p-4 border-t border-[#d1d9e0] bg-[#f8fafc]">
+          <div className="p-4 border-t border-[#dfdfdf] bg-[#efefff]">
             <div className="relative">
-              <MessageSquare className="absolute left-3 top-2.5 text-[#90a4ae]" size={12} />
+              <MessageSquare className="absolute left-3 top-2.5 text-[#868c95]" size={12} />
               <textarea 
                 placeholder="Type internal review comment for selected step..."
                 value={auditComment}
@@ -322,29 +322,29 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
         </div>
 
         {/* Right Content Panel: Dynamic Selected Step Details & Corporate Header */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-5 bg-[#f8fafc] min-h-0">
+        <div className="flex-1 overflow-y-auto p-6 space-y-5 bg-[#efefff] min-h-0">
           
           {/* Corporate Info Card (Expandable to see detail with attachments) */}
-          <section className="card-enterprise bg-white border-[#d1d9e0] overflow-hidden">
+          <section className="card-enterprise bg-white border-[#dfdfdf] overflow-hidden">
             <div 
               onClick={() => setIsCorporateInfoExpanded(!isCorporateInfoExpanded)}
-              className="px-5 py-3.5 flex items-center justify-between cursor-pointer hover:bg-[#f8fafc] transition-colors select-none"
+              className="px-5 py-3.5 flex items-center justify-between cursor-pointer hover:bg-[#efefff] transition-colors select-none"
             >
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-[#f0f4f7] rounded-[2px] border border-[#d1d9e0]">
-                  <Building2 size={16} className="text-[#1e3a5f]" />
+                <div className="p-2 bg-[#ffffff] rounded-[2px] border border-[#dfdfdf]">
+                  <Building2 size={16} className="text-[#100841]" />
                 </div>
                 <div>
-                  <span className="text-[8px] text-[#5a6b7c] font-bold uppercase tracking-widest block">Corporate Profile</span>
-                  <h3 className="text-[13px] font-bold text-[#1e3a5f] uppercase tracking-tight">{request.companyName}</h3>
+                  <span className="text-[8px] text-[#4f525d] font-bold uppercase tracking-widest block">Corporate Profile</span>
+                  <h3 className="text-[13px] font-bold text-[#100841] uppercase tracking-tight">{request.companyName}</h3>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="text-right hidden sm:block">
                   <span className="text-[8px] text-slate-400 font-bold uppercase tracking-widest block">Tax ID</span>
-                  <span className="text-[10px] font-mono font-bold text-[#1e3a5f]">{request.corporateInfo?.registrationNumber || "N/A"}</span>
+                  <span className="text-[10px] font-mono font-bold text-[#100841]">{request.corporateInfo?.registrationNumber || "N/A"}</span>
                 </div>
-                <div className="p-1 text-[#90a4ae] group-hover:text-[#1e3a5f]">
+                <div className="p-1 text-[#868c95] group-hover:text-[#100841]">
                   <ChevronDown size={18} className={cn("transition-transform duration-300", isCorporateInfoExpanded && "rotate-180")} />
                 </div>
               </div>
@@ -357,47 +357,47 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  className="border-t border-[#e8ecf0] bg-[#fafbfc]"
+                  className="border-t border-[#efefff] bg-[#fafbfc]"
                 >
                   <div className="p-5 grid grid-cols-1 sm:grid-cols-3 gap-5">
                     <div className="space-y-1">
                       <span className="text-[8px] text-slate-400 font-bold uppercase block tracking-wider">Legal Registration No.</span>
-                      <p className="text-[11px] font-mono font-bold text-[#1e3a5f]">{request.corporateInfo?.registrationNumber || "N/A"}</p>
+                      <p className="text-[11px] font-mono font-bold text-[#100841]">{request.corporateInfo?.registrationNumber || "N/A"}</p>
                     </div>
                     <div className="space-y-1">
                       <span className="text-[8px] text-slate-400 font-bold uppercase block tracking-wider">Owner / Representative</span>
-                      <p className="text-[11px] font-bold text-[#1e3a5f]">{request.corporateInfo?.ownerName || "N/A"}</p>
+                      <p className="text-[11px] font-bold text-[#100841]">{request.corporateInfo?.ownerName || "N/A"}</p>
                     </div>
                     <div className="space-y-1">
                       <span className="text-[8px] text-slate-400 font-bold uppercase block tracking-wider">Owner NRIC Card ID</span>
-                      <p className="text-[11px] font-mono font-bold text-[#1e3a5f]">{request.corporateInfo?.ownerId || "N/A"}</p>
+                      <p className="text-[11px] font-mono font-bold text-[#100841]">{request.corporateInfo?.ownerId || "N/A"}</p>
                     </div>
                     <div className="space-y-1">
                       <span className="text-[8px] text-slate-400 font-bold uppercase block tracking-wider">Corporate Contacts</span>
-                      <p className="text-[11px] font-bold text-[#1e3a5f]">{request.corporateInfo?.contactNumber || "N/A"}</p>
+                      <p className="text-[11px] font-bold text-[#100841]">{request.corporateInfo?.contactNumber || "N/A"}</p>
                     </div>
                     <div className="space-y-1 col-span-2">
                       <span className="text-[8px] text-slate-400 font-bold uppercase block tracking-wider">Registered Corporate Headquarters</span>
-                      <p className="text-[11px] font-bold text-[#1e3a5f]">{request.corporateInfo?.address || "N/A"}</p>
+                      <p className="text-[11px] font-bold text-[#100841]">{request.corporateInfo?.address || "N/A"}</p>
                     </div>
                   </div>
 
                   {/* Document Attachments inside Expandable Area */}
-                  <div className="px-5 pb-5 border-t border-[#e8ecf0] pt-4">
+                  <div className="px-5 pb-5 border-t border-[#efefff] pt-4">
                     <span className="text-[8px] text-slate-400 font-bold uppercase block tracking-wider mb-2">Verified Compliance Documents ({request.documents.length})</span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {request.documents.map(doc => (
-                        <div key={doc.id} className="p-2 bg-white border border-[#d1d9e0] rounded-[2px] flex items-center justify-between hover:bg-[#f8fafc] transition-colors">
+                        <div key={doc.id} className="p-2 bg-white border border-[#dfdfdf] rounded-[2px] flex items-center justify-between hover:bg-[#efefff] transition-colors">
                           <div className="flex items-center gap-2">
-                            <FileText size={13} className="text-[#0ea5e9]" />
+                            <FileText size={13} className="text-[#31d891]" />
                             <div>
-                              <p className="text-[10px] font-bold text-[#1e3a5f] leading-tight">{doc.name}</p>
+                              <p className="text-[10px] font-bold text-[#100841] leading-tight">{doc.name}</p>
                               <span className="text-[7px] text-[#2e7d32] font-mono font-bold uppercase">certified verified</span>
                             </div>
                           </div>
                           <button 
                             onClick={() => alert(`Opening document viewer for: ${doc.name}`)}
-                            className="text-[9px] font-bold text-[#0ea5e9] hover:underline uppercase tracking-wide flex items-center gap-1"
+                            className="text-[9px] font-bold text-[#31d891] hover:underline uppercase tracking-wide flex items-center gap-1"
                           >
                             <Download size={10} />
                             View
@@ -412,13 +412,13 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
           </section>
 
           {/* Current Selected Stage Content Block */}
-          <div className="card-enterprise bg-white border-[#d1d9e0]">
+          <div className="card-enterprise bg-white border-[#dfdfdf]">
             
             {/* Header of selected stage content */}
-            <div className="px-5 py-3 border-b border-[#e8ecf0] bg-[#f8fafc] flex items-center justify-between">
+            <div className="px-5 py-3 border-b border-[#efefff] bg-[#efefff] flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Settings size={14} className="text-[#0ea5e9]" />
-                <h4 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-wider">
+                <Settings size={14} className="text-[#31d891]" />
+                <h4 className="text-[11px] font-bold text-[#100841] uppercase tracking-wider">
                   Stage Details: Step {selectedStep + 1} — {STAGE_NAMES[selectedStep]}
                 </h4>
               </div>
@@ -433,15 +433,15 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
               {/* STAGE 0: LOGIN VERIFICATION */}
               {selectedStep === 0 && (
                 <div className="space-y-4">
-                  <p className="text-[11px] text-[#5a6b7c]">This step verified that the company administrator possesses the designated mobile phone account associated with the enterprise.</p>
+                  <p className="text-[11px] text-[#4f525d]">This step verified that the company administrator possesses the designated mobile phone account associated with the enterprise.</p>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
+                    <div className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
                       <span className="text-[8px] text-slate-400 font-bold uppercase block">Mobile Authenticator</span>
-                      <span className="text-[11px] font-mono font-bold text-[#1e3a5f]">{request.corporateInfo?.contactNumber || "N/A"}</span>
+                      <span className="text-[11px] font-mono font-bold text-[#100841]">{request.corporateInfo?.contactNumber || "N/A"}</span>
                     </div>
-                    <div className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
+                    <div className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
                       <span className="text-[8px] text-slate-400 font-bold uppercase block">Verification Timestamp</span>
-                      <span className="text-[11px] font-mono font-bold text-[#1e3a5f]">{new Date(request.submissionDate).toLocaleString()}</span>
+                      <span className="text-[11px] font-mono font-bold text-[#100841]">{new Date(request.submissionDate).toLocaleString()}</span>
                     </div>
                   </div>
                 </div>
@@ -450,14 +450,14 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
               {/* STAGE 1: DOCUMENT UPLOAD */}
               {selectedStep === 1 && (
                 <div className="space-y-4">
-                  <p className="text-[11px] text-[#5a6b7c]">Upload and checksum check of statutory corporate certifications.</p>
+                  <p className="text-[11px] text-[#4f525d]">Upload and checksum check of statutory corporate certifications.</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {request.documents.map(doc => (
-                      <div key={doc.id} className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px] flex items-center justify-between">
+                      <div key={doc.id} className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px] flex items-center justify-between">
                         <div className="flex items-center gap-2.5">
                           <FileCheck size={14} className="text-[#2e7d32]" />
                           <div>
-                            <p className="text-[11px] font-bold text-[#1e3a5f]">{doc.name}</p>
+                            <p className="text-[11px] font-bold text-[#100841]">{doc.name}</p>
                             <span className="text-[8px] text-slate-400 block font-mono">MD5: a98df...210ff</span>
                           </div>
                         </div>
@@ -471,22 +471,22 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
               {/* STAGE 2: PAYROLL POLICY */}
               {selectedStep === 2 && (
                 <div className="space-y-4">
-                  <p className="text-[11px] text-[#5a6b7c]">Registered corporate calendar rules for matching paydays, monthly EWA availability ranges, and cutoffs.</p>
+                  <p className="text-[11px] text-[#4f525d]">Registered corporate calendar rules for matching paydays, monthly EWA availability ranges, and cutoffs.</p>
                   <div className="grid grid-cols-3 gap-4">
-                    <div className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
+                    <div className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
                       <span className="text-[8px] text-slate-400 font-bold uppercase block">Salary Cutoff Day</span>
-                      <span className="text-[12px] font-mono font-bold text-[#1e3a5f]">{request.payrollPolicy?.salaryCutoffDay || "25"}th of month</span>
+                      <span className="text-[12px] font-mono font-bold text-[#100841]">{request.payrollPolicy?.salaryCutoffDay || "25"}th of month</span>
                     </div>
-                    <div className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
+                    <div className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
                       <span className="text-[8px] text-slate-400 font-bold uppercase block">EWA Request Window</span>
-                      <span className="text-[12px] font-mono font-bold text-[#1e3a5f]">Day {request.payrollPolicy?.ewaAllowStartDay || "1"} to {request.payrollPolicy?.ewaAllowEndDay || "20"}</span>
+                      <span className="text-[12px] font-mono font-bold text-[#100841]">Day {request.payrollPolicy?.ewaAllowStartDay || "1"} to {request.payrollPolicy?.ewaAllowEndDay || "20"}</span>
                     </div>
-                    <div className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
+                    <div className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
                       <span className="text-[8px] text-slate-400 font-bold uppercase block">Monthly Settlement Payday</span>
-                      <span className="text-[12px] font-mono font-bold text-[#1e3a5f]">Day {request.payrollPolicy?.repaymentDay || "30"}</span>
+                      <span className="text-[12px] font-mono font-bold text-[#100841]">Day {request.payrollPolicy?.repaymentDay || "30"}</span>
                     </div>
                   </div>
-                  <div className="p-3 bg-white border border-[#d1d9e0] rounded-[2px]">
+                  <div className="p-3 bg-white border border-[#dfdfdf] rounded-[2px]">
                     <span className="text-[8px] text-slate-400 font-bold uppercase block mb-1">Standard Workdays Structure</span>
                     <div className="flex gap-1.5">
                       {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(day => {
@@ -496,7 +496,7 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                             key={day} 
                             className={cn(
                               "px-2.5 py-1 text-[9px] font-bold border rounded-[1px]",
-                              active ? "bg-[#1e3a5f] text-white border-[#1e3a5f]" : "bg-white text-slate-400 border-slate-200"
+                              active ? "bg-[#100841] text-white border-[#100841]" : "bg-white text-slate-400 border-slate-200"
                             )}
                           >
                             {day}
@@ -511,15 +511,15 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
               {/* STAGE 3: CORPORATE INFO */}
               {selectedStep === 3 && (
                 <div className="space-y-4">
-                  <p className="text-[11px] text-[#5a6b7c]">Verified statutory corporate entities, owners, and tax IDs.</p>
+                  <p className="text-[11px] text-[#4f525d]">Verified statutory corporate entities, owners, and tax IDs.</p>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
-                      <span className="text-[8px] text-[#5a6b7c] uppercase font-bold">Corporate Entity Name</span>
-                      <span className="text-[11px] font-bold text-[#1e3a5f] block mt-1">{request.corporateInfo?.companyName}</span>
+                    <div className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
+                      <span className="text-[8px] text-[#4f525d] uppercase font-bold">Corporate Entity Name</span>
+                      <span className="text-[11px] font-bold text-[#100841] block mt-1">{request.corporateInfo?.companyName}</span>
                     </div>
-                    <div className="p-3 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px]">
-                      <span className="text-[8px] text-[#5a6b7c] uppercase font-bold">Registration Number</span>
-                      <span className="text-[11px] font-mono font-bold text-[#1e3a5f] block mt-1">{request.corporateInfo?.registrationNumber}</span>
+                    <div className="p-3 bg-[#efefff] border border-[#dfdfdf] rounded-[2px]">
+                      <span className="text-[8px] text-[#4f525d] uppercase font-bold">Registration Number</span>
+                      <span className="text-[11px] font-mono font-bold text-[#100841] block mt-1">{request.corporateInfo?.registrationNumber}</span>
                     </div>
                   </div>
                 </div>
@@ -529,28 +529,28 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
               {selectedStep === 4 && (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <p className="text-[11px] text-[#5a6b7c]">A total of <strong className="text-[#1e3a5f]">{request.employees.length}</strong> corporate employees are enrolled in the EWA benefits roster.</p>
+                    <p className="text-[11px] text-[#4f525d]">A total of <strong className="text-[#100841]">{request.employees.length}</strong> corporate employees are enrolled in the EWA benefits roster.</p>
                     <span className="text-[9px] text-[#2e7d32] font-bold uppercase bg-[#e8f5e9] px-2 py-0.5 border border-[#c8e6c9]">All verified</span>
                   </div>
-                  <div className="border border-[#d1d9e0] rounded-[2px] overflow-hidden">
+                  <div className="border border-[#dfdfdf] rounded-[2px] overflow-hidden">
                     <table className="w-full text-left border-collapse">
-                      <thead className="bg-[#f8fafc] border-b border-[#d1d9e0]">
+                      <thead className="bg-[#efefff] border-b border-[#dfdfdf]">
                         <tr>
-                          <th className="px-3 py-2 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Employee Name / ID</th>
-                          <th className="px-3 py-2 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">NRC Passport ID</th>
-                          <th className="px-3 py-2 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Department</th>
-                          <th className="px-3 py-2 text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Monthly Base Salary</th>
+                          <th className="px-3 py-2 text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Employee Name / ID</th>
+                          <th className="px-3 py-2 text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">NRC Passport ID</th>
+                          <th className="px-3 py-2 text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Department</th>
+                          <th className="px-3 py-2 text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Monthly Base Salary</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-[#f1f5f9] text-[11px]">
+                      <tbody className="divide-y divide-[#efefff] text-[11px]">
                         {request.employees.map(emp => (
-                          <tr key={emp.id} className="hover:bg-[#f8fafc] transition-colors">
-                            <td className="px-3 py-2 font-bold text-[#1e3a5f]">
+                          <tr key={emp.id} className="hover:bg-[#efefff] transition-colors">
+                            <td className="px-3 py-2 font-bold text-[#100841]">
                               {emp.name}
                               <span className="block text-[8px] text-slate-400 font-mono">{emp.id}</span>
                             </td>
                             <td className="px-3 py-2 font-mono text-slate-500">{emp.nrc}</td>
-                            <td className="px-3 py-2 text-[#5a6b7c]">{emp.department}</td>
+                            <td className="px-3 py-2 text-[#4f525d]">{emp.department}</td>
                             <td className="px-3 py-2 font-mono font-bold text-slate-700">{formatMMK(emp.salary)}</td>
                           </tr>
                         ))}
@@ -563,14 +563,14 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
               {/* STAGE 5: BUDGET REQUEST */}
               {selectedStep === 5 && (
                 <div className="space-y-4">
-                  <p className="text-[11px] text-[#5a6b7c]">Proposed EWA monthly pool capital allocation requested from external disbursement lines.</p>
-                  <div className="p-5 bg-[#f0f9ff] border border-[#d1d9e0] rounded-[3px] flex items-center justify-between">
+                  <p className="text-[11px] text-[#4f525d]">Proposed EWA monthly pool capital allocation requested from external disbursement lines.</p>
+                  <div className="p-5 bg-[#efefff] border border-[#dfdfdf] rounded-[3px] flex items-center justify-between">
                     <div>
-                      <span className="text-[8px] text-[#5a6b7c] font-bold uppercase block tracking-wider">Approved EWA Liquidity Capital Pool</span>
-                      <span className="text-[20px] font-mono font-extrabold text-[#0ea5e9] tracking-tight">{formatMMK(request.budgetAmount)}</span>
+                      <span className="text-[8px] text-[#4f525d] font-bold uppercase block tracking-wider">Approved EWA Liquidity Capital Pool</span>
+                      <span className="text-[20px] font-mono font-extrabold text-[#31d891] tracking-tight">{formatMMK(request.budgetAmount)}</span>
                     </div>
                     <div className="text-right">
-                      <span className="text-[8px] text-[#5a6b7c] font-bold uppercase block tracking-wider">Max Cap Limit (30% payroll)</span>
+                      <span className="text-[8px] text-[#4f525d] font-bold uppercase block tracking-wider">Max Cap Limit (30% payroll)</span>
                       <span className="text-[12px] font-mono font-bold text-slate-500">{formatMMK(request.employees.reduce((sum, e) => sum + e.salary, 0) * 0.3)}</span>
                     </div>
                   </div>
@@ -591,7 +591,7 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Choose Service Fee */}
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest">Select Service Fee Profile</label>
+                      <label className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest">Select Service Fee Profile</label>
                       <select 
                         value={selectedServiceFeeId}
                         onChange={(e) => setSelectedServiceFeeId(e.target.value)}
@@ -600,14 +600,14 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                         <option value="FEE-001">Standard Service Fee (Fixed MMK 12,500)</option>
                         <option value="FEE-003">Premium Service Fee (Tiered Range)</option>
                       </select>
-                      <p className="text-[9px] text-[#5a6b7c] italic mt-1">
+                      <p className="text-[9px] text-[#4f525d] italic mt-1">
                         Applied per single EWA transaction draw down.
                       </p>
                     </div>
 
                     {/* Choose Repayment Fee */}
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-bold text-[#5a6b7c] uppercase tracking-widest">Select Repayment Fee Profile</label>
+                      <label className="text-[10px] font-bold text-[#4f525d] uppercase tracking-widest">Select Repayment Fee Profile</label>
                       <select 
                         value={selectedRepaymentFeeId}
                         onChange={(e) => setSelectedRepaymentFeeId(e.target.value)}
@@ -615,35 +615,35 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                       >
                         <option value="FEE-002">Standard Repayment Fee (2.5% of Amount)</option>
                       </select>
-                      <p className="text-[9px] text-[#5a6b7c] italic mt-1">
+                      <p className="text-[9px] text-[#4f525d] italic mt-1">
                         Calculated dynamically at salary repayment day.
                       </p>
                     </div>
                   </div>
 
                   {/* Dynamic Pricing Outputs */}
-                  <div className="p-4 bg-slate-50 border border-[#d1d9e0] rounded-[2px] grid grid-cols-2 gap-4 text-[11px]">
+                  <div className="p-4 bg-slate-50 border border-[#dfdfdf] rounded-[2px] grid grid-cols-2 gap-4 text-[11px]">
                     <div>
                       <span className="text-[8px] text-slate-400 font-bold uppercase tracking-widest">Mapped Service Charge</span>
-                      <p className="font-bold text-[#1e3a5f] mt-0.5">{selectedServiceFee.name}</p>
-                      <p className="text-[#0ea5e9] font-mono font-bold mt-1 text-[12px]">
+                      <p className="font-bold text-[#100841] mt-0.5">{selectedServiceFee.name}</p>
+                      <p className="text-[#31d891] font-mono font-bold mt-1 text-[12px]">
                         {selectedServiceFee.calculationType === 'fixed' ? "MMK 12,500 Fixed" : "Tiered Calculation"}
                       </p>
                     </div>
                     <div>
                       <span className="text-[8px] text-slate-400 font-bold uppercase tracking-widest">Mapped Repayment Charge</span>
-                      <p className="font-bold text-[#1e3a5f] mt-0.5">{selectedRepaymentFee.name}</p>
-                      <p className="text-[#0ea5e9] font-mono font-bold mt-1 text-[12px]">
+                      <p className="font-bold text-[#100841] mt-0.5">{selectedRepaymentFee.name}</p>
+                      <p className="text-[#31d891] font-mono font-bold mt-1 text-[12px]">
                         {selectedRepaymentFee.value}% of total repayment
                       </p>
                     </div>
                   </div>
 
                   {/* Simulator pop up button and main stage advance buttons */}
-                  <div className="pt-4 border-t border-[#e8ecf0] flex flex-wrap gap-2.5 items-center justify-between">
+                  <div className="pt-4 border-t border-[#efefff] flex flex-wrap gap-2.5 items-center justify-between">
                     <button 
                       onClick={() => setIsSimulatorOpen(true)}
-                      className="btn-enterprise-secondary text-[#0ea5e9] border-[#0ea5e9]/50 hover:bg-[#0ea5e9]/5 flex items-center gap-1.5 !px-4 !py-1.5 !text-[11px] font-bold"
+                      className="btn-enterprise-secondary text-[#31d891] border-[#31d891]/50 hover:bg-[#31d891]/5 flex items-center gap-1.5 !px-4 !py-1.5 !text-[11px] font-bold"
                     >
                       <PlayCircle size={14} />
                       Run Dynamic Drawdown Simulator
@@ -673,76 +673,76 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                   </div>
 
                   {/* Non-editable payroll schedule for risk context */}
-                  <div className="p-4 bg-[#f8fafc] border border-[#d1d9e0] rounded-[2px] space-y-2">
-                    <h5 className="text-[10px] font-bold text-[#1e3a5f] uppercase tracking-wider flex items-center gap-1.5">
-                      <Calendar size={13} className="text-[#0ea5e9]" />
+                  <div className="p-4 bg-[#efefff] border border-[#dfdfdf] rounded-[2px] space-y-2">
+                    <h5 className="text-[10px] font-bold text-[#100841] uppercase tracking-wider flex items-center gap-1.5">
+                      <Calendar size={13} className="text-[#31d891]" />
                       Active Payroll Schedule Context
                     </h5>
                     <div className="grid grid-cols-3 gap-2.5 text-[10px]">
                       <div>
                         <span className="text-slate-400 font-medium">Cutoff:</span>
-                        <span className="font-mono font-bold text-[#1e3a5f] block">{request.payrollPolicy?.salaryCutoffDay || "25"}th of month</span>
+                        <span className="font-mono font-bold text-[#100841] block">{request.payrollPolicy?.salaryCutoffDay || "25"}th of month</span>
                       </div>
                       <div>
                         <span className="text-slate-400 font-medium">Pay Day:</span>
-                        <span className="font-mono font-bold text-[#1e3a5f] block">Day {request.payrollPolicy?.payDay || "30"}</span>
+                        <span className="font-mono font-bold text-[#100841] block">Day {request.payrollPolicy?.payDay || "30"}</span>
                       </div>
                       <div>
                         <span className="text-slate-400 font-medium">Request Gap:</span>
-                        <span className="font-mono font-bold text-[#1e3a5f] block">{request.payrollPolicy?.gapPolicy || "3 Days"}</span>
+                        <span className="font-mono font-bold text-[#100841] block">{request.payrollPolicy?.gapPolicy || "3 Days"}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Editable limits */}
                   <div className="space-y-4 pt-2">
-                    <h5 className="text-[10px] font-bold text-[#1e3a5f] uppercase tracking-wider">Configure Risk Threshold Caps</h5>
+                    <h5 className="text-[10px] font-bold text-[#100841] uppercase tracking-wider">Configure Risk Threshold Caps</h5>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       {/* Allowable EWA Amount limit per transaction */}
                       <div className="space-y-1.5">
-                        <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Allowable EWA Limit</label>
+                        <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Allowable EWA Limit</label>
                         <input 
                           type="number"
                           value={allowableAmountLimit}
                           onChange={(e) => setAllowableAmountLimit(Number(e.target.value))}
-                          className="input-enterprise font-mono font-bold text-[#1e3a5f]"
+                          className="input-enterprise font-mono font-bold text-[#100841]"
                         />
-                        <p className="text-[8px] text-[#90a4ae] italic">Max per drawdown request</p>
+                        <p className="text-[8px] text-[#868c95] italic">Max per drawdown request</p>
                       </div>
 
                       {/* Max Cap per Employee */}
                       <div className="space-y-1.5">
-                        <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Max Cap Per Employee</label>
+                        <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Max Cap Per Employee</label>
                         <input 
                           type="number"
                           value={maxCapEmployee}
                           onChange={(e) => setMaxCapEmployee(Number(e.target.value))}
-                          className="input-enterprise font-mono font-bold text-[#1e3a5f]"
+                          className="input-enterprise font-mono font-bold text-[#100841]"
                         />
-                        <p className="text-[8px] text-[#90a4ae] italic">Aggregate monthly limit</p>
+                        <p className="text-[8px] text-[#868c95] italic">Aggregate monthly limit</p>
                       </div>
 
                       {/* Max Cap per Corporate */}
                       <div className="space-y-1.5">
-                        <label className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-wider">Max Cap Per Corporate Pool</label>
+                        <label className="text-[9px] font-bold text-[#4f525d] uppercase tracking-wider">Max Cap Per Corporate Pool</label>
                         <input 
                           type="number"
                           value={maxCapCorporate}
                           onChange={(e) => setMaxCapCorporate(Number(e.target.value))}
-                          className="input-enterprise font-mono font-bold text-[#1e3a5f]"
+                          className="input-enterprise font-mono font-bold text-[#100841]"
                         />
-                        <p className="text-[8px] text-[#90a4ae] italic">Hard limit pool cap (MMK)</p>
+                        <p className="text-[8px] text-[#868c95] italic">Hard limit pool cap (MMK)</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Actions */}
                   {request.currentStage === 7 && (
-                    <div className="pt-4 border-t border-[#e8ecf0] flex justify-end">
+                    <div className="pt-4 border-t border-[#efefff] flex justify-end">
                       <button 
                         onClick={() => handleAdvanceStage(8, "Finance Action")}
-                        className="btn-enterprise-primary !py-1.5 !px-5 !text-[11px] font-bold uppercase bg-[#1e3a5f] hover:bg-[#0ea5e9]"
+                        className="btn-enterprise-primary !py-1.5 !px-5 !text-[11px] font-bold uppercase bg-[#100841] hover:bg-[#31d891]"
                       >
                         Approve Risk & Send to Finance
                       </button>
@@ -764,48 +764,48 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
 
                   {/* Double Entry Ledger Table */}
                   <div className="space-y-2">
-                    <h5 className="text-[10px] font-bold text-[#1e3a5f] uppercase tracking-wider flex items-center gap-1">
-                      <Scale size={13} className="text-[#0ea5e9]" />
+                    <h5 className="text-[10px] font-bold text-[#100841] uppercase tracking-wider flex items-center gap-1">
+                      <Scale size={13} className="text-[#31d891]" />
                       Double-Entry Circle Ledger Projection
                     </h5>
                     
-                    <div className="border border-[#d1d9e0] rounded-[2px] overflow-hidden">
+                    <div className="border border-[#dfdfdf] rounded-[2px] overflow-hidden">
                       <table className="w-full text-left border-collapse text-[10.5px]">
-                        <thead className="bg-[#f8fafc] border-b border-[#d1d9e0]">
+                        <thead className="bg-[#efefff] border-b border-[#dfdfdf]">
                           <tr>
-                            <th className="px-3 py-2 text-[9px] font-bold text-[#5a6b7c] uppercase">Account Title</th>
-                            <th className="px-3 py-2 text-[9px] font-bold text-[#5a6b7c] uppercase">Type</th>
-                            <th className="px-3 py-2 text-[9px] font-bold text-[#5a6b7c] uppercase text-right">Debit (MMK)</th>
-                            <th className="px-3 py-2 text-[9px] font-bold text-[#5a6b7c] uppercase text-right">Credit (MMK)</th>
+                            <th className="px-3 py-2 text-[9px] font-bold text-[#4f525d] uppercase">Account Title</th>
+                            <th className="px-3 py-2 text-[9px] font-bold text-[#4f525d] uppercase">Type</th>
+                            <th className="px-3 py-2 text-[9px] font-bold text-[#4f525d] uppercase text-right">Debit (MMK)</th>
+                            <th className="px-3 py-2 text-[9px] font-bold text-[#4f525d] uppercase text-right">Credit (MMK)</th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-[#f1f5f9]">
+                        <tbody className="divide-y divide-[#efefff]">
                           <tr>
-                            <td className="px-3 py-2 font-bold text-[#1e3a5f]">Disbursement Pool (Asset)</td>
+                            <td className="px-3 py-2 font-bold text-[#100841]">Disbursement Pool (Asset)</td>
                             <td className="px-3 py-2 text-slate-500">Asset Account</td>
                             <td className="px-3 py-2 text-right font-mono font-bold text-emerald-700">{formatMMK(request.budgetAmount)}</td>
                             <td className="px-3 py-2 text-right font-mono text-slate-400">0 MMK</td>
                           </tr>
                           <tr>
-                            <td className="px-3 py-2 font-bold text-[#1e3a5f]">Apex Corporate Payable Account</td>
+                            <td className="px-3 py-2 font-bold text-[#100841]">Apex Corporate Payable Account</td>
                             <td className="px-3 py-2 text-slate-500">Liability Account</td>
                             <td className="px-3 py-2 text-right font-mono text-slate-400">0 MMK</td>
                             <td className="px-3 py-2 text-right font-mono font-bold text-amber-700">{formatMMK(request.budgetAmount)}</td>
                           </tr>
                           <tr>
-                            <td className="px-3 py-2 font-bold text-[#1e3a5f]">Mapped Operations Revenue Account</td>
+                            <td className="px-3 py-2 font-bold text-[#100841]">Mapped Operations Revenue Account</td>
                             <td className="px-3 py-2 text-slate-500">Equity/Revenue</td>
                             <td className="px-3 py-2 text-right font-mono font-bold text-emerald-700">12,500 MMK</td>
                             <td className="px-3 py-2 text-right font-mono text-slate-400">0 MMK</td>
                           </tr>
                           <tr>
-                            <td className="px-3 py-2 font-bold text-[#1e3a5f]">Repayment Receivables (Apex Staff)</td>
+                            <td className="px-3 py-2 font-bold text-[#100841]">Repayment Receivables (Apex Staff)</td>
                             <td className="px-3 py-2 text-slate-500">Receivables</td>
                             <td className="px-3 py-2 text-right font-mono text-slate-400">0 MMK</td>
                             <td className="px-3 py-2 text-right font-mono font-bold text-amber-700">12,500 MMK</td>
                           </tr>
                         </tbody>
-                        <tfoot className="bg-[#f8fafc] font-bold border-t border-[#d1d9e0]">
+                        <tfoot className="bg-[#efefff] font-bold border-t border-[#dfdfdf]">
                           <tr>
                             <td className="px-3 py-2 col-span-2">LEDGER BALANCE PROJECTION:</td>
                             <td className="px-3 py-2"></td>
@@ -828,7 +828,7 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
 
                   {/* Actions */}
                   {request.status !== "completed" && (
-                    <div className="pt-4 border-t border-[#e8ecf0] flex justify-end">
+                    <div className="pt-4 border-t border-[#efefff] flex justify-end">
                       <button 
                         onClick={() => handleAdvanceStage(9, "Completed")}
                         className="btn-enterprise-primary !py-1.5 !px-5 !text-[11px] font-bold uppercase bg-[#2e7d32] hover:bg-[#1b5e20]"
@@ -848,21 +848,21 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
       {/* ─── STAGE 6: DRAWDOWN & FEE SIMULATION POP-UP DIALOG ─── */}
       <AnimatePresence>
         {isSimulatorOpen && (
-          <div className="fixed inset-0 bg-[#1e3a5f]/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 bg-[#100841]/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white border border-[#d1d9e0] rounded-[3px] shadow-xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden"
+              className="bg-white border border-[#dfdfdf] rounded-[3px] shadow-xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden"
             >
               
               {/* Simulator Header */}
-              <div className="bg-[#1e3a5f] text-white px-5 py-3 flex items-center justify-between">
+              <div className="bg-[#100841] text-white px-5 py-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <PlayCircle className="text-[#0ea5e9]" size={18} />
+                  <PlayCircle className="text-[#31d891]" size={18} />
                   <div>
                     <h3 className="text-[13px] font-bold uppercase tracking-wider">Dynamic Drawdown & Fee Simulation</h3>
-                    <p className="text-[9px] text-[#0ea5e9] uppercase tracking-widest font-semibold">Verify policy output under mapped pricing fees in real-time</p>
+                    <p className="text-[9px] text-[#31d891] uppercase tracking-widest font-semibold">Verify policy output under mapped pricing fees in real-time</p>
                   </div>
                 </div>
                 <button 
@@ -878,11 +878,11 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                 
                 {/* Inputs Column */}
                 <div className="md:col-span-5 space-y-4">
-                  <div className="space-y-4 card-enterprise p-4 bg-[#f8fafc]">
-                    <h4 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-wider border-b pb-1">Drawdown Parameters</h4>
+                  <div className="space-y-4 card-enterprise p-4 bg-[#efefff]">
+                    <h4 className="text-[11px] font-bold text-[#100841] uppercase tracking-wider border-b pb-1">Drawdown Parameters</h4>
                     
                     <div className="space-y-1.5">
-                      <label className="text-[9px] font-bold text-[#5a6b7c] uppercase block">EWA Request Size (MMK)</label>
+                      <label className="text-[9px] font-bold text-[#4f525d] uppercase block">EWA Request Size (MMK)</label>
                       <input 
                         type="number" 
                         value={simAmount}
@@ -892,7 +892,7 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-[9px] font-bold text-[#5a6b7c] uppercase block">Late Overdue Days (Arrears Check)</label>
+                      <label className="text-[9px] font-bold text-[#4f525d] uppercase block">Late Overdue Days (Arrears Check)</label>
                       <input 
                         type="number" 
                         value={simLateDays}
@@ -902,7 +902,7 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-[9px] font-bold text-[#5a6b7c] uppercase block">Staff Member Tenure (Months)</label>
+                      <label className="text-[9px] font-bold text-[#4f525d] uppercase block">Staff Member Tenure (Months)</label>
                       <input 
                         type="number" 
                         value={simTenure}
@@ -912,7 +912,7 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-[9px] font-bold text-[#5a6b7c] uppercase block">Calendar Request Day</label>
+                      <label className="text-[9px] font-bold text-[#4f525d] uppercase block">Calendar Request Day</label>
                       <input 
                         type="number" 
                         value={simDay}
@@ -929,18 +929,18 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                 <div className="md:col-span-7 space-y-4 flex flex-col">
                   
                   {/* Math Summation Summary */}
-                  <div className="p-4 bg-white border border-[#d1d9e0] rounded-[2px] space-y-2.5">
-                    <span className="text-[9px] font-bold text-[#1e3a5f] uppercase block tracking-wider border-b pb-1">Trace Mathematical Summation</span>
+                  <div className="p-4 bg-white border border-[#dfdfdf] rounded-[2px] space-y-2.5">
+                    <span className="text-[9px] font-bold text-[#100841] uppercase block tracking-wider border-b pb-1">Trace Mathematical Summation</span>
                     <div className="space-y-1.5 text-[11px]">
                       
                       <div className="flex justify-between items-center">
                         <span className="text-slate-400">Selected Service Fee ({selectedServiceFee.id}):</span>
-                        <span className="font-mono font-bold text-[#1e3a5f]">{formatMMK(simulatedFeeResult.serviceFee)}</span>
+                        <span className="font-mono font-bold text-[#100841]">{formatMMK(simulatedFeeResult.serviceFee)}</span>
                       </div>
 
                       <div className="flex justify-between items-center">
                         <span className="text-slate-400">Selected Repayment Fee ({selectedRepaymentFee.id}):</span>
-                        <span className="font-mono font-bold text-[#1e3a5f]">{formatMMK(simulatedFeeResult.repaymentFee)}</span>
+                        <span className="font-mono font-bold text-[#100841]">{formatMMK(simulatedFeeResult.repaymentFee)}</span>
                       </div>
 
                       {simulatedFeeResult.latePenalty > 0 && (
@@ -950,10 +950,10 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
                         </div>
                       )}
 
-                      <div className="h-[1px] bg-[#e8ecf0] my-2" />
+                      <div className="h-[1px] bg-[#efefff] my-2" />
 
                       <div className="flex justify-between items-center">
-                        <span className="text-[11px] font-bold text-[#1e3a5f] uppercase">Net Computed Drawdown Fee:</span>
+                        <span className="text-[11px] font-bold text-[#100841] uppercase">Net Computed Drawdown Fee:</span>
                         <span className="text-[16px] font-mono font-extrabold text-[#e65100]">{formatMMK(simulatedFeeResult.netComputedFee)}</span>
                       </div>
                     </div>
@@ -978,7 +978,7 @@ export default function OnboardingRequestDetail({ request, onBack, onUpdate }: O
               </div>
 
               {/* Pop up Footer */}
-              <div className="border-t border-[#d1d9e0] bg-[#f8fafc] px-5 py-3 flex justify-end">
+              <div className="border-t border-[#dfdfdf] bg-[#efefff] px-5 py-3 flex justify-end">
                 <button 
                   onClick={() => setIsSimulatorOpen(false)}
                   className="btn-enterprise-primary !py-1 !px-4 !text-[11px]"

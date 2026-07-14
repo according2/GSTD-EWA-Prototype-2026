@@ -1,7 +1,7 @@
 /**
  * OnboardingPage — Employee Onboarding & Import Wizard
  * SAP Fiori Pattern: 3-tab Object Page (Tasks / Requests / History) + 6-step Import Wizard
- * Design: Enterprise Fintech — Navy (#1e3a5f) + Teal (#0ea5e9) | Sharp corners | Structured layout
+ * Design: Enterprise Fintech — Navy (#100841) + Teal (#31d891) | Sharp corners | Structured layout
  */
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -49,7 +49,7 @@ function StatusBadge({ status }: { status: string }) {
     "Integration": { bg: "bg-[#fff8e1]", text: "text-[#e65100]", border: "border-[#ffcc80]" },
     "SUBMITTED": { bg: "bg-[#fff8e1]", text: "text-[#e65100]", border: "border-[#ffcc80]" },
   };
-  const c = map[status] || { bg: "bg-[#f5f5f5]", text: "text-[#616161]", border: "border-[#bdbdbd]" };
+  const c = map[status] || { bg: "bg-[#efefff]", text: "text-[#616161]", border: "border-[#c4c9ce]" };
   return (
     <span className={`inline-flex items-center px-2 py-0.5 rounded-[2px] text-[10px] font-bold uppercase tracking-wider ${c.bg} ${c.text} border ${c.border}`}>
       {status.replace("_", " ")}
@@ -96,7 +96,7 @@ function WizardStepper({ steps, current }: { steps: string[]; current: number })
         <div key={step} className="flex items-center">
           <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] text-[10px] font-bold uppercase tracking-wider ${
             i < current ? "bg-emerald-500 text-white" :
-            i === current ? "bg-[#0ea5e9] text-white" :
+            i === current ? "bg-[#31d891] text-white" :
             "bg-slate-100 text-slate-400"
           }`}>
             <span className="font-mono">{i + 1}</span>
@@ -335,11 +335,11 @@ export function OnboardingPage() {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide flex items-center gap-2">
-            <Users className="w-4 h-4 text-[#0ea5e9]" />
+          <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide flex items-center gap-2">
+            <Users className="w-4 h-4 text-[#31d891]" />
             Employee Onboarding
           </h1>
-          <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">
+          <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">
             Employee verification · Bulk import wizard · Budget eligibility integration
           </p>
         </div>
@@ -348,7 +348,7 @@ export function OnboardingPage() {
             onClick={() => setAddEmployeeOpen(true)}>
             <Plus className="w-3.5 h-3.5" /> Add
           </EnterpriseButton>
-          <EnterpriseButton variant="primary" className="h-8 py-0 px-3 flex items-center gap-1 text-[10px] bg-[#0ea5e9] text-white"
+          <EnterpriseButton variant="primary" className="h-8 py-0 px-3 flex items-center gap-1 text-[10px] bg-[#31d891] text-white"
             onClick={() => { setImportWizardOpen(true); setWizardStep(0); }}>
             <Upload className="w-3.5 h-3.5" /> Import
           </EnterpriseButton>
@@ -420,8 +420,8 @@ export function OnboardingPage() {
         <TabsContent value="history" className="mt-4 outline-none space-y-6">
           <div className="space-y-3">
              <div className="flex items-center gap-2 px-1">
-               <Building2 className="w-3.5 h-3.5 text-[#0ea5e9]" />
-               <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-wider">Company Onboarding Pipeline</h3>
+               <Building2 className="w-3.5 h-3.5 text-[#31d891]" />
+               <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-wider">Company Onboarding Pipeline</h3>
              </div>
              <EnterpriseTable
                data={onboardingPipeline}
@@ -433,8 +433,8 @@ export function OnboardingPage() {
 
           <div className="space-y-3">
              <div className="flex items-center gap-2 px-1">
-               <FileSpreadsheet className="w-3.5 h-3.5 text-[#0ea5e9]" />
-               <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-wider">Completed Import Batches</h3>
+               <FileSpreadsheet className="w-3.5 h-3.5 text-[#31d891]" />
+               <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-wider">Completed Import Batches</h3>
              </div>
              <EnterpriseTable
                data={historyBatches}
@@ -452,7 +452,7 @@ export function OnboardingPage() {
       <Dialog open={importWizardOpen} onOpenChange={setImportWizardOpen}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="text-base font-bold text-[#1e3a5f] flex items-center gap-2">
+            <DialogTitle className="text-base font-bold text-[#100841] flex items-center gap-2">
               <FileSpreadsheet className="w-4 h-4 text-teal-500" />
               Bulk Employee Import Wizard
             </DialogTitle>
@@ -467,7 +467,7 @@ export function OnboardingPage() {
                 <Upload className="w-8 h-8 text-slate-400 mx-auto mb-3" />
                 <p className="text-sm font-medium text-slate-700">Drag & drop your employee file here</p>
                 <p className="text-xs text-slate-400 mt-1">Supported: .xlsx, .xls, .csv (max 10,000 rows, 10MB)</p>
-                <EnterpriseButton className="mt-3 h-8 text-xs bg-[#0ea5e9] hover:bg-[#0284c7] text-white"
+                <EnterpriseButton className="mt-3 h-8 text-xs bg-[#31d891] hover:bg-[#111111] text-white"
                   onClick={() => setWizardStep(1)}>
                   Simulate Upload (golden_harvest_batch_2026-07-12.xlsx)
                 </EnterpriseButton>
@@ -551,7 +551,7 @@ export function OnboardingPage() {
                       {
                         id: "action",
                         header: "Action",
-                        accessor: () => <EnterpriseButton variant="secondary" className="h-6 text-[10px] text-[#0ea5e9] py-0 px-2">Remap</EnterpriseButton>
+                        accessor: () => <EnterpriseButton variant="secondary" className="h-6 text-[10px] text-[#31d891] py-0 px-2">Remap</EnterpriseButton>
                       }
                     ]}
                     rowKey={(col) => col.fileColumn}
@@ -788,7 +788,7 @@ export function OnboardingPage() {
                 Cancel
               </EnterpriseButton>
               {wizardStep < 5 ? (
-                <EnterpriseButton className="h-8 text-xs bg-[#0ea5e9] hover:bg-[#0284c7] text-white"
+                <EnterpriseButton className="h-8 text-xs bg-[#31d891] hover:bg-[#111111] text-white"
                   onClick={() => setWizardStep(wizardStep + 1)}>
                   Next <ArrowRight className="w-3.5 h-3.5 ml-1" />
                 </EnterpriseButton>
@@ -812,7 +812,7 @@ export function OnboardingPage() {
       <Dialog open={addEmployeeOpen} onOpenChange={setAddEmployeeOpen}>
         <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="text-base font-bold text-[#1e3a5f] flex items-center gap-2">
+            <DialogTitle className="text-base font-bold text-[#100841] flex items-center gap-2">
               <UserCheck className="w-4 h-4 text-teal-500" />
               Add Employee — Single Onboarding
             </DialogTitle>
@@ -915,7 +915,7 @@ export function OnboardingPage() {
             <EnterpriseButton variant="secondary" className="h-8 text-xs" onClick={() => setAddEmployeeOpen(false)}>
               Cancel
             </EnterpriseButton>
-            <EnterpriseButton className="h-8 text-xs bg-[#0ea5e9] hover:bg-[#0284c7] text-white" onClick={() => setAddEmployeeOpen(false)}>
+            <EnterpriseButton className="h-8 text-xs bg-[#31d891] hover:bg-[#111111] text-white" onClick={() => setAddEmployeeOpen(false)}>
               <UserCheck className="w-3.5 h-3.5 mr-1" /> Submit for Verification
             </EnterpriseButton>
           </DialogFooter>
@@ -926,7 +926,7 @@ export function OnboardingPage() {
       <Sheet open={detailBatchOpen} onOpenChange={setDetailBatchOpen}>
         <SheetContent side="right" className="w-[600px] overflow-y-auto">
           <SheetHeader>
-            <SheetTitle className="text-base font-bold text-[#1e3a5f] flex items-center gap-2">
+            <SheetTitle className="text-base font-bold text-[#100841] flex items-center gap-2">
               <FileSpreadsheet className="w-4 h-4 text-teal-500" />
               Import Batch: {selectedBatch?.id}
             </SheetTitle>

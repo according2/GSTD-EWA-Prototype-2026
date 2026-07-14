@@ -58,18 +58,18 @@ function WorkflowStepper({ status }: { status: string }) {
               <div key={step} className="flex items-center gap-1">
                 <div className={`w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-bold border ${
                   isComplete ? "bg-[#2e7d32] text-white border-[#2e7d32]" :
-                  isCurrent ? `bg-white text-[#1e3a5f] border-2` :
-                  "bg-[#f5f5f5] text-[#bdbdbd] border-[#e0e0e0]"
+                  isCurrent ? `bg-white text-[#100841] border-2` :
+                  "bg-[#efefff] text-[#c4c9ce] border-[#dfdfdf]"
                 }`} style={isCurrent ? { borderColor: colors[i] } : {}}>
                   {isComplete ? <CheckCircle2 className="w-2.5 h-2.5" /> : i + 1}
                 </div>
                 {i < steps.length - 1 && (
-                  <ChevronRight className={`w-2.5 h-2.5 ${i < actualIndex ? "text-[#2e7d32]" : "text-[#e0e0e0]"}`} />
+                  <ChevronRight className={`w-2.5 h-2.5 ${i < actualIndex ? "text-[#2e7d32]" : "text-[#dfdfdf]"}`} />
                 )}
               </div>
             );
           })}
-          <span className="text-[8px] text-[#5a6b7c] font-medium ml-1">{labels[actualIndex >= 0 ? actualIndex : 0]}</span>
+          <span className="text-[8px] text-[#4f525d] font-medium ml-1">{labels[actualIndex >= 0 ? actualIndex : 0]}</span>
         </>
       )}
     </div>
@@ -87,7 +87,7 @@ function IdentityCard({ role, name, verifiedAt }: { role: "Maker" | "Checker"; n
         </div>
         <div>
           <p className="text-[9px] font-bold uppercase tracking-wider" style={{ color: isMaker ? "#1565c0" : "#2e7d32" }}>{role}</p>
-          <p className="text-[11px] font-semibold text-[#1e3a5f]">{name}</p>
+          <p className="text-[11px] font-semibold text-[#100841]">{name}</p>
         </div>
       </div>
       {verifiedAt ? (
@@ -109,44 +109,44 @@ function SettlementDetail({ set, onModalOpen }: { set: Settlement; onModalOpen: 
   return (
     <div className="space-y-3">
       {/* Settlement identity */}
-      <div className="bg-[#f5f8fb] border border-[#d1d9e0] rounded-[3px] p-4 shadow-sm">
+      <div className="bg-[#efefff] border border-[#dfdfdf] rounded-[3px] p-4 shadow-sm">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-[13px] font-bold text-[#1e3a5f] flex items-center gap-2">
-            <Hash className="w-4 h-4 text-[#0ea5e9]" />
+          <h3 className="text-[13px] font-bold text-[#100841] flex items-center gap-2">
+            <Hash className="w-4 h-4 text-[#31d891]" />
             Settlement {set.id}
           </h3>
           <SettlementStatusBadge status={set.status} />
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2">
           <div className="flex items-center gap-2 text-[11px]">
-            <Building2 className="w-3.5 h-3.5 text-[#90a4ae]" />
-            <span className="text-[#90a4ae]">Company:</span>
-            <span className="font-medium text-[#1e3a5f]">{set.companyName}</span>
+            <Building2 className="w-3.5 h-3.5 text-[#868c95]" />
+            <span className="text-[#868c95]">Company:</span>
+            <span className="font-medium text-[#100841]">{set.companyName}</span>
           </div>
           <div className="flex items-center gap-2 text-[11px]">
-            <User className="w-3.5 h-3.5 text-[#90a4ae]" />
-            <span className="text-[#90a4ae]">Submitted By:</span>
-            <span className="font-medium text-[#5a6b7c]">{set.submittedBy}</span>
+            <User className="w-3.5 h-3.5 text-[#868c95]" />
+            <span className="text-[#868c95]">Submitted By:</span>
+            <span className="font-medium text-[#4f525d]">{set.submittedBy}</span>
           </div>
           <div className="flex items-center gap-2 text-[11px]">
-            <Landmark className="w-3.5 h-3.5 text-[#90a4ae]" />
-            <span className="text-[#90a4ae]">Bank Reference:</span>
-            <span className="font-mono font-bold text-[#1e3a5f]">{set.bankReference}</span>
+            <Landmark className="w-3.5 h-3.5 text-[#868c95]" />
+            <span className="text-[#868c95]">Bank Reference:</span>
+            <span className="font-mono font-bold text-[#100841]">{set.bankReference}</span>
           </div>
           <div className="flex items-center gap-2 text-[11px]">
-            <Repeat className="w-3.5 h-3.5 text-[#90a4ae]" />
-            <span className="text-[#90a4ae]">Payment Method:</span>
-            <span className="font-medium text-[#5a6b7c]">{set.paymentMethod}</span>
+            <Repeat className="w-3.5 h-3.5 text-[#868c95]" />
+            <span className="text-[#868c95]">Payment Method:</span>
+            <span className="font-medium text-[#4f525d]">{set.paymentMethod}</span>
           </div>
           <div className="flex items-center gap-2 text-[11px]">
-            <ArrowRightLeft className="w-3.5 h-3.5 text-[#90a4ae]" />
-            <span className="text-[#90a4ae]">Amount:</span>
+            <ArrowRightLeft className="w-3.5 h-3.5 text-[#868c95]" />
+            <span className="text-[#868c95]">Amount:</span>
             <span className="font-mono font-bold text-[#2e7d32]">{formatMMK(set.totalAmount)}</span>
           </div>
           <div className="flex items-center gap-2 text-[11px]">
-            <Clock className="w-3.5 h-3.5 text-[#90a4ae]" />
-            <span className="text-[#90a4ae]">Submitted:</span>
-            <span className="font-medium text-[#5a6b7c]">{set.submittedAt}</span>
+            <Clock className="w-3.5 h-3.5 text-[#868c95]" />
+            <span className="text-[#868c95]">Submitted:</span>
+            <span className="font-medium text-[#4f525d]">{set.submittedAt}</span>
           </div>
         </div>
       </div>
@@ -158,22 +158,22 @@ function SettlementDetail({ set, onModalOpen }: { set: Settlement; onModalOpen: 
       </div>
 
       {/* Bank reference verification */}
-      <div className="bg-white border border-[#d1d9e0] rounded-[3px] p-3 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
-        <h3 className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-2 flex items-center gap-1.5">
+      <div className="bg-white border border-[#dfdfdf] rounded-[3px] p-3 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+        <h3 className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest mb-2 flex items-center gap-1.5">
           <Landmark className="w-3.5 h-3.5" /> Bank Reference Verification
         </h3>
         <div className="space-y-2">
-          <div className="flex items-center justify-between p-2.5 bg-[#f5f8fb] rounded-[2px] border border-[#e8ecf0]">
+          <div className="flex items-center justify-between p-2.5 bg-[#efefff] rounded-[2px] border border-[#efefff]">
             <div>
-              <p className="text-[11px] font-bold text-[#1e3a5f] font-mono">{set.bankReference}</p>
-              <p className="text-[9px] text-[#90a4ae] mt-0.5">Transaction Reference Number</p>
+              <p className="text-[11px] font-bold text-[#100841] font-mono">{set.bankReference}</p>
+              <p className="text-[9px] text-[#868c95] mt-0.5">Transaction Reference Number</p>
             </div>
             <EnterpriseBadge variant="info">Verified</EnterpriseBadge>
           </div>
-          <div className="flex items-center justify-between p-2.5 bg-[#f5f8fb] rounded-[2px] border border-[#e8ecf0]">
+          <div className="flex items-center justify-between p-2.5 bg-[#efefff] rounded-[2px] border border-[#efefff]">
             <div>
               <p className="text-[11px] font-bold text-[#2e7d32] font-mono">{formatMMK(set.totalAmount)}</p>
-              <p className="text-[9px] text-[#90a4ae] mt-0.5">Amount Match: {set.paymentMethod}</p>
+              <p className="text-[9px] text-[#868c95] mt-0.5">Amount Match: {set.paymentMethod}</p>
             </div>
             <EnterpriseBadge variant="success">Match Confirmed</EnterpriseBadge>
           </div>
@@ -185,18 +185,18 @@ function SettlementDetail({ set, onModalOpen }: { set: Settlement; onModalOpen: 
       </div>
 
       {/* Screenshot inspection */}
-      <div className="bg-white border border-[#d1d9e0] rounded-[3px] p-3 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
-        <h3 className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-2 flex items-center gap-1.5">
+      <div className="bg-white border border-[#dfdfdf] rounded-[3px] p-3 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+        <h3 className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest mb-2 flex items-center gap-1.5">
           <Camera className="w-3.5 h-3.5" /> Screenshot Inspection
         </h3>
         {set.screenshot ? (
           <div className="space-y-2">
-            <div className="p-2.5 bg-[#f5f8fb] rounded-[2px] border border-[#e8ecf0]">
+            <div className="p-2.5 bg-[#efefff] rounded-[2px] border border-[#efefff]">
               <div className="flex items-center gap-2">
-                <Eye className="w-3.5 h-3.5 text-[#90a4ae]" />
-                <span className="text-[11px] font-medium text-[#5a6b7c]">Bank transfer screenshot attached</span>
+                <Eye className="w-3.5 h-3.5 text-[#868c95]" />
+                <span className="text-[11px] font-medium text-[#4f525d]">Bank transfer screenshot attached</span>
               </div>
-              <p className="text-[9px] text-[#90a4ae] mt-1">Shows {formatMMK(set.totalAmount)} transferred via {set.paymentMethod} to {set.companyName}</p>
+              <p className="text-[9px] text-[#868c95] mt-1">Shows {formatMMK(set.totalAmount)} transferred via {set.paymentMethod} to {set.companyName}</p>
             </div>
             <div className="flex items-center gap-2 text-[10px] text-[#2e7d32]">
               <CheckCircle2 className="w-3 h-3" />
@@ -213,8 +213,8 @@ function SettlementDetail({ set, onModalOpen }: { set: Settlement; onModalOpen: 
 
       {/* Related repayment items */}
       {relatedRepayment && (
-        <div className="bg-white border border-[#d1d9e0] rounded-[3px] shadow-[0_1px_2px_rgba(0,0,0,0.04)] overflow-hidden">
-          <h3 className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest p-3 pb-1.5 flex items-center gap-1.5">
+        <div className="bg-white border border-[#dfdfdf] rounded-[3px] shadow-[0_1px_2px_rgba(0,0,0,0.04)] overflow-hidden">
+          <h3 className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest p-3 pb-1.5 flex items-center gap-1.5">
             <FileCheck className="w-3.5 h-3.5" /> Related Repayment Items
           </h3>
           <ScrollArea className="max-h-[250px]">
@@ -224,7 +224,7 @@ function SettlementDetail({ set, onModalOpen }: { set: Settlement; onModalOpen: 
                 {
                   id: "employee",
                   header: "Employee",
-                  accessor: (item) => <span className="text-[11px] font-medium text-[#1e3a5f]">{item.employeeName}</span>,
+                  accessor: (item) => <span className="text-[11px] font-medium text-[#100841]">{item.employeeName}</span>,
                   searchString: (item) => item.employeeName
                 },
                 {
@@ -248,7 +248,7 @@ function SettlementDetail({ set, onModalOpen }: { set: Settlement; onModalOpen: 
                   isNumeric: true,
                   align: "right",
                   accessor: (item) => item.total,
-                  cellClassName: () => "font-bold text-[#1e3a5f]"
+                  cellClassName: () => "font-bold text-[#100841]"
                 },
                 {
                   id: "allocation",
@@ -256,7 +256,7 @@ function SettlementDetail({ set, onModalOpen }: { set: Settlement; onModalOpen: 
                   isNumeric: true,
                   align: "right",
                   accessor: (item) => item.allocationPct + "%",
-                  cellClassName: () => "text-[#90a4ae]"
+                  cellClassName: () => "text-[#868c95]"
                 }
               ]}
               rowKey={(item) => item.employeeId}
@@ -277,7 +277,7 @@ function SettlementDetail({ set, onModalOpen }: { set: Settlement; onModalOpen: 
       <div className="flex items-center gap-2 pt-1">
         {set.status === "SUBMITTED" && (
           <>
-            <EnterpriseButton className="h-8 text-[10px] font-semibold bg-[#1e3a5f] text-white"
+            <EnterpriseButton className="h-8 text-[10px] font-semibold bg-[#100841] text-white"
               onClick={() => onModalOpen("MAKER", "APPROVE")}>
               <CheckCircle2 className="w-3 h-3 mr-1" /> Verify as Maker
             </EnterpriseButton>
@@ -331,7 +331,7 @@ export function SettlementPage() {
     {
       id: "id",
       header: "ID",
-      accessor: (set) => <span className="font-mono font-bold text-[#1e3a5f]">{set.id}</span>,
+      accessor: (set) => <span className="font-mono font-bold text-[#100841]">{set.id}</span>,
       searchString: (set) => set.id
     },
     {
@@ -339,8 +339,8 @@ export function SettlementPage() {
       header: "Company",
       accessor: (set) => (
         <div>
-          <p className="text-[11px] font-bold text-[#1e3a5f]">{set.companyName}</p>
-          <p className="text-[8px] text-[#90a4ae] font-mono">{set.companyId}</p>
+          <p className="text-[11px] font-bold text-[#100841]">{set.companyName}</p>
+          <p className="text-[8px] text-[#868c95] font-mono">{set.companyId}</p>
         </div>
       ),
       searchString: (set) => `${set.companyName} ${set.companyId}`
@@ -348,7 +348,7 @@ export function SettlementPage() {
     {
       id: "submittedBy",
       header: "Submitted By",
-      accessor: (set) => <span className="text-[11px] text-[#5a6b7c] font-medium">{set.submittedBy}</span>,
+      accessor: (set) => <span className="text-[11px] text-[#4f525d] font-medium">{set.submittedBy}</span>,
       searchString: (set) => set.submittedBy
     },
     {
@@ -361,12 +361,12 @@ export function SettlementPage() {
     {
       id: "method",
       header: "Method",
-      accessor: (set) => <span className="text-[11px] text-[#5a6b7c] font-medium">{set.paymentMethod}</span>
+      accessor: (set) => <span className="text-[11px] text-[#4f525d] font-medium">{set.paymentMethod}</span>
     },
     {
       id: "bankRef",
       header: "Bank Ref",
-      accessor: (set) => <span className="text-[9px] font-mono text-[#90a4ae] font-bold">{set.bankReference}</span>,
+      accessor: (set) => <span className="text-[9px] font-mono text-[#868c95] font-bold">{set.bankReference}</span>,
       searchString: (set) => set.bankReference
     },
     {
@@ -395,7 +395,7 @@ export function SettlementPage() {
     {
       id: "submittedAt",
       header: "Date",
-      accessor: (set) => <span className="text-[9px] text-[#90a4ae] font-mono">{set.submittedAt}</span>
+      accessor: (set) => <span className="text-[9px] text-[#868c95] font-mono">{set.submittedAt}</span>
     }
   ];
 
@@ -409,10 +409,10 @@ export function SettlementPage() {
       {/* Page Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Shield className="w-4 h-4 text-[#0ea5e9]" />
+          <Shield className="w-4 h-4 text-[#31d891]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Settlement Verification</h1>
-            <p className="text-[10px] text-[#90a4ae] uppercase tracking-wider">
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Settlement Verification</h1>
+            <p className="text-[10px] text-[#868c95] uppercase tracking-wider">
               Maker-Checker Protocol · {settlements.length} settlements
             </p>
           </div>
@@ -441,9 +441,9 @@ export function SettlementPage() {
           {selectedSettlement ? (
             <SettlementDetail set={selectedSettlement} onModalOpen={(role, mode) => setModalState({ settlement: selectedSettlement, role, mode })} />
           ) : (
-            <div className="text-center py-20 bg-slate-50 border border-dashed border-[#d1d9e0] rounded-[3px]">
-              <Shield className="w-10 h-10 text-[#d1d9e0] mx-auto mb-3" />
-              <p className="text-[11px] font-bold text-[#90a4ae] uppercase tracking-widest">Select a settlement from the queue to verify</p>
+            <div className="text-center py-20 bg-slate-50 border border-dashed border-[#dfdfdf] rounded-[3px]">
+              <Shield className="w-10 h-10 text-[#dfdfdf] mx-auto mb-3" />
+              <p className="text-[11px] font-bold text-[#868c95] uppercase tracking-widest">Select a settlement from the queue to verify</p>
             </div>
           )}
         </TabsContent>

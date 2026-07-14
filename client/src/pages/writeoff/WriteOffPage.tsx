@@ -25,7 +25,7 @@ export function WriteOffPage() {
     {
       id: "id",
       header: "ID",
-      accessor: (wo) => <span className="font-mono font-bold text-[#1e3a5f]">{wo.id}</span>,
+      accessor: (wo) => <span className="font-mono font-bold text-[#100841]">{wo.id}</span>,
       searchString: (wo) => wo.id
     },
     {
@@ -33,8 +33,8 @@ export function WriteOffPage() {
       header: "Employee",
       accessor: (wo) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{wo.employeeName}</p>
-          <p className="text-[9px] text-[#5a6b7c] font-mono">{wo.employeeId}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{wo.employeeName}</p>
+          <p className="text-[9px] text-[#4f525d] font-mono">{wo.employeeId}</p>
         </div>
       ),
       searchString: (wo) => `${wo.employeeName} ${wo.employeeId}`
@@ -42,7 +42,7 @@ export function WriteOffPage() {
     {
       id: "company",
       header: "Company",
-      accessor: (wo) => <span className="text-[11px] text-[#5a6b7c] font-medium">{wo.companyName}</span>,
+      accessor: (wo) => <span className="text-[11px] text-[#4f525d] font-medium">{wo.companyName}</span>,
       searchString: (wo) => wo.companyName
     },
     {
@@ -64,7 +64,7 @@ export function WriteOffPage() {
     {
       id: "reason",
       header: "Reason",
-      accessor: (wo) => <span className="text-[11px] text-[#5a6b7c] max-w-[200px] truncate block">{wo.reason}</span>
+      accessor: (wo) => <span className="text-[11px] text-[#4f525d] max-w-[200px] truncate block">{wo.reason}</span>
     },
     {
       id: "status",
@@ -77,7 +77,7 @@ export function WriteOffPage() {
     {
       id: "date",
       header: "Date",
-      accessor: (wo) => <span className="text-[10px] font-mono text-[#90a4ae]">{wo.date}</span>
+      accessor: (wo) => <span className="text-[10px] font-mono text-[#868c95]">{wo.date}</span>
     }
   ];
 
@@ -87,8 +87,8 @@ export function WriteOffPage() {
         <div className="flex items-center gap-2">
           <XCircle className="w-4 h-4 text-[#c62828]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Write-Off & Loss Provision</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">Uncollectible EWA management</p>
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Write-Off & Loss Provision</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">Uncollectible EWA management</p>
           </div>
         </div>
         <EnterpriseButton variant="primary" className="h-8 py-0 px-3 flex items-center gap-1 text-[10px] bg-[#c62828] hover:bg-[#b71c1c] text-white">

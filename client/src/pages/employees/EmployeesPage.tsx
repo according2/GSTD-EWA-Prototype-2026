@@ -72,8 +72,8 @@ export function EmployeesPage() {
       header: "Employee",
       accessor: (emp) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{emp.name}</p>
-          <p className="text-[9px] text-[#5a6b7c] font-mono">{emp.employeeId}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{emp.name}</p>
+          <p className="text-[9px] text-[#4f525d] font-mono">{emp.employeeId}</p>
         </div>
       ),
       searchString: (emp) => `${emp.name} ${emp.employeeId}`
@@ -81,13 +81,13 @@ export function EmployeesPage() {
     {
       id: "companyName",
       header: "Company",
-      accessor: (emp) => <span className="text-[11px] text-[#5a6b7c] font-medium">{emp.companyName}</span>,
+      accessor: (emp) => <span className="text-[11px] text-[#4f525d] font-medium">{emp.companyName}</span>,
       searchString: (emp) => emp.companyName
     },
     {
       id: "branch",
       header: "Branch",
-      accessor: (emp) => <span className="text-[11px] text-[#5a6b7c]">{emp.branch}</span>
+      accessor: (emp) => <span className="text-[11px] text-[#4f525d]">{emp.branch}</span>
     },
     {
       id: "salary",
@@ -132,8 +132,8 @@ export function EmployeesPage() {
       header: "KYC",
       accessor: (emp) => (
         <div className="flex items-center gap-1 font-mono">
-          <UserCheck className={cn("w-3.5 h-3.5", emp.kycLevel === 2 ? "text-[#2e7d32]" : emp.kycLevel === 1 ? "text-[#e65100]" : "text-[#5a6b7c]")} />
-          <span className="text-[10px] text-[#5a6b7c] font-bold">L{emp.kycLevel}</span>
+          <UserCheck className={cn("w-3.5 h-3.5", emp.kycLevel === 2 ? "text-[#2e7d32]" : emp.kycLevel === 1 ? "text-[#e65100]" : "text-[#4f525d]")} />
+          <span className="text-[10px] text-[#4f525d] font-bold">L{emp.kycLevel}</span>
         </div>
       )
     }
@@ -175,10 +175,10 @@ export function EmployeesPage() {
       {/* ===== SAP Fiori Object Page Header ===== */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Users className="w-4 h-4 text-[#0ea5e9]" />
+          <Users className="w-4 h-4 text-[#31d891]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Employee Management</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider">
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Employee Management</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider">
               {employees.length} records total
             </p>
           </div>
@@ -214,21 +214,21 @@ export function EmployeesPage() {
 
       {/* ===== Workflow Legend — Fiori Message Strip style ===== */}
       <EnterpriseCard className="p-4 shadow-sm">
-        <h3 className="text-[9px] font-bold text-[#5a6b7c] uppercase tracking-widest mb-2">Verification Workflow</h3>
+        <h3 className="text-[9px] font-bold text-[#4f525d] uppercase tracking-widest mb-2">Verification Workflow</h3>
         <div className="flex items-center gap-2 text-sm flex-wrap">
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] bg-[#e3f2fd] border border-[#90caf9] text-[#0d47a1] text-[10px] font-semibold">
             <Clock className="w-3 h-3" /> 1. Employment Verified
           </span>
-          <span className="text-[#d1d9e0] font-bold">→</span>
+          <span className="text-[#dfdfdf] font-bold">→</span>
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] bg-[#fff8e1] border border-[#ffcc80] text-[#e65100] text-[10px] font-semibold">
             <Lock className="w-3 h-3" /> 2. EWA Auto-Approved
           </span>
-          <span className="text-[#d1d9e0] font-bold">→</span>
+          <span className="text-[#dfdfdf] font-bold">→</span>
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] bg-[#e8f5e9] border border-[#a5d6a7] text-[#1b5e20] text-[10px] font-semibold">
             <ShieldCheck className="w-3 h-3" /> 3. Trusted Employee
           </span>
         </div>
-        <p className="text-[10px] text-[#5a6b7c] mt-1.5">Both Employment Verification AND EWA Auto-Approval must pass for instant disbursement eligibility.</p>
+        <p className="text-[10px] text-[#4f525d] mt-1.5">Both Employment Verification AND EWA Auto-Approval must pass for instant disbursement eligibility.</p>
       </EnterpriseCard>
     </div>
   );

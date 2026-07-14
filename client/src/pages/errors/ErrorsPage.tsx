@@ -27,7 +27,7 @@ export function ErrorsPage() {
     {
       id: "id",
       header: "Error ID",
-      accessor: (e) => <span className="font-mono font-bold text-[#1e3a5f]">{e.id}</span>,
+      accessor: (e) => <span className="font-mono font-bold text-[#100841]">{e.id}</span>,
       searchString: (e) => e.id
     },
     {
@@ -41,8 +41,8 @@ export function ErrorsPage() {
       header: "Employee",
       accessor: (e) => (
         <div>
-          <p className="text-[12px] font-bold text-[#1e3a5f]">{e.employeeName}</p>
-          <p className="text-[9px] text-[#5a6b7c] font-mono">{e.employeeId}</p>
+          <p className="text-[12px] font-bold text-[#100841]">{e.employeeName}</p>
+          <p className="text-[9px] text-[#4f525d] font-mono">{e.employeeId}</p>
         </div>
       ),
       searchString: (e) => `${e.employeeName} ${e.employeeId}`
@@ -50,7 +50,7 @@ export function ErrorsPage() {
     {
       id: "company",
       header: "Company",
-      accessor: (e) => <span className="text-[11px] text-[#5a6b7c] font-medium">{e.companyName}</span>,
+      accessor: (e) => <span className="text-[11px] text-[#4f525d] font-medium">{e.companyName}</span>,
       searchString: (e) => e.companyName
     },
     {
@@ -64,7 +64,7 @@ export function ErrorsPage() {
     {
       id: "reason",
       header: "Reason",
-      accessor: (e) => <span className="text-[11px] text-[#5a6b7c] max-w-[200px] truncate block">{e.reason}</span>
+      accessor: (e) => <span className="text-[11px] text-[#4f525d] max-w-[200px] truncate block">{e.reason}</span>
     },
     {
       id: "status",
@@ -90,7 +90,7 @@ export function ErrorsPage() {
     {
       id: "date",
       header: "Date",
-      accessor: (e) => <span className="text-[10px] font-mono text-[#90a4ae]">{e.date}</span>
+      accessor: (e) => <span className="text-[10px] font-mono text-[#868c95]">{e.date}</span>
     }
   ];
 
@@ -100,8 +100,8 @@ export function ErrorsPage() {
         <div className="flex items-center gap-2">
           <XCircle className="w-4 h-4 text-[#c62828]" />
           <div>
-            <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide">Error Monitoring & Resolution</h1>
-            <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">Transaction and compliance error tracking</p>
+            <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide">Error Monitoring & Resolution</h1>
+            <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">Transaction and compliance error tracking</p>
           </div>
         </div>
         <div className="flex items-center gap-2">

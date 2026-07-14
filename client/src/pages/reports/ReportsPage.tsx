@@ -72,7 +72,7 @@ export function ReportsPage() {
     {
       id: "label",
       header: "Line Item / Descriptor",
-      accessor: (r) => <span className="text-[12px] font-bold text-[#1e3a5f]">{r.label}</span>,
+      accessor: (r) => <span className="text-[12px] font-bold text-[#100841]">{r.label}</span>,
       searchString: (r) => r.label
     },
     {
@@ -81,7 +81,7 @@ export function ReportsPage() {
       isNumeric: true,
       align: "right",
       accessor: (r) => r.value,
-      cellClassName: () => "font-mono font-bold text-[#1e3a5f]"
+      cellClassName: () => "font-mono font-bold text-[#100841]"
     },
     {
       id: "category",
@@ -125,11 +125,11 @@ export function ReportsPage() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-[15px] font-bold text-[#1e3a5f] uppercase tracking-wide flex items-center gap-2">
-            <Lock className="w-4 h-4 text-[#1e3a5f]/40" />
+          <h1 className="text-[15px] font-bold text-[#100841] uppercase tracking-wide flex items-center gap-2">
+            <Lock className="w-4 h-4 text-[#100841]/40" />
             Institutional Reports Center
           </h1>
-          <p className="text-[10px] text-[#5a6b7c] uppercase tracking-wider mt-0.5">
+          <p className="text-[10px] text-[#4f525d] uppercase tracking-wider mt-0.5">
             Audit-safe financial extraction and monitoring
           </p>
         </div>
@@ -142,7 +142,7 @@ export function ReportsPage() {
 
       <LedgerDivider />
 
-      <EnterpriseCard className="p-3 border-[#d1d9e0] shadow-sm bg-white">
+      <EnterpriseCard className="p-3 border-[#dfdfdf] shadow-sm bg-white">
         <div className="flex items-center gap-3">
           <EnterpriseSelect 
             value={reportType} 
@@ -169,7 +169,7 @@ export function ReportsPage() {
              <EnterpriseButton variant="secondary" className="h-8 py-0 px-3 text-[10px] font-bold">
                <Eye className="w-3 h-3 mr-1" /> PREVIEW
              </EnterpriseButton>
-             <EnterpriseButton className="h-8 py-0 px-3 text-[10px] font-bold bg-[#1e3a5f] text-white">
+             <EnterpriseButton className="h-8 py-0 px-3 text-[10px] font-bold bg-[#100841] text-white">
                <Download className="w-3 h-3 mr-1" /> DOWNLOAD
              </EnterpriseButton>
           </div>
@@ -195,29 +195,29 @@ export function ReportsPage() {
 
         <TabsContent value="visuals" className="mt-4 outline-none">
           <EnterpriseCard className="p-6 shadow-sm">
-             <h3 className="text-[11px] font-bold text-[#1e3a5f] uppercase tracking-widest mb-6">Financial Movement Trends — Institutional View</h3>
+             <h3 className="text-[11px] font-bold text-[#100841] uppercase tracking-widest mb-6">Financial Movement Trends — Institutional View</h3>
              <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={monthlyData} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
-                  <XAxis dataKey="month" tick={{ fontSize: 10, fill: "#64748b", fontWeight: 700 }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 10, fill: "#64748b", fontWeight: 700 }} axisLine={false} tickLine={false} tickFormatter={(v) => `${v}M`} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#efefff" vertical={false} />
+                  <XAxis dataKey="month" tick={{ fontSize: 10, fill: "#4f525d", fontWeight: 700 }} axisLine={false} tickLine={false} />
+                  <YAxis tick={{ fontSize: 10, fill: "#4f525d", fontWeight: 700 }} axisLine={false} tickLine={false} tickFormatter={(v) => `${v}M`} />
                   <Tooltip 
-                    contentStyle={{ borderRadius: "2px", border: "1px solid #d1d9e0", fontSize: "11px", fontWeight: 700 }}
+                    contentStyle={{ borderRadius: "2px", border: "1px solid #dfdfdf", fontSize: "11px", fontWeight: 700 }}
                     formatter={(v: number) => [`${formatMMK(v * 1000000)}`, ""]} 
                   />
                   <Legend wrapperStyle={{ fontSize: 10, fontWeight: 700, paddingTop: "20px" }} />
-                  <Line type="monotone" dataKey="disbursed" name="Disbursement Flow" stroke="#1e3a5f" strokeWidth={2} dot={{ r: 3, fill: "#1e3a5f" }} activeDot={{ r: 5 }} />
+                  <Line type="monotone" dataKey="disbursed" name="Disbursement Flow" stroke="#100841" strokeWidth={2} dot={{ r: 3, fill: "#100841" }} activeDot={{ r: 5 }} />
                   <Line type="monotone" dataKey="repaid" name="Repayment Cycle" stroke="#10b981" strokeWidth={2} dot={{ r: 3, fill: "#10b981" }} activeDot={{ r: 5 }} />
-                  <Line type="monotone" dataKey="fee" name="Fee Yield" stroke="#0ea5e9" strokeWidth={2} dot={{ r: 3, fill: "#0ea5e9" }} activeDot={{ r: 5 }} />
+                  <Line type="monotone" dataKey="fee" name="Fee Yield" stroke="#31d891" strokeWidth={2} dot={{ r: 3, fill: "#31d891" }} activeDot={{ r: 5 }} />
                 </LineChart>
               </ResponsiveContainer>
           </EnterpriseCard>
         </TabsContent>
 
         <TabsContent value="history" className="mt-4 outline-none">
-           <EnterpriseCard className="p-20 text-center bg-slate-50 border border-dashed border-[#d1d9e0]">
+           <EnterpriseCard className="p-20 text-center bg-slate-50 border border-dashed border-[#dfdfdf]">
               <FileText className="w-10 h-10 text-slate-200 mx-auto mb-3" />
-              <p className="text-[11px] font-bold text-[#5a6b7c] uppercase tracking-widest">No historical report generations found for this period</p>
+              <p className="text-[11px] font-bold text-[#4f525d] uppercase tracking-widest">No historical report generations found for this period</p>
            </EnterpriseCard>
         </TabsContent>
       </Tabs>

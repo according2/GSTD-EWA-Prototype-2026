@@ -46,7 +46,7 @@ export function MakerCheckerModal({ settlement, role, mode, onSubmit, onClose }:
     : "text-red-600 border-red-300 bg-red-50";
   const confirmBtnClass = isApprove
     ? "bg-emerald-600 hover:bg-emerald-700"
-    : "bg-[#1e3a5f] hover:bg-[#1a3250]";
+    : "bg-[#100841] hover:bg-[#1a3250]";
 
   const verificationChecks = [
     { label: "Bank Reference Match", verified: bankVerified, set: setBankVerified, icon: Banknote },
@@ -73,7 +73,7 @@ export function MakerCheckerModal({ settlement, role, mode, onSubmit, onClose }:
                 <AlertTriangle className="w-5 h-5 text-red-500" />
               )}
               <div>
-                <h3 className="text-sm font-bold text-[#1e3a5f]">
+                <h3 className="text-sm font-bold text-[#100841]">
                   {roleTitle} — {actionTitle}
                 </h3>
                 <p className="text-[10px] text-slate-400 uppercase tracking-wider">{settlement.id} · {settlement.companyName}</p>
@@ -90,7 +90,7 @@ export function MakerCheckerModal({ settlement, role, mode, onSubmit, onClose }:
           <div className="grid grid-cols-3 gap-3">
             <div className="text-center p-2 bg-slate-50 rounded-sm border border-slate-100">
               <p className="text-[9px] text-slate-400 uppercase tracking-wider">Total Amount</p>
-              <p className="text-base font-bold font-mono text-[#1e3a5f]">{formatMMK(settlement.totalAmount)}</p>
+              <p className="text-base font-bold font-mono text-[#100841]">{formatMMK(settlement.totalAmount)}</p>
             </div>
             <div className="text-center p-2 bg-slate-50 rounded-sm border border-slate-100">
               <p className="text-[9px] text-slate-400 uppercase tracking-wider">Bank Reference</p>
